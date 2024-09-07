@@ -1,0 +1,74 @@
+// Navigation
+nav{
+  $color-navigation-base: $global-theme-color;
+
+  ul{
+    @extend .#{$stencil-selector-prefix}flex;
+    @extend .#{$stencil-selector-prefix}flat-list;
+    @extend .#{$stencil-selector-prefix}no-margin-bottom;
+
+    li{
+      @extend .#{$stencil-selector-prefix}margin-right;
+      @extend .#{$stencil-selector-prefix}no-margin-bottom;
+
+      a{
+        @extend .#{$stencil-selector-prefix}flex-spread;
+        @extend .#{$stencil-selector-prefix}flex-center-align;
+        padding: $spacing-small $spacing-medium;
+        color: color($color-navigation-base);
+        border-radius: $global-border-radius;
+
+        .icon{
+          @extend .#{$stencil-selector-prefix}margin-sides-small;
+          font-size: $font-size-smallest;
+        }
+
+        &.#{$stencil-selector-prefix}active{
+          background: color($color-navigation-base);
+          color: white;
+        }
+
+        &:hover{
+          background: color(off-white);
+          color: color($color-navigation-base);
+        }
+      }
+
+      ul{
+        flex-direction: column;
+        position: absolute;
+        display: none;
+        margin-top: -1px;
+        background: color(off-white);
+
+        li{
+          margin: 0;
+          font-size: $font-size-small;
+        }
+
+        a:hover{
+          background: color($color-navigation-base);
+          color: white;
+        }
+      }
+
+      &:hover a{
+        background: color($color-navigation-base, lightest);
+      }
+
+      &:hover ul{
+        display: flex;
+      }
+
+      &:last-child{
+        @extend .#{$stencil-selector-prefix}no-margin-right;
+      }
+    }
+  }
+
+  &.#{$stencil-selector-prefix}vertical{
+    ul{
+      flex-direction: column;
+    }
+  }
+}

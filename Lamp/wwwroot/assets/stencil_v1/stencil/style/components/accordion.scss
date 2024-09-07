@@ -1,0 +1,23 @@
+// Accordion
+.#{$stencil-selector-prefix}accordion-container{
+  border: 1px solid color(grey,lighter);
+  border-top: none;
+
+  .#{$stencil-selector-prefix}accordion-trigger{
+    @extend button;
+    @extend button.#{$stencil-selector-prefix}block;
+    padding-top: $spacing-medium;
+    padding-bottom: $spacing-medium;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 0;
+    text-align: left;
+  }
+
+  .#{$stencil-selector-prefix}accordion-target{
+    @extend .#{$stencil-selector-prefix}padding-around;
+    height: 0;
+    overflow: hidden;
+  }
+}

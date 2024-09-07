@@ -1,0 +1,27 @@
+// Date Card
+.#{$stencil-selector-prefix}date-card{
+  $date-card-color : color(blue);
+
+  @extend .#{$stencil-selector-prefix}card;
+  width: $spacing-largest;
+  border-color: $date-card-color;
+  box-shadow: none;
+  text-align: center;
+  font-size: $font-size-small;
+
+  .#{$stencil-selector-prefix}month{
+    @extend .#{$stencil-selector-prefix}padding-around-smallest;
+    background-color: $date-card-color !important;
+    font-size: $font-size-smallest;
+    color: white;
+  }
+
+  .#{$stencil-selector-prefix}card-title{
+    @extend .#{$stencil-selector-prefix}margin-top-smaller;
+    display: block;
+  }
+
+  .#{$stencil-selector-prefix}muted{
+    font-size: $font-size-smallest;
+  }
+}

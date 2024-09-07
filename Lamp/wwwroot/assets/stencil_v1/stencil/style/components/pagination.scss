@@ -1,0 +1,31 @@
+// Pagination
+.#{$stencil-selector-prefix}pagination{
+  @extend .#{$stencil-selector-prefix}flex;
+  @extend .#{$stencil-selector-prefix}flex-center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  @extend .#{$stencil-selector-prefix}margin-top-large;
+  padding: 0;
+
+  li{
+    display: inline-block;
+    margin:0 $spacing-small $spacing-small 0;
+
+    label{
+      padding: $spacing-smaller 0;
+      font-weight: normal;
+    }
+
+    button{
+      @extend button;
+    }
+
+    button.#{$stencil-selector-prefix}active{
+      background-color: $color-default-link;
+      color: white;
+      border-color: darken($color-default-link,10%);
+    }
+
+  }
+
+}

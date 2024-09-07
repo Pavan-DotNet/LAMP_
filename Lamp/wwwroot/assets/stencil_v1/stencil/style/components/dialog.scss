@@ -1,0 +1,41 @@
+// Dialog
+@mixin generate_dialog_states {
+  @each $state,$state_color in $states_map{
+    &.#{$stencil-selector-prefix}#{$state}{
+      border: 2px solid $state_color;
+
+      .#{$stencil-selector-prefix}dialog-title{
+        color: $state_color;
+      }
+    }
+  }
+
+}
+.#{$stencil-selector-prefix}dialog{
+  @extend .#{$stencil-selector-prefix}flex-vertical;
+  @extend .#{$stencil-selector-prefix}padding-around-larger;
+  display: none;
+  width: 50%;
+  background: white;
+  box-shadow: 0 0 $spacing-larger $spacing-small color(grey,darker);
+  border-radius: $global-border-radius;
+
+  .#{$stencil-selector-prefix}dialog-header{
+    @extend .#{$stencil-selector-prefix}flex-spread;
+  }
+
+  .#{$stencil-selector-prefix}dialog-body{
+    @extend .#{$stencil-selector-prefix}module-body;
+  }
+
+  .#{$stencil-selector-prefix}dialog-footer{
+    @extend .#{$stencil-selector-prefix}flex;
+    justify-content: flex-end;
+
+    button{
+      @extend .#{$stencil-selector-prefix}margin-left;
+    }
+  }
+
+  @include generate_dialog_states();
+}

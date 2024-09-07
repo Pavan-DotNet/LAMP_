@@ -1,0 +1,1538 @@
+﻿{
+    ViewData["Title"] = "Export License Application Information Sheet ('ELAIS')";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/assets/EliasForm/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="~/assets/EliasForm/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/assets/stencil_v1/style.css">
+    <link href="~/assets/EliasForm/css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="branding">
+                <img src="~/assets/img/juniper-logo-white.svg" width="166" height="54" border="0" alt="Juniper Networks" title="Juniper Networks" />
+            </div>
+        </div>
+    </header>
+    <div id="main-container">
+        <h2 class="text-center font-bold pt-4 pb-5 mb-5">
+            <strong>Export License Application Information Sheet ("ELAIS")</strong>
+        </h2>
+        <!-- Stepper -->
+        <div id="steps-form-2-main">
+            <div class="steps-form-2">
+                <div class="steps-row-2 setup-panel-2 d-flex justify-content-between">
+                    <div class="steps-step-2" style="display: none">
+                        <a href="#step-1" type="button" class="btn btn-amber btn-circle-2 waves-effect ml-0" data-toggle="tooltip" data-placement="top" title="Advisory"><i class="fa fa-folder-open-o" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-2" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Submitter Information"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-3" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Transaction Information"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Parties Involved"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-5" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="End Use of Juniper Products and Services"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </div>
+                    <!-- <div class="steps-step-2">
+                        <a href="#step-6" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Installation Sites"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </div> -->
+                    <div class="steps-step-2" style="display:none;">
+                        <a href="#step-7" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Certify"><i class="fa fa-check" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- First Step -->
+        <div class="row setup-content-2" id="step-1" style="margin-top: -50px;">
+            <div class="col-md-12">
+                <section>
+                    <h3>Purpose:</h3>
+                    <p>Juniper relies on the information that you provide in this form to determine what export licenses, if any, are required for your transaction. If Juniper concludes that an export license is required, then it will use the information provided to apply for any required license(s).  </p>
+                    <h3>Who needs to complete this form?</h3>
+                    <p>An authorized representative of a Juniper channel partner must complete this form. The representative must be familiar with the applicable transaction either personally or through relevant business records. </p>
+                    <h3 style="margin-bottom: 20px;">Advisory:</h3>
+                    <h4>IT IS CRITICAL THAT THE INFORMATION PROVIDED BELOW BE CURRENT, ACCURATE AND COMPLETE, <span id="kyc"><u>Remember, it’s up to you as a Juniper channel partner to “know your customer.”</u></span></h4>
+                    <h4>THIS FORM CONTAINS INFORMATION AUTO-FILLED BASED ON DATA IN JUNIPER NETWORKS' RECORDS. <u><i><b>It is your responsibility to verify and, if necessary, correct any inaccurate or incomplete information that has been auto-filled. By submitting this form you, on behalf of the Juniper channel partner whom you are representing, are certifying as to the accuracy of ALL information in the form, including any auto-filled information that you do not modify.</u></i></b></h4>
+                    <h3>Consequences of Providing Obsolete, Inaccurate or Incomplete Information:</h3>
+                    <p>Obsolete, inaccurate or incomplete information may lead to: </p>
+                    <ul>
+                        <li>Shipping delays;</li>
+                        <li>Additional disclosures to export authorities;</li>
+                        <li>Inability for Juniper to provide support services;</li>
+                        <li>Increased restrictions on future transactions;</li>
+                        <li>Termination of your channel partner agreement; and</li>
+                        <li>Civil and criminal liability.</li>
+                    </ul>
+                    <h3>Questions and Assistance:</h3>
+                    <p>If you have any questions regarding the questions in this form or if you have any concerns that information you rely on in answering the questions might be inaccurate or incomplete, please contact <a href="#">tradecompliance@juniper.net</a> .</p>
+                    <p>In addition, please contact <a href="#">tradecompliance@juniper.net</a> if after completing this form you learn: </p>
+                    <ul>
+                        <li>that any of the information furnished was inaccurate or incomplete</li>
+                        <li>that the transaction itself or the parties or the intended end use has changed; or  </li>
+                        <li>that new information obtained raises concerns about the accuracy of the information furnished.</li>
+                    </ul>
+                </section>
+                <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button" onclick="show25()">Next</button>
+            </div>
+        </div>
+        <!-- Second Step -->
+        <div class="row setup-content-2" id="step-2">
+            <div class="col-md-12">
+                <section>
+                    <h1>Submitter Information</h1>
+                    <span id="mandatory">* Indicates mandatory fields</span>
+                    <div id="basic-info">
+                        <label>
+                            <span style="display: inline-block;">Submitted by*</span>
+                            <input type="text" name="fname" placeholder="First Name"><input style="margin-left: 20px" placeholder="Last Name" type="text" name="lname">
+                        </label>
+                        <label>
+                            <span style="display: inline-block;">Job title*</span>
+                            <input type="text" name="email" placeholder="Job Title">
+                        </label>
+                        <label>
+                            <span style="display: inline-block;">Legal Name of Channel Partner*</span>
+                            <input type="text" name="full-name" placeholder="Full Legal Name of Juniper Channel Partner">
+                        </label>
+                        <label>
+                            <span style="display: inline-block;">Email Address*</span>
+                            <input type="text" name="email" placeholder="Email">
+                        </label>
+                        <label>
+                            <span style="display: inline-block;">Juniper VAR ID</span>
+                            <input type="text" name="user-id" placeholder="Juniper VAR ID">
+                        </label>
+                        <div id="foot">
+                            <p>NOTE: Providing inaccurate or incomplete information on this form may lead to shipping delays.</p>
+                        </div>
+                    </div>
+                </section>
+                <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button" onclick="show26()">Previous</button>
+                <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
+            </div>
+        </div>
+        <!-- Third Step -->
+        <div class="row setup-content-2" id="step-3">
+            <div class="col-md-12">
+                <section>
+                    <h1>Transaction Information</h1>
+                    <span id="mandatory">* Indicates mandatory fields</span>
+                    <div id="basic-info">
+                        <label>
+                            <span>Quote #*</span><input type="text" name="qnum" placeholder="Quote #">
+                        </label>
+                        <label>
+                            <span>Quote Date*</span><input type="date" name="qdata" placeholder="Quote Date">
+                        </label>
+                        <label>
+                            <span>Purchase Order #</span><input type="text" name="opp" placeholder="Purchase Order">
+                        </label>
+                        <label>
+                            <span>Sales Order #</span><input type="text" name="sales" placeholder="Sales Order">
+                        </label>
+                        <!-- <label>
+                            <span>NSP #</span><input type="text" name="nsp" placeholder="NSP">
+                        </label> -->
+                    </div>
+                    <div id="foot">
+                        <p>NOTE: Providing inaccurate or incomplete information on this form may lead to shipping delays.</p>
+                    </div>
+                </section>
+                <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
+                <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
+            </div>
+        </div>
+        <!-- Fourth Step -->
+        <div class="row setup-content-2" id="step-4">
+            <div class="col-md-12">
+                <div class="row">
+                    <section style="margin-bottom: 0px; padding-bottom: 10px;">
+                        <h1 style="margin-top: 0px"><!-- <span data-toggle="tooltip" title="A Top Level Purchaser is the party that places purchase order directly on the Juniper buy-sell entity. A DVAR purchasing for resale to an end user is the 'Top Level Purchaser'. A distributor purchasing stock-able items for stock is also a 'Top Level Purchaser'. A direct Juniper end user customer that is purchasing directly from Juniper in a transaction is also a 'Top Level Purchaser' in that transaction."> -->Parties Involved<!-- </span> --></h1>
+                        <span id="mandatory">* Indicates mandatory fields</span>
+                    </section>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>Distributor or DVAR</h3></div>
+                    <div class="panel-body">
+                        <div id="basic-info">
+                            <div class="col-md-6">
+                                <label>
+                                    <span>Company Name* (no acronyms)</span>
+                                    <input type="text" name="purchaser-name" placeholder="Company Name">
+                                </label>
+                                <label>
+                                    <span>Street*</span>
+                                    <input type="text" name="purchaser-street" placeholder="Street">
+                                </label>
+                                <label>
+                                    <span>City*</span>
+                                    <input type="text" name="purchaser-city" placeholder="City">
+                                </label>
+                            </div>
+                            <div class="col-md-6">
+                                <label>
+                                    <span>State</span>
+                                    <input type="text" name="purchaser-state" placeholder="State">
+                                </label>
+                                <label>
+                                    <span>Postal Code</span>
+                                    <input type="text" name="purchaser-postal" placeholder="Postal Code">
+                                </label>
+                                <label>
+                                    <span>Country*</span>
+                                    <select>
+                                        <option value="">Select Country</option>
+                                        <option ng-repeat="data in Countrylist" value="{{data.id}}">{{data.name}}</option>
+                                    </select>
+                                </label>
+                                <!--  <label>
+                                    <span>Juniper 8-digit Partner Number:</span>
+                                    <input id="partner-number-input" type="text" name="partner-number">
+                                </label>
+                                <label>
+                                    <input type="radio" name="number-check" onclick="show15()">
+                                    <span>No Partner Number</span>
+                                </label> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>
+                            <span data-toggle="tooltip" title="'End User' is the party that will be placing the product in use for its own benefit and not for resale or other further distribution.
+                The End User is not a system integrator purchasing product for a client for whom the SI will make the product available.
+                The End User is not a purchasing agent for the ultimate end user of the product, nor is the End User a mere systems administrator.
+                A managed services provider purchasing equipment, software or services for the sole benefit of a pre-determined customer is not an end user; the predetermined customer is.
+                But a managed services provider purchasing equipment, software or services for the the benefit of the general public is treated as the end user in the transaction in which Juniper is involved..)
+                BEWARE: Don't confuse 'End User' for trade compliance purposes with 'End Customer' as shown in some CRM/SAP data.  End Customer is not always the true End User!!">End User</span>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="basic-info">
+                            <div class="col-md-6">
+                                <label>
+                                    <span>Company Name* (no acronyms)</span>
+                                    <input type="text" name="end-user-entity-name" placeholder="Company Name">
+                                </label>
+                                <label>
+                                    <span>Street*</span>
+                                    <input type="text" name="end-user-adrs" placeholder="Street">
+                                </label>
+                                <label>
+                                    <span>City*</span>
+                                    <input type="text" name="end-user-city" placeholder="City">
+                                </label>
+                                <label>
+                                    <span>State</span>
+                                    <input type="text" name="end-user-state" placeholder="State">
+                                </label>
+                            </div>
+                            <div class="col-md-6">
+                                <label>
+                                    <span>Postal Code</span>
+                                    <input type="text" name="end-user-postal" placeholder="Postal Code">
+                                </label>
+                                <label>
+                                    <span>Country*</span>
+                                    <select>
+                                        <option value="">Select Country</option>
+                                        <option ng-repeat="data in Countrylist" value="{{data.id}}">{{data.name}}</option>
+                                    </select>
+                                </label>
+                                <label>
+                                    <span>End User Contact  First and Last Name*</span>
+                                    <input type="text" name="end-user-name" placeholder="End User Contact  First and Last Name">
+                                </label>
+                                <label>
+                                    <span>End User Contact  Email Address*</span>
+                                    <input type="text" name="end-user-email" placeholder="End User Contact  Email Address">
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <span style="margin-left:25px;">*Is there a URL for the End User’s Official Website ? e.g. https://www.enduser.com (no email addresses)</span>
+                            <form style="display: initial; margin-left:80px; margin-right:191px;">
+                                <input type="radio" name="web-check" value="yes" onclick="show31()"> Yes
+                                <input type="radio" name="web-check" value="no" onclick="show32()"> No
+                            </form>
+                            <input id="end-user-url" type="text" name="url-name">
+                        </div>
+                        <div class="col-md-12">
+                            <label id="end-user-span">
+                                <h3 style="margin:15px 0px 15px 12px;">End User’s primary business function (Please select one)*:</h3>
+                                <label>
+                                    <span>a) commercial enterprise for non‐government customers</span>
+                                    <input type="radio" name="end-user" name="end-user" value="opt-one">
+                                </label>
+                                <label>
+                                    <span>b) commercial enterprise for consumers/household users</span>
+                                    <input type="radio" name="end-user" value="opt-two">
+                                </label>
+                                <label>
+                                    <span>c) commercial enterprise for civilian government organizations</span>
+                                    <input type="radio" name="end-user" value="opt-three">
+                                </label>
+                                <label>
+                                    <span>d) commercial enterprise for government organizations, agencies, branches or offices engaged in police, intelligence, counterintelligence, surveillance, military or paramilitary activities</span>
+                                    <input type="radio" name="end-user" value="opt-four">
+                                </label>
+                                <label>
+                                    <span>e) commercial enterprise engaged in development, production, storage, operation or use of defense items or defense services listed on the US Munitions List or EU Munitions list</span>
+                                    <input type="radio" name="end-user" value="opt-five">
+                                </label>
+                                <label>
+                                    <span>f) government organization engaged in police, intelligence, counterintelligence, surveillance, military or paramilitary activities or in supporting such activities carried on by other organizations</span>
+                                    <input type="radio" name="end-user" value="opt-six">
+                                </label>
+                                <label>
+                                    <span>g) government organization engaged in civilian activities</span>
+                                    <input id="none-of-the-above" type="radio" name="end-user" value="opt-seven">
+                                </label>
+                                <label>
+                                    <span>h) educational or research institution engaged in research directly or indirectly funded in whole or in part by a government or in specialized training for government organizations’ personnel</span>
+                                    <input id="none-of-the-above" type="radio" name="end-user" value="opt-eight">
+                                </label>
+                                <label>
+                                    <span>i) educational or research institution not included in (h.)</span>
+                                    <input id="none-of-the-above" type="radio" name="end-user" value="opt-nine">
+                                </label>
+                                <label>
+                                    <span>j) telecommunications or IT equipment, software or services provider (including data centers, cloud services providers, managed services providers) </span>
+                                    <input id="none-of-the-above" type="radio" name="end-user" value="opt-ten">
+                                </label>
+                                <label>
+                                    <span>k) financial services (including banking, securities or commodities)</span>
+                                    <input id="none-of-the-above" type="radio" name="end-user" value="opt-eleven">
+                                </label>
+                                <label>
+                                    <span>l) NGO or philanthropic organization engaged in social benefit, religious or humanitarian activities</span>
+                                    <input id="none-of-the-above" type="radio" name="end-user" value="opt-twelve">
+                                </label>
+                                <label>
+                                    <span>m) International governmental organization</span>
+                                    <input id="none-of-the-above" type="radio" name="end-user" value="opt-thirteen">
+                                </label>
+                                <label>
+                                    <span>n) Other</span>
+                                    <input id="none-of-the-above" type="radio" name="end-user" value="opt-fourteen">
+                                </label>
+                            </label>
+                        </div>
+                        <div id="eud">
+                            <p>(Please provide detailed description. Vague answers will not be accepted.)</p>
+                            <textarea></textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>Other Parties Involved in Transaction</h3></div>
+                    <div class="panel-body">
+                        <div id="end-user-other-party">
+                            <h3>1)Do you believe or suspect that the party identified above as End User intends to incorporate any Juniper Product or Service (or any of its features) into any product into any offering for sale, lease or license to any of its customers or clients?*</h3>
+                            <label style="margin-top: 18px;">
+                                <form style="display: initial;">
+                                    <input type="radio" name="other-party-end-check" value="yes" onclick="show3();"> Yes
+                                    <input type="radio" name="other-party-end-check" value="no" onclick="show4();"> No
+                                </form>
+                            </label>
+                            <div id="offering">
+                                <p>Describe the End User’s offering using Juniper products or services:</p>
+                                <textarea></textarea>
+                            </div>
+                        </div>
+                        <div style="display: inline-block;">
+                            <h3 style="margin: 18px 0px 12px 0px;">
+                                2)Do you have any reason to believe
+
+                                that the party named as <i>Distributor or DVAR</i> intends to resell any of the Juniper Products and Services to anyone other than the above named End User?*
+                            </h3>
+                            <form style="display: initial;">
+                                <input type="radio" name="other-party-resell-check" value="yes" onclick="show1()"> Yes
+                                <input type="radio" name="other-party-resell-check" value="no" onclick="show2()"> No
+                            </form>
+                        </div>
+                        <div id="resell">
+                            <h3 style="margin-top: 20px;">Such additional parties involved, please provide the following information:</h3>
+                            <h2>Other Party</h2>
+                            <div id="basic-info">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label style="margin-top: 0px;">
+                                            <span>Company Name* (no acronyms)</span>
+                                            <input type="text" name="other-party-name" placeholder="Company Name">
+                                        </label>
+                                        <label>
+                                            <span>Street*</span>
+                                            <input type="text" name="other-party-addrs" placeholder="Street">
+                                        </label><label>
+                                            <span>City*</span>
+                                            <input type="text" name="other-party-city" placeholder="City">
+                                        </label>
+                                        <label>
+                                            <span>State</span>
+                                            <input type="text" name="other-party-state" placeholder="State">
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>
+                                            <span>Postal Code</span>
+                                            <input type="text" name="other-party-postal" placeholder="Postal Code">
+                                        </label>
+                                        <label>
+                                            <span>Country*</span>
+                                            <select>
+                                                <option value="">Select Country</option>
+                                                <option ng-repeat="data in Countrylist" value="{{data.id}}">{{data.name}}</option>
+                                            </select>
+                                        </label>
+                                        <label>
+                                            <span>Intermediate Party Contact Name</span>
+                                            <input type="text" name="other-party-postal" placeholder="Intermediate Party Contact Name">
+                                        </label>
+                                        <label>
+                                            <span>Intermediate Party Email Address</span>
+                                            <input type="text" name="other-party-country" placeholder="Intermediate Party Email Address">
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <span style="width:auto; margin-left:12px;">
+                                        Is there a URL for the Other Party’s Official Website ?
+                                        e.g. https://www.otherparty.com (no email addresses)*
+                                    </span>
+                                    <form style="display: initial; margin-left:71px; margin-right:189px;">
+                                        <input type="radio" name="other-party-web-check" value="yes" onclick="show33()"> Yes
+                                        <input type="radio" name="other-party-web-check" value="no" onclick="show34()"> No
+                                    </form>
+                                    <input id="int-party-url" type="text" name="url-name">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: inline-block;">
+                            <h3 style="margin-top: 25px; margin-bottom: 15px;">3)Are there any identifiable companies, institutions, organizations or individuals that the End User intends to target for such offering?* </h3>
+                            <form style="display: initial;">
+                                <input type="radio" name="named-end-user-check" value="yes" onclick="show17()"> Yes
+                                <input type="radio" name="named-end-user-check" value="no" onclick="show18()"> No
+                            </form>
+                        </div>
+                        <div id="named-end-user-all">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Named End User's Customer Information</div>
+                                <div class="panel-body"
+                                 <div id="named-end-user">
+
+                                <div id="basic-info">
+                                    <div class="col-md-6">
+                                        <label>
+                                            <span>Company Name* (no acronyms)</span>
+                                            <input type="text" name="named-end-user-name" placeholder="Company Name">
+                                        </label>
+                                        <label>
+                                            <span>Address*</span>
+                                            <input type="text" name="named-end-user-adrs" placeholder="Address">
+                                        </label>
+                                        <label>
+                                            <span>City*</span>
+                                            <input type="text" name="named-end-user-city" placeholder="City">
+                                        </label>
+                                        <label>
+                                            <span>State</span>
+                                            <input type="text" name="named-end-user-state" placeholder="State">
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>
+                                            <span>Postal Code</span>
+                                            <input type="text" name="named-end-user-postal" placeholder="Postal Code">
+                                        </label>
+                                        <label>
+                                            <span>Country*</span>
+                                            <select>
+                                                <option value="">Select Country</option>
+                                                <option ng-repeat="data in Countrylist" value="{{data.id}}">{{data.name}}</option>
+                                            </select>
+                                        </label>
+                                        <label>
+                                            <span>Named End User Customer Contact Name</span>
+                                            <input type="text" name="named-end-user-name" placeholder="amed End User Customer Contact Name">
+                                        </label>
+                                        <label>
+                                            <span>Named End User Customer Email Address</span>
+                                            <input type="text" name="named-end-user-email" placeholder="Named End User Customer Email Address">
+                                        </label>
+                                    </div>
+
+                                    <label>
+                                        <span style="width: auto; margin-left:17px;">Is there a URL for the Named End User's Customer Official Website ? e.g. https://www.namedenduser.com (no email addresses)*</span>
+                                        <form style="display: initial;">
+                                            <input type="radio" name="named-web-check" value="yes" onclick="show35()"> Yes
+                                            <input type="radio" name="named-web-check" value="no" onclick="show36()"> No
+                                        </form>
+                                        <input style="margin-left:-17px;" id="named-end-user-url" type="text" name="named-url-name">
+                                    </label>
+                                    <label>
+                                        <span style="width:auto; margin-left:17px;">Are there any other such identifiable targeted customers?</span>
+                                        <form style="display: initial;">
+                                            <input type="radio" name="named-any-one" value="yes" onclick="show19()"> Yes
+                                            <input type="radio" name="named-any-one" value="no" onclick="show20()"> No
+                                        </form>
+                                    </label>
+
+                            </div>
+                        </div>
+                                </div>
+                                <div id="named-end-user-one">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Named End User's Customer Information</div>
+                                        <div class="panel-body">
+                                            <div id="basic-info">
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Company Name* (no acronyms)</span>
+                                                        <input type="text" name="named-end-user-one-name" placeholder="Company Name">
+                                                    </label>
+                                                    <label>
+                                                        <span>Street*</span>
+                                                        <input type="text" name="named-end-user-one-adrs" placeholder="Address">
+                                                    </label>
+                                                    <label>
+                                                        <span>City*</span>
+                                                        <input type="text" name="named-end-user-one-city" placeholder="City">
+                                                    </label>
+                                                    <label>
+                                                        <span>State</span>
+                                                        <input type="text" name="named-end-user-one-state" placeholder="State">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Postal Code</span>
+                                                        <input type="text" name="named-end-user-one-postal" placeholder="Postal Code">
+                                                    </label>
+                                                    <label>
+                                                        <span>Country*</span>
+                                                        <select>
+                                                            <option value="">Select Country</option>
+                                                            <option ng-repeat="data in Countrylist" value="{{data.id}}">{{data.name}}</option>
+                                                        </select>
+                                                    </label>
+                                                    <label>
+                                                        <span>Named End User Customer Contact Name</span>
+                                                        <input type="text" name="named-end-user-one-name" placeholder="Named End User Customer Contact Name">
+                                                    </label>
+                                                    <label>
+                                                        <span>Named End User Customer Email Address</span>
+                                                        <input type="text" name="named-end-user-one-email" placeholder="Named End User Customer Email Address">
+                                                    </label>
+                                                </div>
+                                                <label>
+                                                    <span style="width: auto;margin-left:17px;">Is there a URL for the Named End User's Customer Official Website ? e.g. https://www.namedenduser.com (no email addresses)*</span>
+                                                    <form style="display: initial;">
+                                                        <input type="radio" name="named-web-check-one" value="yes" onclick="show37()"> Yes
+                                                        <input type="radio" name="named-web-check-one" value="no" onclick="show38()"> No
+                                                    </form>
+                                                    <input style="margin-left:-17px;" id="named-end-url-one" type="text" name="named-url-name-one">
+                                                </label>
+                                                <label>
+                                                    <span style="width:auto;margin-left:17px;">Are there any other such identifiable targeted customers?</span>
+                                                    <form style="display: initial;">
+                                                        <input type="radio" name="named-any-two" value="yes" onclick="show21()"> Yes
+                                                        <input type="radio" name="named-any-two" value="no" onclick="show22()"> No
+                                                    </form>
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="named-end-user-two">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Named End User's Customer Information</div>
+                                        <div class="panel-body">
+
+                                            <div id="basic-info">
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Company Name* (no acronyms)</span>
+                                                        <input type="text" name="named-end-user-two-name" placeholder="Company Name">
+                                                    </label>
+                                                    <label>
+                                                        <span>Street*</span>
+                                                        <input type="text" name="named-end-user-two-adrs" placeholder="Street">
+                                                    </label>
+                                                    <label>
+                                                        <span>City*</span>
+                                                        <input type="text" name="named-end-user-two-city" placeholder="City">
+                                                    </label>
+                                                    <label>
+                                                        <span>State</span>
+                                                        <input type="text" name="named-end-user-two-state" placeholder="State">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Postal Code</span>
+                                                        <input type="text" name="named-end-user-two-postal" placeholder="Postal Code">
+                                                    </label>
+                                                    <label>
+                                                        <span>Country*</span>
+                                                        <select>
+                                                            <option value="">Select Country</option>
+                                                            <option ng-repeat="data in Countrylist" value="{{data.id}}">{{data.name}}</option>
+                                                        </select>
+                                                    </label>
+                                                    <label>
+                                                        <span>Named End User Customer Contact Name</span>
+                                                        <input type="text" name="named-end-user-two-name" placeholder="Named End User Customer Contact Name">
+                                                    </label>
+                                                    <label>
+                                                        <span>Named End User Customer Email Address</span>
+                                                        <input type="text" name="named-end-user-two-email" placeholder="Named End User Customer Email Address">
+                                                    </label>
+                                                </div>
+                                                <label>
+                                                    <span style="width: auto; margin-left:17px;">Is there a URL for the Named End User's Customer Official Website ? e.g. https://www.namedenduser.com (no email addresses)*</span>
+                                                    <form style="display: initial;">
+                                                        <input type="radio" name="named-web-check-two" value="yes" onclick="show39()"> Yes
+                                                        <input type="radio" name="named-web-check-two" value="no" onclick="show40()"> No
+                                                    </form>
+                                                    <input style="margin-left:-17px" id="named-end-url-two" type="text" name="named-url-name-two">
+                                                </label>
+                                                <label>
+                                                    <span style="width:auto; margin-left:17px;">Are there any other such identifiable targeted customers?</span>
+                                                    <form style="display: initial;">
+                                                        <input type="radio" name="named-any-two" value="yes" onclick="show23()"> Yes
+                                                        <input type="radio" name="named-any-two" value="no" onclick="show24()"> No
+                                                    </form>
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="named-end-user-three">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Named End User's Customer Information</div>
+                                        <div class="panel-body">
+
+                                            <div id="basic-info">
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Company Name* (no acronyms)</span>
+                                                        <input type="text" name="named-end-user-three-name" placeholder="Company Name">
+                                                    </label>
+                                                    <label>
+                                                        <span>Street*</span>
+                                                        <input type="text" name="named-end-user-three-adrs" placeholder="Street">
+                                                    </label>
+                                                    <label>
+                                                        <span>City*</span>
+                                                        <input type="text" name="named-end-user-three-city" placeholder="City">
+                                                    </label>
+                                                    <label>
+                                                        <span>State</span>
+                                                        <input type="text" name="named-end-user-three-state" placeholder="State">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Postal Code</span>
+                                                        <input type="text" name="named-end-user-three-postal" placeholder="Postal Code">
+                                                    </label>
+                                                    <label>
+                                                        <span>Country*</span>
+                                                        <select>
+                                                            <option value="">Select Country</option>
+                                                            <option ng-repeat="data in Countrylist" value="{{data.id}}">{{data.name}}</option>
+                                                        </select>
+                                                    </label>
+                                                    <label>
+                                                        <span>Named End User Customer Contact Name</span>
+                                                        <input type="text" name="named-end-user-three-name" placeholder="Named End User Customer Contact Name">
+                                                    </label>
+                                                    <label>
+                                                        <span>Named End User Customer Email Address</span>
+                                                        <input type="text" name="named-end-user-three-email" placeholder="Named End User Customer Email Address">
+                                                    </label>
+                                                </div>
+                                                <label>
+                                                    <span style="width: auto; margin-left:17px">Is there a URL for the Named End User's Customer Official Website ? e.g. https://www.namedenduser.com (no email addresses)*</span>
+                                                    <form style="display: initial;">
+                                                        <input type="radio" name="named-web-check-three" value="yes" onclick="show41()"> Yes
+                                                        <input type="radio" name="named-web-check-three" value="no" onclick="show42()"> No
+                                                    </form>
+                                                    <input id="named-end-url-three" style="margin-left:-17px" type="text" name="named-url-name-three">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="foot">
+                        <p>NOTE: Providing inaccurate or incomplete information on this form may lead to shipping delays.</p>
+                    </div>
+                    <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
+                    <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
+                </div>
+            </div>
+            <!-- Fifth Step -->
+            <div class="row setup-content-2" id="step-5">
+                <div class="col-md-12">
+                    <section>
+                        <h1>End Use of Juniper Products and Services</h1>
+                        <h3>1) Select the primary or most appropriate single intended end use: (check all that apply)*</h3>
+                        <div id="basic-info">
+                            <div id="other-party-end">
+                                <form>
+                                    <label>
+                                        <span>Commercial enterprise network build out or expansion</span>
+                                        <input type="checkbox" name="prod-desc" value="val-1">
+                                    </label>
+                                    <label>
+                                        <span>Support of telecommunications or internet service provider services</span>
+                                        <input type="checkbox" name="prod-desc" value="val-2">
+                                    </label>
+                                    <label>
+                                        <span>Support of civil government or educational network needs</span>
+                                        <input type="checkbox" name="prod-desc" value="val-3">
+                                    </label>
+                                    <label>
+                                        <span>
+                                            Support of government military, paramilitary, intelligence or counterintelligence activities
+                                        </span>
+                                        <input type="checkbox" name="prod-desc" value="val-4">
+                                    </label>
+                                    <label>
+                                        <span>Support of government surveillance or lawful intercept activities</span>
+                                        <input type="checkbox" name="prod-desc" value="val-5">
+                                    </label>
+                                    <label>
+                                        <span>Support of nuclear power or nuclear fuel facilities</span>
+                                        <input type="checkbox" name="prod-desc" value="val-6">
+                                    </label>
+                                    <label>
+                                        <span>Support of nuclear, chemical or biological weapons development, production, storage, test, delivery or use activities</span>
+                                        <input type="checkbox" name="prod-desc" value="val-7">
+                                    </label>
+                                    <label>
+                                        <span>Support of missile development, production, storage, test, delivery or use activities</span>
+                                        <input type="checkbox" name="prod-desc" value="val-8">
+                                    </label>
+                                    <label>
+                                        <span>Integration, enhancement, configuration or test of Juniper products or services for resale or use by or for another party</span>
+                                        <input type="checkbox" name="prod-desc" value="val-9">
+                                    </label>
+                                    <label>
+                                        <span>None of the above</span>
+                                        <input id="none-ota" type="checkbox" name="prod-desc" value="val-10" onchange="valueChanged();">
+                                    </label>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="prod-describe">
+                            <p>Describe any other operations or activities that you have any reason to believe the products or services will be used to support.:</p>
+                            <textarea></textarea>
+                        </div>
+                        @*<h3 style="margin-bottom: 13px;">2) Do you have any reason to believe that any of the Juniper Products or Services will be used to support activities relating to the development, production, storage or use of missiles or of nuclear, chemical or biological weapons?*</h3>
+                            <label>
+                                <form style="display: initial;">
+                                    <input type="radio" name="reason-check" value="yes"> Yes
+                                    <input type="radio" name="reason-check" value="no"> No
+                                </form>
+                            </label>*@
+                        <h3 style="margin-top: 24px;">3) Do you have any reason to believe that any of the Juniper Products or Services will be used in whole or in part in connection with violations of human rights, of democratic principles or of the freedom of speech as defined in the Charter of Fundamental Rights of the EU, where use is made of interception techniques and digital data transfer equipment for monitoring mobile phones and reading text messages and of targeted surveillance of internet use (e.g., by means of monitoring centers and lawful interception gateways)?*</h3>
+                        <label style="margin-top: 15px;">
+                            <form style="display: initial;">
+                                <input type="radio" name="reason-check-1" value="yes"> Yes
+                                <input type="radio" name="reason-check-1" value="no"> No
+                            </form>
+                        </label>
+                        <h1>Installation Sites*</h1>
+                        <h3>1)Do you have reason to believe that the Juniper products may be installed at sites other than the End User address indicated above?*</h3>
+                        <label style="margin-top: 15px;">
+                            <form style="display: initial;">
+                                <input type="radio" name="reason-check-2" value="yes" onclick="show5()"> Yes
+                                <input type="radio" name="reason-check-2" value="no" onclick="show6()"> No
+                            </form>
+                        </label>
+                        <div id="site-one">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><h3>Site: 1</h3></div>
+                                <div class="panel-body">
+                                    <div id="basic-info">
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Company Name* (no acronyms)</span>
+                                                <input type="text" name="purchaser-name" placeholder="Name of organization occupying the installation site">
+                                            </label>
+                                            <label>
+                                                <span>Street*</span>
+                                                <input type="text" name="purchaser-street" placeholder="Street">
+                                            </label>
+                                            <label>
+                                                <span>City*</span>
+                                                <input type="text" name="purchaser-city" placeholder="City">
+                                            </label>
+                                            <label>
+                                                <span>State</span>
+                                                <input type="text" name="purchaser-state" placeholder="State">
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Postal Code</span>
+                                                <input type="text" name="purchaser-postal" placeholder="Postal Code">
+                                            </label>
+                                            <label>
+                                                <span>Country*</span>
+                                                <select>
+                                                    <option value="">Select Country</option>
+                                                    <option ng-repeat="data in Countrylist" value="{{data.id}}">{{data.name}}</option>
+                                                </select>
+                                            </label>
+                                            <label>
+                                                <span>URL of the company’s official website: </span>
+                                                <input type="text" name="partner-number">
+                                            </label>
+                                            <label>
+                                                <span>Any other installation sites?</span>
+                                                <form style="display: initial;">
+                                                    <input type="radio" name="reason-check-2" value="yes" onclick="show7()"> Yes
+                                                    <input type="radio" name="reason-check-2" value="no" onclick="show8()"> No
+                                                </form>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="site-two">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><h3>Site: 2</h3></div>
+                                <div class="panel-body">
+                                    <div id="basic-info">
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Company Name* (no acronyms)</span>
+                                                <input type="text" name="purchaser-name" placeholder="Company Name">
+                                            </label>
+                                            <label>
+                                                <span>Street*</span>
+                                                <input type="text" name="purchaser-street" placeholder="Street">
+                                            </label>
+                                            <label>
+                                                <span>City*</span>
+                                                <input type="text" name="purchaser-city" placeholder="City">
+                                            </label>
+                                            <label>
+                                                <span>State</span>
+                                                <input type="text" name="purchaser-state" placeholder="State">
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Postal Code</span>
+                                                <input type="text" name="purchaser-postal" placeholder="Postal Code">
+                                            </label>
+                                            <label>
+                                                <span>Country*</span>
+                                                <select>
+                                                    <option value="">Select Country</option>
+                                                    <option ng-repeat="data in Countrylist" value="{{data.id}}">{{data.name}}</option>
+                                                </select>
+                                            </label>
+                                            <label>
+                                                <span>URL of the company’s official website: </span>
+                                                <input type="text" name="partner-number">
+                                            </label>
+                                            <label>
+                                                <span>Any Other?</span>
+                                                <form style="display: initial;">
+                                                    <input type="radio" name="reason-check-2" value="yes" onclick="show9()"> Yes
+                                                    <input type="radio" name="reason-check-2" value="no" onclick="show10()"> No
+                                                </form>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="site-three">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><h3>Site: 3</h3></div>
+                                <div class="panel-body">
+                                    <div id="basic-info">
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Company Name* (no acronyms)</span>
+                                                <input type="text" name="purchaser-name" placeholder="Company Name">
+                                            </label>
+                                            <label>
+                                                <span>Street*</span>
+                                                <input type="text" name="purchaser-street" placeholder="Street">
+                                            </label>
+                                            <label>
+                                                <span>City*</span>
+                                                <input type="text" name="purchaser-city" placeholder="City">
+                                            </label>
+                                            <label>
+                                                <span>State</span>
+                                                <input type="text" name="purchaser-state" placeholder="State">
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Postal Code</span>
+                                                <input type="text" name="purchaser-postal" placeholder="Postal Code">
+                                            </label>
+                                            <label>
+                                                <span>Country*</span>
+                                                <select>
+                                                    <option value="">Select Country</option>
+                                                    <option ng-repeat="data in Countrylist" value="{{data.id}}">{{data.name}}</option>
+                                                </select>
+                                            </label>
+                                            <label>
+                                                <span>URL of the company’s official website: </span>
+                                                <input type="text" name="partner-number">
+                                            </label>
+                                            <label>
+                                                <span>Any Other?</span>
+                                                <form style="display: initial;">
+                                                    <input type="radio" name="reason-check-2" value="yes" onclick="show11()"> Yes
+                                                    <input type="radio" name="reason-check-2" value="no" onclick="show12()"> No
+                                                </form>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="site-four">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><h3>Site: 4</h3></div>
+                                <div class="panel-body">
+                                    <div id="basic-info">
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Company Name* (no acronyms)</span>
+                                                <input type="text" name="purchaser-name" placeholder="Company Name">
+                                            </label>
+                                            <label>
+                                                <span>Street*</span>
+                                                <input type="text" name="purchaser-street" placeholder="Street">
+                                            </label>
+                                            <label>
+                                                <span>City*</span>
+                                                <input type="text" name="purchaser-city" placeholder="City">
+                                            </label>
+                                            <label>
+                                                <span>State</span>
+                                                <input type="text" name="purchaser-state" placeholder="State">
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Postal Code</span>
+                                                <input type="text" name="purchaser-postal" placeholder="Postal Code">
+                                            </label>
+                                            <label>
+                                                <span>Country*</span>
+                                                <select>
+                                                    <option value="">Select Country</option>
+                                                    <option ng-repeat="data in Countrylist" value="{{data.id}}">{{data.name}}</option>
+                                                </select>
+                                            </label>
+                                            <label>
+                                                <span>URL of the company’s official website: </span>
+                                                <input type="text" name="partner-number">
+                                            </label>
+                                            <label>
+                                                <span>Any Other?</span>
+                                                <form style="display: initial;">
+                                                    <input type="radio" name="reason-check-2" value="yes" onclick="show13()"> Yes
+                                                    <input type="radio" name="reason-check-2" value="no" onclick="show14()"> No
+                                                </form>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="site-five">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><h3>Site: 5</h3></div>
+                                <div class="panel-body">
+                                    <div id="basic-info">
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Company Name* (no acronyms)</span>
+                                                <input type="text" name="purchaser-name" placeholder="Company Name">
+                                            </label>
+                                            <label>
+                                                <span>Street*</span>
+                                                <input type="text" name="purchaser-street" placeholder="Street">
+                                            </label>
+                                            <label>
+                                                <span>City*</span>
+                                                <input type="text" name="purchaser-city" placeholder="City">
+                                            </label>
+                                            <label>
+                                                <span>State</span>
+                                                <input type="text" name="purchaser-state" placeholder="State">
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Postal Code</span>
+                                                <input type="text" name="purchaser-postal" placeholder="Postal Code">
+                                            </label>
+                                            <label>
+                                                <span>Country*</span>
+                                                <select>
+                                                    <option value="">Select Country</option>
+                                                    <option ng-repeat="data in Countrylist" value="{{data.id}}">{{data.name}}</option>
+                                                </select>
+                                            </label>
+                                            <label>
+                                                <span>URL of the company’s official website: </span>
+                                                <input type="text" name="partner-number">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="foot">
+                            <p>NOTE: Providing inaccurate or incomplete information on this form may lead to shipping delays.</p>
+                        </div>
+                    </section>
+                    <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
+                    <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button" onclick="show26()">Next</button>
+                </div>
+            </div>
+            <!-- Seventh Step -->
+            <div class="row setup-content-2" id="step-7">
+                <div class="col-md-12">
+                    <section>
+                        <h3>I Certify that:</h3>
+                        <div id="sign-check">
+                            <label for="rd1"><input type="checkbox"><span>all Information provided in this form is current, accurate and complete.</span></label><br />
+                        </div>
+                        <h3 style="margin-top:10px;">I acknowledge that:</h3>
+                        <div id="sign-check">
+                            <label for="rd2"><input type="checkbox"><span>Juniper relies on the information provided on this form and that providing obsolete, inaccurate or incomplete information may lead to shipping delays as well as other unintended consequences.</span></label><br />
+                        </div>
+                        <div id="get-sign" style="margin-left:60px;margin-top:30px;">
+                            <div style="font-weight:500; font-size:inherit;color: #222;font-size: 14px;" id="basic-info">
+                                <label>
+                                    <span>Company Name of Channel Partner:</span>
+                                    <input type="text" name="partner-name">
+                                </label>
+                                <label>
+                                    <span>Name of authorized representative:</span>
+                                    <input type="text" name="flname">
+                                </label>
+                                <label>
+                                    <span>Job of authorized representative:</span>
+                                    <input type="text" name="job">
+                                </label>
+                                <label>
+                                    <span>Date</span>
+                                    <input type="text" name="date">
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    <button style="clear:both;" class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button" onclick="show25()">Previous</button>
+                    <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Submit</button>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                function show1() {
+                    document.getElementById('resell').style.display = 'block';
+                }
+                function show2() {
+                    document.getElementById('resell').style.display = 'none';
+                }
+                function show3() {
+                    document.getElementById('offering').style.display = 'block';
+                }
+                function show4() {
+                    document.getElementById('offering').style.display = 'none';
+                }
+                function show5() {
+                    document.getElementById('site-one').style.display = 'block';
+                }
+                function show6() {
+                    document.getElementById('site-one').style.display = 'none';
+                    document.getElementById('site-two').style.display = 'none';
+                    document.getElementById('site-three').style.display = 'none';
+                    document.getElementById('site-four').style.display = 'none';
+                    document.getElementById('site-five').style.display = 'none';
+                }
+                function show7() {
+                    document.getElementById('site-two').style.display = 'block';
+                }
+                function show8() {
+                    document.getElementById('site-two').style.display = 'none';
+                    document.getElementById('site-three').style.display = 'none';
+                    document.getElementById('site-four').style.display = 'none';
+                    document.getElementById('site-five').style.display = 'none';
+                }
+                function show9() {
+                    document.getElementById('site-three').style.display = 'block';
+                }
+                function show10() {
+                    document.getElementById('site-three').style.display = 'none';
+                    document.getElementById('site-four').style.display = 'none';
+                    document.getElementById('site-five').style.display = 'none';
+                }
+                function show11() {
+                    document.getElementById('site-four').style.display = 'block';
+                }
+                function show12() {
+                    document.getElementById('site-four').style.display = 'none';
+                    document.getElementById('site-five').style.display = 'none';
+                }
+                function show13() {
+                    document.getElementById('site-five').style.display = 'block';
+                }
+                function show14() {
+                    document.getElementById('site-five').style.display = 'none';
+                }
+                function show15() {
+                    document.getElementById('partner-number-input').style.display = 'none';
+                }
+                /* function show16() {
+                     {
+                         if($('#none-of-the-above').is(":checked"))   {
+                             console.log('check');
+                             document.getElementById('end-user-describe').style.display = 'block !important';}
+                             else
+                              document.getElementById('end-user-describe').style.display = 'none';
+                      }
+                  }*/
+                function show17() {
+                    document.getElementById('named-end-user-all').style.display = 'block';
+                }
+                function show18() {
+                    document.getElementById('named-end-user-all').style.display = 'none';
+                    document.getElementById('named-end-user-one').style.display = 'none';
+                    document.getElementById('named-end-user-two').style.display = 'none';
+                    document.getElementById('named-end-user-three').style.display = 'none';
+                }
+                function show19() {
+                    document.getElementById('named-end-user-one').style.display = 'block';
+                }
+                function show20() {
+                    document.getElementById('named-end-user-one').style.display = 'none';
+                    document.getElementById('named-end-user-two').style.display = 'none';
+                    document.getElementById('named-end-user-three').style.display = 'none';
+
+                }
+                function show21() {
+                    document.getElementById('named-end-user-two').style.display = 'block';
+                }
+                function show22() {
+                    document.getElementById('named-end-user-two').style.display = 'none';
+                    document.getElementById('named-end-user-three').style.display = 'none';
+                }
+                function show23() {
+                    document.getElementById('named-end-user-three').style.display = 'block';
+                }
+                function show24() {
+                    document.getElementById('named-end-user-three').style.display = 'none';
+                }
+                function show25() {
+                    document.getElementById('steps-form-2-main').style.display = 'block';
+                }
+                function show26() {
+                    document.getElementById('steps-form-2-main').style.display = 'none';
+                }
+                function show27() {
+                    document.getElementById('eu-url').style.display = 'block';
+                }
+                function show28() {
+                    document.getElementById('eu-url').style.display = 'none';
+                }
+                function show29() {
+                    document.getElementById('int-url').style.display = 'block';
+                }
+                function show30() {
+                    document.getElementById('int-url').style.display = 'none';
+                }
+                function show31() {
+                    document.getElementById('end-user-url').style.display = 'initial';
+                }
+                function show32() {
+                    document.getElementById('end-user-url').style.display = 'none';
+                }
+                function show33() {
+                    document.getElementById('int-party-url').style.display = 'initial';
+                }
+                function show34() {
+                    document.getElementById('int-party-url').style.display = 'none';
+                }
+                function show35() {
+                    document.getElementById('named-end-user-url').style.display = 'initial';
+                }
+                function show36() {
+                    document.getElementById('named-end-user-url').style.display = 'none';
+                }
+                function show37() {
+                    document.getElementById('named-end-url-one').style.display = 'initial';
+                }
+                function show38() {
+                    document.getElementById('named-end-url-one').style.display = 'none';
+                }
+                function show39() {
+                    document.getElementById('named-end-url-two').style.display = 'initial';
+                }
+                function show40() {
+                    document.getElementById('named-end-url-two').style.display = 'none';
+                }
+                function show41() {
+                    document.getElementById('named-end-url-three').style.display = 'initial';
+                }
+                function show42() {
+                    document.getElementById('named-end-url-three').style.display = 'none';
+                }
+
+
+
+
+
+            </script>
+            <!-- SCRIPTS -->
+            <!-- JQuery -->
+            <script type="text/javascript" src="~/assets/EliasForm/js/jquery-3.3.1.min.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("input[name$='end-user']").click(function () {
+                        var test = $(this).val();
+                        if (test == 'opt-fourteen') {
+                            document.getElementById('eud').style.display = 'block';
+                        } else {
+                            document.getElementById('eud').style.display = 'none';
+                        }
+                    });
+                });
+                //$(document).ready(function () {
+                //    $("input[name$='prod-desc']").click(function () {
+                //        document.getElementById('prod-describe').style.display = 'none';
+                //        var test = $(this).val();
+                //        if (test == 'val-10') {
+                //            document.getElementById('prod-describe').style.display = 'block';
+                //        } else {
+                //            document.getElementById('prod-describe').style.display = 'none';
+                //        }
+                //    });
+                //});
+
+                function valueChanged() {
+                    if ($('#none-ota').is(":checked"))
+                        document.getElementById('prod-describe').style.display = 'block';
+                    else
+                        document.getElementById('prod-describe').style.display = 'none';
+                }
+
+            </script>
+            <!-- Bootstrap tooltips -->
+            <script type="text/javascript" src="~/assets/EliasForm/js/popper.min.js"></script>
+            <!-- Bootstrap core JavaScript -->
+            @*<script type="text/javascript" src="~/assets/EliasForm/js/bootstrap.min.js"></script>*@
+            <!-- MDB core JavaScript -->
+            <script type="text/javascript" src="~/assets/EliasForm/js/mdb.min.js"></script>
+            <script type="text/javascript" src="~/assets/EliasForm/js/script.js"></script>
+            </script>
+
+
+
+</body>
+</html>
+@section scripts{
+    <script type="text/javascript">
+        //var myApp = angular.module('myApp', [])
+        myApp.controller("myCtrl", function ($scope, $filter, $http, $location) {
+
+            $scope.RedirectDousign = function () {
+                Component.redirect("Hangfire");
+            };
+
+            $scope.logoff = function () {
+                alert("yet to be done !");
+            }
+
+            $scope.Countrylist = [
+                { id: 'Austria', name: 'Austria' },
+                { id: 'Australia', name: 'Australia' },
+                { id: 'Belgium', name: 'Belgium' },
+                { id: 'Bulgaria', name: 'Bulgaria' },
+                { id: 'Canada', name: 'Canada' },
+                { id: 'Switzerland', name: 'Switzerland' },
+                { id: 'Cyprus', name: 'Cyprus' },
+                { id: 'Czech Republic', name: 'Czech Republic' },
+                { id: 'Germany', name: 'Germany' },
+                { id: 'Denmark', name: 'Denmark' },
+                { id: 'Estonia', name: 'Estonia' },
+                { id: 'Spain', name: 'Spain' },
+                { id: 'Finland', name: 'Finland' },
+                { id: 'France', name: 'France' },
+                { id: 'United Kingdom', name: 'United Kingdom' },
+                { id: 'Greece', name: 'Greece' },
+                { id: 'Hungary', name: 'Hungary' },
+                { id: 'Ireland', name: 'Ireland' },
+                { id: 'Iceland', name: 'Iceland' },
+                { id: 'Italy', name: 'Italy' },
+                { id: 'Japan', name: 'Japan' },
+                { id: 'Lithuania', name: 'Lithuania' },
+                { id: 'Luxembourg', name: 'Luxembourg' },
+                { id: 'Latvia', name: 'Latvia' },
+                { id: 'Malta', name: 'Malta' },
+                { id: 'Netherlands', name: 'Netherlands' },
+                { id: 'Norway', name: 'Norway' },
+                { id: 'New Zealand', name: 'New Zealand' },
+                { id: 'Poland', name: 'Poland' },
+                { id: 'Portugal', name: 'Portugal' },
+                { id: 'Romania', name: 'Romania' },
+                { id: 'Sweden', name: 'Sweden' },
+                { id: 'Slovenia', name: 'Slovenia' },
+                { id: 'Slovakia', name: 'Slovakia' },
+                { id: 'Turkey', name: 'Turkey' },
+                { id: 'USA', name: 'USA' },
+                { id: 'Andorra', name: 'Andorra' },
+                { id: 'United Arab Emirates', name: 'United Arab Emirates' },
+                { id: 'Afghanistan', name: 'Afghanistan' },
+                { id: 'Antigua and Barbuda', name: 'Antigua and Barbuda' },
+                { id: 'Anguilla', name: 'Anguilla' },
+                { id: 'Albania', name: 'Albania' },
+                { id: 'Armenia', name: 'Armenia' },
+                { id: 'Netherlands Antilles', name: 'Netherlands Antilles' },
+                { id: 'Angola', name: 'Angola' },
+                { id: 'Antarctica', name: 'Antarctica' },
+                { id: 'Argentina', name: 'Argentina' },
+                { id: 'American Samoa', name: 'American Samoa' },
+                { id: 'Aruba', name: 'Aruba' },
+                { id: 'Åland Islands', name: 'Åland Islands' },
+                { id: 'Azerbaijan', name: 'Azerbaijan' },
+                { id: 'Bosnia and Herzegovina', name: 'Bosnia and Herzegovina' },
+                { id: 'Barbados', name: 'Barbados' },
+                { id: 'Bangladesh', name: 'Bangladesh' },
+                { id: 'Burkina Faso', name: 'Burkina Faso' },
+                { id: 'Bahrain', name: 'Bahrain' },
+                { id: 'Burundi', name: 'Burundi' },
+                { id: 'Benin', name: 'Benin' },
+                { id: 'Bermuda', name: 'Bermuda' },
+                { id: 'Brunei Darussalam', name: 'Brunei Darussalam' },
+                { id: 'Bolivia', name: 'Bolivia' },
+                { id: 'Bonaire, Sint Eustatius and Saba', name: 'Bonaire, Sint Eustatius and Saba' },
+                { id: 'Brazil', name: 'Brazil' },
+                { id: 'Bahamas', name: 'Bahamas' },
+                { id: 'Bhutan', name: 'Bhutan' },
+                { id: 'Bouvet Island', name: 'Bouvet Island' },
+                { id: 'Botswana', name: 'Botswana' },
+                { id: 'Belarus', name: 'Belarus' },
+                { id: 'Belize', name: 'Belize' },
+                { id: 'COCOS (KEELING) ISLANDS', name: 'COCOS (KEELING) ISLANDS' },
+                { id: 'Democratic Republic of the Congo', name: 'Democratic Republic of the Congo' },
+                { id: 'Central African Republic', name: 'Central African Republic' },
+                { id: 'Republic of the Congo', name: 'Republic of the Congo' },
+                { id: 'Cote dIvoire', name: 'Cote dIvoire' },
+                { id: 'Cook Islands', name: 'Cook Islands' },
+                { id: 'Chile', name: 'Chile' },
+                { id: 'Cameroon', name: 'Cameroon' },
+                { id: 'China', name: 'China' },
+                { id: 'Colombia', name: 'Colombia' },
+                { id: 'Costa Rica', name: 'Costa Rica' },
+                { id: 'Serbia and Montenegro', name: 'Serbia and Montenegro' },
+                { id: 'Cabo Verde', name: 'Cabo Verde' },
+                { id: 'Curaçao', name: 'Curaçao' },
+                { id: 'Christmas Island', name: 'Christmas Island' },
+                { id: 'Djibouti', name: 'Djibouti' },
+                { id: 'Dominica', name: 'Dominica' },
+                { id: 'Dominican Republic', name: 'Dominican Republic' },
+                { id: 'Algeria', name: 'Algeria' },
+                { id: 'Ecuador', name: 'Ecuador' },
+                { id: 'Egypt', name: 'Egypt' },
+                { id: 'Western Sahara', name: 'Western Sahara' },
+                { id: 'Eritrea', name: 'Eritrea' },
+                { id: 'Ethiopia', name: 'Ethiopia' },
+                { id: 'Fiji', name: 'Fiji' },
+                { id: 'Falkland Islands', name: 'Falkland Islands' },
+                { id: 'Micronesia', name: 'Micronesia' },
+                { id: 'Faroe Islands', name: 'Faroe Islands' },
+                { id: 'Gabon', name: 'Gabon' },
+                { id: 'Grenada', name: 'Grenada' },
+                { id: 'Georgia', name: 'Georgia' },
+                { id: 'French Guiana', name: 'French Guiana' },
+                { id: 'Guernsey', name: 'Guernsey' },
+                { id: 'Ghana', name: 'Ghana' },
+                { id: 'Gibraltar', name: 'Gibraltar' },
+                { id: 'Greenland', name: 'Greenland' },
+                { id: 'Gambia', name: 'Gambia' },
+                { id: 'Guinea', name: 'Guinea' },
+                { id: 'Guadeloupe', name: 'Guadeloupe' },
+                { id: 'Equatorial Guinea', name: 'Equatorial Guinea' },
+                { id: 'South Georgia and the South Sandwich Islands', name: 'South Georgia and the South Sandwich Islands' },
+                { id: 'Guatemala', name: 'Guatemala' },
+                { id: 'Guam', name: 'Guam' },
+                { id: 'Guinea-Bissau', name: 'Guinea-Bissau' },
+                { id: 'Guyana', name: 'Guyana' },
+                { id: 'Hong Kong', name: 'Hong Kong' },
+                { id: 'Heard Island and McDonald Islands', name: 'Heard Island and McDonald Islands' },
+                { id: 'Honduras', name: 'Honduras' },
+                { id: 'Croatia', name: 'Croatia' },
+                { id: 'Haiti', name: 'Haiti' },
+                { id: 'Indonesia', name: 'Indonesia' },
+                { id: 'Israel', name: 'Israel' },
+                { id: 'Isle of Man', name: 'Isle of Man' },
+                { id: 'India', name: 'India' },
+                { id: 'British Indian Ocean Territory', name: 'British Indian Ocean Territory' },
+                { id: 'Iraq', name: 'Iraq' },
+                { id: 'Jersey', name: 'Jersey' },
+                { id: 'Jamaica', name: 'Jamaica' },
+                { id: 'Jordan', name: 'Jordan' },
+                { id: 'Kenya', name: 'Kenya' },
+                { id: 'Kyrgyzstan', name: 'Kyrgyzstan' },
+                { id: 'Cambodia', name: 'Cambodia' },
+                { id: 'Kiribati', name: 'Kiribati' },
+                { id: 'Comoros', name: 'Comoros' },
+                { id: 'Saint Kitts and Nevis', name: 'Saint Kitts and Nevis' },
+                { id: 'South Korea', name: 'South Korea' },
+                { id: 'Kuwait', name: 'Kuwait' },
+                { id: 'Cayman Islands', name: 'Cayman Islands' },
+                { id: 'Kazakhstan', name: 'Kazakhstan' },
+                { id: 'Laos', name: 'Laos' },
+                { id: 'Lebanon', name: 'Lebanon' },
+                { id: 'Saint Lucia', name: 'Saint Lucia' },
+                { id: 'Liechtenstein', name: 'Liechtenstein' },
+                { id: 'Sri Lanka', name: 'Sri Lanka' },
+                { id: 'Liberia', name: 'Liberia' },
+                { id: 'Lesotho', name: 'Lesotho' },
+                { id: 'Libya', name: 'Libya' },
+                { id: 'Morocco', name: 'Morocco' },
+                { id: 'Monaco', name: 'Monaco' },
+                { id: 'Moldova', name: 'Moldova' },
+                { id: 'Montenegro - Former Yugoslavia', name: 'Montenegro - Former Yugoslavia' },
+                { id: 'St. Martin', name: 'St. Martin' },
+                { id: 'Madagascar', name: 'Madagascar' },
+                { id: 'Marshall Islands', name: 'Marshall Islands' },
+                { id: 'Macedonia', name: 'Macedonia' },
+                { id: 'Mali', name: 'Mali' },
+                { id: 'Myanmar', name: 'Myanmar' },
+                { id: 'Mongolia', name: 'Mongolia' },
+                { id: 'Macao', name: 'Macao' },
+                { id: 'Northern Mariana Islands', name: 'Northern Mariana Islands' },
+                { id: 'Martinique', name: 'Martinique' },
+                { id: 'Mauritania', name: 'Mauritania' },
+                { id: 'Montserrat', name: 'Montserrat' },
+                { id: 'Mauritius', name: 'Mauritius' },
+                { id: 'Maldives', name: 'Maldives' },
+                { id: 'Malawi', name: 'Malawi' },
+                { id: 'Mexico', name: 'Mexico' },
+                { id: 'Malaysia', name: 'Malaysia' },
+                { id: 'Mozambique', name: 'Mozambique' },
+                { id: 'Namibia', name: 'Namibia' },
+                { id: 'New Caledonia', name: 'New Caledonia' },
+                { id: 'Niger', name: 'Niger' },
+                { id: 'Norfolk Island', name: 'Norfolk Island' },
+                { id: 'Nigeria', name: 'Nigeria' },
+                { id: 'Nicaragua', name: 'Nicaragua' },
+                { id: 'Nepal', name: 'Nepal' },
+                { id: 'Nauru', name: 'Nauru' },
+                { id: 'Niue', name: 'Niue' },
+                { id: 'Oman', name: 'Oman' },
+                { id: 'Panama', name: 'Panama' },
+                { id: 'Peru', name: 'Peru' },
+                { id: 'French Polynesia', name: 'French Polynesia' },
+                { id: 'Papua New Guinea', name: 'Papua New Guinea' },
+                { id: 'Philippines', name: 'Philippines' },
+                { id: 'Pakistan', name: 'Pakistan' },
+                { id: 'Saint Pierre and Miquelon', name: 'Saint Pierre and Miquelon' },
+                { id: 'Pitcairn', name: 'Pitcairn' },
+                { id: 'Puerto Rico', name: 'Puerto Rico' },
+                { id: 'Palestine', name: 'Palestine' },
+                { id: 'Palau', name: 'Palau' },
+                { id: 'Paraguay', name: 'Paraguay' },
+                { id: 'Qatar', name: 'Qatar' },
+                { id: 'Reunion', name: 'Reunion' },
+                { id: 'Serbia - Former Yugoslavia', name: 'Serbia - Former Yugoslavia' },
+                { id: 'Russian Federation', name: 'Russian Federation' },
+                { id: 'Rwanda', name: 'Rwanda' },
+                { id: 'Saudi Arabia', name: 'Saudi Arabia' },
+                { id: 'Solomon Islands', name: 'Solomon Islands' },
+                { id: 'Seychelles', name: 'Seychelles' },
+                { id: 'Singapore', name: 'Singapore' },
+                { id: 'Saint Helena, Ascension and Tristan da Cunha', name: 'Saint Helena, Ascension and Tristan da Cunha' },
+                { id: 'Svalbard and Jan Mayen', name: 'Svalbard and Jan Mayen' },
+                { id: 'Sierra Leone', name: 'Sierra Leone' },
+                { id: 'San Marino', name: 'San Marino' },
+                { id: 'Senegal', name: 'Senegal' },
+                { id: 'Somalia', name: 'Somalia' },
+                { id: 'Suriname', name: 'Suriname' },
+                { id: 'Sao Tome and Principe', name: 'Sao Tome and Principe' },
+                { id: 'El Salvador', name: 'El Salvador' },
+                { id: 'Sint Maarten', name: 'Sint Maarten' },
+                { id: 'Swaziland', name: 'Swaziland' },
+                { id: 'Turks and Caicos Islands', name: 'Turks and Caicos Islands' },
+                { id: 'Chad', name: 'Chad' },
+                { id: 'French Southern Territories', name: 'French Southern Territories' },
+                { id: 'Togo', name: 'Togo' },
+                { id: 'Thailand', name: 'Thailand' },
+                { id: 'Tajikistan', name: 'Tajikistan' },
+                { id: 'Tokelau', name: 'Tokelau' },
+                { id: 'Timor-Leste', name: 'Timor-Leste' },
+                { id: 'Turkmenistan', name: 'Turkmenistan' },
+                { id: 'Tunisia', name: 'Tunisia' },
+                { id: 'Tonga', name: 'Tonga' },
+                { id: 'Tonga', name: 'Tonga' },
+                { id: 'Trinidad and Tobago', name: 'Trinidad and Tobago' },
+                { id: 'Tuvalu', name: 'Tuvalu' },
+                { id: 'Taiwan', name: 'Taiwan' },
+                { id: 'Tanzania', name: 'Tanzania' },
+                { id: 'Ukraine', name: 'Ukraine' },
+                { id: 'Uganda', name: 'Uganda' },
+                { id: 'United States Minor Outlying Islands', name: 'United States Minor Outlying Islands' },
+                { id: 'Uruguay', name: 'Uruguay' },
+                { id: 'Uzbekistan', name: 'Uzbekistan' },
+                { id: 'Vatican City State', name: 'Vatican City State' },
+                { id: 'Saint Vincent and the Grenadines', name: 'Saint Vincent and the Grenadines' },
+                { id: 'Venezuela', name: 'Venezuela' },
+                { id: 'British Virgin Islands', name: 'British Virgin Islands' },
+                { id: 'U.S. Virgin Islands', name: 'U.S. Virgin Islands' },
+                { id: 'Vietnam', name: 'Vietnam' },
+                { id: 'Vanuatu', name: 'Vanuatu' },
+                { id: 'Wallis and Futuna', name: 'Wallis and Futuna' },
+                { id: 'Samoa', name: 'Samoa' },
+                { id: 'Republic of Kosovo', name: 'Republic of Kosovo' },
+                { id: 'Yemen', name: 'Yemen' },
+                { id: 'Mayotte', name: 'Mayotte' },
+                { id: 'South Africa', name: 'South Africa' },
+                { id: 'Zambia', name: 'Zambia' },
+                { id: 'Zimbabwe', name: 'Zimbabwe' }
+            ];
+        });
+    </script>
+}

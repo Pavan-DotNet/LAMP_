@@ -1,0 +1,92 @@
+// Table
+table{
+  width:100%;
+
+  th, td{
+    padding: $spacing-small;
+    text-align: left;
+  }
+
+  th{
+    padding-top:0;
+    font-size: $font-size-small;
+    font-weight: normal;
+    color: $color-accent;
+    text-transform: uppercase;
+  }
+
+  td{
+    //border-bottom:$global-border;
+    vertical-align: top;
+
+    /*.responsive-section-title{
+      position: sticky;
+      top: $spacing-medium;
+    }*/
+
+    .#{$stencil-selector-prefix}muted{
+      display: block;
+      margin-top: $spacing-smaller;
+      font-size: $font-size-small;
+    }
+
+  }
+
+  tr:last-child td{
+    border-bottom: none;
+  }
+
+  @media (min-width: $breakpoint-tablet-min){
+   .#{$stencil-selector-prefix}responsive-td-label{
+     display: none;
+    }
+    td{
+      //width: 15%;
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile-max){
+    tr{
+      display: block;
+    }
+    th{
+      display: none;
+    }
+    td{
+      display:flex;
+      margin-bottom: $spacing-small;
+      padding: 0;
+      border: none;
+
+      &:last-child{
+        margin-bottom: $spacing-medium;
+        padding-bottom: $spacing-medium;
+        border-bottom:$global-border;
+      }
+    }
+
+    .#{$stencil-selector-prefix}responsive-section-title{
+      width: 100%;
+      margin: 0 0 $spacing-small $spacing-small;
+      background: white;
+    }
+
+    .#{$stencil-selector-prefix}responsive-row-title{
+      display: block;
+      width: 100%;
+      margin: 0 0 $spacing-smaller $spacing-small;
+      background: white;
+      color: $color-accent;
+      font-size: $font-size-regular;
+      font-weight: 500;
+    }
+
+    .#{$stencil-selector-prefix}responsive-td-label{
+      display: inline-block;
+      width: 30%;
+      margin: 0 $spacing-smaller 0 $spacing-small;
+      color: $color-accent;
+    }
+  }
+
+}

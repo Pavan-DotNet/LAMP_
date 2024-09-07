@@ -1,0 +1,13 @@
+@mixin generate_color_helpers(){
+  @each $color_name, $color_hues in $color_map{
+    @each $hue_name, $hue_value in $color_hues{
+      $hue_suffix : '';
+      @if($hue_name != base){
+        $hue_suffix : '-'+$hue_name;
+      }
+      .#{$stencil-selector-prefix}text-color-#{$color_name}#{$hue_suffix}{ color: #{$hue_value} !important}
+      .#{$stencil-selector-prefix}background-color-#{$color_name}#{$hue_suffix}{ background-color: #{$hue_value} !important}
+    }
+  }
+}
+@include generate_color_helpers();

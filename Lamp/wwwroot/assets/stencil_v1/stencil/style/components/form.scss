@@ -1,0 +1,94 @@
+// Form
+fieldset{
+  @extend .#{$stencil-selector-prefix}margin-bottom;
+  padding: 0;
+  border: none;
+
+  .#{$stencil-selector-prefix}inline &, &.#{$stencil-selector-prefix}inline{
+    align-items: flex-start;
+  }
+}
+
+
+legend{
+  @extend .#{$stencil-selector-prefix}margin-bottom;
+  display: block;
+  font-weight: $font-weight-medium;
+  color: $color-accent;
+  text-transform: uppercase;
+}
+
+
+label{
+  @extend .#{$stencil-selector-prefix}margin-bottom-small;
+  display: block;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-small;
+  color: color(grey,darker);
+
+  .#{$stencil-selector-prefix}inline &{
+    @extend .#{$stencil-selector-prefix}col-4;
+    display: inline-block;
+  }
+}
+
+
+input[type="text"], textarea, select{
+  width: 100%;
+  @extend .#{$stencil-selector-prefix}padding-around-small;
+  font-family: $font-stack-default;
+  line-height: 1;
+  background: white;
+  border: 1px solid color(grey,lighter);
+  box-shadow: inset 1px 1px 2px color(grey,lightest);
+  border-radius: $global-border-radius;
+
+  &:focus{
+    border-color: color(blue);
+    box-shadow-color: color(blue);
+  }
+
+  &:disabled{
+    background: color(grey,lightest);
+    border-color: color(grey,lighter);
+  }
+
+  .#{$stencil-selector-prefix}inline &{
+    @extend .#{$stencil-selector-prefix}col-7;
+    display: inline-block;
+    margin-right: 0;
+  }
+}
+
+
+input[type="checkbox"],input[type="radio"]{
+  margin-right: $spacing-small;
+  @extend .#{$stencil-selector-prefix}margin-bottom-small;
+}
+
+
+.#{$stencil-selector-prefix}form-group{
+  @extend .#{$stencil-selector-prefix}flex;
+  align-items: stretch;
+
+  input[type="text"]{
+    margin-bottom: 0;
+    border-right: none;
+  }
+}
+
+
+.#{$stencil-selector-prefix}form-help{
+  width: 100%;
+  display: block;
+  @extend .#{$stencil-selector-prefix}margin-top-small;
+  @extend .#{$stencil-selector-prefix}margin-bottom-small;
+  font-size: $font-size-smallest;
+  color: color(grey,light);
+}
+
+
+.#{$stencil-selector-prefix}form-error{
+  @extend .#{$stencil-selector-prefix}form-help;
+  color: color(red);
+}

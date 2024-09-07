@@ -1,0 +1,5 @@
+// Breadcrumbs
+.#{$stencil-selector-prefix}breadcrumbs{
+  @extend .#{$stencil-selector-prefix}margin-bottom-small;
+  font-size: $font-size-small;
+}

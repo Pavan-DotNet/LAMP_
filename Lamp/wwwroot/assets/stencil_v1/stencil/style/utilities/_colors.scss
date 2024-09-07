@@ -1,0 +1,166 @@
+
+/* Color Primitives */
+$color_map:(
+  off-white:(
+    base: #f4f4f4
+  ),
+
+  grey:(
+    lightest: #f4f4f4,
+    lighter: #ccc,
+    light: #b2b2b2,
+    base: #999,
+    dark: #777,
+    darker: #5e5e5e,
+    darkest: #262626
+  ),
+
+  black:(
+    base: #333
+  ),
+
+  smoke:(
+    base: #e7ebf2
+  ),
+
+  blue:(
+    lightest: #e3f2fd, //#bbdefb,
+    lighter: #90caf9,
+    light: #d6e9f3,
+    bright: #038be5, // #3493c2,
+    base: #0277bd,
+    dark: #324257,
+    darker: #1976d2,
+    darkest: #1565c0
+  ),
+
+  indigo:(
+    lightest: #e8eaf6, //#c5cae9,
+    lighter: #9fa8da,
+    light: #7986cb,
+    base: #3f51b5,
+    dark: #3949ab,
+    darker: #303f9f,
+    darkest: #283593
+  ),
+
+  orange:(
+    lightest: #fff3e0, //#ffe0b2,
+    lighter: #ffcc80,
+    light: #fcefdc,
+    base: #f0ad4e,
+    dark: #fb8c00,
+    darker: #f57c00,
+    darkest: #ef6c00
+  ),
+
+  purple:(
+    lightest: #ede7f6, //#d1c4e9,
+    lighter: #b39ddb,
+    light: #9575cd,
+    base: #673ab7,
+    dark: #5e35b1,
+    darker: #512da8,
+    darkest: #4527a0
+  ),
+
+  teal:(
+    lightest: #e0f2f1, //#b2dfdb,
+    lighter: #80cbc4,
+    light: #4db6ac,
+    base: #009688,
+    dark: #00897b,
+    darker: #00796b,
+    darkest: #00695c
+  ),
+
+  red:(
+    lightest: #ffebee, //#ffcdd2,
+    lighter: #ef9a9a,
+    light: #f7dddc,
+    base: #d9534f,
+    dark: #e53935,
+    darker: #d32f2f,
+    darkest: #c62828
+  ),
+
+  yellow:(
+    lightest: #fffde7, //#fff9c4,
+    lighter: #fff59d,
+    light: #fff176,
+    base: #eaf4f8,
+    dark: #fdd835,
+    darker: #fbc02d,
+    darkest: #f9a825
+  ),
+
+  green:(
+    lightest: #e8f5e9, //#dcedc8,
+    lighter: #c5e1a5,
+    light: #def1de,
+    base: #5cb85c,
+    dark: #43a047,
+    darker: #388e3c,
+    darkest: #2e7d32
+  ),
+
+  juniper-off-white:(
+    base: #e7e1d5
+  ),
+
+  juniper-blue:(
+    lighter: #7bb7d6,
+    light: #80a1b6,
+    base: #5d87a1
+  ),
+
+  juniper-orange:(
+    base: #f7941d
+  ),
+
+  juniper-bright-orange:(
+    base: #ec5e38
+  ),
+
+  juniper-navy:(
+    base: #0067ac
+  ),
+
+  juniper-green:(
+    light: #a6cf77,
+    base: #49a942
+  ),
+
+  core-blue:(
+    base: #3493c1
+  ),
+
+  core-orange:(
+    base: #f16549
+  )
+);
+
+
+/// Adopted from Polaris Design System: polaris.shopify.com
+/// Returns the color value for a given color name and group.
+///
+/// @param {String} $hue - The colors hue.
+/// @param {String} $value - The darkness/lightness of the color. Defaults to base.
+/// @param {Color} $for-background - The background color on which this color will
+/// appear. Applies a multiply filter to ensure appropriate contrast.
+/// @return {Color} The color value.
+
+@function color($hue, $value: base) {
+  $fetched-hue: map-get($color_map, $hue);
+  $fetched-color: map-get($fetched-hue, $value);
+
+  @if map-has-key($color_map, $fetched-color) {
+    $fetched-color: map-get(map-get($color_map, $fetched-color), $value);
+  }
+
+  @if type-of($fetched-color) == color {
+    @return $fetched-color;
+  } @else {
+    @error 'Color #{$hue} - #{$value} not found.';
+  }
+}

@@ -1,0 +1,44 @@
+// Tabs
+.#{$stencil-selector-prefix}tabs-container{
+  border: $global-border;
+
+  .#{$stencil-selector-prefix}tabs{
+    @extend .#{$stencil-selector-prefix}flex;
+    @extend .#{$stencil-selector-prefix}flex-center-align;
+    @extend .#{$stencil-selector-prefix}flat-list;
+    @extend .#{$stencil-selector-prefix}no-margin-bottom;
+    border-bottom: $spacing-smallest solid color(grey,lightest);
+
+    button.#{$stencil-selector-prefix}tab{
+      margin: 0 0 (-$spacing-smallest);
+      padding: $spacing-medium $spacing-large;
+      background: transparent;
+      color: color(grey);
+      border: none;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
+    }
+
+    button.#{$stencil-selector-prefix}tab:hover{
+      background: transparent;
+      border-color: color(grey,darker);
+    }
+
+    button.#{$stencil-selector-prefix}tab.#{$stencil-selector-prefix}active{
+      background: transparent;
+      border-color: color(blue);
+      color: color(blue);
+    }
+
+  }
+
+  .#{$stencil-selector-prefix}tabs-content{
+    @extend .#{$stencil-selector-prefix}padding-around;
+    display: none;
+
+    &.#{$stencil-selector-prefix}active{
+      display: block;
+    }
+  }
+
+}

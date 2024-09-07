@@ -1,0 +1,86 @@
+// Tooltip
+.#{$stencil-selector-prefix}tooltip {
+  position: relative;
+
+   .#{$stencil-selector-prefix}tooltiptext {
+    position: absolute;
+    visibility: hidden;
+    width: 320px;
+    padding: $spacing-small;
+    background-color: color(grey,darkest);
+    color: white;
+    font: $font-size-small $font-stack-default;
+    border-radius: $global-border-radius;
+    z-index: 1;
+  }
+
+  &.#{$stencil-selector-prefix}tooltip-top .#{$stencil-selector-prefix}tooltiptext{
+    bottom: 110%;
+    left: 50%;
+    margin-left: -160px; /* Use half of the width (320/2 = 160), to center the tooltip */
+
+    // &::after {
+    //   content: " ";
+    //   position: absolute;
+    //   top: 100%;
+    //   left: 50%;
+    //   margin-left: -5px;
+    //   border-width: 5px;
+    //   border-style: solid;
+    //   border-color: color(grey,darkest) transparent transparent transparent;
+    // }
+  }
+
+  &.#{$stencil-selector-prefix}tooltip-right .#{$stencil-selector-prefix}tooltiptext {
+    top: -5px;
+    left: 110%;
+
+    // &::after {
+    //   content: " ";
+    //   position: absolute;
+    //   top: 50%;
+    //   right: 100%;
+    //   margin-top: -5px;
+    //   border-width: 5px;
+    //   border-style: solid;
+    //   border-color: transparent color(grey,darkest) transparent transparent;
+    // }
+  }
+
+  &.#{$stencil-selector-prefix}tooltip-left .#{$stencil-selector-prefix}tooltiptext {
+    top: -5px;
+    right: 110%;
+
+    // &::after {
+    //   content: " ";
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 100%;
+    //   margin-top: -5px;
+    //   border-width: 5px;
+    //   border-style: solid;
+    //   border-color: transparent transparent transparent black;
+    // }
+  }
+
+  &.#{$stencil-selector-prefix}tooltip-bottom .#{$stencil-selector-prefix}tooltiptext {
+    top: 110%;
+    left: 50%;
+    margin-left: -160px; /* Use half of the width (320/2 = 160), to center the tooltip */
+
+    // &::after {
+    //   content: " ";
+    //   position: absolute;
+    //   bottom: 100%;
+    //   left: 50%;
+    //   margin-left: -5px;
+    //   border-width: 5px;
+    //   border-style: solid;
+    //   border-color: transparent transparent color(grey,darkest) transparent;
+    // }
+  }
+
+  &:hover .#{$stencil-selector-prefix}tooltiptext {
+    visibility: visible;
+  }
+}

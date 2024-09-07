@@ -1,0 +1,2439 @@
+﻿@{
+    ViewData["Title"] = "Export License Application Information Sheet ('ELAIS')";
+}
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/assets/EliasForm/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+    <link href="~/assets/EliasForm/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/assets/stencil_v1/style.css">
+    <link href="~/assets/EliasForm/css/main.css" rel="stylesheet" />
+
+    <style>
+        [data-tip] {
+            position: relative;
+        }
+
+            [data-tip]:before {
+                content: '';
+                /* hides the tooltip when not hovered */
+                display: none;
+                content: '';
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-bottom: 5px solid #1a1a1a;
+                position: absolute;
+                top: 30px;
+                left: 35px;
+                z-index: 8;
+                font-size: 0;
+                line-height: 0;
+                width: 0;
+                height: 0;
+            }
+
+            [data-tip]:after {
+                display: none;
+                content: attr(data-tip);
+                position: absolute;
+                top: 35px;
+                left: 0px;
+                padding: 5px 8px;
+                background: #1a1a1a;
+                color: #fff;
+                z-index: 9;
+                font-size: 0.75em;
+                height: 30px;
+                line-height: 18px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                white-space: nowrap;
+                word-wrap: normal;
+            }
+
+            [data-tip]:hover:before,
+            [data-tip]:hover:after {
+                display: block;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="branding">
+                <img src="~/assets/img/juniper-logo-white.svg" width="166" height="54" border="0" alt="Juniper Networks" title="Juniper Networks" />
+            </div>
+        </div>
+    </header>
+    <div id="main-container">
+        <h2 class="text-center font-bold pt-4 pb-5 mb-5">
+            <strong>Export License Application Information Sheet ("ELAIS")</strong>
+        </h2>
+        <!-- Stepper -->
+        <div id="steps-form-2-main">
+            <div class="steps-form-2">
+                <div class="steps-row-2 setup-panel-2 d-flex justify-content-between">
+                    <div class="steps-step-2" style="display: none">
+                        <a href="#step-1" type="button" class="btn btn-amber btn-circle-2 waves-effect ml-0" data-toggle="tooltip" data-placement="top" title="Advisory"><i class="fa fa-folder-open-o" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-2" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Submitter Information"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        @*<p>Submitter Information</p>*@
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-3" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Transaction Information"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        @*<p>Transaction Information</p>*@
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Parties Involved"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        @*<p>Parties Involved</p>*@
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-5" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" style="margin-left: 1px;" data-toggle="tooltip" data-placement="top" title="End Use of Juniper Products and Services"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        @*<p>End Use of Juniper Products and Services</p>*@
+                    </div>
+                    <!-- <div class="steps-step-2">
+                        <a href="#step-6" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Installation Sites"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </div> -->
+                    <div class="steps-step-2" style="display:none;">
+                        <a href="#step-7" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Certify"><i class="fa fa-check" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- First Step -->
+        <div class="row setup-content-2" id="step-1" style="margin-top: -50px;">
+            <div class="col-md-12">
+                <section>
+                    <h3>Purpose:</h3>
+                    <p>Juniper relies on the information that you provide in this form to determine what export licenses, if any, are required for your transaction. If Juniper concludes that an export license is required, then it will use the information provided to apply for any required license(s).  </p>
+                    <h3>Who needs to complete this form?</h3>
+                    <p>An authorized representative of a Juniper channel partner must complete this form. The representative must be familiar with the applicable transaction either personally or through relevant business records. </p>
+                    <h3 style="margin-bottom: 20px;">Advisory:</h3>
+                    <h4>It is critical that the information provided below be current, accurate and complete, <span id="kyc" style="text-transform:none"><u>Remember, it’s up to you as a Juniper channel partner to “know your customer.”</u></span></h4>
+                    <h4>This form contains information auto-filled based on data in juniper networks' records. <span id="kyc" style="text-transform:none"><u>It is your responsibility to verify and, if necessary, correct any inaccurate or incomplete information that has been auto-filled. By submitting this form you, on behalf of the Juniper channel partner whom you are representing, are certifying as to the accuracy of ALL information in the form, including any auto-filled information that you do not modify.</u></span></h4>
+                    <h3>Consequences of Providing Obsolete, Inaccurate or Incomplete Information:</h3>
+                    <p>Obsolete, inaccurate or incomplete information may lead to: </p>
+                    <ul>
+                        <li>Shipping delays;</li>
+                        <li>Additional disclosures to export authorities;</li>
+                        <li>Inability for Juniper to provide support services;</li>
+                        <li>Increased restrictions on future transactions;</li>
+                        <li>Termination of your channel partner agreement; and</li>
+                        <li>Civil and criminal liability.</li>
+                    </ul>
+                    <h3>Questions and Assistance:</h3>
+                    <p>If you have any questions regarding the questions in this form or if you have any concerns that information you rely on in answering the questions might be inaccurate or incomplete, please contact <a href="#">tradecompliance@juniper.net</a> .</p>
+                    <p>In addition, please contact <a href="#">tradecompliance@juniper.net</a> if after completing this form you learn: </p>
+                    <ul>
+                        <li>that any of the information furnished was inaccurate or incomplete</li>
+                        <li>that the transaction itself or the parties or the intended end use has changed; or  </li>
+                        <li>that new information obtained raises concerns about the accuracy of the information furnished.</li>
+                    </ul>
+                </section>
+                <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button" onclick="show25()">Next</button>
+            </div>
+        </div>
+
+        <!-- Second Step -->
+        <form name="Form1" novalidate>
+            <div class="row setup-content-2" id="step-2">
+                <div class="col-md-12">
+                    <section>
+                        <h1>Submitter Information</h1>
+                        <span id="mandatory">*Indicates Mandatory Fields </span>
+                        <p>
+                            <span class="text-danger">
+                                NOTE:
+                            </span>
+                            <li>Providing inaccurate or incomplete information on this form may lead to shipping delays.</li>
+                            <li>Provide all information in <b>English</b>. Submissions containing abbreviations, acronyms or a P.O. Box number will be considered invalid.</li>
+                        </p>
+                        <div id="basic-info">
+                            <label>
+                                <span style="display: inline-block;">Submitted by*</span>
+                                <input type="text" name="fname" placeholder="First Name" maxlength="50" ng-model="elais.firstName" required><input style="margin-left: 20px" maxlength="50" placeholder="Last Name" type="text" name="lname" ng-model="elais.lastName" required>&nbsp;&nbsp;<span style="color:red" ng-show="!formValid && Form1.fname.$invalid ||!formValid && Form1.lname.$invalid"><span ng-show="Form1.fname.$error.required||Form1.lname.$error.required">First Name and Last Name is required.</span></span>
+                            </label>
+                            <label>
+                                <span style="display: inline-block;">Job title*</span>
+                                <input type="text" name="jobtitle" placeholder="Job Title" maxlength="50" ng-model="elais.jobTitle" required>
+                                <span style="color:red" ng-show="!formValid && Form1.jobtitle.$invalid "><span ng-show="Form1.jobtitle.$error.required">Job title is required.</span></span>
+                            </label>
+                            <label>
+                                <span style="display: inline-block;">Legal Name of Channel Partner*</span>
+                                <input type="text" name="channelpartner" placeholder="Full Legal Name of Juniper Channel Partner" maxlength="50" ng-model="elais.channelPartner" required>
+                                <span style="color:red" ng-show="!formValid && Form1.channelpartner.$invalid"><span ng-show="Form1.channelpartner.$error.required">Channel Partner is required.</span></span>
+                            </label>
+                            <label>
+                                <span style="display: inline-block;">Email Address*</span>
+                                <input type="text" name="email" placeholder="Email" maxlength="30" ng-model="elais.emailAddress" required>
+                                <span style="color:red" ng-show="!formValid && Form1.email.$invalid "><span ng-show="Form1.email.$error.required">Email is required.</span></span>
+                            </label>
+                            <label>
+                                <span style="display: inline-block;">Juniper VAR ID</span>
+                                <input type="text" name="user-id" placeholder="Juniper VAR ID" ng-model="elais.JuniperVar">
+                            </label>
+                            @*<div id="foot">
+                                <p>
+                                    NOTE:
+                                    <li>Providing inaccurate or incomplete information on this form may lead to shipping delays.</li>
+                                    <li>Provide all information in <b>English</b>. Submissions containing abbreviations, acronyms or a P.O. Box number will be considered invalid.</li>
+                                </p>
+                            </div>*@
+                        </div>
+                    </section>
+                    <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button" onclick="show26()">Previous</button>
+                    <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" ng-click="next(Form1.$valid,1)" type="button">Next</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Third Step -->
+        <form name="Form2" novalidate>
+            <div class="row setup-content-2" id="step-3">
+                <div class="col-md-12">
+                    <section>
+                        <h1>Transaction Information</h1>
+                        <span id="mandatory">*Indicates Mandatory Fields </span>
+                        <p>
+                            <span class="text-danger">
+                                NOTE:
+                            </span>
+                            <li>Please take the transaction reference numbers from the email request sent to you by Trade Compliance </li>
+                        </p>
+                        <div id="basic-info">
+                            <label>
+                                <span data-toggle="tooltip" title="Please take the ‘Quote ID’ from the email request sent by Trade Compliance.">Quote #*</span><span data-tip="Please take the ‘Quote ID’ from the email request sent by Trade Compliance."><input type="text" name="qnum" placeholder="Quote #" ng-model="elais.quoteNumber" required></span>
+                                <span style="color:red" ng-show="!formValid && Form2.qnum.$invalid "><span ng-show="Form2.qnum.$error.required">Quote Number is required.</span></span>
+                            </label>
+                            @*<label>
+                                <span>Quote Date*</span><input type="date" name="qdate" id="datepicker" placeholder="Quote Date" ng-model="elais.quoteDate" required>
+                                <span style="color:red" ng-show="!formValid && Form2.qdate.$invalid "><span ng-show="Form2.qdate.$error.required">Quote Date is required.</span></span>
+                            </label>*@
+                            <label>
+                                <span data-toggle="tooltip" title="Please take the ‘Purchase Order’ (if available) from the email request sent by Trade Compliance, or leave it blank(if not available).">Purchase Order #</span><span data-tip="Please take the ‘Purchase Order’ (if available) from the email request sent by Trade Compliance, or leave it blank(if not available)."><input type="text" name="opp" placeholder="Purchase Order" ng-model="elais.purchaseOrder"></span>
+                            </label>
+                            <label>
+                                <span data-toggle="tooltip" title="Please take the ‘Sales Order’  (if available) from the email request sent by Trade Compliance, or leave it blank(if not available).">Sales Order #</span><span data-tip="Please take the ‘Sales Order’  (if available) from the email request sent by Trade Compliance, or leave it blank(if not available)."><input type="text" name="sales" placeholder="Sales Order" ng-model="elais.salesOrder"></span>
+                            </label>
+                            <!-- <label>
+                                <span>NSP #</span><input type="text" name="nsp" placeholder="NSP">
+                            </label> -->
+                        </div>
+                        @*<div id="foot">
+                            <p>NOTE: Providing inaccurate or incomplete information on this form may lead to shipping delays.</p>
+                        </div>*@
+                    </section>
+                    <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
+                    <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" ng-click="next(Form2.$valid,2)" type="button">Next</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Fourth Step -->
+        <div class="row setup-content-2" id="step-4">
+            <form name="Form3" novalidate>
+                <div class="col-md-12">
+                    <div class="row">
+                        <section style="margin-bottom: 0px; padding-bottom: 10px;">
+                            <h1 style="margin-top: 0px"><!-- <span data-toggle="tooltip" title="A Top Level Purchaser is the party that places purchase order directly on the Juniper buy-sell entity. A DVAR purchasing for resale to an end user is the 'Top Level Purchaser'. A distributor purchasing stock-able items for stock is also a 'Top Level Purchaser'. A direct Juniper end user customer that is purchasing directly from Juniper in a transaction is also a 'Top Level Purchaser' in that transaction."> -->Parties Involved<!-- </span> --></h1>
+                            <span id="mandatory">
+                                *Indicates Mandatory Fields
+                            </span>
+                            <p>
+                                <span class="text-danger">
+                                    NOTE:
+                                </span>
+                                <li>Providing inaccurate or incomplete information on this form may lead to shipping delays.</li>
+                                <li>Provide all information in <b>English</b>. Submissions containing abbreviations, acronyms or a P.O. Box number will be considered invalid.</li>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h3><span data-toggle="tooltip" title="The party who is purchasing the product directly from Juniper or Juniper's Authorized Distributor">Distributor or Reseller</span></h3></div>
+                        <div class="panel-body">
+                            <div id="basic-info">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>
+                                            <span>Company Name* </span>
+                                            <input type="text" name="purchasername" placeholder="Company Name" ng-model="elais.purchaserName" required>
+                                        </label>
+                                        <span ng-show="!formValid && Form3.purchasername.$invalid "></span>
+                                        <span style="color:red;text-align:center" ng-show="!formValid && Form3.purchasername.$invalid "><span ng-show="Form3.purchasername.$error.required">Company Name is required.</span></span>
+                                        <label>
+                                            <span>Street*</span>
+                                            <input type="text" name="purchaserstreet" placeholder="Street" ng-model="elais.purchaserStreet" required>
+                                        </label>
+                                        <span ng-show="!formValid && Form3.purchaserstreet.$invalid "></span>
+                                        <span style="color:red;text-align:center" ng-show="!formValid && Form3.purchaserstreet.$invalid "><span ng-show="Form3.purchaserstreet.$error.required">Street is required.</span></span>
+                                        <label>
+                                            <span>City*</span>
+                                            <input type="text" name="purchasercity" placeholder="City" ng-model="elais.purchaserCity" required>
+                                        </label>
+                                        <span ng-show="!formValid && Form3.purchasercity.$invalid "></span>
+                                        <span style="color:red;text-align:center" ng-show="!formValid && Form3.purchasercity.$invalid "><span ng-show="Form3.purchasercity.$error.required">City is required.</span></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>
+                                            <span>State</span>
+                                            <input type="text" name="purchaser-state" placeholder="State" ng-model="elais.purchaserState">
+                                        </label>
+                                        <label>
+                                            <span>Postal Code</span>
+                                            <input type="text" name="purchaser-postal" placeholder="Postal Code" ng-model="elais.purchaserPostalCode">
+                                        </label>
+                                        <label>
+                                            <span>Country*</span>
+                                            <select name="pruchasercountry" ng-model="elais.purchaserCountry" required>
+                                                <option value="">Select Country</option>
+                                                <option ng-repeat="data in Countrylist | orderBy: 'name'" value="{{data.id}}">{{data.name}}</option>
+                                            </select>
+                                        </label>
+                                        <span ng-show="!formValid && Form3.pruchasercountry.$invalid "></span>
+                                        <span style="color:red;text-align:center" ng-show="!formValid && Form3.pruchasercountry.$invalid "><span ng-show="Form3.pruchasercountry.$error.required">Country is required.</span></span>
+                                        <!--  <label>
+                                            <span>Juniper 8-digit Partner Number:</span>
+                                            <input id="partner-number-input" type="text" name="partner-number">
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="number-check" onclick="show15()">
+                                            <span>No Partner Number</span>
+                                        </label> -->
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <span style="width:auto;margin-left: 10px;margin-right: 97px;">Is this party a distributor or reseller*</span>
+                                    @*<form style="display: initial; margin-left:60px; margin-right:189px;">
+                                        *@
+                                        <input type="radio" name="dstrbrese" value="Distributor" ng-model="elais.purchaserreseller" required> Distributor
+                                        <input type="radio" name="dstrbrese" value="Reseller" ng-model="elais.purchaserreseller" required> Reseller
+                                        @*
+                                    </form>*@
+                                    <span style="color:red" ng-if="!formValid && Form3.dstrbrese.$invalid ">Please Select One</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>
+                                <span data-toggle="tooltip" title="'End User' is the party that will be placing the product in use for its own benefit and not for resale or other further distribution.
+                The End User is not a system integrator purchasing product for a client for whom the SI will make the product available.
+                The End User is not a purchasing agent for the ultimate end user of the product, nor is the End User a mere systems administrator.
+                A managed services provider purchasing equipment, software or services for the sole benefit of a pre-determined customer is not an end user; the predetermined customer is.
+                But a managed services provider purchasing equipment, software or services for the the benefit of the general public is treated as the end user in the transaction in which Juniper is involved..)
+                BEWARE: Don't confuse 'End User' for trade compliance purposes with 'End Customer' as shown in some CRM/SAP data.  End Customer is not always the true End User!!">End User</span>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="basic-info">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>
+                                            <span>Company Name* </span>
+                                            <input type="text" name="enduserentityname" placeholder="Company Name" ng-model="elais.enduserCompanyName" required>
+                                        </label>
+                                        <span ng-show="!formValid && Form3.enduserentityname.$invalid "></span>
+                                        <span style="color:red;text-align:center" ng-show="!formValid && Form3.enduserentityname.$invalid "><span ng-show="Form3.enduserentityname.$error.required">End Company Name is required.</span></span>
+                                        <label>
+                                            <span>Street*</span>
+                                            <input type="text" name="enduserstreet" placeholder="Street" ng-model="elais.enduserStreet" required>
+                                        </label>
+                                        <span ng-show="!formValid && Form3.enduserstreet.$invalid "></span>
+                                        <span style="color:red;text-align:center" ng-show="!formValid && Form3.enduserstreet.$invalid "><span ng-show="Form3.enduserstreet.$error.required">End User Street is required.</span></span>
+                                        <label>
+                                            <span>City*</span>
+                                            <input type="text" name="endusercity" placeholder="City" ng-model="elais.enduserCity" required>
+                                        </label>
+                                        <span ng-show="!formValid && Form3.endusercity.$invalid "></span>
+                                        <span style="color:red;text-align:center" ng-show="!formValid && Form3.endusercity.$invalid "><span ng-show="Form3.endusercity.$error.required">End User City is required.</span></span>
+                                        <label>
+                                            <span>State</span>
+                                            <input type="text" name="end-user-state" placeholder="State" ng-model="elais.enduserState">
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>
+                                            <span>Postal Code</span>
+                                            <input type="text" name="end-user-postal" placeholder="Postal Code" ng-model="elais.enduserPostalcode">
+                                        </label>
+                                        <label>
+                                            <span>Country*</span>
+                                            <select name="endusercountry" ng-model="elais.enduserCountry" required>
+                                                <option value="">Select Country</option>
+                                                <option ng-repeat="data in Countrylist | orderBy: 'name'" value="{{data.id}}">{{data.name}}</option>
+                                            </select>
+                                        </label>
+                                        <span ng-show="!formValid && Form3.endusercountry.$invalid "></span>
+                                        <span style="color:red;text-align:center" ng-show="!formValid && Form3.endusercountry.$invalid "><span ng-show="Form3.endusercountry.$error.required">End User Country is required.</span></span>
+                                        <label>
+                                            <span>End User Contact  First and Last Name*</span>
+                                            <input type="text" name="endusername" placeholder="End User Contact  First and Last Name" ng-model="elais.enduserContactName" required>
+                                        </label>
+                                        <span ng-show="!formValid && Form3.endusername.$invalid "></span>
+                                        <span style="color:red;text-align:center" ng-show="!formValid && Form3.endusername.$invalid "><span ng-show="Form3.endusername.$error.required">End User Contact Name is required.</span></span>
+                                        <label>
+                                            <span>End User Contact  Email Address*</span>
+                                            <input type="text" name="enduseremail" placeholder="End User Contact  Email Address" ng-model="elais.enduserEmail" required>
+                                        </label>
+                                        <span ng-show="!formValid && Form3.enduseremail.$invalid "></span>
+                                        <span style="color:red;text-align:center" ng-show="!formValid && Form3.enduseremail.$invalid "><span ng-show="Form3.enduseremail.$error.required">End User Email is required.</span></span>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <span style="width:auto;margin-left: 10px;margin-right: 97px;">Is there a URL for the End User’s Official Website ? e.g. https://www.enduser.com (no email addresses)*</span>
+                                    @*<form style="display: initial; margin-left:60px; margin-right:189px;">
+                                        *@
+                                        <input type="radio" name="webcheck" value="yes" ng-model="elais.enduserofficial" ng-click="elais.enduserOfficialText=''" required> Yes
+                                        <input type="radio" name="webcheck" value="no" ng-model="elais.enduserofficial" ng-click="elais.enduserOfficialText=''" required> No
+                                        <span style="color:red" ng-if="!formValid && Form3.webcheck.$invalid ">&nbsp;&nbsp; Please Select One.</span>
+                                        @*
+                                    </form>*@
+                                    <input id="end-user-url" ng-if="elais.enduserofficial == 'yes'" style="margin-left: 189px;" ng-model="elais.enduserOfficialText" placeholder="End User URL" type="text" name="urlname" required>
+                                    <span style="color:red;margin-right: 42px;margin-top: 2px;" class="pull-right" ng-if="!formValid && Form3.urlname.$invalid "><span ng-if="Form3.urlname.$error.required">End User URL is required.</span></span>
+                                    <input id="end-user-url" ng-if="elais.enduserofficial == 'no'" style="margin-left: 189px;" ng-model="elais.enduserOfficialText" placeholder="Reason for No Website" type="text" name="urlname1" required>
+                                    <span style="color:red;margin-right: 42px;margin-top: 2px;" class="pull-right" ng-if="!formValid && Form3.urlname1.$invalid "><span ng-if="Form3.urlname1.$error.required">Reason is required.</span></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div id="end-user-span">
+                                    <p style="margin:15px 0px 15px -1px;font-weight: 600;">Check ALL items that include any of End User’s major business or organizational purposes or functions of End User. (Check any item in which one of End User’s major business or organizational purposes or functions is included even if the item also includes purposes or functions that are not applicable to End User.) (If none apply, check “Other” and describe such activities in the space provided.)*:  <span style="color:red;" ng-show="!formValid && Form3.enduser.$invalid "><span ng-show="Form3.enduser.$error.required">Please select one.</span></span></p>
+                                    <label>
+                                        <input type="checkbox" name="enduser" value="opt-one" ng-model="elais.enduserPrimaryBussinessFunc.one">
+                                        <span> Commercial enterprise for non‐government customers</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="enduser" value="opt-two" ng-model="elais.enduserPrimaryBussinessFunc.two">
+                                        <span> Military, paramilitary activities or equipment, weapons, other defense articles or logistical support therefor not specifically included in any other items on this list</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="enduser" value="opt-three" ng-model="elais.enduserPrimaryBussinessFunc.three">
+                                        <span> Legislation or legislative support services or lobbying</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="enduser" value="opt-four" ng-model="elais.enduserPrimaryBussinessFunc.four">
+                                        <span> Judicial, prosecutorial or dispute resolution</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="enduser" value="opt-five" ng-model="elais.enduserPrimaryBussinessFunc.five">
+                                        <span> Customs or like international trade administration and enforcement</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="enduser" value="opt-six" ng-model="elais.enduserPrimaryBussinessFunc.six">
+                                        <span> Government procurement services</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-seven" ng-model="elais.enduserPrimaryBussinessFunc.seven">
+                                        <span> Civilian government activities such as public health and safety, promotion of industry, commerce and tourism, public infrastructure, public social services and welfare and the like.</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-eight" ng-model="elais.enduserPrimaryBussinessFunc.eight">
+                                        <span> Research, development, production, storage, deployment, delivery or use of (i) nuclear fuels, facilities or weapons, (ii) chemical or biological compounds for use in weapons, or (iii) missiles.</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-nine" ng-model="elais.enduserPrimaryBussinessFunc.nine">
+                                        <span> Other research or development not included elsewhere on this list but funded directly or indirectly by government</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-ten" ng-model="elais.enduserPrimaryBussinessFunc.ten">
+                                        <span> Other basic research not included elsewhere on this list</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-eleven" ng-model="elais.enduserPrimaryBussinessFunc.eleven">
+                                        <span> Network security, facilities security, or other security services or providing goods or services in support of such activities</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-twelve" ng-model="elais.enduserPrimaryBussinessFunc.twelve">
+                                        <span> Regulatory oversight of financial, environmental, energy, public health, product safety, securities markets, pensions, or other non-military, non-law enforcement, non-weapons</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-thirteen" ng-model="elais.enduserPrimaryBussinessFunc.thirteen">
+                                        <span> Outsourced services in support of civilian government agencies or branches</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-fourteen" ng-model="elais.enduserPrimaryBussinessFunc.fourteen">
+                                        <span> Educational or training services </span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-fifteen" ng-model="elais.enduserPrimaryBussinessFunc.fifteen">
+                                        <span> NGO or philanthropic organization engaged in social benefit, religious or humanitarian or other charitable activities</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-sixteen" ng-model="elais.enduserPrimaryBussinessFunc.sixteen">
+                                        <span> Financial services (banking, investment advising, securities or commodities)</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-seventeen" ng-model="elais.enduserPrimaryBussinessFunc.seventeen">
+                                        <span> Network equipment and networking software integration, staging, configuration or installation services</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-eighteen" ng-model="elais.enduserPrimaryBussinessFunc.eighteen">
+                                        <span> Telecommunications or IT equipment, software or services (including, among others, data centers, cloud services providers or managed network services providers)</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-nineteen" ng-model="elais.enduserPrimaryBussinessFunc.nineteen">
+                                        <span> Energy sector activities</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-twenty" ng-model="elais.enduserPrimaryBussinessFunc.twenty">
+                                        <span> Business process services provider</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-twentyone" ng-model="elais.enduserPrimaryBussinessFunc.twentyone">
+                                        <span> Transportation</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-twentytwo" ng-model="elais.enduserPrimaryBussinessFunc.twentytwo">
+                                        <span> Civilian industrial and manufacturing</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-twentythree" ng-model="elais.enduserPrimaryBussinessFunc.twentythree">
+                                        <span> Consumer products and services</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-twentyfour" ng-model="elais.enduserPrimaryBussinessFunc.twentyfour">
+                                        <span> Hospital or medical equipment or services</span>
+                                    </label>
+                                    <label>
+                                        <input id="none-of-the-above" type="checkbox" name="enduser" ng-model="elais.enduserPrimaryBussinessFunc.twentyfive" value="opt-twentyfive">
+                                        <span> Other</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="eud" ng-if="elais.enduserPrimaryBussinessFunc.twentyfive == true">
+                                <p>(Please provide detailed description. Vague answers will not be accepted.)</p>
+                                <textarea ng-model="elais.enduserPrimaryBussinessFuncText" ng-minlength="10" name="enduserPrimaryBussinessFuncText" required></textarea>
+                                <span style="color:red" ng-if="!formValid && Form3.enduserPrimaryBussinessFuncText.$invalid">The value is too short</span>
+                                <span style="color:red" ng-show="!formValid && Form3.enduserPrimaryBussinessFuncText.$invalid "><span ng-show="Form3.enduserPrimaryBussinessFuncText.$error.required">Text is too short.</span></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h3>Other Parties Involved in Transaction</h3></div>
+                        <div class="panel-body" style="margin-left:25px;">
+                            <div id="end-user-other-party">
+                                <p style="font-weight:600">1) Do you believe or suspect that the party identified above as End User intends to incorporate any Juniper Product or Service (or any of its features) into any product into any offering for sale, lease or license to any of its customers or clients?*</p>
+                                <div style="margin-top: 18px;">
+                                    @*<form style="display: initial;">
+                                        *@
+                                        <input type="radio" name="otherpartyendcheck" value="yes" ng-model="elais.otherpartiesQ1" required> Yes
+                                        <input type="radio" name="otherpartyendcheck" value="no" ng-model="elais.otherpartiesQ1" ng-click="elais.otherpartiesproductsandservices=null" required> No
+                                        <span style="color:red;" ng-show="!formValid && Form3.otherpartyendcheck.$invalid "><span ng-show="Form3.otherpartyendcheck.$error.required">Please select one.</span></span>
+                                        @*
+                                    </form>*@
+                                </div>
+                                <div id="offering" ng-if="elais.otherpartiesQ1 == 'yes'">
+                                    <p>Describe the End User’s offering using Juniper products or services:</p>
+                                    <textarea ng-model="elais.otherpartiesproductsandservices" name="otherpartiesproductsandservices" required></textarea>
+                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.otherpartiesproductsandservices.$invalid "><span ng-show="Form3.otherpartiesproductsandservices.$error.required">Juniper products or services is required.</span></span>
+                                </div>
+                            </div>
+                            <div style="display: inline-block;">
+                                <p style="margin: 18px 0px 12px 0px; font-weight:600">
+                                    2) Do you have any reason to believe
+
+                                    that the party named as <i>Distributor or Reseller</i> intends to resell any of the Juniper Products and Services to anyone other than the above named End User?*
+                                </p>
+                                @*<form style="display: initial;">
+                                    *@
+                                    <input type="radio" name="otherpartyresellcheck" value="yes" ng-model="elais.otherpartiesQ2" required> Yes
+                                    <input type="radio" name="otherpartyresellcheck" value="no" ng-model="elais.otherpartiesQ2" ng-click="clearotherpartiestwo()" required> No
+                                    <span style="color:red;" ng-show="!formValid && Form3.otherpartyresellcheck.$invalid "><span ng-show="Form3.otherpartyresellcheck.$error.required">Please select one.</span></span>
+                                    @*
+                                </form>*@
+                            </div>
+                            <div id="resell" ng-if="elais.otherpartiesQ2 == 'yes'">
+                                <p style="margin-top: 20px; font-weight:600">Such additional parties involved, please provide the following information:</p>
+                                <h2>Other Party</h2>
+                                <div id="basic-info">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label style="margin-top: 0px;">
+                                                <span>Company Name* </span>
+                                                <input type="text" name="otherpartyname" ng-model="elais.otherpartiesQ2Name" placeholder="Company Name" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form3.otherpartyname.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form3.otherpartyname.$invalid "><span ng-show="Form3.otherpartyname.$error.required">Company Name is required.</span></span>
+                                            <label>
+                                                <span>Street*</span>
+                                                <input type="text" name="otherpartyaddrs" ng-model="elais.otherpartiesQ2Street" placeholder="Street" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form3.otherpartyaddrs.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form3.otherpartyaddrs.$invalid "><span ng-show="Form3.otherpartyaddrs.$error.required">Street is required.</span></span>
+                                            <label>
+                                                <span>City*</span>
+                                                <input type="text" name="otherpartycity" placeholder="City" ng-model="elais.otherpartiesQ2City" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form3.otherpartycity.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form3.otherpartycity.$invalid "><span ng-show="Form3.otherpartycity.$error.required">City is required.</span></span>
+                                            <label>
+                                                <span>State</span>
+                                                <input type="text" name="other-party-state" placeholder="State" ng-model="elais.otherpartiesQ2State">
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Postal Code</span>
+                                                <input type="text" name="other-party-postal" placeholder="Postal Code" ng-model="elais.otherpartiesQ2Postal">
+                                            </label>
+                                            <label>
+                                                <span>Country*</span>
+                                                <select ng-model="elais.otherpartiesQ2Country" name="otherpartiesQ2Country" required>
+                                                    <option value="">Select Country</option>
+                                                    <option ng-repeat="data in Countrylist | orderBy" value="{{data.id}}">{{data.name}}</option>
+                                                </select>
+                                            </label>
+                                            <span ng-show="!formValid && Form3.otherpartiesQ2Country.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form3.otherpartiesQ2Country.$invalid "><span ng-show="Form3.otherpartiesQ2Country.$error.required">Country is required.</span></span>
+                                            <label>
+                                                <span>Intermediate Party Contact Name</span>
+                                                <input type="text" name="other-party-postal" placeholder="Intermediate Party Contact Name" ng-model="elais.otherpartiesQ2PartContact">
+                                            </label>
+                                            <label>
+                                                <span>Intermediate Party Email Address</span>
+                                                <input type="text" name="other-party-country" placeholder="Intermediate Party Email Address" ng-model="elais.otherpartiesQ3PartEmail">
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span style="width:auto; margin-left:12px;margin-right: 63px;">
+                                            Is there a URL for the Other Party’s Official Website ?
+                                            e.g. https://www.otherparty.com (no email addresses)*
+                                        </span>
+                                        @*<form style="display: initial; margin-left:60px; margin-right:189px;">
+                                            *@
+                                            <input type="radio" name="otherpartywebcheck" value="yes" ng-model="elais.otherpartiesQ2Official" required> Yes
+                                            <input type="radio" name="otherpartywebcheck" value="no" ng-model="elais.otherpartiesQ2Official" required> No
+                                            <span style="color:red" ng-if="!formValid && Form3.otherpartywebcheck.$invalid ">&nbsp;&nbsp; Please Select One.</span>
+                                            @*
+                                        </form>*@
+                                        <input id="int-party-url" style="margin-left: 184px;" type="text" ng-if="elais.otherpartiesQ2Official== 'yes'" placeholder="Official Website" ng-model="elais.otherpartiesQ2OfficialText" name="otherpartiesQ2OfficialText" required>
+                                        <span style="color:red;margin-right: 42px;margin-top: 2px;" class="pull-right" ng-show="!formValid && Form3.otherpartiesQ2OfficialText.$invalid "><span ng-show="Form3.otherpartiesQ2OfficialText.$error.required">Official WebSite is required.</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: inline-block;">
+                                <p style="margin-top: 25px; margin-bottom: 15px;font-weight:600">3) Are there any identifiable companies, institutions, organizations or individuals that the End User intends to target for such offering?* </p>
+                                @*<form style="display: initial;">
+                                    *@
+                                    <input type="radio" name="namedendusercheck" value="yes" ng-model="elais.otherpartiesQ3" required> Yes
+                                    <input type="radio" name="namedendusercheck" value="no" ng-model="elais.otherpartiesQ3" required ng-click="remove()"> No
+                                    <span style="color:red;" ng-show="!formValid && Form3.namedendusercheck.$invalid "><span ng-show="Form3.namedendusercheck.$error.required">Please select one.</span></span>
+                                    @*
+                                </form>*@
+                            </div>
+                            <div id="named-end-user-all" ng-if="elais.otherpartiesQ3=='yes'">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Named End User's Customer Information</div>
+                                    <div class="panel-body">
+                                        <div id="named-end-user">
+                                            <div id="basic-info">
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Company Name* </span>
+                                                        <input type="text" name="namedendusername" ng-model="elais.otherpartiesQ3Name" placeholder="Company Name" required>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.namedendusername.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.namedendusername.$invalid "><span ng-show="Form3.namedendusername.$error.required">Company Name is required.</span></span>
+                                                    <label>
+                                                        <span>Street*</span>
+                                                        <input type="text" name="namedenduseradrs" placeholder="Address" ng-model="elais.otherpartiesQ3Address" required>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.namedenduseradrs.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.namedenduseradrs.$invalid "><span ng-show="Form3.namedenduseradrs.$error.required">Street is required.</span></span>
+                                                    <label>
+                                                        <span>City*</span>
+                                                        <input type="text" name="namedendusercity" placeholder="City" ng-model="elais.otherpartiesQ3City" required>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.namedendusercity.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.namedendusercity.$invalid "><span ng-show="Form3.namedendusercity.$error.required">City is required.</span></span>
+                                                    <label>
+                                                        <span>State</span>
+                                                        <input type="text" name="named-end-user-state" placeholder="State" ng-model="elais.otherpartiesQ3State">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Postal Code</span>
+                                                        <input type="text" name="named-end-user-postal" placeholder="Postal Code" ng-model="elais.otherpartiesQ3Postal">
+                                                    </label>
+                                                    <label>
+                                                        <span>Country*</span>
+                                                        <select ng-model="elais.otherpartiesQ3Country" name="otherpartiesQ3Country" required>
+                                                            <option value="">Select Country</option>
+                                                            <option ng-repeat="data in Countrylist | orderBy" value="{{data.id}}">{{data.name}}</option>
+                                                        </select>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.otherpartiesQ3Country.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.otherpartiesQ3Country.$invalid "><span ng-show="Form3.otherpartiesQ3Country.$error.required">Country is required.</span></span>
+                                                    <label>
+                                                        <span>Named End User Customer Contact Name</span>
+                                                        <input type="text" name="named-end-user-name" placeholder="Named End User Customer Contact Name" ng-model="elais.otherpartiesQ3CustContact">
+                                                    </label>
+                                                    <label>
+                                                        <span>Named End User Customer Email Address</span>
+                                                        <input type="text" name="named-end-user-email" placeholder="Named End User Customer Email Address" ng-model="elais.otherpartiesQ3CustEmail">
+                                                    </label>
+                                                </div>
+
+                                                <label>
+                                                    <span style="width: auto; margin-left:17px;margin-right: 100px;">Is there a URL for the Named End User's Customer Official Website ? e.g. https://www.namedenduser.com (no email addresses)*</span>
+                                                    @*<form style="display: initial;">
+                                                        *@
+                                                        <input type="radio" name="namedwebcheck" value="yes" ng-model="elais.otherpartiesQ3Official" required> Yes
+                                                        <input type="radio" name="namedwebcheck" value="no" ng-model="elais.otherpartiesQ3Official" required> No
+                                                        <span style="color:red" ng-if="!formValid && Form3.namedwebcheck.$invalid ">Please Select One</span>
+                                                        @*
+                                                    </form>*@
+                                                    <input style="margin-left: 57px;" id="named-end-user-url" ng-if="elais.otherpartiesQ3Official=='yes'" type="text" placeholder="Customer Official Website" name="otherpartiesQ3OfficialText" ng-model="elais.otherpartiesQ3OfficialText" required>
+                                                    <span style="color:red;margin-top: 2px;" class="pull-right" ng-show="!formValid && Form3.otherpartiesQ3OfficialText.$invalid "><span ng-show="Form3.otherpartiesQ3OfficialText.$error.required">Official WebSite is required.</span></span>
+                                                </label>
+                                                <div>
+                                                    <span style="width:auto; margin-left:17px;">Are there any other such identifiable targeted customers?</span>
+                                                    <form style="display: initial;">
+                                                        <input type="radio" name="named-any-one" value="yes" ng-model="elais.otherpartiesQ3S1"> Yes
+                                                        <input type="radio" name="named-any-one" value="no" ng-model="elais.otherpartiesQ3S1" ng-click="remove1()"> No
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="named-end-user-one" ng-if="elais.otherpartiesQ3S1=='yes'">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Named End User's Customer Information</div>
+                                        <div class="panel-body">
+                                            <div id="basic-info">
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Company Name* </span>
+                                                        <input type="text" name="namedenduseronename" placeholder="Company Name" ng-model="elais.otherpartiesQ3S1Name" required>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.namedenduseronename.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.namedenduseronename.$invalid "><span ng-show="Form3.namedenduseronename.$error.required">Company Name is required.</span></span>
+                                                    <label>
+                                                        <span>Street*</span>
+                                                        <input type="text" name="namedenduseroneadrs" placeholder="Address" ng-model="elais.otherpartiesQ3S1Address" required>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.namedenduseroneadrs.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.namedenduseroneadrs.$invalid "><span ng-show="Form3.namedenduseroneadrs.$error.required">Street is required.</span></span>
+                                                    <label>
+                                                        <span>City*</span>
+                                                        <input type="text" name="namedenduseronecity" placeholder="City" ng-model="elais.otherpartiesQ3S1City" required>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.namedenduseronecity.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.namedenduseronecity.$invalid "><span ng-show="Form3.namedenduseronecity.$error.required">City is required.</span></span>
+                                                    <label>
+                                                        <span>State</span>
+                                                        <input type="text" name="named-end-user-one-state" placeholder="State" ng-model="elais.otherpartiesQ3S1State">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Postal Code</span>
+                                                        <input type="text" name="named-end-user-one-postal" placeholder="Postal Code" ng-model="elais.otherpartiesQ3S1Postal">
+                                                    </label>
+                                                    <label>
+                                                        <span>Country*</span>
+                                                        <select ng-model="elais.otherpartiesQ3S1Country" name="otherpartiesQ3S1Country" required>
+                                                            <option value="">Select Country</option>
+                                                            <option ng-repeat="data in Countrylist | orderBy" value="{{data.id}}">{{data.name}}</option>
+                                                        </select>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.otherpartiesQ3S1Country.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.otherpartiesQ3S1Country.$invalid "><span ng-show="Form3.otherpartiesQ3S1Country.$error.required">Country is required.</span></span>
+                                                    <label>
+                                                        <span>Named End User Customer Contact Name</span>
+                                                        <input type="text" name="named-end-user-one-name" placeholder="Named End User Customer Contact Name" ng-model="elais.otherpartiesQ3S1CustContact">
+                                                    </label>
+                                                    <label>
+                                                        <span>Named End User Customer Email Address</span>
+                                                        <input type="text" name="named-end-user-one-email" placeholder="Named End User Customer Email Address" ng-model="elais.otherpartiesQ3S1CustEmail">
+                                                    </label>
+                                                </div>
+                                                <label>
+                                                    <span style="width: auto;margin-left:17px;margin-right: 100px;">Is there a URL for the Named End User's Customer Official Website ? e.g. https://www.namedenduser.com (no email addresses)*</span>
+                                                    @*<form style="display: initial;">
+                                                        *@
+                                                        <input type="radio" name="namedwebcheckone" value="yes" ng-model="elais.otherpartiesQ3S1Official" required> Yes
+                                                        <input type="radio" name="namedwebcheckone" value="no" ng-model="elais.otherpartiesQ3S1Official" required> No
+                                                        <span style="color:red" ng-if="!formValid && Form3.namedwebcheckone.$invalid ">Please Select One</span>
+                                                        @*
+                                                    </form>*@
+                                                    <input style="margin-left: 57px;" id="named-end-url-one" ng-if="elais.otherpartiesQ3S1Official=='yes'" type="text" name="namedurlnameone" placeholder="Customer Official Website" ng-model="elais.otherpartiesQ3S1OfficialText" required>
+                                                    <span style="color:red;margin-top: 2px;" class="pull-right" ng-show="!formValid && Form3.namedurlnameone.$invalid "><span ng-show="Form3.namedurlnameone.$error.required">Official WebSite is required.</span></span>
+                                                </label>
+                                                <div>
+                                                    <span style="width:auto;margin-left:17px;">Are there any other such identifiable targeted customers?</span>
+                                                    <form style="display: initial;">
+                                                        <input type="radio" name="named-any-two" value="yes" ng-model="elais.otherpartiesQ3S2"> Yes
+                                                        <input type="radio" name="named-any-two" value="no" ng-model="elais.otherpartiesQ3S2" ng-click="remove2()"> No
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="named-end-user-two" ng-if="elais.otherpartiesQ3S1=='yes' && elais.otherpartiesQ3S2=='yes'">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Named End User's Customer Information</div>
+                                        <div class="panel-body">
+
+                                            <div id="basic-info">
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Company Name* </span>
+                                                        <input type="text" name="namedendusertwoname" placeholder="Company Name" ng-model="elais.otherpartiesQ3S2Name" required>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.namedendusertwoname.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.namedendusertwoname.$invalid "><span ng-show="Form3.namedendusertwoname.$error.required">Company Name is required.</span></span>
+                                                    <label>
+                                                        <span>Street*</span>
+                                                        <input type="text" name="namedendusertwoadrs" placeholder="Street" ng-model="elais.otherpartiesQ3S2Street" required>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.namedendusertwoadrs.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.namedendusertwoadrs.$invalid "><span ng-show="Form3.namedendusertwoadrs.$error.required">Street is required.</span></span>
+                                                    <label>
+                                                        <span>City*</span>
+                                                        <input type="text" name="namedendusertwocity" placeholder="City" ng-model="elais.otherpartiesQ3S2City" required>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.namedendusertwocity.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.namedendusertwocity.$invalid "><span ng-show="Form3.namedendusertwocity.$error.required">City is required.</span></span>
+                                                    <label>
+                                                        <span>State</span>
+                                                        <input type="text" name="named-end-user-two-state" placeholder="State" ng-model="elais.otherpartiesQ3S2State">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Postal Code</span>
+                                                        <input type="text" name="named-end-user-two-postal" placeholder="Postal Code" ng-model="elais.otherpartiesQ3S2Postal">
+                                                    </label>
+                                                    <label>
+                                                        <span>Country*</span>
+                                                        <select ng-model="elais.otherpartiesQ3S2Country" name="otherpartiesQ3S2Country" required>
+                                                            <option value="">Select Country</option>
+                                                            <option ng-repeat="data in Countrylist | orderBy" value="{{data.id}}">{{data.name}}</option>
+                                                        </select>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.otherpartiesQ3S2Country.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.otherpartiesQ3S2Country.$invalid "><span ng-show="Form3.otherpartiesQ3S2Country.$error.required">Country is required.</span></span>
+                                                    <label>
+                                                        <span>Named End User Customer Contact Name</span>
+                                                        <input type="text" name="named-end-user-two-name" placeholder="Named End User Customer Contact Name" ng-model="elais.otherpartiesQ3S2CustName">
+                                                    </label>
+                                                    <label>
+                                                        <span>Named End User Customer Email Address</span>
+                                                        <input type="text" name="named-end-user-two-email" placeholder="Named End User Customer Email Address" ng-model="elais.otherpartiesQ3S2CustEmail">
+                                                    </label>
+                                                </div>
+                                                <label>
+                                                    <span style="width: auto; margin-left:17px;margin-right: 100px;">Is there a URL for the Named End User's Customer Official Website ? e.g. https://www.namedenduser.com (no email addresses)*</span>
+                                                    @*<form style="display: initial;">
+                                                        *@
+                                                        <input type="radio" name="namedwebchecktwo" value="yes" ng-model="elais.otherpartiesQ3S2Official" required> Yes
+                                                        <input type="radio" name="namedwebchecktwo" value="no" ng-model="elais.otherpartiesQ3S2Official" required> No
+                                                        <span style="color:red" ng-if="!formValid && Form3.namedwebchecktwo.$invalid ">Please Select One</span>
+                                                        @*
+                                                    </form>*@
+                                                    <input style="margin-left:57px" id="namedendurltwo" type="text" ng-if="elais.otherpartiesQ3S2Official=='yes'" name="namedurlnametwo" placeholder="Customer Official Website" ng-model="elais.otherpartiesQ3S2OfficialText" required>
+                                                    <span style="color:red;margin-right: 42px;margin-top: 2px;" class="pull-right" ng-show="!formValid && Form3.namedurlnametwo.$invalid "><span ng-show="Form3.namedurlnametwo.$error.required">Official WebSite is required.</span></span>
+                                                </label>
+                                                <div>
+                                                    <span style="width:auto; margin-left:17px;">Are there any other such identifiable targeted customers?</span>
+                                                    <form style="display: initial;">
+                                                        <input type="radio" name="named-any-two" value="yes" ng-model="elais.otherpartiesQ3S3"> Yes
+                                                        <input type="radio" name="named-any-two" value="no" ng-model="elais.otherpartiesQ3S3" ng-click="remove3()"> No
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="named-end-user-three" ng-if="elais.otherpartiesQ3S1=='yes' && elais.otherpartiesQ3S2=='yes' && elais.otherpartiesQ3S3=='yes'">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Named End User's Customer Information</div>
+                                        <div class="panel-body">
+
+                                            <div id="basic-info">
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Company Name* </span>
+                                                        <input type="text" name="namedenduserthreename" placeholder="Company Name" ng-model="elais.otherpartiesQ3S3Name" required>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.namedenduserthreename.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.namedenduserthreename.$invalid "><span ng-show="Form3.namedenduserthreename.$error.required">Company Name is required.</span></span>
+                                                    <label>
+                                                        <span>Street*</span>
+                                                        <input type="text" name="namedenduserthreeadrs" placeholder="Street" ng-model="elais.otherpartiesQ3S3Street" required>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.namedenduserthreeadrs.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.namedenduserthreeadrs.$invalid "><span ng-show="Form3.namedenduserthreeadrs.$error.required">Street is required.</span></span>
+                                                    <label>
+                                                        <span>City*</span>
+                                                        <input type="text" name="namedenduserthreecity" placeholder="City" ng-model="elais.otherpartiesQ3S3City" required>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.namedenduserthreecity.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.namedenduserthreecity.$invalid "><span ng-show="Form3.namedenduserthreecity.$error.required">City is required.</span></span>
+                                                    <label>
+                                                        <span>State</span>
+                                                        <input type="text" name="named-end-user-three-state" placeholder="State" ng-model="elais.otherpartiesQ3S3State">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span>Postal Code</span>
+                                                        <input type="text" name="named-end-user-three-postal" placeholder="Postal Code" ng-model="elais.otherpartiesQ3S3Postal">
+                                                    </label>
+                                                    <label>
+                                                        <span>Country*</span>
+                                                        <select ng-model="elais.otherpartiesQ3S3Country" name="otherpartiesQ3S3Country" required>
+                                                            <option value="">Select Country</option>
+                                                            <option ng-repeat="data in Countrylist | orderBy" value="{{data.id}}">{{data.name}}</option>
+                                                        </select>
+                                                    </label>
+                                                    <span ng-show="!formValid && Form3.otherpartiesQ3S3Country.$invalid "></span>
+                                                    <span style="color:red;text-align:center" ng-show="!formValid && Form3.otherpartiesQ3S3Country.$invalid "><span ng-show="Form3.otherpartiesQ3S3Country.$error.required">Country is required.</span></span>
+                                                    <label>
+                                                        <span>Named End User Customer Contact Name</span>
+                                                        <input type="text" name="named-end-user-three-name" placeholder="Named End User Customer Contact Name" ng-model="elais.otherpartiesQ3S3CustName">
+                                                    </label>
+                                                    <label>
+                                                        <span>Named End User Customer Email Address</span>
+                                                        <input type="text" name="named-end-user-three-email" placeholder="Named End User Customer Email Address" ng-model="elais.otherpartiesQ3S3CustEmail">
+                                                    </label>
+                                                </div>
+                                                <label>
+                                                    <span style="width: auto; margin-left:17px;margin-right: 100px;">Is there a URL for the Named End User's Customer Official Website ? e.g. https://www.namedenduser.com (no email addresses)*</span>
+                                                    @*<form style="display: initial;">
+                                                        *@
+                                                        <input type="radio" name="namedwebcheckthree" value="yes" ng-model="elais.otherpartiesQ3S3Official" required> Yes
+                                                        <input type="radio" name="namedwebcheckthree" value="no" ng-model="elais.otherpartiesQ3S3Official" required> No
+                                                        <span style="color:red" ng-if="!formValid && Form3.namedwebcheckthree.$invalid ">Please Select One</span>
+                                                        @*
+                                                    </form>*@
+                                                    <input id="named-end-url-three" style="margin-left:57px" type="text" ng-if="elais.otherpartiesQ3S3Official=='yes'" name="namedurlnamethree" placeholder="Customer Official Website" ng-model="elais.otherpartiesQ3S3OfficialText" required>
+                                                    <span style="color:red;margin-right: 42px;margin-top: 2px;" class="pull-right" ng-show="!formValid && Form3.namedurlnamethree.$invalid "><span ng-show="Form3.namedurlnamethree.$error.required">Official Website is required.</span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div id="foot">
+                        <p>NOTE: Providing inaccurate or incomplete information on this form may lead to shipping delays.</p>
+                    </div>*@
+                    <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
+                    <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" ng-click="next(Form3.$valid,3)" type="button">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Fifth Step -->
+        <div class="row setup-content-2" id="step-5">
+            <form name="Form4" novalidate>
+                <div class="col-md-12">
+                    <section>
+                        <h1>End Use of Juniper Products and Services</h1>
+                        <span id="mandatory">*Indicates Mandatory Fields </span>
+                        <p>
+                            <span class="text-danger">
+                                NOTE:
+                            </span>
+                            <li>Providing inaccurate or incomplete information on this form may lead to shipping delays.</li>
+                            <li>Provide all information in <b>English</b>. Submissions containing abbreviations, acronyms or a P.O. Box number will be considered invalid.</li>
+                        </p>
+                        <p style="font-weight:600">1) Select the primary or most appropriate single intended end use: (check all that apply)*</p>
+                        <div id="basic-info">
+                            <div id="other-party-end">
+                                @*<form>
+                                    *@
+                                    <label>
+                                        <span>Commercial enterprise network build out or expansion</span>
+                                        <input type="checkbox" name="prod-desc" value="one" ng-model="elais.enduserproductsandservices.one">
+                                    </label>
+                                    <label>
+                                        <span>Support of telecommunications or internet service provider services</span>
+                                        <input type="checkbox" name="prod-desc" value="two" ng-model="elais.enduserproductsandservices.two">
+                                    </label>
+                                    <label>
+                                        <span>Support of civil government or educational network needs</span>
+                                        <input type="checkbox" name="prod-desc" value="three" ng-model="elais.enduserproductsandservices.three">
+                                    </label>
+                                    <label>
+                                        <span>
+                                            Support of government military, paramilitary, intelligence or counterintelligence activities
+                                        </span>
+                                        <input type="checkbox" name="prod-desc" value="four" ng-model="elais.enduserproductsandservices.four">
+                                    </label>
+                                    <label>
+                                        <span>Support of government surveillance or lawful intercept activities</span>
+                                        <input type="checkbox" name="prod-desc" value="five" ng-model="elais.enduserproductsandservices.five">
+                                    </label>
+                                    <label>
+                                        <span>Support of nuclear power or nuclear fuel facilities</span>
+                                        <input type="checkbox" name="prod-desc" value="six" ng-model="elais.enduserproductsandservices.six">
+                                    </label>
+                                    <label>
+                                        <span>Support of nuclear, chemical or biological weapons development, production, storage, test, delivery or use activities</span>
+                                        <input type="checkbox" name="prod-desc" value="seven" ng-model="elais.enduserproductsandservices.seven">
+                                    </label>
+                                    <label>
+                                        <span>Support of missile development, production, storage, test, delivery or use activities</span>
+                                        <input type="checkbox" name="prod-desc" value="eight" ng-model="elais.enduserproductsandservices.eight">
+                                    </label>
+                                    <label>
+                                        <span>Integration, enhancement, configuration or test of Juniper products or services for resale or use by or for another party</span>
+                                        <input type="checkbox" name="prod-desc" value="nine" ng-model="elais.enduserproductsandservices.nine">
+                                    </label>
+                                    <label>
+                                        <span>Other</span>
+                                        <input id="none-ota" type="checkbox" name="prod-desc" value="ten" ng-model="elais.enduserproductsandservices.ten">
+                                    </label>
+                                    @*
+                                </form>*@
+                            </div>
+                        </div>
+                        <div id="prod-describe" ng-if="elais.enduserproductsandservices.ten==true">
+                            <p>Describe any other operations or activities that you have any reason to believe the products or services will be used to support.:</p>
+                            <textarea ng-model="elais.enduserproductsandservicesText" ng-minlength="10" name="enduserproductsandservicesText" required></textarea>
+                            <span style="color:red" ng-if="!formValid && Form4.enduserproductsandservicesText.$invalid">The value is too short</span>
+                            <span ng-show="!formValid && Form4.enduserproductsandservicesText.$invalid "></span>
+                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.enduserproductsandservicesText.$invalid "><span ng-show="Form4.enduserproductsandservicesText.$error.required">Please describe other operations.</span></span>
+                        </div>
+                        @*<h3 style="margin-bottom: 13px;">2) Do you have any reason to believe that any of the Juniper Products or Services will be used to support activities relating to the development, production, storage or use of missiles or of nuclear, chemical or biological weapons?*</h3>
+                        <label>
+                            <form style="display: initial;">
+                                <input type="radio" name="reason-check" value="yes"> Yes
+                                <input type="radio" name="reason-check" value="no"> No
+                            </form>
+                        </label>*@
+                        <p style="margin-top: 24px; font-weight:600">2) Do you have any reason to believe that any of the Juniper Products or Services will be used in whole or in part in connection with violations of human rights, of democratic principles or of the freedom of speech as defined in the Charter of Fundamental Rights of the EU, where use is made of interception techniques and digital data transfer equipment for monitoring mobile phones and reading text messages and of targeted surveillance of internet use (e.g., by means of monitoring centers and lawful interception gateways)?*</p>
+                        <div style="margin-top: 15px;margin-bottom: 7px !important;">
+                            @*<form style="display: initial;">
+                                *@
+                                <input type="radio" name="reasoncheck1" value="yes" ng-model="elais.enduserproductsandservicesQ2" required> Yes
+                                <input type="radio" name="reasoncheck1" value="no" ng-model="elais.enduserproductsandservicesQ2" required> No
+                                <span style="color:red;" ng-show="!formValid && Form4.reasoncheck1.$invalid "><span ng-show="Form4.reasoncheck1.$error.required">Please select one.</span></span>
+                                @*
+                            </form>*@
+                        </div>
+                        <p style="margin-top: 24px; font-weight:600">3) Do you have a reason to believe that the Juniper Products may need service renewal?*</p>
+                        <div style="margin-top: 15px;margin-bottom: 7px !important;">
+                            @*<form style="display: initial;">
+                                *@
+                                <input type="radio" name="reasoncheck2" value="yes" ng-model="elais.enduserproductsandservicesQ3" required> Yes
+                                <input type="radio" name="reasoncheck2" value="no" ng-model="elais.enduserproductsandservicesQ3" required> No
+                                <input type="radio" name="reasoncheck2" value="NotSure" ng-model="elais.enduserproductsandservicesQ3" required> Not Sure
+                                <span style="color:red;" ng-show="!formValid && Form4.reasoncheck2.$invalid "><span ng-show="Form4.reasoncheck2.$error.required">Please select one.</span></span>
+                                @*
+                            </form>*@
+                        </div>
+                        <h1>Installation Sites</h1>
+                        <p style="font-weight:600">1) Do you have reason to believe that the Juniper products may be installed at sites other than the End User address indicated above?*</p>
+                        <div style="margin-top: 15px;">
+                            @*<form style="display: initial;">
+                                *@
+                                <input type="radio" name="reasoncheck3" value="yes" ng-model="elais.installationsite" required> Yes
+                                <input type="radio" name="reasoncheck3" value="no" ng-model="elais.installationsite" ng-click="removesite()" required> No
+                                <span style="color:red;" ng-show="!formValid && Form4.reasoncheck3.$invalid "><span ng-show="Form4.reasoncheck3.$error.required">Please select one.</span></span>
+                                @*
+                            </form>*@
+                        </div>
+                        <div id="site-one" ng-if="elais.installationsite=='yes'">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><h3>Site: 1</h3></div>
+                                <div class="panel-body">
+                                    <div id="basic-info">
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Company Name* </span>
+                                                <input type="text" name="purchasername" placeholder="Company Name" ng-model="elais.installationsiteName" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchasername.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchasername.$invalid "><span ng-show="Form4.purchasername .$error.required">Company Name is required.</span></span>
+                                            <label>
+                                                <span>Street*</span>
+                                                <input type="text" name="purchaserstreet" placeholder="Street" ng-model="elais.installationsiteStreet" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchaserstreet.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchaserstreet.$invalid "><span ng-show="Form4.purchaserstreet.$error.required">Street is required.</span></span>
+                                            <label>
+                                                <span>City*</span>
+                                                <input type="text" name="purchasercity" placeholder="City" ng-model="elais.installationsiteCity" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchasercity.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchasercity.$invalid "><span ng-show="Form4.purchasercity.$error.required">City is required.</span></span>
+                                            <label>
+                                                <span>State</span>
+                                                <input type="text" name="purchaser-state" placeholder="State" ng-model="elais.installationsiteState">
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Postal Code</span>
+                                                <input type="text" name="purchaser-postal" placeholder="Postal Code" ng-model="elais.installationsitePostal">
+                                            </label>
+                                            <label>
+                                                <span>Country*</span>
+                                                <select ng-model="elais.installationsiteCountry" name="installationsiteCountry" required>
+                                                    <option value="">Select Country</option>
+                                                    <option ng-repeat="data in Countrylist | orderBy" value="{{data.id}}">{{data.name}}</option>
+                                                </select>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.installationsiteCountry.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.installationsiteCountry.$invalid "><span ng-show="Form4.installationsiteCountry.$error.required">Country is required.</span></span>
+                                            <label>
+                                                <span>URL of the company’s official website: </span>
+                                                <input type="text" name="partner-number" placeholder="Company’s official website" ng-model="elais.installationsiteOfficial">
+                                            </label>
+                                            <div>
+                                                <span style="margin-left: 10px;">Any other installation sites?</span>
+                                                <form style="display: initial;">
+                                                    <input type="radio" name="reason-check-2" value="yes" ng-model="elais.installationsite1"> Yes
+                                                    <input type="radio" name="reason-check-2" value="no" ng-model="elais.installationsite1" ng-click="removesite1()"> No
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="site-two" ng-if="elais.installationsite1=='yes' && elais.installationsite=='yes'">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><h3>Site: 2</h3></div>
+                                <div class="panel-body">
+                                    <div id="basic-info">
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Company Name* </span>
+                                                <input type="text" name="purchasername1" placeholder="Company Name" ng-model="elais.installationsite1Name" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchasername1.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchasername1.$invalid "><span ng-show="Form4.purchasername1.$error.required">Company Name is required.</span></span>
+                                            <label>
+                                                <span>Street*</span>
+                                                <input type="text" name="purchaserstreet1" placeholder="Street" ng-model="elais.installationsite1Street" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchaserstreet1.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchaserstreet1.$invalid "><span ng-show="Form4.purchaserstreet1.$error.required">Street is required.</span></span>
+                                            <label>
+                                                <span>City*</span>
+                                                <input type="text" name="purchasercity1" placeholder="City" ng-model="elais.installationsite1City" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchasercity1.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchasercity1.$invalid "><span ng-show="Form4.purchasercity1.$error.required">City is required.</span></span>
+                                            <label>
+                                                <span>State</span>
+                                                <input type="text" name="purchaser-state" placeholder="State" ng-model="elais.installationsite1State">
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Postal Code</span>
+                                                <input type="text" name="purchaser-postal" placeholder="Postal Code" ng-model="elais.installationsite1Postal">
+                                            </label>
+                                            <label>
+                                                <span>Country*</span>
+                                                <select ng-model="elais.installationsite1Country" name="installationsite1Country" required>
+                                                    <option value="">Select Country</option>
+                                                    <option ng-repeat="data in Countrylist| orderBy" value="{{data.id}}">{{data.name}}</option>
+                                                </select>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.installationsite1Country.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.installationsite1Country.$invalid "><span ng-show="Form4.installationsite1Country.$error.required">Country is required.</span></span>
+                                            <label>
+                                                <span>URL of the company’s official website: </span>
+                                                <input type="text" name="partner-number" placeholder="Company’s official website" ng-model="elais.installationsite1Official">
+                                            </label>
+                                            <div>
+                                                <span style="margin-left: 10px;">Any Other?</span>
+                                                <form style="display: initial;">
+                                                    <input type="radio" name="reason-check-2" value="yes" ng-model="elais.installationsite2"> Yes
+                                                    <input type="radio" name="reason-check-2" value="no" ng-model="elais.installationsite2" ng-click="removesite2()"> No
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="site-three" ng-if="elais.installationsite=='yes' && elais.installationsite1=='yes' && elais.installationsite2=='yes'">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><h3>Site: 3</h3></div>
+                                <div class="panel-body">
+                                    <div id="basic-info">
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Company Name* </span>
+                                                <input type="text" name="purchasername2" placeholder="Company Name" ng-model="elais.installationsite2Name" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchasername2.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchasername2.$invalid "><span ng-show="Form4.purchasername2.$error.required">Company Name is required.</span></span>
+                                            <label>
+                                                <span>Street*</span>
+                                                <input type="text" name="purchaserstreet2" placeholder="Street" ng-model="elais.installationsite2Street" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchaserstreet2.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchaserstreet2.$invalid "><span ng-show="Form4.purchaserstreet2.$error.required">Street is required.</span></span>
+                                            <label>
+                                                <span>City*</span>
+                                                <input type="text" name="purchasercity2" placeholder="City" ng-model="elais.installationsite2City" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchasercity2.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchasercity2.$invalid "><span ng-show="Form4.purchasercity2.$error.required">City is required.</span></span>
+                                            <label>
+                                                <span>State</span>
+                                                <input type="text" name="purchaser-state" placeholder="State" ng-model="elais.installationsite2State">
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Postal Code</span>
+                                                <input type="text" name="purchaser-postal" placeholder="Postal Code" ng-model="elais.installationsite2Postal">
+                                            </label>
+                                            <label>
+                                                <span>Country*</span>
+                                                <select name="installationsite2Country" ng-model="elais.installationsite2Country" required>
+                                                    <option value="">Select Country</option>
+                                                    <option ng-repeat="data in Countrylist| orderBy" value="{{data.id}}">{{data.name}}</option>
+                                                </select>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.installationsite2Country.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.installationsite2Country.$invalid "><span ng-show="Form4.installationsite2Country.$error.required">Country is required.</span></span>
+                                            <label>
+                                                <span>URL of the company’s official website: </span>
+                                                <input type="text" name="partner-number" placeholder="Company’s official website" ng-model="elais.installationsite2Official">
+                                            </label>
+                                            <label>
+                                                <span style="margin-left: 10px;">Any Other?</span>
+                                                <form style="display: initial;">
+                                                    <input type="radio" name="reason-check-2" value="yes" ng-model="elais.installationsite3"> Yes
+                                                    <input type="radio" name="reason-check-2" value="no" ng-model="elais.installationsite3" ng-click="removesite3()"> No
+                                                </form>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="site-four" ng-if="elais.installationsite=='yes' && elais.installationsite1=='yes' && elais.installationsite2=='yes' && elais.installationsite3=='yes'">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><h3>Site: 4</h3></div>
+                                <div class="panel-body">
+                                    <div id="basic-info">
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Company Name* </span>
+                                                <input type="text" name="purchasername3" placeholder="Company Name" ng-model="elais.installationsite3Name" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchasername3.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchasername3.$invalid "><span ng-show="Form4.purchasername3.$error.required">Company Name is required.</span></span>
+                                            <label>
+                                                <span>Street*</span>
+                                                <input type="text" name="purchaserstreet3" placeholder="Street" ng-model="elais.installationsite3Street" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchaserstreet3.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchaserstreet3.$invalid "><span ng-show="Form4.purchaserstreet3.$error.required">Street is required.</span></span>
+                                            <label>
+                                                <span>City*</span>
+                                                <input type="text" name="purchasercity3" placeholder="City" ng-model="elais.installationsite3City" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchasercity3.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchasercity3.$invalid "><span ng-show="Form4.purchasercity3.$error.required">City is required.</span></span>
+                                            <label>
+                                                <span>State</span>
+                                                <input type="text" name="purchaserstate3" placeholder="State" ng-model="elais.installationsite3State">
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Postal Code</span>
+                                                <input type="text" name="purchaser-postal" placeholder="Postal Code" ng-model="elais.installationsite3Postal">
+                                            </label>
+                                            <label>
+                                                <span>Country*</span>
+                                                <select ng-model="elais.installationsite3Country" name="installationsite3Country" required>
+                                                    <option value="">Select Country</option>
+                                                    <option ng-repeat="data in Countrylist| orderBy" value="{{data.id}}">{{data.name}}</option>
+                                                </select>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.installationsite3Country.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.installationsite3Country.$invalid "><span ng-show="Form4.installationsite3Country .$error.required">Country is required.</span></span>
+                                            <label>
+                                                <span>URL of the company’s official website: </span>
+                                                <input type="text" name="partner-number" ng-model="elais.installationsite3Official" placeholder="Company’s official website">
+                                            </label>
+                                            <div>
+                                                <span style="margin-left: 10px;">Any Other?</span>
+                                                <form style="display: initial;">
+                                                    <input type="radio" name="reason-check-2" value="yes" ng-model="elais.installationsite4"> Yes
+                                                    <input type="radio" name="reason-check-2" value="no" ng-model="elais.installationsite4" ng-click="removesite4()"> No
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="site-five" ng-if="elais.installationsite=='yes' && elais.installationsite1=='yes' && elais.installationsite2=='yes' && elais.installationsite3=='yes' && elais.installationsite4=='yes'">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><h3>Site: 5</h3></div>
+                                <div class="panel-body">
+                                    <div id="basic-info">
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Company Name* </span>
+                                                <input type="text" name="purchasername4" placeholder="Company Name" ng-model="elais.installationsite4Name" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchasername4.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchasername4.$invalid "><span ng-show="Form4.purchasername4.$error.required">Company Name is required.</span></span>
+                                            <label>
+                                                <span>Street*</span>
+                                                <input type="text" name="purchaserstreet4" placeholder="Street" ng-model="elais.installationsite4Street" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchaserstreet4.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchaserstreet4.$invalid "><span ng-show="Form4.purchaserstreet4.$error.required">Street is required.</span></span>
+                                            <label>
+                                                <span>City*</span>
+                                                <input type="text" name="purchasercity4" placeholder="City" ng-model="elais.installationsite4City" required>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.purchasercity4.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.purchasercity4.$invalid "><span ng-show="Form4.purchasercity4.$error.required">City is required.</span></span>
+                                            <label>
+                                                <span>State</span>
+                                                <input type="text" name="purchaser-state" placeholder="State" ng-model="elais.installationsite4State">
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>
+                                                <span>Postal Code</span>
+                                                <input type="text" name="purchaser-postal" placeholder="Postal Code" ng-model="elais.installationsite4Postal">
+                                            </label>
+                                            <label>
+                                                <span>Country*</span>
+                                                <select name="installationsite4Country" ng-model="elais.installationsite4Country" required>
+                                                    <option value="">Select Country</option>
+                                                    <option ng-repeat="data in Countrylist| orderBy" value="{{data.id}}">{{data.name}}</option>
+                                                </select>
+                                            </label>
+                                            <span ng-show="!formValid && Form4.installationsite4Country.$invalid "></span>
+                                            <span style="color:red;text-align:center" ng-show="!formValid && Form4.installationsite4Country.$invalid "><span ng-show="Form4.installationsite4Country.$error.required">Country is required.</span></span>
+                                            <label>
+                                                <span>URL of the company’s official website: </span>
+                                                <input type="text" name="partner-number" ng-model="elais.installationsite4Official" placeholder="Company’s official website">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div id="foot">
+                            <p>NOTE: Providing inaccurate or incomplete information on this form may lead to shipping delays.</p>
+                        </div>*@
+                    </section>
+                    <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
+                    <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button" ng-click="next(Form4.$valid,4)" onclick="show26()">Next</button>
+                </div>
+            </form>
+        </div>
+        <!-- Seventh Step -->
+        <div class="row setup-content-2" id="step-7">
+            <form name="Form5" novalidate>
+                <div class="col-md-12">
+                    <section>
+                        <h3>I Certify that:</h3>
+                        <div id="sign-check">
+                            <label for="rd1"><input type="checkbox" ng-model="elais.icertify"><span>All Information provided in this form is current, accurate and complete.</span></label><br />
+                        </div>
+                        <h3>I agree on behalf of the Juniper Channel Partner named below:</h3>
+                        <div id="sign-check">
+                            <label for="rd1"><input type="checkbox" ng-model="elais.iagree"><span>If one or more export licenses are required and Juniper holds or obtains them, then Channel Partner shall agree to these&nbsp;<a href="" data-toggle="modal" data-target="#myModal">Licensing Conditions</a></span></label><br />
+                        </div>
+                        <h3 style="margin-top:10px;">I acknowledge that:</h3>
+                        <div id="sign-check">
+                            <label for="rd2"><input type="checkbox" ng-model="elais.iacknowledge"><span>Juniper relies on the information provided on this form and that providing obsolete, inaccurate or incomplete information may lead to shipping delays as well as other unintended consequences.</span></label><br />
+                        </div>
+                        <div id="get-sign" style="margin-left:60px;margin-top:30px;">
+                            <div style="font-weight:500; font-size:inherit;color: #222;font-size: 14px;" id="basic-info">
+                                <label>
+                                    <span>Company Name of Authorized Partner:</span>
+                                    <input type="text" name="partnername" ng-model="elais.companyChannelPartner" required>
+                                    <span ng-show="!formValid && Form5.partnername.$invalid "></span>
+                                    <span style="color:red" ng-show="!formValid && Form5.partnername.$invalid "><span ng-show="Form5.partnername.$error.required">Channel Partner is required.</span></span>
+                                </label>
+                                <label>
+                                    <span>Name of authorized representative:</span>
+                                    <input type="text" name="flname" ng-model="elais.nameofauthorizedrepresentative" required>
+                                    <span ng-show="!formValid && Form5.flname.$invalid "></span>
+                                    <span style="color:red" ng-show="!formValid && Form5.flname.$invalid "><span ng-show="Form5.flname.$error.required">Name of authorized representative is required.</span></span>
+                                </label>
+                                <label>
+                                    <span>Job title of authorized representative:</span>
+                                    <input type="text" name="job" ng-model="elais.authorizedrepresentative" required>
+                                    <span ng-show="!formValid && Form5.job.$invalid "></span>
+                                    <span style="color:red" ng-show="!formValid && Form5.job.$invalid "><span ng-show="Form5.job.$error.required">Job title of authorized representative is required.</span></span>
+                                </label>
+                                <label>
+                                    <span>Date</span>
+                                    <input type="text" name="date" ng-model="elais.Date | date:'dd/MM/yyyy'" disabled>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    <button style="clear:both;" class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button" onclick="show25()">Previous</button>
+                    <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button" ng-click="Save(Form5.$valid)">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <script type="text/javascript">
+            function show1() {
+                document.getElementById('resell').style.display = 'block';
+            }
+            function show2() {
+                document.getElementById('resell').style.display = 'none';
+            }
+            function show3() {
+                document.getElementById('offering').style.display = 'block';
+            }
+            function show4() {
+                document.getElementById('offering').style.display = 'none';
+            }
+            //function show5() {
+            //    document.getElementById('site-one').style.display = 'block';
+            //}
+            //function show6() {
+            //    document.getElementById('site-one').style.display = 'none';
+            //    document.getElementById('site-two').style.display = 'none';
+            //    document.getElementById('site-three').style.display = 'none';
+            //    document.getElementById('site-four').style.display = 'none';
+            //    document.getElementById('site-five').style.display = 'none';
+            //}
+            //function show7() {
+            //    document.getElementById('site-two').style.display = 'block';
+            //}
+            //function show8() {
+            //    document.getElementById('site-two').style.display = 'none';
+            //    document.getElementById('site-three').style.display = 'none';
+            //    document.getElementById('site-four').style.display = 'none';
+            //    document.getElementById('site-five').style.display = 'none';
+            //}
+            //function show9() {
+            //    document.getElementById('site-three').style.display = 'block';
+            //}
+            //function show10() {
+            //    document.getElementById('site-three').style.display = 'none';
+            //    document.getElementById('site-four').style.display = 'none';
+            //    document.getElementById('site-five').style.display = 'none';
+            //}
+            //function show11() {
+            //    document.getElementById('site-four').style.display = 'block';
+            //}
+            //function show12() {
+            //    document.getElementById('site-four').style.display = 'none';
+            //    document.getElementById('site-five').style.display = 'none';
+            //}
+            //function show13() {
+            //    document.getElementById('site-five').style.display = 'block';
+            //}
+            //function show14() {
+            //    document.getElementById('site-five').style.display = 'none';
+            //}
+            function show15() {
+                document.getElementById('partner-number-input').style.display = 'none';
+            }
+            /* function show16() {
+                 {
+                     if($('#none-of-the-above').is(":checked"))   {
+                         console.log('check');
+                         document.getElementById('end-user-describe').style.display = 'block !important';}
+                         else
+                          document.getElementById('end-user-describe').style.display = 'none';
+                  }
+              }*/
+            function show17() {
+                document.getElementById('named-end-user-all').style.display = 'block';
+            }
+            function show18() {
+                document.getElementById('named-end-user-all').style.display = 'none';
+                document.getElementById('named-end-user-one').style.display = 'none';
+                document.getElementById('named-end-user-two').style.display = 'none';
+                document.getElementById('named-end-user-three').style.display = 'none';
+            }
+            function show19() {
+                document.getElementById('named-end-user-one').style.display = 'block';
+            }
+            function show20() {
+                document.getElementById('named-end-user-one').style.display = 'none';
+                document.getElementById('named-end-user-two').style.display = 'none';
+                document.getElementById('named-end-user-three').style.display = 'none';
+
+            }
+            function show21() {
+                document.getElementById('named-end-user-two').style.display = 'block';
+            }
+            function show22() {
+                document.getElementById('named-end-user-two').style.display = 'none';
+                document.getElementById('named-end-user-three').style.display = 'none';
+            }
+            function show23() {
+                document.getElementById('named-end-user-three').style.display = 'block';
+            }
+            function show24() {
+                document.getElementById('named-end-user-three').style.display = 'none';
+            }
+            function show25() {
+                document.getElementById('steps-form-2-main').style.display = 'block';
+            }
+            function show26() {
+                document.getElementById('steps-form-2-main').style.display = 'none';
+            }
+            function show27() {
+                document.getElementById('eu-url').style.display = 'block';
+            }
+            function show28() {
+                document.getElementById('eu-url').style.display = 'none';
+            }
+            function show29() {
+                document.getElementById('int-url').style.display = 'block';
+            }
+            function show30() {
+                document.getElementById('int-url').style.display = 'none';
+            }
+            function show31() {
+                document.getElementById('end-user-url').style.display = 'initial';
+            }
+            function show32() {
+                document.getElementById('end-user-url').style.display = 'none';
+            }
+            function show33() {
+                document.getElementById('int-party-url').style.display = 'initial';
+            }
+            function show34() {
+                document.getElementById('int-party-url').style.display = 'none';
+            }
+            function show35() {
+                document.getElementById('named-end-user-url').style.display = 'initial';
+            }
+            function show36() {
+                document.getElementById('named-end-user-url').style.display = 'none';
+            }
+            function show37() {
+                document.getElementById('named-end-url-one').style.display = 'initial';
+            }
+            function show38() {
+                document.getElementById('named-end-url-one').style.display = 'none';
+            }
+            function show39() {
+                document.getElementById('named-end-url-two').style.display = 'initial';
+            }
+            function show40() {
+                document.getElementById('named-end-url-two').style.display = 'none';
+            }
+            function show41() {
+                document.getElementById('named-end-url-three').style.display = 'initial';
+            }
+            function show42() {
+                document.getElementById('named-end-url-three').style.display = 'none';
+            }
+
+
+
+
+
+        </script>
+        <!-- SCRIPTS -->
+        <!-- JQuery -->
+        <script type="text/javascript" src="~/assets/EliasForm/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+
+                $("input[name$='end-user']").click(function () {
+                    var test = $(this).val();
+                    if (test == 'opt-fourteen') {
+                        document.getElementById('eud').style.display = 'block';
+                    } else {
+                        document.getElementById('eud').style.display = 'none';
+                    }
+                });
+            });
+            //$(document).ready(function () {
+            //    $("input[name$='prod-desc']").click(function () {
+            //        document.getElementById('prod-describe').style.display = 'none';
+            //        var test = $(this).val();
+            //        if (test == 'val-10') {
+            //            document.getElementById('prod-describe').style.display = 'block';
+            //        } else {
+            //            document.getElementById('prod-describe').style.display = 'none';
+            //        }
+            //    });
+            //});
+
+            function valueChanged() {
+                if ($('#none-ota').is(":checked"))
+                    document.getElementById('prod-describe').style.display = 'block';
+                else
+                    document.getElementById('prod-describe').style.display = 'none';
+            }
+
+        </script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="~/assets/EliasForm/js/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        @*
+        <script type="text/javascript" src="~/assets/EliasForm/js/bootstrap.min.js"></script>*@
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="~/assets/EliasForm/js/mdb.min.js"></script>
+        <script type="text/javascript" src="~/assets/EliasForm/js/script.js"></script>
+        @*</script>*@
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" tabindex="-1" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Licensing Conditions</h4>
+                </div>
+
+                <div class="modal-body">
+                    <ul>
+                        <li>Comply with all applicable license conditions;</li>
+                        <li>Fully cooperate with Juniper in arranging delivery and routing as Juniper instructs and take all necessary measures to prevent any diversion of any Juniper Products or Services to parties or locations other than as identified herein;&nbsp;</li>
+                        <li>Obtain&nbsp;archive for at least 7 years shipping and clearance documentation for all deliveries under the transaction;&nbsp;</li>
+                        <li>Deliver to Juniper to request documentary proof of final delivery of all of the Juniper Products and Services to the End User;</li>
+                        <li>Proof of Delivery.  With regard to any product delivered under license, Channel Partner shall obtain written proof of delivery (“POD”) confirming actual final delivery to the End User, furnish a copy to Juniper at <a style="text-decoration: none;" href="mailto:tradecompliance@juniper.net"><em><span style="font-size: 11pt; color: #000000;">tradecompliance@juniper.net</span></em></a> and archive the original for no less than five (5) years (and for seven (7) years, if export is under Netherlands license). (The POD must specify the controlled items exported under license by product/model number and serial number, must include date of delivery and must identify the delivering party, the place of delivery and the recipient.  If you wish you may download a sample POD form from <a style="text-decoration: none;" href="https://www.juniper.net/us/en/company/corporate-responsibility/international-trade/"><u><span style="color: #0563c1;">https://www.juniper.net/us/en/company/corporate-responsibility/international-trade/</span></u></a> )</li>
+                        <li>Forwarders and Customs Brokers.  Channel Partner shall fully cooperate with Juniper to transport any product required to be shipped under license to the final destination using forwarders and customs brokers satisfactory to Juniper, shall instruct such forwarders and brokers to process the transaction in a manner in conformity with applicable laws and with applicable license.</li>
+                    </ul>
+                </div>
+
+                <div class="modal-footer">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+@section scripts{
+<script src="~/js/api/elaisform.js"></script>
+<script src="~/js/userProfile.js"></script>
+<script type="text/javascript">
+    //var myApp = angular.module('myApp', [])
+    myApp.controller("myCtrl", function ($scope, $filter, $http, $location) {
+
+        $scope.elais = {}; $scope.formValid = true;
+
+        $scope.checkdata = userProfile.get('Preview');
+
+        if ($scope.checkdata) {
+            $('a[href = "#step-2"]').click();
+            $scope.elais = $scope.checkdata;
+        }
+
+        $scope.elais.Date = new Date();
+
+        $scope.RedirectDousign = function () {
+            Component.redirect("Hangfire");
+        };
+
+        $scope.logoff = function () {
+            alert("yet to be done !");
+        }
+
+        $scope.showtextarea = function () {
+
+            $scope.elais.enduserproductsandservices = {};
+            $scope.elais.enduserproductsandservices.ten = true;
+
+        }
+
+        //$scope.redirecttoelais = function () {
+
+        //    userProfile.set('Preview', $scope.elais);
+
+        //    Component.redirect("PdfElais");
+        //}
+
+        $scope.next = function (form, step) {
+            $scope.formValid = true;
+            if (form != null && !form) {
+                $scope.formValid = false;
+            }
+
+            switch (step) {
+                case 1:
+                    if (!form) {
+                        Component.showError("Please Fill The Required Fields");
+                    }
+                    break;
+                case 2:
+                    if (!form) {
+                        $('a[href = "#step-3"]').click();
+                        Component.showError("Please Fill The Required Fields");
+                    }
+                    break;
+                case 3:
+                    if (!form) {
+                        $('a[href = "#step-4"]').click();
+                        Component.showError("Please Fill The Required Fields");
+                    } else if (form == true) {
+
+                        if ($scope.elais.enduserPrimaryBussinessFunc == undefined) {
+                            $('a[href = "#step-4"]').click();
+                        }
+                        else {
+                            var a = false;
+                            angular.forEach($scope.elais.enduserPrimaryBussinessFunc, function (value, key) {
+
+                                if (value == true) { a = true; return false; }
+                            });
+
+                            if (a == false) { $('a[href = "#step-4"]').click(); }
+                        }
+                    }
+                    break;
+
+                case 4:
+                    if (!form) {
+                        $('a[href = "#step-5"]').click();
+                        Component.showError("Please Fill The Required Fields");
+                    } else if (form == true) {
+
+                        if ($scope.elais.enduserproductsandservices == undefined) {
+                            $('a[href = "#step-5"]').click();
+                        }
+                        else {
+                            var a = false;
+                            angular.forEach($scope.elais.enduserproductsandservices, function (value, key) {
+
+                                if (value == true) { a = true; return false; }
+                            });
+
+                            if (a == false) { $('a[href = "#step-5"]').click(); }
+                        }
+                    }
+                    break;
+            }
+        }
+
+        $scope.Save = function (form) {
+
+            if (!$scope.elais.icertify || !$scope.elais.iacknowledge || !$scope.elais.iagree) {
+                alert("Please Agree The Above Terms & Conditions");
+                return false;
+            }
+
+            $scope.formValid = true;
+            if (form != null && !form) {
+                $scope.formValid = false;
+                return false;
+            }
+
+            userProfile.set('Preview', $scope.elais);
+
+            Component.redirect("PdfElais");
+
+            //var data = {
+            //    SubFn: $scope.elais.firstName,
+            //    SubLn: $scope.elais.lastName,
+            //    JobTitle: $scope.elais.jobTitle,
+            //    CpName: $scope.elais.channelPartner,
+            //    SubEmail: $scope.elais.emailAddress,
+            //    JVarid: $scope.elais.JuniperVar,
+            //    Quote: $scope.elais.quoteNumber,
+            //    QDate: $scope.elais.quoteDate,
+            //    Po: $scope.elais.purchaseOrder,
+            //    So: $scope.elais.salesOrder,
+            //    DCompname: $scope.elais.purchaserName,
+            //    DStreet: $scope.elais.purchaserStreet,
+            //    DCity: $scope.elais.purchaserCity,
+            //    DState: $scope.elais.purchaserState,
+            //    DPostal: $scope.elais.purchaserPostalCode,
+            //    DCty: $scope.elais.purchaserCountry,
+            //    EuCompname: $scope.elais.enduserCompanyName,
+            //    EuStreet: $scope.elais.enduserStreet,
+            //    EuCity: $scope.elais.enduserCity,
+            //    EuState: $scope.elais.enduserState,
+            //    EuPostal: $scope.elais.enduserPostalcode,
+            //    EuCty: $scope.elais.enduserCountry,
+            //    EuName: $scope.elais.enduserContactName,
+            //    EuEmail: $scope.elais.enduserEmail,
+            //    EuUrl: $scope.elais.enduserOfficialText,
+            //    EuBussFn: $scope.elais.enduserPrimaryBussinessFunc,
+            //    EuOffering: $scope.elais.otherpartiesproductsandservices,
+            //    OpCompname: $scope.elais.otherpartiesQ2Name,
+            //    OpStreet: $scope.elais.otherpartiesQ2Street,
+            //    OpCity: $scope.elais.otherpartiesQ2City,
+            //    OpState: $scope.elais.otherpartiesQ2State,
+            //    OpPostal: $scope.elais.otherpartiesQ2Postal,
+            //    OpCty: $scope.elais.otherpartiesQ2Country,
+            //    OpName: $scope.elais.otherpartiesQ2PartContact,
+            //    OpEmail: $scope.elais.otherpartiesQ3PartEmail,
+            //    OpUrl: $scope.elais.otherpartiesQ2OfficialText,
+            //    Neu1Compname: $scope.elais.otherpartiesQ3Name,
+            //    Neu1Street: $scope.elais.otherpartiesQ3Address,
+            //    Neu1City: $scope.elais.otherpartiesQ3City,
+            //    Neu1State: $scope.elais.otherpartiesQ3State,
+            //    Neu1Postal: $scope.elais.otherpartiesQ3Postal,
+            //    Neu1Cty: $scope.elais.otherpartiesQ3Country,
+            //    Neu1Name: $scope.elais.otherpartiesQ3CustContact,
+            //    Neu1Email: $scope.elais.otherpartiesQ3CustEmail,
+            //    Neu1Url: $scope.elais.otherpartiesQ3OfficialText,
+            //    Neu2Compname: $scope.elais.otherpartiesQ3S1Name,
+            //    Neu2Street: $scope.elais.otherpartiesQ3S1Address,
+            //    Neu2City: $scope.elais.otherpartiesQ3S1City,
+            //    Neu2State: $scope.elais.otherpartiesQ3S1State,
+            //    Neu2Postal: $scope.elais.otherpartiesQ3S1Postal,
+            //    Neu2Cty: $scope.elais.otherpartiesQ3S1Country,
+            //    Neu2Name: $scope.elais.otherpartiesQ3S1CustContact,
+            //    Neu2Email: $scope.elais.otherpartiesQ3S1CustEmail,
+            //    Neu2Url: $scope.elais.otherpartiesQ3S1OfficialText,
+            //    Neu3Compname: $scope.elais.otherpartiesQ3S2Name,
+            //    Neu3Street: $scope.elais.otherpartiesQ3S2Street,
+            //    Neu3City: $scope.elais.otherpartiesQ3S2City,
+            //    Neu3State: $scope.elais.otherpartiesQ3S2State,
+            //    Neu3Postal: $scope.elais.otherpartiesQ3S2Postal,
+            //    Neu3Cty: $scope.elais.otherpartiesQ3S2Country,
+            //    Neu3Name: $scope.elais.otherpartiesQ3S2CustName,
+            //    Neu3Email: $scope.elais.otherpartiesQ3S2CustEmail,
+            //    Neu3Url: $scope.elais.otherpartiesQ3S2OfficialText,
+            //    Neu4Compname: $scope.elais.otherpartiesQ3S3Name,
+            //    Neu4Street: $scope.elais.otherpartiesQ3S3Street,
+            //    Neu4City: $scope.elais.otherpartiesQ3S3City,
+            //    Neu4State: $scope.elais.otherpartiesQ3S3State,
+            //    Neu4Postal: $scope.elais.otherpartiesQ3S3Postal,
+            //    Neu4Cty: $scope.elais.otherpartiesQ3S3Country,
+            //    Neu4Name: $scope.elais.otherpartiesQ3S3CustName,
+            //    Neu4Email: $scope.elais.otherpartiesQ3S3CustEmail,
+            //    Neu4Url: $scope.elais.otherpartiesQ3S3OfficialText,
+            //    //EuQ1: $scope.,
+            //    EuQ2: $scope.elais.enduserproductsandservicesQ2,
+            //    S1Compname: $scope.elais.installationsiteName,
+            //    S1Street: $scope.elais.installationsiteStreet,
+            //    S1City: $scope.elais.installationsiteCity,
+            //    S1State: $scope.elais.installationsiteState,
+            //    S1Postal: $scope.elais.installationsitePostal,
+            //    S1Cty: $scope.elais.installationsiteCountry,
+            //    S1Url: $scope.elais.installationsiteOfficial,
+            //    S2Compname: $scope.elais.installationsite1Name,
+            //    S2Street: $scope.elais.installationsite1Street,
+            //    S2City: $scope.elais.installationsite1City,
+            //    S2State: $scope.elais.installationsite1State,
+            //    S2Postal: $scope.elais.installationsite1Postal,
+            //    S2Cty: $scope.elais.installationsite1Country,
+            //    S2Url: $scope.elais.installationsite1Official,
+            //    S3Compname: $scope.elais.installationsite2Name,
+            //    S3Street: $scope.elais.installationsite2Street,
+            //    S3City: $scope.elais.installationsite2City,
+            //    S3State: $scope.elais.installationsite2State,
+            //    S3Postal: $scope.elais.installationsite2Postal,
+            //    S3Cty: $scope.elais.installationsite2Country,
+            //    S3Url: $scope.elais.installationsite2Official,
+            //    S4Compname: $scope.elais.installationsite3Name,
+            //    S4Street: $scope.elais.installationsite3Street,
+            //    S4City: $scope.elais.installationsite3City,
+            //    S4State: $scope.elais.installationsite3State,
+            //    S4Postal: $scope.elais.installationsite3Postal,
+            //    S4Cty: $scope.elais.installationsite3Country,
+            //    S4Url: $scope.elais.installationsite3Official,
+            //    S5Compname: $scope.elais.installationsite4Name,
+            //    S5Street: $scope.elais.installationsite4Street,
+            //    S5City: $scope.elais.installationsite4City,
+            //    S5State: $scope.elais.installationsite4State,
+            //    S5Postal: $scope.elais.installationsite4Postal,
+            //    S5Cty: $scope.elais.installationsite4Country,
+            //    S5Url: $scope.elais.installationsite2Official,
+            //    CpCompname: $scope.elais.companyChannelPartner,
+            //    AuthRepreName: $scope.elais.nameofauthorizedrepresentative,
+            //    AuthRepreJob: $scope.elais.authorizedrepresentative,
+            //    AckDate: $scope.elais.Date
+            //}
+
+            //Elaisform.SaveElais(data).then(function (res) {
+            //    $scope.response = res;
+            //    if (res == true)
+            //        Component.showSuccess('Saved Successfully');
+            //    $scope.elais = {};
+            //}, function (error) {
+            //    Component.handleApiError(error);
+            //})
+        }
+
+        $scope.Countrylist = [
+            { id: 'Austria', name: 'Austria' },
+            { id: 'Australia', name: 'Australia' },
+            { id: 'Belgium', name: 'Belgium' },
+            { id: 'Bulgaria', name: 'Bulgaria' },
+            { id: 'Canada', name: 'Canada' },
+            { id: 'Switzerland', name: 'Switzerland' },
+            { id: 'Cyprus', name: 'Cyprus' },
+            { id: 'Czech Republic', name: 'Czech Republic' },
+            { id: 'Germany', name: 'Germany' },
+            { id: 'Denmark', name: 'Denmark' },
+            { id: 'Estonia', name: 'Estonia' },
+            { id: 'Spain', name: 'Spain' },
+            { id: 'Finland', name: 'Finland' },
+            { id: 'France', name: 'France' },
+            { id: 'United Kingdom', name: 'United Kingdom' },
+            { id: 'Greece', name: 'Greece' },
+            { id: 'Hungary', name: 'Hungary' },
+            { id: 'Ireland', name: 'Ireland' },
+            { id: 'Iceland', name: 'Iceland' },
+            { id: 'Italy', name: 'Italy' },
+            { id: 'Japan', name: 'Japan' },
+            { id: 'Lithuania', name: 'Lithuania' },
+            { id: 'Luxembourg', name: 'Luxembourg' },
+            { id: 'Latvia', name: 'Latvia' },
+            { id: 'Malta', name: 'Malta' },
+            { id: 'Netherlands', name: 'Netherlands' },
+            { id: 'Norway', name: 'Norway' },
+            { id: 'New Zealand', name: 'New Zealand' },
+            { id: 'Poland', name: 'Poland' },
+            { id: 'Portugal', name: 'Portugal' },
+            { id: 'Romania', name: 'Romania' },
+            { id: 'Sweden', name: 'Sweden' },
+            { id: 'Slovenia', name: 'Slovenia' },
+            { id: 'Slovakia', name: 'Slovakia' },
+            { id: 'Turkey', name: 'Turkey' },
+            { id: 'USA', name: 'USA' },
+            { id: 'Andorra', name: 'Andorra' },
+            { id: 'United Arab Emirates', name: 'United Arab Emirates' },
+            { id: 'Afghanistan', name: 'Afghanistan' },
+            { id: 'Antigua and Barbuda', name: 'Antigua and Barbuda' },
+            { id: 'Anguilla', name: 'Anguilla' },
+            { id: 'Albania', name: 'Albania' },
+            { id: 'Armenia', name: 'Armenia' },
+            { id: 'Netherlands Antilles', name: 'Netherlands Antilles' },
+            { id: 'Angola', name: 'Angola' },
+            { id: 'Antarctica', name: 'Antarctica' },
+            { id: 'Argentina', name: 'Argentina' },
+            { id: 'American Samoa', name: 'American Samoa' },
+            { id: 'Aruba', name: 'Aruba' },
+            { id: 'Åland Islands', name: 'Åland Islands' },
+            { id: 'Azerbaijan', name: 'Azerbaijan' },
+            { id: 'Bosnia and Herzegovina', name: 'Bosnia and Herzegovina' },
+            { id: 'Barbados', name: 'Barbados' },
+            { id: 'Bangladesh', name: 'Bangladesh' },
+            { id: 'Burkina Faso', name: 'Burkina Faso' },
+            { id: 'Bahrain', name: 'Bahrain' },
+            { id: 'Burundi', name: 'Burundi' },
+            { id: 'Benin', name: 'Benin' },
+            { id: 'Bermuda', name: 'Bermuda' },
+            { id: 'Brunei Darussalam', name: 'Brunei Darussalam' },
+            { id: 'Bolivia', name: 'Bolivia' },
+            { id: 'Bonaire, Sint Eustatius and Saba', name: 'Bonaire, Sint Eustatius and Saba' },
+            { id: 'Brazil', name: 'Brazil' },
+            { id: 'Bahamas', name: 'Bahamas' },
+            { id: 'Bhutan', name: 'Bhutan' },
+            { id: 'Bouvet Island', name: 'Bouvet Island' },
+            { id: 'Botswana', name: 'Botswana' },
+            { id: 'Belarus', name: 'Belarus' },
+            { id: 'Belize', name: 'Belize' },
+            { id: 'COCOS (KEELING) ISLANDS', name: 'COCOS (KEELING) ISLANDS' },
+            { id: 'Democratic Republic of the Congo', name: 'Democratic Republic of the Congo' },
+            { id: 'Central African Republic', name: 'Central African Republic' },
+            { id: 'Republic of the Congo', name: 'Republic of the Congo' },
+            { id: 'Cote dIvoire', name: 'Cote dIvoire' },
+            { id: 'Cook Islands', name: 'Cook Islands' },
+            { id: 'Chile', name: 'Chile' },
+            { id: 'Cameroon', name: 'Cameroon' },
+            { id: 'China', name: 'China' },
+            { id: 'Colombia', name: 'Colombia' },
+            { id: 'Costa Rica', name: 'Costa Rica' },
+            { id: 'Serbia and Montenegro', name: 'Serbia and Montenegro' },
+            { id: 'Cabo Verde', name: 'Cabo Verde' },
+            { id: 'Curaçao', name: 'Curaçao' },
+            { id: 'Christmas Island', name: 'Christmas Island' },
+            { id: 'Djibouti', name: 'Djibouti' },
+            { id: 'Dominica', name: 'Dominica' },
+            { id: 'Dominican Republic', name: 'Dominican Republic' },
+            { id: 'Algeria', name: 'Algeria' },
+            { id: 'Ecuador', name: 'Ecuador' },
+            { id: 'Egypt', name: 'Egypt' },
+            { id: 'Western Sahara', name: 'Western Sahara' },
+            { id: 'Eritrea', name: 'Eritrea' },
+            { id: 'Ethiopia', name: 'Ethiopia' },
+            { id: 'Fiji', name: 'Fiji' },
+            { id: 'Falkland Islands', name: 'Falkland Islands' },
+            { id: 'Micronesia', name: 'Micronesia' },
+            { id: 'Faroe Islands', name: 'Faroe Islands' },
+            { id: 'Gabon', name: 'Gabon' },
+            { id: 'Grenada', name: 'Grenada' },
+            { id: 'Georgia', name: 'Georgia' },
+            { id: 'French Guiana', name: 'French Guiana' },
+            { id: 'Guernsey', name: 'Guernsey' },
+            { id: 'Ghana', name: 'Ghana' },
+            { id: 'Gibraltar', name: 'Gibraltar' },
+            { id: 'Greenland', name: 'Greenland' },
+            { id: 'Gambia', name: 'Gambia' },
+            { id: 'Guinea', name: 'Guinea' },
+            { id: 'Guadeloupe', name: 'Guadeloupe' },
+            { id: 'Equatorial Guinea', name: 'Equatorial Guinea' },
+            { id: 'South Georgia and the South Sandwich Islands', name: 'South Georgia and the South Sandwich Islands' },
+            { id: 'Guatemala', name: 'Guatemala' },
+            { id: 'Guam', name: 'Guam' },
+            { id: 'Guinea-Bissau', name: 'Guinea-Bissau' },
+            { id: 'Guyana', name: 'Guyana' },
+            { id: 'Hong Kong', name: 'Hong Kong' },
+            { id: 'Heard Island and McDonald Islands', name: 'Heard Island and McDonald Islands' },
+            { id: 'Honduras', name: 'Honduras' },
+            { id: 'Croatia', name: 'Croatia' },
+            { id: 'Haiti', name: 'Haiti' },
+            { id: 'Indonesia', name: 'Indonesia' },
+            { id: 'Israel', name: 'Israel' },
+            { id: 'Isle of Man', name: 'Isle of Man' },
+            { id: 'India', name: 'India' },
+            { id: 'British Indian Ocean Territory', name: 'British Indian Ocean Territory' },
+            { id: 'Iraq', name: 'Iraq' },
+            { id: 'Jersey', name: 'Jersey' },
+            { id: 'Jamaica', name: 'Jamaica' },
+            { id: 'Jordan', name: 'Jordan' },
+            { id: 'Kenya', name: 'Kenya' },
+            { id: 'Kyrgyzstan', name: 'Kyrgyzstan' },
+            { id: 'Cambodia', name: 'Cambodia' },
+            { id: 'Kiribati', name: 'Kiribati' },
+            { id: 'Comoros', name: 'Comoros' },
+            { id: 'Saint Kitts and Nevis', name: 'Saint Kitts and Nevis' },
+            { id: 'South Korea', name: 'South Korea' },
+            { id: 'Kuwait', name: 'Kuwait' },
+            { id: 'Cayman Islands', name: 'Cayman Islands' },
+            { id: 'Kazakhstan', name: 'Kazakhstan' },
+            { id: 'Laos', name: 'Laos' },
+            { id: 'Lebanon', name: 'Lebanon' },
+            { id: 'Saint Lucia', name: 'Saint Lucia' },
+            { id: 'Liechtenstein', name: 'Liechtenstein' },
+            { id: 'Sri Lanka', name: 'Sri Lanka' },
+            { id: 'Liberia', name: 'Liberia' },
+            { id: 'Lesotho', name: 'Lesotho' },
+            { id: 'Libya', name: 'Libya' },
+            { id: 'Morocco', name: 'Morocco' },
+            { id: 'Monaco', name: 'Monaco' },
+            { id: 'Moldova', name: 'Moldova' },
+            { id: 'Montenegro - Former Yugoslavia', name: 'Montenegro - Former Yugoslavia' },
+            { id: 'St. Martin', name: 'St. Martin' },
+            { id: 'Madagascar', name: 'Madagascar' },
+            { id: 'Marshall Islands', name: 'Marshall Islands' },
+            { id: 'Macedonia', name: 'Macedonia' },
+            { id: 'Mali', name: 'Mali' },
+            { id: 'Myanmar', name: 'Myanmar' },
+            { id: 'Mongolia', name: 'Mongolia' },
+            { id: 'Macao', name: 'Macao' },
+            { id: 'Northern Mariana Islands', name: 'Northern Mariana Islands' },
+            { id: 'Martinique', name: 'Martinique' },
+            { id: 'Mauritania', name: 'Mauritania' },
+            { id: 'Montserrat', name: 'Montserrat' },
+            { id: 'Mauritius', name: 'Mauritius' },
+            { id: 'Maldives', name: 'Maldives' },
+            { id: 'Malawi', name: 'Malawi' },
+            { id: 'Mexico', name: 'Mexico' },
+            { id: 'Malaysia', name: 'Malaysia' },
+            { id: 'Mozambique', name: 'Mozambique' },
+            { id: 'Namibia', name: 'Namibia' },
+            { id: 'New Caledonia', name: 'New Caledonia' },
+            { id: 'Niger', name: 'Niger' },
+            { id: 'Norfolk Island', name: 'Norfolk Island' },
+            { id: 'Nigeria', name: 'Nigeria' },
+            { id: 'Nicaragua', name: 'Nicaragua' },
+            { id: 'Nepal', name: 'Nepal' },
+            { id: 'Nauru', name: 'Nauru' },
+            { id: 'Niue', name: 'Niue' },
+            { id: 'Oman', name: 'Oman' },
+            { id: 'Panama', name: 'Panama' },
+            { id: 'Peru', name: 'Peru' },
+            { id: 'French Polynesia', name: 'French Polynesia' },
+            { id: 'Papua New Guinea', name: 'Papua New Guinea' },
+            { id: 'Philippines', name: 'Philippines' },
+            { id: 'Pakistan', name: 'Pakistan' },
+            { id: 'Saint Pierre and Miquelon', name: 'Saint Pierre and Miquelon' },
+            { id: 'Pitcairn', name: 'Pitcairn' },
+            { id: 'Puerto Rico', name: 'Puerto Rico' },
+            { id: 'Palestine', name: 'Palestine' },
+            { id: 'Palau', name: 'Palau' },
+            { id: 'Paraguay', name: 'Paraguay' },
+            { id: 'Qatar', name: 'Qatar' },
+            { id: 'Reunion', name: 'Reunion' },
+            { id: 'Serbia - Former Yugoslavia', name: 'Serbia - Former Yugoslavia' },
+            { id: 'Russian Federation', name: 'Russian Federation' },
+            { id: 'Rwanda', name: 'Rwanda' },
+            { id: 'Saudi Arabia', name: 'Saudi Arabia' },
+            { id: 'Solomon Islands', name: 'Solomon Islands' },
+            { id: 'Seychelles', name: 'Seychelles' },
+            { id: 'Singapore', name: 'Singapore' },
+            { id: 'Saint Helena, Ascension and Tristan da Cunha', name: 'Saint Helena, Ascension and Tristan da Cunha' },
+            { id: 'Svalbard and Jan Mayen', name: 'Svalbard and Jan Mayen' },
+            { id: 'Sierra Leone', name: 'Sierra Leone' },
+            { id: 'San Marino', name: 'San Marino' },
+            { id: 'Senegal', name: 'Senegal' },
+            { id: 'Somalia', name: 'Somalia' },
+            { id: 'Suriname', name: 'Suriname' },
+            { id: 'Sao Tome and Principe', name: 'Sao Tome and Principe' },
+            { id: 'El Salvador', name: 'El Salvador' },
+            { id: 'Sint Maarten', name: 'Sint Maarten' },
+            { id: 'Swaziland', name: 'Swaziland' },
+            { id: 'Turks and Caicos Islands', name: 'Turks and Caicos Islands' },
+            { id: 'Chad', name: 'Chad' },
+            { id: 'French Southern Territories', name: 'French Southern Territories' },
+            { id: 'Togo', name: 'Togo' },
+            { id: 'Thailand', name: 'Thailand' },
+            { id: 'Tajikistan', name: 'Tajikistan' },
+            { id: 'Tokelau', name: 'Tokelau' },
+            { id: 'Timor-Leste', name: 'Timor-Leste' },
+            { id: 'Turkmenistan', name: 'Turkmenistan' },
+            { id: 'Tunisia', name: 'Tunisia' },
+            { id: 'Tonga', name: 'Tonga' },
+            { id: 'Tonga', name: 'Tonga' },
+            { id: 'Trinidad and Tobago', name: 'Trinidad and Tobago' },
+            { id: 'Tuvalu', name: 'Tuvalu' },
+            { id: 'Taiwan', name: 'Taiwan' },
+            { id: 'Tanzania', name: 'Tanzania' },
+            { id: 'Ukraine', name: 'Ukraine' },
+            { id: 'Uganda', name: 'Uganda' },
+            { id: 'United States Minor Outlying Islands', name: 'United States Minor Outlying Islands' },
+            { id: 'Uruguay', name: 'Uruguay' },
+            { id: 'Uzbekistan', name: 'Uzbekistan' },
+            { id: 'Vatican City State', name: 'Vatican City State' },
+            { id: 'Saint Vincent and the Grenadines', name: 'Saint Vincent and the Grenadines' },
+            { id: 'Venezuela', name: 'Venezuela' },
+            { id: 'British Virgin Islands', name: 'British Virgin Islands' },
+            { id: 'U.S. Virgin Islands', name: 'U.S. Virgin Islands' },
+            { id: 'Vietnam', name: 'Vietnam' },
+            { id: 'Vanuatu', name: 'Vanuatu' },
+            { id: 'Wallis and Futuna', name: 'Wallis and Futuna' },
+            { id: 'Samoa', name: 'Samoa' },
+            { id: 'Republic of Kosovo', name: 'Republic of Kosovo' },
+            { id: 'Yemen', name: 'Yemen' },
+            { id: 'Mayotte', name: 'Mayotte' },
+            { id: 'South Africa', name: 'South Africa' },
+            { id: 'Zambia', name: 'Zambia' },
+            { id: 'Zimbabwe', name: 'Zimbabwe' }
+        ];
+
+        $scope.remove = function () {
+
+            $scope.elais.otherpartiesQ3Name = null;
+            $scope.elais.otherpartiesQ3Address = null;
+            $scope.elais.otherpartiesQ3City = null;
+            $scope.elais.otherpartiesQ3State = null;
+            $scope.elais.otherpartiesQ3Postal = null;
+            $scope.elais.otherpartiesQ3Country = null;
+            $scope.elais.otherpartiesQ3CustContact = null;
+            $scope.elais.otherpartiesQ3CustEmail = null;
+            $scope.elais.otherpartiesQ3OfficialText = null;
+
+            $scope.elais.otherpartiesQ3S1 = null;
+            $scope.elais.otherpartiesQ3S1Address = null;
+            $scope.elais.otherpartiesQ3S1City = null;
+            $scope.elais.otherpartiesQ3S1Country = null;
+            $scope.elais.otherpartiesQ3S1CustContact = null;
+            $scope.elais.otherpartiesQ3S1CustEmail = null;
+            $scope.elais.otherpartiesQ3S1Name = null;
+            $scope.elais.otherpartiesQ3S1Official = null;
+            $scope.elais.otherpartiesQ3S1OfficialText = null;
+            $scope.elais.otherpartiesQ3S1Postal = null;
+            $scope.elais.otherpartiesQ3S1State = null;
+
+            $scope.elais.otherpartiesQ3S2 = null;
+            $scope.elais.otherpartiesQ3S2City = null;
+            $scope.elais.otherpartiesQ3S2Country = null;
+            $scope.elais.otherpartiesQ3S2CustEmail = null;
+            $scope.elais.otherpartiesQ3S2CustName = null;
+            $scope.elais.otherpartiesQ3S2Name = null;
+            $scope.elais.otherpartiesQ3S2Official = null;
+            $scope.elais.otherpartiesQ3S2OfficialText = null;
+            $scope.elais.otherpartiesQ3S2Postal = null;
+            $scope.elais.otherpartiesQ3S2State = null;
+            $scope.elais.otherpartiesQ3S2Street = null;
+
+            $scope.elais.otherpartiesQ3S3 = null;
+            $scope.elais.otherpartiesQ3S3City = null;
+            $scope.elais.otherpartiesQ3S3Country = null;
+            $scope.elais.otherpartiesQ3S3CustEmail = null;
+            $scope.elais.otherpartiesQ3S3CustName = null;
+            $scope.elais.otherpartiesQ3S3Name = null;
+            $scope.elais.otherpartiesQ3S3Official = null;
+            $scope.elais.otherpartiesQ3S3OfficialText = null;
+            $scope.elais.otherpartiesQ3S3Postal = null;
+            $scope.elais.otherpartiesQ3S3State = null;
+            $scope.elais.otherpartiesQ3S3Street = null;
+            $scope.elais.otherpartiesQ3State = null;
+            //$scope.elais.otherpartiesproductsandservices = null;
+
+            //$scope.elais.splice($scope.persons.indexOf(person), 1);
+        }
+        $scope.remove1 = function () {
+
+            //$scope.elais.otherpartiesQ3S1 = null;
+            $scope.elais.otherpartiesQ3S1Address = null;
+            $scope.elais.otherpartiesQ3S1City = null;
+            $scope.elais.otherpartiesQ3S1Country = null;
+            $scope.elais.otherpartiesQ3S1CustContact = null;
+            $scope.elais.otherpartiesQ3S1CustEmail = null;
+            $scope.elais.otherpartiesQ3S1Name = null;
+            $scope.elais.otherpartiesQ3S1Official = null;
+            $scope.elais.otherpartiesQ3S1OfficialText = null;
+            $scope.elais.otherpartiesQ3S1Postal = null;
+            $scope.elais.otherpartiesQ3S1State = null;
+
+            $scope.elais.otherpartiesQ3S2 = null;
+            $scope.elais.otherpartiesQ3S2City = null;
+            $scope.elais.otherpartiesQ3S2Country = null;
+            $scope.elais.otherpartiesQ3S2CustEmail = null;
+            $scope.elais.otherpartiesQ3S2CustName = null;
+            $scope.elais.otherpartiesQ3S2Name = null;
+            $scope.elais.otherpartiesQ3S2Official = null;
+            $scope.elais.otherpartiesQ3S2OfficialText = null;
+            $scope.elais.otherpartiesQ3S2Postal = null;
+            $scope.elais.otherpartiesQ3S2State = null;
+            $scope.elais.otherpartiesQ3S2Street = null;
+
+            $scope.elais.otherpartiesQ3S3 = null;
+            $scope.elais.otherpartiesQ3S3City = null;
+            $scope.elais.otherpartiesQ3S3Country = null;
+            $scope.elais.otherpartiesQ3S3CustEmail = null;
+            $scope.elais.otherpartiesQ3S3CustName = null;
+            $scope.elais.otherpartiesQ3S3Name = null;
+            $scope.elais.otherpartiesQ3S3Official = null;
+            $scope.elais.otherpartiesQ3S3OfficialText = null;
+            $scope.elais.otherpartiesQ3S3Postal = null;
+            $scope.elais.otherpartiesQ3S3State = null;
+            $scope.elais.otherpartiesQ3S3Street = null;
+            $scope.elais.otherpartiesQ3State = null;
+            //$scope.elais.otherpartiesproductsandservices = null;
+
+            //$scope.elais.splice($scope.persons.indexOf(person), 1);
+        }
+        $scope.remove2 = function () {
+
+            //$scope.elais.otherpartiesQ3S2 = null;
+            $scope.elais.otherpartiesQ3S2City = null;
+            $scope.elais.otherpartiesQ3S2Country = null;
+            $scope.elais.otherpartiesQ3S2CustEmail = null;
+            $scope.elais.otherpartiesQ3S2CustName = null;
+            $scope.elais.otherpartiesQ3S2Name = null;
+            $scope.elais.otherpartiesQ3S2Official = null;
+            $scope.elais.otherpartiesQ3S2OfficialText = null;
+            $scope.elais.otherpartiesQ3S2Postal = null;
+            $scope.elais.otherpartiesQ3S2State = null;
+            $scope.elais.otherpartiesQ3S2Street = null;
+
+            $scope.elais.otherpartiesQ3S3 = null;
+            $scope.elais.otherpartiesQ3S3City = null;
+            $scope.elais.otherpartiesQ3S3Country = null;
+            $scope.elais.otherpartiesQ3S3CustEmail = null;
+            $scope.elais.otherpartiesQ3S3CustName = null;
+            $scope.elais.otherpartiesQ3S3Name = null;
+            $scope.elais.otherpartiesQ3S3Official = null;
+            $scope.elais.otherpartiesQ3S3OfficialText = null;
+            $scope.elais.otherpartiesQ3S3Postal = null;
+            $scope.elais.otherpartiesQ3S3State = null;
+            $scope.elais.otherpartiesQ3S3Street = null;
+            $scope.elais.otherpartiesQ3State = null;
+            //$scope.elais.otherpartiesproductsandservices = null;
+
+            //$scope.elais.splice($scope.persons.indexOf(person), 1);
+        }
+        $scope.remove3 = function () {
+
+            //$scope.elais.otherpartiesQ3S3 = null;
+            $scope.elais.otherpartiesQ3S3City = null;
+            $scope.elais.otherpartiesQ3S3Country = null;
+            $scope.elais.otherpartiesQ3S3CustEmail = null;
+            $scope.elais.otherpartiesQ3S3CustName = null;
+            $scope.elais.otherpartiesQ3S3Name = null;
+            $scope.elais.otherpartiesQ3S3Official = null;
+            $scope.elais.otherpartiesQ3S3OfficialText = null;
+            $scope.elais.otherpartiesQ3S3Postal = null;
+            $scope.elais.otherpartiesQ3S3State = null;
+            $scope.elais.otherpartiesQ3S3Street = null;
+            $scope.elais.otherpartiesQ3State = null;
+            //$scope.elais.otherpartiesproductsandservices = null;
+
+            //$scope.elais.splice($scope.persons.indexOf(person), 1);
+        }
+
+        $scope.removesite = function () {
+
+            $scope.elais.installationsiteName = null;
+            $scope.elais.installationsiteStreet = null;
+            $scope.elais.installationsiteCity = null;
+            $scope.elais.installationsiteState = null;
+            $scope.elais.installationsitePostal = null;
+            $scope.elais.installationsiteCountry = null;
+            $scope.elais.installationsiteOfficial = null;
+
+            $scope.elais.installationsite1 = null;
+            $scope.elais.installationsite1Name = null;
+            $scope.elais.installationsite1Street = null;
+            $scope.elais.installationsite1City = null;
+            $scope.elais.installationsite1State = null;
+            $scope.elais.installationsite1Postal = null;
+            $scope.elais.installationsite1Country = null;
+            $scope.elais.installationsite1Official = null;
+
+            $scope.elais.installationsite2 = null;
+            $scope.elais.installationsite2Name = null;
+            $scope.elais.installationsite2Street = null;
+            $scope.elais.installationsite2City = null;
+            $scope.elais.installationsite2State = null;
+            $scope.elais.installationsite2Postal = null;
+            $scope.elais.installationsite2Country = null;
+            $scope.elais.installationsite2Official = null;
+
+            $scope.elais.installationsite3 = null;
+            $scope.elais.installationsite3Name = null;
+            $scope.elais.installationsite3Street = null;
+            $scope.elais.installationsite3City = null;
+            $scope.elais.installationsite3State = null;
+            $scope.elais.installationsite3Postal = null;
+            $scope.elais.installationsite3Country = null;
+            $scope.elais.installationsite3Official = null;
+
+            $scope.elais.installationsite4 = null;
+            $scope.elais.installationsite4Name = null;
+            $scope.elais.installationsite4Street = null;
+            $scope.elais.installationsite4City = null;
+            $scope.elais.installationsite4City = null;
+            $scope.elais.installationsite4Postal = null;
+            $scope.elais.installationsite4Country = null;
+            $scope.elais.installationsite4Official = null;
+        }
+
+        $scope.removesite1 = function () {
+
+
+            $scope.elais.installationsite1Name = null;
+            $scope.elais.installationsite1Street = null;
+            $scope.elais.installationsite1City = null;
+            $scope.elais.installationsite1State = null;
+            $scope.elais.installationsite1Postal = null;
+            $scope.elais.installationsite1Country = null;
+            $scope.elais.installationsite1Official = null;
+
+            $scope.elais.installationsite2 = null;
+            $scope.elais.installationsite2Name = null;
+            $scope.elais.installationsite2Street = null;
+            $scope.elais.installationsite2City = null;
+            $scope.elais.installationsite2State = null;
+            $scope.elais.installationsite2Postal = null;
+            $scope.elais.installationsite2Country = null;
+            $scope.elais.installationsite2Official = null;
+
+            $scope.elais.installationsite3 = null;
+            $scope.elais.installationsite3Name = null;
+            $scope.elais.installationsite3Street = null;
+            $scope.elais.installationsite3City = null;
+            $scope.elais.installationsite3State = null;
+            $scope.elais.installationsite3Postal = null;
+            $scope.elais.installationsite3Country = null;
+            $scope.elais.installationsite3Official = null;
+
+            $scope.elais.installationsite4 = null;
+            $scope.elais.installationsite4Name = null;
+            $scope.elais.installationsite4Street = null;
+            $scope.elais.installationsite4City = null;
+            $scope.elais.installationsite4City = null;
+            $scope.elais.installationsite4Postal = null;
+            $scope.elais.installationsite4Country = null;
+            $scope.elais.installationsite4Official = null;
+        }
+
+        $scope.removesite2 = function () {
+
+
+            $scope.elais.installationsite2Name = null;
+            $scope.elais.installationsite2Street = null;
+            $scope.elais.installationsite2City = null;
+            $scope.elais.installationsite2State = null;
+            $scope.elais.installationsite2Postal = null;
+            $scope.elais.installationsite2Country = null;
+            $scope.elais.installationsite2Official = null;
+
+            $scope.elais.installationsite3 = null;
+            $scope.elais.installationsite3Name = null;
+            $scope.elais.installationsite3Street = null;
+            $scope.elais.installationsite3City = null;
+            $scope.elais.installationsite3State = null;
+            $scope.elais.installationsite3Postal = null;
+            $scope.elais.installationsite3Country = null;
+            $scope.elais.installationsite3Official = null;
+
+            $scope.elais.installationsite4 = null;
+            $scope.elais.installationsite4Name = null;
+            $scope.elais.installationsite4Street = null;
+            $scope.elais.installationsite4City = null;
+            $scope.elais.installationsite4City = null;
+            $scope.elais.installationsite4Postal = null;
+            $scope.elais.installationsite4Country = null;
+            $scope.elais.installationsite4Official = null;
+        }
+
+        $scope.removesite3 = function () {
+
+            $scope.elais.installationsite3Name = null;
+            $scope.elais.installationsite3Street = null;
+            $scope.elais.installationsite3City = null;
+            $scope.elais.installationsite3State = null;
+            $scope.elais.installationsite3Postal = null;
+            $scope.elais.installationsite3Country = null;
+            $scope.elais.installationsite3Official = null;
+
+            $scope.elais.installationsite4 = null;
+            $scope.elais.installationsite4Name = null;
+            $scope.elais.installationsite4Street = null;
+            $scope.elais.installationsite4City = null;
+            $scope.elais.installationsite4City = null;
+            $scope.elais.installationsite4Postal = null;
+            $scope.elais.installationsite4Country = null;
+            $scope.elais.installationsite4Official = null;
+        }
+
+        $scope.removesite4 = function () {
+
+            $scope.elais.installationsite4Name = null;
+            $scope.elais.installationsite4Street = null;
+            $scope.elais.installationsite4City = null;
+            $scope.elais.installationsite4City = null;
+            $scope.elais.installationsite4Postal = null;
+            $scope.elais.installationsite4Country = null;
+            $scope.elais.installationsite4Official = null;
+        }
+
+        $scope.clearotherpartiestwo = function () {
+            $scope.elais.otherpartiesQ2Name = null;
+            $scope.elais.otherpartiesQ2Street = null;
+            $scope.elais.otherpartiesQ2City = null;
+            $scope.elais.otherpartiesQ2State = null;
+            $scope.elais.otherpartiesQ2Postal = null;
+            $scope.elais.otherpartiesQ2Country = null;
+            $scope.elais.otherpartiesQ2PartContact = null;
+            $scope.elais.otherpartiesQ3PartEmail = null;
+            $scope.elais.otherpartiesQ2OfficialText = null;
+        }
+    });
+</script>
+}

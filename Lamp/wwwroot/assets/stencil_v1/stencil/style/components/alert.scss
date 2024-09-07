@@ -1,0 +1,87 @@
+// Alert
+@mixin generate_alert_states(){
+  @each $state,$state_color in $states_map{
+    &.#{$stencil-selector-prefix}#{$state}{
+      background-color: color($state_color,light);
+      border-color: color($state_color);
+      color: black;
+
+      & .#{$stencil-selector-prefix}media-left{
+        .#{$stencil-selector-prefix}icon{
+          color: color($state_color);
+        }
+      }
+
+      & .#{$stencil-selector-prefix}media-right button.#{$stencil-selector-prefix}icon{
+        color: color($state_color);
+      }
+
+      & .#{$stencil-selector-prefix}media-right button.#{$stencil-selector-prefix}icon:hover{
+        background-color: color($state_color);
+        color: white;
+      }
+    }
+  }
+}
+.#{$stencil-selector-prefix}alert{
+  @extend .#{$stencil-selector-prefix}media;
+  @extend .#{$stencil-selector-prefix}margin-bottom;
+  @extend .#{$stencil-selector-prefix}padding-around-small;
+  align-items: stretch;
+  background: color(grey,lightest);
+  border: 1px solid color(grey,lighter);
+  border-radius: $global-border-radius;
+
+  .#{$stencil-selector-prefix}media-left{
+    @extend .#{$stencil-selector-prefix}padding-left-small;
+    @extend .#{$stencil-selector-prefix}padding-right;
+    align-items: center;
+    margin-right: 0;
+
+    .#{$stencil-selector-prefix}icon{
+      @extend .icon-info-circle;
+      font-size: $font-size-large;
+      color: white;
+      opacity: 0.8;
+    }
+  }
+
+  .#{$stencil-selector-prefix}media-body{
+    align-self: center;
+    line-height: $line-height-medium;
+  }
+
+  .#{$stencil-selector-prefix}media-right{
+    @extend .#{$stencil-selector-prefix}padding-left;
+    align-self: center;
+    margin-left: 0;
+  }
+
+  /*&.outline{
+    background-color: transparent;
+    border: $global-border;
+  }*/
+
+  @include generate_alert_states();
+
+  &.#{$stencil-selector-prefix}info .#{$stencil-selector-prefix}media-left .#{$stencil-selector-prefix}icon{
+    @extend .icon-info-circle;
+  }
+
+  &.#{$stencil-selector-prefix}success .#{$stencil-selector-prefix}media-left .#{$stencil-selector-prefix}icon{
+    @extend .icon-check-circle;
+  }
+
+  &.#{$stencil-selector-prefix}warning .#{$stencil-selector-prefix}media-left .#{$stencil-selector-prefix}icon{
+    @extend .icon-exclamation-triangle;
+  }
+
+  &.#{$stencil-selector-prefix}danger .#{$stencil-selector-prefix}media-left .#{$stencil-selector-prefix}icon{
+    @extend .icon-exclamation-circle;
+  }
+
+  p:last-child{
+    margin-bottom: 0;
+  }
+
+}

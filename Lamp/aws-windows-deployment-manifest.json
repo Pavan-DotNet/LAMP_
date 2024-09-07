@@ -1,0 +1,1 @@
+{"manifestVersion":1,"deployments":{"aspNetCoreWeb":[{"name":"test-dotnet-core","parameters":{"appBundle":".","iisPath":"/","iisWebSite":"Default Web Site"}}]}}

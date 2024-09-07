@@ -1,0 +1,36 @@
+// Popover
+.#{$stencil-selector-prefix}compact-popover{
+  position: static;
+  display: block;
+  margin-bottom: $spacing-smaller;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  .#{$stencil-selector-prefix}popover-title{
+    margin: 0;
+    padding:10px 10px 8px;
+    background: color(smoke);
+    color: $color-accent;
+    text-align: center;
+    font:$font-size-small $font-stack-default;
+    line-height: 1;
+    border-radius: 0;
+  }
+  .#{$stencil-selector-prefix}custom-arrow{
+    width: 0;
+    height: 0;
+    margin: -1px 0 0 35%;
+    border-style: solid;
+    border-width:$spacing-small $spacing-small 0 $spacing-small;
+    border-color: #e7ebf2 transparent transparent transparent;
+
+    @media (max-width:$breakpoint-mobile-max){
+      display: none;
+    }
+  }
+
+
+}

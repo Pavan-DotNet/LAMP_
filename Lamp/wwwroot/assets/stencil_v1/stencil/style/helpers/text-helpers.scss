@@ -1,0 +1,24 @@
+.#{$stencil-selector-prefix}text-left{
+	text-align:left
+}
+.#{$stencil-selector-prefix}text-right{
+	text-align:right
+}
+.#{$stencil-selector-prefix}text-center{
+	text-align:center
+}
+.#{$stencil-selector-prefix}text-justify{
+	text-align:justify
+}
+.#{$stencil-selector-prefix}text-nowrap{
+	white-space:nowrap
+}
+.#{$stencil-selector-prefix}text-lowercase{
+	text-transform:lowercase
+}
+.#{$stencil-selector-prefix}text-uppercase{
+	text-transform:uppercase
+}
+.#{$stencil-selector-prefix}text-capitalize{
+	text-transform: capitalize
+}

@@ -1,0 +1,112 @@
+/* Stencil v1.0 */
+
+// Selector Prefix
+$stencil-selector-prefix: 'stencil';
+
+/* Required Imports - Do Not Remove */
+@import "utilities/_reset";
+@import "utilities/_variables";
+@import "utilities/_colors";
+@import "utilities/_spacing";
+
+
+/* Theme */
+@import "_theme";
+
+
+@import "utilities/_border";
+
+
+/* General */
+@import "general/layout";
+@import "general/typography";
+
+
+/* Icons */
+@import "icons/font-awesome.scss";
+
+
+/* HTML Components */
+@import "components/form";
+@import "components/button";
+@import "components/table";
+@import "components/list";
+@import "components/definition-list";
+@import "components/hr";
+
+
+/* Custom Components */
+@import "components/navigation";
+@import "components/breadcrumbs";
+@import "components/module"; // required for modal, dialog
+@import "components/media"; // required for media-card, timeline, alert, snackbar
+@import "components/media-card";
+@import "components/card";
+@import "components/date-card";
+// @import "components/tabs";
+@import "components/accordion";
+@import "components/pagination";
+@import "components/timeline";
+@import "components/severity";
+@import "components/scroll-view";
+@import "components/overlays"; // required for modal and dialog
+@import "components/modal";
+@import "components/dialog";
+@import "components/tags";
+@import "components/well";
+@import "components/alert"; // required for snackbar
+@import "components/snackbar";
+@import "components/tooltip";
+@import "components/loading-indicator";
+@import "components/brand-app";
+@import "components/avatar";
+
+
+/* Helpers */
+@import "helpers/text-helpers";
+@import "helpers/font-helpers";
+@import "helpers/color-helpers";
+@import "helpers/list-helpers";
+@import "helpers/overrides";
+
+
+
+/* General */
+body{
+  @extend .#{$stencil-selector-prefix}flex-vertical;
+  @extend .#{$stencil-selector-prefix}flex-stretch;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: $color-body-bg;
+  font: #{$font-size-regular} $font-stack-default;
+  line-height: $line-height-default;
+  color: color(grey,darker);
+  cursor: default;
+  //overflow-x: hidden; // uncomment if position:sticky is not required
+}
+
+
+header{
+  @extend .#{$stencil-selector-prefix}flex-spread;
+  @extend .#{$stencil-selector-prefix}padding-around;
+  background: $color-header-bg;
+}
+
+
+footer{
+  @extend .#{$stencil-selector-prefix}flex-spread;
+  @extend .#{$stencil-selector-prefix}row-to-column;
+  @extend .#{$stencil-selector-prefix}margin-top;
+  @extend .#{$stencil-selector-prefix}margin-bottom;
+  @extend .#{$stencil-selector-prefix}padding-sides;
+
+  p{
+    font-size: $font-size-small;
+    color: color(grey,light);
+    line-height: 1.4;
+  }
+
+  @media(max-width: $breakpoint-mobile-max){
+    text-align: center;
+  }
+}

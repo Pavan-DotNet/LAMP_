@@ -1,0 +1,60 @@
+// Media Card
+.#{$stencil-selector-prefix}media-card{
+  @extend .#{$stencil-selector-prefix}media;
+  @extend .#{$stencil-selector-prefix}flex-stretch;
+  width: 100%;
+  min-width: 175px;
+  padding: $spacing-small;
+  border: $global-border;
+
+  .#{$stencil-selector-prefix}media-left{
+    justify-content:center;
+  }
+
+  .#{$stencil-selector-prefix}media-body{
+    @extend .#{$stencil-selector-prefix}flex-vertical;
+    @extend .#{$stencil-selector-prefix}flex-center;
+  }
+
+  .#{$stencil-selector-prefix}media-title{
+    font-weight: $font-weight-medium;
+  }
+
+  .#{$stencil-selector-prefix}media-right{
+    @extend .#{$stencil-selector-prefix}flex-center;
+    @extend .#{$stencil-selector-prefix}flex-center-align;
+    opacity: 0.5;
+  }
+
+  &:hover{
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    cursor: pointer;
+  }
+
+  @media (max-width:$breakpoint-tablet-max){
+    flex-direction:column;
+    align-items: center;
+    .#{$stencil-selector-prefix}media-left, .#{$stencil-selector-prefix}media-title, .#{$stencil-selector-prefix}media-title button.#{$stencil-selector-prefix}link, .#{$stencil-selector-prefix}media-meta{ text-align:center}
+    .#{$stencil-selector-prefix}media-left{ margin-bottom: $spacing-small}
+    .#{$stencil-selector-prefix}media-left,.#{$stencil-selector-prefix}media-body{ margin-right:0}
+    .#{$stencil-selector-prefix}media-right{ display:none}
+
+    .#{$stencil-selector-prefix}expanded &{
+      flex-direction:row;
+      padding: 0 0 $spacing-small 0;
+      border: none;
+      border-bottom: $global-border;
+      .#{$stencil-selector-prefix}media-left, .#{$stencil-selector-prefix}media-title, .#{$stencil-selector-prefix}media-meta{ text-align:left}
+      .#{$stencil-selector-prefix}media-left, .#{$stencil-selector-prefix}media-body{ margin-right:$spacing-small}
+      .#{$stencil-selector-prefix}media-left{ margin-bottom:0}
+      .#{$stencil-selector-prefix}media-right{ display:flex}
+    }
+  }
+
+  @media (min-width:$breakpoint-desktop-min){
+    padding: 0;
+    border:none;
+  }
+
+}

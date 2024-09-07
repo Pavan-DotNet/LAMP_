@@ -1,0 +1,6 @@
+// Well
+.#{$stencil-selector-prefix}well{
+  @extend .#{$stencil-selector-prefix}padding-around;
+  background: color(grey,lightest);
+  border-radius: $global-border-radius;
+}

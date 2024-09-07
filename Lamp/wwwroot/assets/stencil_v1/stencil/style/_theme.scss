@@ -1,0 +1,15 @@
+// Predefined Colors
+$color-body-bg: color(smoke);
+$color-module-shadow: darken($color-body-bg,5%);
+$color-header-bg : white; // $color-body-bg;
+$color-accent: color(juniper-blue);
+$color-default-link: color(blue);
+$color-default-link-hover: color(blue,dark);
+
+// Global Variables
+$global-border-radius: 0; // $spacing-smaller;
+$global-box-shadow: 0 1px 1px 1px darken($color-body-bg,5%);
+$global-border: 1px solid color(grey,lighter);
+$global-path-images: "stencil/images/";
+$global-heading-weight: 400;
+$global-theme-color: indigo;

@@ -1,0 +1,163 @@
+@mixin generate_button_states(){
+  @each $state,$state_color in $states_map{
+    &.#{$stencil-selector-prefix}#{$state}{
+      background: color($state_color);
+      color: white;
+      border-color: color($state_color);
+    }
+
+    // for buttons with state and button.icon inside stateful containers
+    &.#{$stencil-selector-prefix}#{$state}:hover, .#{$stencil-selector-prefix}#{$state} &.icon:hover{
+      background: darken(color($state_color),10%);
+      color: white;
+    }
+  }
+}
+button,.#{$stencil-selector-prefix}button{
+  padding: $spacing-small $spacing-large;
+  background: color(grey,lightest);
+  border: 1px solid color(grey,light);
+  color: color(grey,darker);
+  font-size: $font-size-small;
+  line-height: 1;
+  border-radius: $global-border-radius;
+
+  &:hover{
+    background: color(grey,darker);
+    border-color: color(grey,darker);
+    color: white;
+  }
+
+  &:active{
+    background: color(blue);
+  }
+
+  &:disabled, &.#{$stencil-selector-prefix}secondary:disabled{
+    background: color(grey,lightest);
+    color: color(grey,light);
+    border-color: transparent;
+  }
+
+  &.#{$stencil-selector-prefix}compact{
+    padding:$spacing-smaller $spacing-medium;
+    font-size: $font-size-smallest;
+  }
+
+  &.#{$stencil-selector-prefix}primary{
+    background: color(blue,bright);
+    border: 1px solid color(blue,bright);
+    color: white;
+
+    &:hover{
+      background: color(blue);
+      border-color: color(blue);
+    }
+
+    &:disabled, &:disabled:hover{
+      background: color(grey,lightest);
+      color: color(grey,light);
+      border-color: transparent;
+    }
+
+    &:active{
+      background: color(blue);
+      border-color: color(blue);
+    }
+  }
+
+  &.#{$stencil-selector-prefix}secondary{
+    background: white;
+    color: color(blue,bright);
+    border: $global-border;
+
+    &:hover{
+      border-color: color(blue);
+    }
+
+    &:disabled:hover{
+      border-color: transparent;
+    }
+
+    &:active{
+      background: color(grey,light);
+      border-color: color(blue);
+    }
+  }
+
+  &.#{$stencil-selector-prefix}link{
+    padding: 0;
+    background: transparent;
+    color: $color-default-link;
+    text-align: left;
+    border: none;
+    border-radius: 0;
+
+    &:disabled{
+      color: color(grey,light);
+    }
+  }
+
+  &.#{$stencil-selector-prefix}link:hover{
+    text-decoration:underline;
+    border: none;
+  }
+
+  &.#{$stencil-selector-prefix}icon{
+    padding: $spacing-small;
+    background: none;
+    color: color(grey,light);
+    border: none;
+
+    .icon{
+      margin-right: 0;
+    }
+  }
+
+  & .#{$stencil-selector-prefix}icon{
+    margin-right: $spacing-smaller;
+  }
+
+  &.#{$stencil-selector-prefix}icon:hover{
+    background-color: color(grey,darker);
+    color: white !important;
+  }
+
+  &.#{$stencil-selector-prefix}block{
+    display:block;
+    width: 100%;
+  }
+
+  &.#{$stencil-selector-prefix}block-link{
+    padding: 0;
+    color:$color-default-link;
+    display:block;
+  }
+
+  @include generate_button_states();
+
+}
+.#{$stencil-selector-prefix}button-group{
+  @extend .#{$stencil-selector-prefix}flex-vertical;
+  @extend .#{$stencil-selector-prefix}margin-bottom;
+  border: $global-border;
+
+  button,.#{$stencil-selector-prefix}button{
+    @extend button.#{$stencil-selector-prefix}block;
+    border: none;
+    text-align: left;
+    border-radius: 0;
+    outline: none !important;
+
+    input[type="checkbox"],input[type="radio"]{
+      display:none;
+    }
+
+    &:hover{
+      background:color(grey,lighter);
+    }
+
+    &.#{$stencil-selector-prefix}active{
+      @extend button.#{$stencil-selector-prefix}info;
+    }
+  }
+}

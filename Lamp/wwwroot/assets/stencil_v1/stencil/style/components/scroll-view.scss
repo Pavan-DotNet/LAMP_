@@ -1,0 +1,9 @@
+// Scroll View
+.#{$stencil-selector-prefix}scroll-view-h{
+  overflow:hidden;
+
+  @media (max-width:$breakpoint-tablet-max){
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; // iOS hack
+  }
+}

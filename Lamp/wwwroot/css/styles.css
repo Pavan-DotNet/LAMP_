@@ -1,0 +1,477 @@
+body {
+    overflow-x: hidden;
+    margin: 0;
+    background-color: #ccc;
+}
+
+header {
+    width: 100%;
+    height: 60px;
+    background-color: #3493c2;
+}
+
+#jlogo {
+    margin: 0 0 -4px -1px;
+    background-color: #3493c2;
+}
+
+#logo {
+    width: 375px;
+    float: left;
+}
+
+#search-section {
+    padding: 13px;
+}
+
+input {
+    display: inline;
+    margin-right: -25px;
+    float: left;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0px 3px 1px black;
+    border: 0;
+    color: black;
+    font-size: 10px;
+    height: 34px;
+    width: 259px;
+    padding: 0 3px;
+}
+
+    input[type = submit] {
+        width: 35px;
+        height: 34px;
+        margin-right: 7px;
+        margin-left: 40px;
+        background: url("../images/submit.png") no-repeat;
+        cursor: pointer;
+    }
+
+#id_1, #id_2 {
+    margin-left: 50px;
+}
+
+#but1 > button, #but2 > button {
+    background: url("../images/add.png") no-repeat;
+    width: 35px;
+    height: 33px;
+    border: 0;
+    cursor: pointer;
+}
+
+#reset > button {
+    background: url("../images/clear.png") no-repeat;
+    width: 35px;
+    height: 33px;
+    margin-left: 7px;
+    border: 0;
+    cursor: pointer;
+}
+
+#but2 {
+    margin-left: -35px;
+}
+
+span {
+    float: left;
+}
+
+.search-boxes {
+    width: 1600px;
+}
+
+.deleteicon {
+    position: absolute;
+    background: url(../images/delete.png) no-repeat;
+    z-index: 60;
+    height: 36px;
+}
+
+#myForm {
+    position: relative;
+}
+
+
+
+/*****************************************************************
+******************  PAGE CONTENT STYLES **************************
+******************************************************************/
+
+section {
+    margin: 30px auto;
+    width: 1442px;
+    background-color: #fff;
+    height: 600px;
+    border-top: 3px solid #005984;
+    padding: 20px;
+}
+
+th {
+   
+    background-color: #EAF3F8;
+    border: 1px solid #cccccc;
+    color: #3493c2;
+    font-family: Helvetica;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+    th > span {
+        margin-top: 7px;
+    }
+
+td {
+    height: 14px;
+   
+    border: 1px solid #cccccc;
+    color: #000000;
+    font-family: Helvetica;
+    font-size: 13px;
+    text-align: left;
+    padding: 7px 10px;
+}
+
+    td:nth-child(1), th:nth-child(1) {
+        width: 200px;
+    }
+
+    td:nth-child(2), th:nth-child(2) {
+        width: 400px;
+    }
+
+    td:nth-child(3), th:nth-child(3) {
+        width: 400px;
+    }
+
+    td:nth-child(4), td:nth-child(5), td:nth-child(6), th:nth-child(4), th:nth-child(5), th:nth-child(6) {
+        width: 200px;
+    }
+  
+
+.sort-button {
+    float: right;
+    height: 30px;
+    width: 25px;
+    background-image: url('../images/sorticon.png');
+    background-repeat: no-repeat;
+    border: 0;
+    cursor: pointer;
+}
+
+footer {
+    font-size: 0.7em;
+    font-family: Arial;
+    color: #ffffff;
+    box-shadow: 5px 5px 15px #ccc;
+    background-color: #3493c2;
+    text-align: center;
+    padding: 4px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+
+/*****************************************************************
+***********************  TOOLTIP STYLES **************************
+******************************************************************/
+
+span.tooltips-appguide {
+    position: relative;
+    display: inline;
+}
+
+    span.tooltips-appguide span {
+        position: absolute;
+        width: 140px;
+        color: #FFFFFF;
+        background: #000000;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        visibility: hidden;
+        border-radius: 6px;
+    }
+
+        span.tooltips-appguide span:after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -8px;
+            width: 0;
+            height: 0;
+            border-bottom: 8px solid #000000;
+            border-right: 8px solid transparent;
+            border-left: 8px solid transparent;
+        }
+
+span:hover.tooltips-appguide span {
+    visibility: visible;
+    opacity: 0.8;
+    top: 40px;
+    left: 40%;
+    margin-left: -76px;
+    z-index: 999;
+    padding: 0 10px;
+    font-family: arial;
+    font-size: 14px;
+}
+
+span.tooltips-datainfo {
+    position: relative;
+    display: inline;
+    z-index: 100999;
+}
+
+    span.tooltips-datainfo span {
+        position: absolute;
+        width: 300px;
+        color: #000000;
+        background: #EAF3F8;
+        line-height: 20px;
+        text-align: left;
+        visibility: hidden;
+        border-radius: 6px;
+        z-index: 100999;
+    }
+
+        span.tooltips-datainfo span:after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -8px;
+            width: 0;
+            height: 0;
+            border-bottom: 8px solid #000000;
+            border-right: 8px solid transparent;
+            border-left: 8px solid transparent;
+            z-index: 100999;
+        }
+
+span:hover.tooltips-datainfo span {
+    visibility: visible;
+    opacity: 0.8;
+    top: 20px;
+    left: 2%;
+    margin-left: -156px;
+    z-index: 100999;
+    padding: 0 10px;
+    font-family: arial;
+    font-size: 12px;
+    border: 2px dotted #8d95a0;
+    background-color: #EAF3F8;
+    padding: 10px 20px;
+    opacity: 1;
+}
+
+/*****************************************************************
+*********************  FILTER OPTIONS STYLES *********************
+******************************************************************/
+
+#filter-options {
+    width: 165px;
+    float: left;
+    background-color: #3493c2;
+    display: inline-block;
+    margin-top: -3px;
+    height: 300px;
+    text-align: left;
+    padding-left: 8px;
+    color: #fff;
+    font-family: arial;
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+#product-display {
+    width: 1266px;
+    display: inline-block;
+    margin-top: -3px;
+    overflow-x:visible;
+}
+
+.fp {
+    display: block;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+}
+
+#filter-options > input {
+    background-color: #fff;
+    width: 124px;
+    height: 20px;
+    margin: 5px 0 17px 5px;
+    padding: 0 10px;
+    color: #000;
+}
+
+/*****************************************************************
+***********************  PAGINATION STYLES ***********************
+******************************************************************/
+
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+    font-family: arial;
+    font-size: 14px;
+}
+
+    .pagination > li {
+        display: inline;
+    }
+
+        .pagination > li > a,
+        .pagination > li > span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #428bca;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        .pagination > li:first-child > a,
+        .pagination > li:first-child > span {
+            margin-left: 0;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .pagination > li:last-child > a,
+        .pagination > li:last-child > span {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .pagination > li > a:hover,
+        .pagination > li > span:hover,
+        .pagination > li > a:focus,
+        .pagination > li > span:focus {
+            color: #2a6496;
+            background-color: #eee;
+            border-color: #ddd;
+        }
+
+    .pagination > .active > a,
+    .pagination > .active > span,
+    .pagination > .active > a:hover,
+    .pagination > .active > span:hover,
+    .pagination > .active > a:focus,
+    .pagination > .active > span:focus {
+        z-index: 2;
+        color: #fff;
+        cursor: default;
+        background-color: #428bca;
+        border-color: #428bca;
+    }
+
+    .pagination > .disabled > span,
+    .pagination > .disabled > span:hover,
+    .pagination > .disabled > span:focus,
+    .pagination > .disabled > a,
+    .pagination > .disabled > a:hover,
+    .pagination > .disabled > a:focus {
+        color: #999;
+        cursor: not-allowed;
+        background-color: #fff;
+        border-color: #ddd;
+    }
+
+.pagination-lg > li > a,
+.pagination-lg > li > span {
+    padding: 10px 16px;
+    font-size: 18px;
+}
+
+.pagination-lg > li:first-child > a,
+.pagination-lg > li:first-child > span {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.pagination-lg > li:last-child > a,
+.pagination-lg > li:last-child > span {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.pagination-sm > li > a,
+.pagination-sm > li > span {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.pagination-sm > li:first-child > a,
+.pagination-sm > li:first-child > span {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.pagination-sm > li:last-child > a,
+.pagination-sm > li:last-child > span {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.pager {
+    padding-left: 0;
+    margin: 20px 0;
+    text-align: center;
+    list-style: none;
+}
+
+    .pager li {
+        display: inline;
+    }
+
+        .pager li > a,
+        .pager li > span {
+            display: inline-block;
+            padding: 5px 14px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+        }
+
+            .pager li > a:hover,
+            .pager li > a:focus {
+                text-decoration: none;
+                background-color: #eee;
+            }
+
+    .pager .next > a,
+    .pager .next > span {
+        float: right;
+    }
+
+    .pager .previous > a,
+    .pager .previous > span {
+        float: left;
+    }
+
+    .pager .disabled > a,
+    .pager .disabled > a:hover,
+    .pager .disabled > a:focus,
+    .pager .disabled > span {
+        color: #999;
+        cursor: not-allowed;
+        background-color: #fff;
+    }

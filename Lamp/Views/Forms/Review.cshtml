@@ -1,0 +1,1442 @@
+﻿
+@{
+    ViewData["Title"] = "Review";
+}
+
+<html>
+<head>
+    <title>Web Form Trigger</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="~/assets/jquery/jquery.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/assets/stencil_v1/style.css">
+    <link href="~/assets/PdfElais/PdfElais.css" rel="stylesheet" />
+    <style>
+        /*#basic-info span {
+            display: inline-block;
+            width: 280px;
+        }*/
+        td {
+            padding: 0 !important;
+        }
+
+        /* Important part */
+        .modal-dialog {
+            overflow-y: initial !important
+        }
+
+        /*.modal-body {
+            height: 350px;
+            overflow-y: auto;
+        }*/
+
+        .success-popup {
+            transition: .3s ease all;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .html2canvas-container {
+            width: 3000px !important;
+            height: 3000px !important;
+        }
+
+        hr {
+            height: 1px;
+            background: grey;
+            border: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="branding">
+                <img src="~/assets/img/juniper-logo-white.svg" width="166" height="54" border="0" alt="Juniper Networks" title="Juniper Networks" />
+            </div>
+        </div>
+    </header>
+
+    <section class="form" id="html-3-pdfwrapper">
+        <div id="html-2-pdfwrapper">
+            @*<h1>Export License Application Information Sheet ("ELAIS")</h1>
+        <h3>Purpose:</h3>
+        <p>Juniper relies on the information that you provide in this form to determine what export licenses, if any, are required for your transaction. If Juniper concludes that an export license is required, then it will use the information provided to apply for any required license(s).</p>
+        <h3>Who needs to complete this form?</h3>
+        <p>An authorized representative of a Juniper channel partner must complete this form. The representative must be familiar with the applicable transaction either personally or through relevant business records.</p>
+        <h3>Advisory:</h3>
+        <h4 style="text-transform:lowercase;">IT IS CRITICAL THAT THE INFORMATION PROVIDED BELOW BE CURRENT, ACCURATE AND COMPLETE, <span id="kyc" style="text-transform:none"><u>Remember, it’s up to you as a Juniper channel partner to “know your customer.”</u></span></h4>
+
+        <h4 style="text-transform:lowercase;">THIS FORM CONTAINS INFORMATION AUTO-FILLED BASED ON DATA IN JUNIPER NETWORKS' RECORDS. <u><span id="kyc" style="text-transform:none">It is your responsibility to verify and, if necessary, correct any inaccurate or incomplete information that has been auto-filled. By submitting this form you, on behalf of the Juniper channel partner whom you are representing, are certifying as to the accuracy of ALL information in the form, including any auto-filled information that you do not modify.</u></span></h4>
+        <h3>Consequences of Providing Obsolete, Inaccurate or Incomplete Information:</h3>
+        <p>Obsolete, inaccurate or incomplete information may lead to: </p>
+        <h3>Consequences of Providing Obsolete, Inaccurate or Incomplete Information:</h3>
+        <ul>
+            <li>Shipping delays;</li>
+            <li>Additional disclosures to export authorities;</li>
+            <li>Inability for Juniper to provide support services;</li>
+            <li>Increased restrictions on future transactions;</li>
+            <li>Termination of your channel partner agreement; and</li>
+            <li>Civil and criminal liability.</li>
+        </ul>
+        <h3>Questions and Assistance:</h3>
+        <p>If you have any questions regarding the questions in this form or if you have any concerns that information you rely on in answering the questions might be inaccurate or incomplete, please contact <a href="#">tradecompliance@juniper.net</a> .</p>
+        <p>In addition, please contact <a href="#">tradecompliance@juniper.net</a> if after completing this form you learn: </p>
+        <ul>
+            <li>that any of the information furnished was inaccurate or incomplete</li>
+            <li>that the transaction itself or the parties or the intended end use has changed; or  </li>
+            <li>that new information obtained raises concerns about the accuracy of the information furnished.</li>
+        </ul>
+        <hr>*@
+
+            <div id="part1">
+                <div id="basic-info">
+                    <div id="inner-div" class="col-md-6">
+                        <h2><u>Submitter Information:</u></h2>
+                        <dl class="row">
+                            <dt class="col-sm-6">Submitted by*:</dt>
+                            <dd class="col-sm-6">{{elais.firstName}}&nbsp;{{elais.lastName}}</dd>
+
+                            <dt class="col-sm-6">Job title*:</dt>
+                            <dd class="col-sm-6">{{elais.jobTitle}}</dd>
+
+                            <dt class="col-sm-6">Legal Name of Channel Partner*:</dt>
+                            <dd class="col-sm-6">{{elais.channelPartner}}</dd>
+
+                            <dt class="col-sm-6">Email Address*:</dt>
+                            <dd class="col-sm-6">{{elais.emailAddress}}</dd>
+
+                            <dt class="col-sm-6">Juniper VAR ID:</dt>
+                            <dd class="col-sm-6" ng-if="elais.JuniperVar">{{elais.JuniperVar}}</dd>
+                            <dd class="col-sm-6" ng-if="!elais.JuniperVar">&nbsp;</dd>
+
+                        </dl>
+                    </div>
+                    <div id="inner-div" class="col-md-6">
+                        <h2><u>Transaction Information:</u></h2>
+                        <dl class="row">
+                            <dt class="col-sm-6">Quote #*:</dt>
+                            <dd class="col-sm-6">{{elais.quoteNumber}}</dd>
+
+                            <dt class="col-sm-6">Purchase Order #:</dt>
+                            <dd class="col-sm-6" ng-if="elais.purchaseOrder">{{elais.purchaseOrder}}</dd>
+                            <dd class="col-sm-6" ng-if="!elais.purchaseOrder">&nbsp;</dd>
+
+                            <dt class="col-sm-6">Sales Order #:</dt>
+                            <dd class="col-sm-6" ng-if="elais.salesOrder">{{elais.salesOrder}}</dd>
+                            <dd class="col-sm-6" ng-if="!elais.salesOrder">&nbsp;</dd>
+
+                        </dl>
+                    </div>
+                </div>
+                <hr>
+                <h2><u>Parties Involved:</u></h2>
+                <h3>Distributor or Reseller:</h3>
+                <div id="basic-info">
+                    <div id="inner-div" class="col-md-6">
+                        <dl class="row">
+                            <dt class="col-sm-6">Company Name* :</dt>
+                            <dd class="col-sm-6">{{elais.purchaserName}}</dd>
+
+                            <dt class="col-sm-6">Street*:</dt>
+                            <dd class="col-sm-6">{{elais.purchaserStreet}}</dd>
+
+                            <dt class="col-sm-6">City*:</dt>
+                            <dd class="col-sm-6">{{elais.purchaserCity}}</dd>
+
+                            <dt class="col-sm-6">Is this party a distributor or reseller*:</dt>
+                            <dd class="col-sm-6">{{elais.purchaserreseller}}</dd>
+
+                        </dl>
+                    </div>
+                    <div id="inner-div" class="col-md-6">
+                        <dl class="row">
+                            <dt class="col-sm-6">State:</dt>
+                            <dd class="col-sm-6" ng-if="elais.purchaserState">{{elais.purchaserState}}</dd>
+                            <dd class="col-sm-6" ng-if="!elais.purchaserState">&nbsp;</dd>
+
+                            <dt class="col-sm-6">Postal Code:</dt>
+                            <dd class="col-sm-6" ng-if="elais.purchaserPostalCode">{{elais.purchaserPostalCode}}</dd>
+                            <dd class="col-sm-6" ng-if="!elais.purchaserPostalCode">&nbsp;</dd>
+
+                            <dt class="col-sm-6">Country*:</dt>
+                            <dd class="col-sm-6">{{elais.purchaserCountry}}</dd>
+
+                        </dl>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div id="part2">
+                <h3>End User:</h3>
+                <div id="basic-info">
+                    <div id="inner-div" class="col-md-6">
+                        <dl class="row">
+                            <dt class="col-sm-6">Company Name* :</dt>
+                            <dd class="col-sm-6">{{elais.enduserCompanyName}}</dd>
+
+                            <dt class="col-sm-6">Street*:</dt>
+                            <dd class="col-sm-6">{{elais.enduserStreet}}</dd>
+
+                            <dt class="col-sm-6">City*:</dt>
+                            <dd class="col-sm-6">{{elais.enduserCity}}</dd>
+
+                            <dt class="col-sm-6">State:</dt>
+                            <dd class="col-sm-6" ng-if="elais.enduserState">{{elais.enduserState}}</dd>
+                            <dd class="col-sm-6" ng-if="!elais.enduserState">&nbsp;</dd>
+
+                        </dl>
+                    </div>
+                    <div id="inner-div" class="col-md-6">
+
+                        <dl class="row">
+                            <dt class="col-sm-6">Postal Code:</dt>
+                            <dd class="col-sm-6" ng-if="elais.enduserPostalcode">{{elais.enduserPostalcode}}</dd>
+                            <dd class="col-sm-6" ng-if="!elais.enduserPostalcode">&nbsp;</dd>
+
+                            <dt class="col-sm-6">Country*:</dt>
+                            <dd class="col-sm-6">{{elais.enduserCountry}}</dd>
+
+                            <dt class="col-sm-6">End User Contact First and Last Name*:</dt>
+                            <dd class="col-sm-6">{{elais.enduserContactName}}</dd>
+
+                            <dt class="col-sm-6">End User Contact Email Address*:</dt>
+                            <dd class="col-sm-6">{{elais.enduserEmail}}</dd>
+
+                        </dl>
+
+
+                    </div>
+                </div>
+                <div id="url">
+                    <dl class="row">
+                        <dt class="col-sm-6">*Is there a URL for the End User’s Official Website ? e.g. https://www.enduser.com (no email addresses):</dt>
+                        <dd class="col-sm-6" ng-if="elais.enduserOfficialText!= null">
+                            {{elais.enduserOfficialText}}
+                        </dd>
+                        <dd class="col-sm-6" ng-if="elais.enduserOfficialText== null">
+                            No
+                        </dd>
+                    </dl>
+                </div>
+                <hr>
+                <dl class="">
+                    <dt>Check ALL items that include any of End User’s major business or organizational purposes or functions of End User. (Check any item in which one of End User’s major business or organizational purposes or functions is included even if the item also includes purposes or functions that are not applicable to End User.) (If none apply, check “Other” and describe such activities in the space provided.)*:</dt>
+                </dl>
+                <div id="end-user-span">
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.one==true">
+                        <input type="checkbox" name="enduser" value="opt-one" ng-model="elais.enduserPrimaryBussinessFunc.one" disabled>
+                        <span> Commercial enterprise for non‐government customers</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.two==true">
+                        <input type="checkbox" name="enduser" value="opt-two" ng-model="elais.enduserPrimaryBussinessFunc.two" disabled>
+                        <span> Military, paramilitary activities or equipment, weapons, other defense articles or logistical support therefor not specifically included in any other items on this list</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.three==true">
+                        <input type="checkbox" name="enduser" value="opt-three" ng-model="elais.enduserPrimaryBussinessFunc.three" disabled>
+                        <span> Legislation or legislative support services or lobbying</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.four==true">
+                        <input type="checkbox" name="enduser" value="opt-four" ng-model="elais.enduserPrimaryBussinessFunc.four" disabled>
+                        <span> Judicial, prosecutorial or dispute resolution</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.five==true">
+                        <input type="checkbox" name="enduser" value="opt-five" ng-model="elais.enduserPrimaryBussinessFunc.five" disabled>
+                        <span> Customs or like international trade administration and enforcement</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.six==true">
+                        <input type="checkbox" name="enduser" value="opt-six" ng-model="elais.enduserPrimaryBussinessFunc.six" disabled>
+                        <span> Government procurement services</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.seven==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-seven" ng-model="elais.enduserPrimaryBussinessFunc.seven" disabled>
+                        <span> Civilian government activities such as public health and safety, promotion of industry, commerce and tourism, public infrastructure, public social services and welfare and the like.</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.eight==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-eight" ng-model="elais.enduserPrimaryBussinessFunc.eight" disabled>
+                        <span> Research, development, production, storage, deployment, delivery or use of (i) nuclear fuels, facilities or weapons, (ii) chemical or biological compounds for use in weapons, or (iii) missiles.</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.nine==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-nine" ng-model="elais.enduserPrimaryBussinessFunc.nine" disabled>
+                        <span> Other research or development not included elsewhere on this list but funded directly or indirectly by government</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.ten==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-ten" ng-model="elais.enduserPrimaryBussinessFunc.ten" disabled>
+                        <span> Other basic research not included elsewhere on this list</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.eleven==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-eleven" ng-model="elais.enduserPrimaryBussinessFunc.eleven" disabled>
+                        <span> Network security, facilities security, or other security services or providing goods or services in support of such activities</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.twelve==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-twelve" ng-model="elais.enduserPrimaryBussinessFunc.twelve" disabled>
+                        <span> Regulatory oversight of financial, environmental, energy, public health, product safety, securities markets, pensions, or other non-military, non-law enforcement, non-weapons</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.thirteen==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-thirteen" ng-model="elais.enduserPrimaryBussinessFunc.thirteen" disabled>
+                        <span> Outsourced services in support of civilian government agencies or branches</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.fourteen==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-fourteen" ng-model="elais.enduserPrimaryBussinessFunc.fourteen" disabled>
+                        <span> Educational or training services </span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.fifteen==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-fifteen" ng-model="elais.enduserPrimaryBussinessFunc.fifteen" disabled>
+                        <span> NGO or philanthropic organization engaged in social benefit, religious or humanitarian or other charitable activities</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.sixteen==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-sixteen" ng-model="elais.enduserPrimaryBussinessFunc.sixteen" disabled>
+                        <span> Financial services (banking, investment advising, securities or commodities)</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.seventeen==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-seventeen" ng-model="elais.enduserPrimaryBussinessFunc.seventeen" disabled>
+                        <span> Network equipment and networking software integration, staging, configuration or installation services</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.eighteen==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-eighteen" ng-model="elais.enduserPrimaryBussinessFunc.eighteen" disabled>
+                        <span> Telecommunications or IT equipment, software or services (including, among others, data centers, cloud services providers or managed network services providers)</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.nineteen==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-nineteen" ng-model="elais.enduserPrimaryBussinessFunc.nineteen" disabled>
+                        <span> Energy sector activities</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.twenty==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-twenty" ng-model="elais.enduserPrimaryBussinessFunc.twenty" disabled>
+                        <span> Business process services provider</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.twentyone==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-twentyone" ng-model="elais.enduserPrimaryBussinessFunc.twentyone" disabled>
+                        <span> Transportation</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.twentytwo==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-twentytwo" ng-model="elais.enduserPrimaryBussinessFunc.twentytwo" disabled>
+                        <span> Civilian industrial and manufacturing</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.twentythree==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-twentythree" ng-model="elais.enduserPrimaryBussinessFunc.twentythree" disabled>
+                        <span> Consumer products and services</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.twentyfour==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" value="opt-twentyfour" ng-model="elais.enduserPrimaryBussinessFunc.twentyfour" disabled>
+                        <span> Hospital or medical equipment or services</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.twentyfive==true">
+                        <input id="none-of-the-above" type="checkbox" name="enduser" ng-model="elais.enduserPrimaryBussinessFunc.twentyfive" value="opt-twentyfive" disabled>
+                        <span> Other</span>
+                    </label>
+                    <label ng-show="elais.enduserPrimaryBussinessFunc.twentyfive==true">
+                        {{elais.enduserPrimaryBussinessFuncText}}
+                    </label>
+                </div>
+                <hr>
+            </div>
+            <div id="part3">
+                <h3>Other Parties Involved in Transaction:</h3>
+                <label>
+                    <dl class="">
+                        <dt>1) Do you believe or suspect that the party identified above as End User intends to incorporate any Juniper Product or Service (or any of its features) into any product into any offering for sale, lease or license to any of its customers or clients?:</dt>
+                    </dl>
+                    <span ng-if="elais.otherpartiesproductsandservices!=null">Yes</span>
+                    <span ng-if="elais.otherpartiesproductsandservices==null">No</span><br /><br />
+                    <p ng-if="elais.otherpartiesproductsandservices!=null">Describe the End User’s offering using Juniper products or services:</p>
+                    <p ng-if="elais.otherpartiesproductsandservices!=null">
+                        {{elais.otherpartiesproductsandservices}}
+                    </p>
+                </label>
+                <hr>
+                <label>
+                    <dl class="">
+                        <dt>2) Do you have any reason to believe that the party named as Distributor or Reseller intends to resell any of the Juniper Products and Services to anyone other than the above named End User?:</dt>
+                    </dl>
+                    <span ng-if="elais.otherpartiesQ2Name!=null">Yes</span>
+                    <span ng-if="elais.otherpartiesQ2Name==null">No</span><br /><br />
+                    <p ng-if="elais.elais.otherpartiesQ2Name!=null">Such additional parties involved, please provide the following information:</p>
+                    <div id="basic-info" ng-if="elais.otherpartiesQ2Name!=null">
+                        <div id="inner-div" class="col-md-6">
+                            <dl class="row">
+                                <dt class="col-sm-6">Company Name* :</dt>
+                                <dd class="col-sm-6">{{elais.otherpartiesQ2Name}}</dd>
+
+                                <dt class="col-sm-6">Street*:</dt>
+                                <dd class="col-sm-6">{{elais.otherpartiesQ2Street}}</dd>
+
+                                <dt class="col-sm-6">City*:</dt>
+                                <dd class="col-sm-6">{{elais.otherpartiesQ2City}}</dd>
+
+                                <dt class="col-sm-6">State:</dt>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ2State">{{elais.otherpartiesQ2State}}</dd>
+                                <dd class="col-sm-6" ng-if="!elais.otherpartiesQ2State">&nbsp;</dd>
+                            </dl>
+                        </div>
+
+                        <div id="inner-div" class="col-md-6">
+                            <dl class="row">
+                                <dt class="col-sm-6">Postal Code:</dt>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ2Postal">{{elais.otherpartiesQ2Postal}}</dd>
+                                <dd class="col-sm-6" ng-if="!elais.otherpartiesQ2Postal">&nbsp;</dd>
+
+                                <dt class="col-sm-6">Country*:</dt>
+                                <dd class="col-sm-6">{{elais.otherpartiesQ2Country}}</dd>
+
+                                <dt class="col-sm-6">Intermediate Party Contact Name*:</dt>
+                                <dd class="col-sm-6">{{elais.otherpartiesQ2PartContact}}</dd>
+
+                                <dt class="col-sm-6">Intermediate Party Email Address*:</dt>
+                                <dd class="col-sm-6">{{elais.otherpartiesQ3PartEmail}}</dd>
+                            </dl>
+
+                        </div>
+                    </div>
+                    <div id="url" ng-if="elais.otherpartiesQ2Name!=null">
+                        <dl class="row">
+                            <dt class="col-sm-6">*Is there a URL for the End User’s Official Website ? e.g. https://www.enduser.com (no email addresses):</dt>
+                            <dd class="col-sm-6" ng-if="elais.otherpartiesQ2OfficialText!= null">
+                                {{elais.otherpartiesQ2OfficialText}}
+                            </dd>
+                            <dd class="col-sm-6" ng-if="elais.otherpartiesQ2OfficialText== null">
+                                No
+                            </dd>
+                        </dl>
+                    </div>
+                </label>
+                <hr>
+                <label>
+                    <dl class="">
+                        <dt>3) Are there any identifiable companies, institutions, organizations or individuals that the End User intends to target for such offering?:</dt>
+                    </dl>
+                    <span ng-if="elais.otherpartiesQ3Name!=null">Yes</span>
+                    <span ng-if="elais.otherpartiesQ3Name==null">No</span>
+                    <div id="named-end-user" ng-if="elais.otherpartiesQ3Name!=null">
+                        <h3>Named End User's Customer Information:</h3>
+                        <div id="basic-info">
+                            <div id="inner-div" class="col-md-6">
+                                <dl class="row">
+                                    <dt class="col-sm-6">Company Name* :</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3Name}}</dd>
+
+                                    <dt class="col-sm-6">Street*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3Address}}</dd>
+
+                                    <dt class="col-sm-6">City*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3City}}</dd>
+
+                                    <dt class="col-sm-6">State:</dt>
+                                    <dd class="col-sm-6" ng-if="elais.otherpartiesQ3State">{{elais.otherpartiesQ3State}}</dd>
+                                    <dd class="col-sm-6" ng-if="!elais.otherpartiesQ3State">&nbsp;</dd>
+                                </dl>
+                            </div>
+                            <div id="inner-div" class="col-md-6">
+                                <dl class="row">
+                                    <dt class="col-sm-6">Postal Code:</dt>
+                                    <dd class="col-sm-6" ng-if="elais.otherpartiesQ3Postal">{{elais.otherpartiesQ3Postal}}</dd>
+                                    <dd class="col-sm-6" ng-if="!elais.otherpartiesQ3Postal">&nbsp;</dd>
+
+                                    <dt class="col-sm-6">Country*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3Country}}</dd>
+
+                                    <dt class="col-sm-6">Intermediate Party Contact Name*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3CustContact}}</dd>
+
+                                    <dt class="col-sm-6">Intermediate Party Email Address*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3CustEmail}}</dd>
+                                </dl>
+
+                            </div>
+
+                        </div>
+                        <div id="url">
+                            <dl class="row">
+                                <dt class="col-sm-6">*Is there a URL for the End User’s Official Website ? e.g. https://www.enduser.com (no email addresses):</dt>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3OfficialText!= null">
+                                    {{elais.otherpartiesQ3OfficialText}}
+                                </dd>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3OfficialText== null">
+                                    No
+                                </dd>
+                            </dl>
+                        </div>
+                        <div id="target-cust">
+                            <dl class="row">
+                                <dt class="col-sm-6">Are there any other such identifiable targeted customers?:</dt>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S1Name!= null">
+                                    {{elais.otherpartiesQ3S1Name}}
+                                </dd>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S1Name== null">
+                                    No
+                                </dd>
+                            </dl>
+                        </div>
+
+                        <h3 ng-if="elais.otherpartiesQ3S1Name!=null">Named End User's Customer Information:</h3>
+                        <div id="basic-info" ng-if="elais.otherpartiesQ3S1Name!=null">
+                            <div id="inner-div" class="col-md-6">
+                                <dl class="row">
+                                    <dt class="col-sm-6">Company Name* :</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S1Name}}</dd>
+
+                                    <dt class="col-sm-6">Street*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S1Address}}</dd>
+
+                                    <dt class="col-sm-6">City*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S1City}}</dd>
+
+                                    <dt class="col-sm-6">State:</dt>
+                                    <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S1State">{{elais.otherpartiesQ3S1State}}</dd>
+                                    <dd class="col-sm-6" ng-if="!elais.otherpartiesQ3S1State">&nbsp;</dd>
+                                </dl>
+                            </div>
+                            <div id="inner-div" class="col-md-6">
+                                <dl class="row">
+                                    <dt class="col-sm-6">Postal Code:</dt>
+                                    <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S1Postal">{{elais.otherpartiesQ3S1Postal}}</dd>
+                                    <dd class="col-sm-6" ng-if="!elais.otherpartiesQ3S1Postal">&nbsp;</dd>
+
+                                    <dt class="col-sm-6">Country*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S1Country}}</dd>
+
+                                    <dt class="col-sm-6">Intermediate Party Contact Name*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S1CustContact}}</dd>
+
+                                    <dt class="col-sm-6">Intermediate Party Email Address*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S1CustEmail}}</dd>
+                                </dl>
+
+                            </div>
+                        </div>
+                        <div id="url" ng-if="elais.otherpartiesQ3S1Name!=null">
+                            <dl class="row">
+                                <dt class="col-sm-6">*Is there a URL for the End User’s Official Website ? e.g. https://www.enduser.com (no email addresses):</dt>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S1OfficialText!= null">
+                                    {{elais.otherpartiesQ3S1OfficialText}}
+                                </dd>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S1OfficialText== null">
+                                    No
+                                </dd>
+                            </dl>
+                        </div>
+                        <div id="target-cust" ng-if="elais.otherpartiesQ3S1Name!=null">
+                            <dl class="row">
+                                <dt class="col-sm-6">Are there any other such identifiable targeted customers?:</dt>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S2Name!= null">
+                                    {{elais.otherpartiesQ3S2Name}}
+                                </dd>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S2Name== null">
+                                    No
+                                </dd>
+                            </dl>
+                        </div>
+
+                        <h3 ng-if="elais.otherpartiesQ3S2Name!=null">Named End User's Customer Information:</h3>
+                        <div id="basic-info" ng-if="elais.otherpartiesQ3S2Name!=null">
+                            <div id="inner-div" class="col-md-6">
+                                <dl class="row">
+                                    <dt class="col-sm-6">Company Name* :</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S2Name}}</dd>
+
+                                    <dt class="col-sm-6">Street*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S2Street}}</dd>
+
+                                    <dt class="col-sm-6">City*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S2City}}</dd>
+
+                                    <dt class="col-sm-6">State:</dt>
+                                    <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S2State">{{elais.otherpartiesQ3S2State}}</dd>
+                                    <dd class="col-sm-6" ng-if="!elais.otherpartiesQ3S2State">&nbsp;</dd>
+                                </dl>
+                            </div>
+                            <div id="inner-div" class="col-md-6">
+                                <dl class="row">
+                                    <dt class="col-sm-6">Postal Code:</dt>
+                                    <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S2Postal">{{elais.otherpartiesQ3S2Postal}}</dd>
+                                    <dd class="col-sm-6" ng-if="!elais.otherpartiesQ3S2Postal">&nbsp;</dd>
+
+                                    <dt class="col-sm-6">Country*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S2Country}}</dd>
+
+                                    <dt class="col-sm-6">Intermediate Party Contact Name*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S2CustName}}</dd>
+
+                                    <dt class="col-sm-6">Intermediate Party Email Address*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S2CustEmail}}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div id="url" ng-if="elais.otherpartiesQ3S2Name!=null">
+                            <dl class="row">
+                                <dt class="col-sm-6">*Is there a URL for the End User’s Official Website ? e.g. https://www.enduser.com (no email addresses):</dt>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S2OfficialText!= null">
+                                    {{elais.otherpartiesQ3S2OfficialText}}
+                                </dd>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S2OfficialText== null">
+                                    No
+                                </dd>
+                            </dl>
+                        </div>
+                        <div id="target-cust" ng-if="elais.otherpartiesQ3S2Name!=null">
+                            <dl class="row">
+                                <dt class="col-sm-6">Are there any other such identifiable targeted customers?:</dt>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S3Name!= null">
+                                    {{elais.otherpartiesQ3S3Name}}
+                                </dd>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S3Name== null">
+                                    No
+                                </dd>
+                            </dl>
+                        </div>
+
+                        <h3 ng-if="elais.otherpartiesQ3S3Name!=null">Named End User's Customer Information:</h3>
+                        <div id="basic-info" ng-if="elais.otherpartiesQ3S3Name!=null">
+                            <div id="inner-div" class="col-md-6">
+                                <dl class="row">
+                                    <dt class="col-sm-6">Company Name* :</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S3Name}}</dd>
+
+                                    <dt class="col-sm-6">Street*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S3Street}}</dd>
+
+                                    <dt class="col-sm-6">City*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S3City}}</dd>
+
+                                    <dt class="col-sm-6">State:</dt>
+                                    <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S3State">{{elais.otherpartiesQ3S3State}}</dd>
+                                    <dd class="col-sm-6" ng-if="!elais.otherpartiesQ3S3State">&nbsp;</dd>
+                                </dl>
+                            </div>
+                            <div id="inner-div" class="col-md-6">
+                                <dl class="row">
+                                    <dt class="col-sm-6">Postal Code:</dt>
+                                    <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S3Postal">{{elais.otherpartiesQ3S3Postal}}</dd>
+                                    <dd class="col-sm-6" ng-if="!elais.otherpartiesQ3S3Postal">&nbsp;</dd>
+
+                                    <dt class="col-sm-6">Country*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S3Country}}</dd>
+
+                                    <dt class="col-sm-6">Intermediate Party Contact Name*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S3CustName}}</dd>
+
+                                    <dt class="col-sm-6">Intermediate Party Email Address*:</dt>
+                                    <dd class="col-sm-6">{{elais.otherpartiesQ3S3CustEmail}}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div id="url" ng-if="elais.otherpartiesQ3S3Name!=null">
+                            <dl class="row">
+                                <dt class="col-sm-6">*Is there a URL for the End User’s Official Website ? e.g. https://www.enduser.com (no email addresses):</dt>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S3OfficialText!= null">
+                                    {{elais.otherpartiesQ3S3OfficialText}}
+                                </dd>
+                                <dd class="col-sm-6" ng-if="elais.otherpartiesQ3S3OfficialText== null">
+                                    No
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                </label>
+                @*
+            </div>*@
+                <hr>
+            </div>
+            <h3 style="margin-top: 10px;">End Use of Juniper Products and Services:</h3>
+            <dl class="">
+                <dt style="font-weight:600">1) Select the primary or most appropriate single intended end use (check all that apply):</dt>
+            </dl>
+            <div id="other-party-end">
+                <label ng-show="elais.enduserproductsandservices.one==true">
+                    <span>Commercial enterprise network build out or expansion</span>
+                    <input type="checkbox" name="prod-desc" value="one" ng-model="elais.enduserproductsandservices.one" disabled>
+                </label>
+                <label ng-show="elais.enduserproductsandservices.two==true">
+                    <span>Support of telecommunications or internet service provider services</span>
+                    <input type="checkbox" name="prod-desc" value="two" ng-model="elais.enduserproductsandservices.two" disabled>
+                </label>
+                <label ng-show="elais.enduserproductsandservices.three==true">
+                    <span>Support of civil government or educational network needs</span>
+                    <input type="checkbox" name="prod-desc" value="three" ng-model="elais.enduserproductsandservices.three" disabled>
+                </label>
+                <label ng-show="elais.enduserproductsandservices.four==true">
+                    <span>
+                        Support of government military, paramilitary, intelligence or counterintelligence activities
+                    </span>
+                    <input type="checkbox" name="prod-desc" value="four" ng-model="elais.enduserproductsandservices.four" disabled>
+                </label>
+                <label ng-show="elais.enduserproductsandservices.five==true">
+                    <span>Support of government surveillance or lawful intercept activities</span>
+                    <input type="checkbox" name="prod-desc" value="five" ng-model="elais.enduserproductsandservices.five" disabled>
+                </label>
+                <label ng-show="elais.enduserproductsandservices.six==true">
+                    <span>Support of nuclear power or nuclear fuel facilities</span>
+                    <input type="checkbox" name="prod-desc" value="six" ng-model="elais.enduserproductsandservices.six" disabled>
+                </label>
+                <label ng-show="elais.enduserproductsandservices.seven==true">
+                    <span>Support of nuclear, chemical or biological weapons development, production, storage, test, delivery or use activities</span>
+                    <input type="checkbox" name="prod-desc" value="seven" ng-model="elais.enduserproductsandservices.seven" disabled>
+                </label>
+                <label ng-show="elais.enduserproductsandservices.eight==true">
+                    <span>Support of missile development, production, storage, test, delivery or use activities</span>
+                    <input type="checkbox" name="prod-desc" value="eight" ng-model="elais.enduserproductsandservices.eight" disabled>
+                </label>
+                <label ng-show="elais.enduserproductsandservices.nine==true">
+                    <span>Integration, enhancement, configuration or test of Juniper products or services for resale or use by or for another party</span>
+                    <input type="checkbox" name="prod-desc" value="nine" ng-model="elais.enduserproductsandservices.nine" disabled>
+                </label>
+                <label ng-show="elais.enduserproductsandservices.ten==true">
+                    <span>Other</span>
+                    <input id="none-ota" type="checkbox" name="prod-desc" ng-model="elais.enduserproductsandservices.ten" value="ten" onchange="valueChanged();" disabled>
+                </label>
+                <label ng-show="elais.enduserproductsandservices.ten==true">
+                    {{elais.enduserproductsandservicesText}}
+                </label>
+            </div>
+            <hr>
+            <label>
+                <dl class="">
+                    <dt>2) Do you have any reason to believe that any of the Juniper Products or Services will be used in whole or in part in connection with violations of human rights, of democratic principles or of the freedom of speech as defined in the Charter of Fundamental Rights of the EU, where use is made of interception techniques and digital data transfer equipment for monitoring mobile phones and reading text messages and of targeted surveillance of internet use (e.g., by means of monitoring centers and lawful interception gateways)?*</dt>
+                </dl>
+                <span ng-if="elais.enduserproductsandservicesQ2=='yes'">Yes</span>
+                <span ng-if="elais.enduserproductsandservicesQ2=='no'">No</span>
+            </label>
+            <hr>
+            <label>
+                <dl class="">
+                    <dt>3) Do you have a reason to believe that the Juniper Products may need service renewal?*</dt>
+                </dl>
+                <span ng-if="elais.enduserproductsandservicesQ3=='yes'">Yes</span>
+                <span ng-if="elais.enduserproductsandservicesQ3=='no'">No</span>
+                <span ng-if="elais.enduserproductsandservicesQ3=='NotSure'">Not Sure</span>
+            </label>
+            <hr>
+            <h3 style="margin-top: 10px;">Installation Sites:</h3>
+            <dl class="">
+                <dt>1) Do you have reason to believe that the Juniper products may be installed at sites other than the End User address indicated above?*</dt>
+            </dl>
+            <span ng-if="elais.installationsiteName!=null">Yes</span>
+            <span ng-if="elais.installationsiteName==null">No</span>
+            <h4 style="margin-top: 10px;" ng-if="elais.installationsiteName!=null"><u>Site: 1</u></h4>
+            <div id="basic-info" ng-if="elais.installationsiteName!=null">
+                <div id="inner-div" class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-6">Company Name* :</dt>
+                        <dd class="col-sm-6">{{elais.installationsiteName}}</dd>
+
+                        <dt class="col-sm-6">Street*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsiteStreet}}</dd>
+
+                        <dt class="col-sm-6">City*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsiteCity}}</dd>
+
+                        <dt class="col-sm-6">State:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsiteState">{{elais.installationsiteState}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsiteState">&nbsp;</dd>
+                    </dl>
+                </div>
+
+                <div id="inner-div" class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-6">Postal Code:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsitePostal">{{elais.installationsitePostal}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsitePostal">&nbsp;</dd>
+
+                        <dt class="col-sm-6">Country*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsiteCountry}}</dd>
+
+                        <dt class="col-sm-6">URL of the company’s official website:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsiteOfficial">{{elais.installationsiteOfficial}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsiteOfficial">&nbsp;</dd>
+
+                        <dt class="col-sm-6">Any other installation sites?:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite1Name!=null">Yes</dd>
+                        <dd class="col-sm-6" ng-if="elais.installationsite1Name==null">No</dd>
+                    </dl>
+                </div>
+            </div>
+            <h4 ng-if="elais.installationsite1Name!=null"><u>Site: 2</u></h4>
+            <div id="basic-info" ng-if="elais.installationsite1Name!=null">
+                <div id="inner-div" class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-6">Company Name* :</dt>
+                        <dd class="col-sm-6">{{elais.installationsite1Name}}</dd>
+
+                        <dt class="col-sm-6">Street*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsite1Street}}</dd>
+
+                        <dt class="col-sm-6">City*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsite1City}}</dd>
+
+                        <dt class="col-sm-6">State:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite1State">{{elais.installationsite1State}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsite1State">&nbsp;</dd>
+                    </dl>
+                </div>
+                <div id="inner-div" class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-6">Postal Code:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite1Postal">{{elais.installationsite1Postal}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsite1Postal">&nbsp;</dd>
+
+                        <dt class="col-sm-6">Country*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsite1Country}}</dd>
+
+                        <dt class="col-sm-6">URL of the company’s official website:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite1Official">{{elais.installationsite1Official}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsite1Official">&nbsp;</dd>
+
+                        <dt class="col-sm-6">Any other installation sites?:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite2Name!=null">Yes</dd>
+                        <dd class="col-sm-6" ng-if="elais.installationsite2Name==null">No</dd>
+                    </dl>
+                </div>
+                
+            </div>
+            <h4 ng-if="elais.installationsite2Name!=null"><u>Site: 3</u></h4>
+            <div id="basic-info" ng-if="elais.installationsite2Name!=null">
+                <div id="inner-div" class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-6">Company Name* :</dt>
+                        <dd class="col-sm-6">{{elais.installationsite2Name}}</dd>
+
+                        <dt class="col-sm-6">Street*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsite2Street}}</dd>
+
+                        <dt class="col-sm-6">City*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsite2City}}</dd>
+
+                        <dt class="col-sm-6">State:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite2State">{{elais.installationsite2State}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsite2State">&nbsp;</dd>
+                    </dl>
+                </div>
+                <div id="inner-div" class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-6">Postal Code:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite2Postal">{{elais.installationsite2Postal}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsite2Postal">&nbsp;</dd>
+
+                        <dt class="col-sm-6">Country*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsite2Country}}</dd>
+
+                        <dt class="col-sm-6">URL of the company’s official website:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite2Official">{{elais.installationsite2Official}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsite2Official">&nbsp;</dd>
+
+                        <dt class="col-sm-6">Any other installation sites?:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite3Name!=null">Yes</dd>
+                        <dd class="col-sm-6" ng-if="elais.installationsite3Name==null">No</dd>
+                    </dl>
+                </div>
+            </div>
+            <h4 ng-if="elais.installationsite3Name!=null"><u>Site: 4</u></h4>
+            <div id="basic-info" ng-if="elais.installationsite3Name!=null">
+                <div id="inner-div" class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-6">Company Name* :</dt>
+                        <dd class="col-sm-6">{{elais.installationsite3Name}}</dd>
+
+                        <dt class="col-sm-6">Street*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsite3Street}}</dd>
+
+                        <dt class="col-sm-6">City*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsite3City}}</dd>
+
+                        <dt class="col-sm-6">State:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite3State">{{elais.installationsite3State}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsite3State">&nbsp;</dd>
+                    </dl>
+                </div>
+                <div id="inner-div" class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-6">Postal Code:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite3Postal">{{elais.installationsite3Postal}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsite3Postal">&nbsp;</dd>
+
+                        <dt class="col-sm-6">Country*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsite3Country}}</dd>
+
+                        <dt class="col-sm-6">URL of the company’s official website:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite3Official">{{elais.installationsite3Official}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsite3Official">&nbsp;</dd>
+
+                        <dt class="col-sm-6">Any other installation sites?:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite4Name!=null">Yes</dd>
+                        <dd class="col-sm-6" ng-if="elais.installationsite4Name==null">No</dd>
+                    </dl>
+                </div>
+                
+            </div>
+            <h4 ng-if="elais.installationsite4Name!=null"><u>Site: 5</u></h4>
+            <div id="basic-info" ng-if="elais.installationsite4Name!=null">
+                <div id="inner-div" class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-6">Company Name* :</dt>
+                        <dd class="col-sm-6">{{elais.installationsite4Name}}</dd>
+
+                        <dt class="col-sm-6">Street*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsite4Street}}</dd>
+
+                        <dt class="col-sm-6">City*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsite4City}}</dd>
+
+                        <dt class="col-sm-6">State:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite4State">{{elais.installationsite4State}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsite4State">&nbsp;</dd>
+                    </dl>
+                </div>
+                <div id="inner-div" class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-6">Postal Code:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite4Postal">{{elais.installationsite4Postal}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsite4Postal">&nbsp;</dd>
+
+                        <dt class="col-sm-6">Country*:</dt>
+                        <dd class="col-sm-6">{{elais.installationsite4Country}}</dd>
+
+                        <dt class="col-sm-6">URL of the company’s official website:</dt>
+                        <dd class="col-sm-6" ng-if="elais.installationsite4Official">{{elais.installationsite4Official}}</dd>
+                        <dd class="col-sm-6" ng-if="!elais.installationsite4Official">&nbsp;</dd>
+
+                    </dl>
+                </div>
+                
+            </div>
+            <hr>
+            <div id="certify">
+                <p>I Certify that:</p>
+                <label style="margin-left: 35px;">
+                    <input type="checkbox" checked disabled><span>All Information provided in this form is current, accurate and complete.</span>
+                </label>
+
+                <p>I agree on behalf of the Juniper Channel Partner named below:</p>
+                <label style="margin-left: 35px;">
+                    <input type="checkbox" checked disabled><span>If one or more export licenses are required and Juniper holds or obtains them, then Channel Partner shall agree to these Licensing Conditions</span>
+                </label>
+
+                <p>I acknowledge that:</p>
+                <label style="margin-left: 35px;">
+                    <input type="checkbox" checked disabled><span>Juniper relies on the information provided on this form and that providing obsolete, inaccurate or incomplete information may lead to shipping delays as well as other unintended consequences.</span>
+                </label>
+
+                <dl class="row">
+                    <dt class="col-sm-3">Company Name of Channel Partner:</dt>
+                    <dd class="col-sm-3">{{elais.companyChannelPartner}}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Name of authorized representative</dt>
+                    <dd class="col-sm-3">{{elais.nameofauthorizedrepresentative}}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Job title of authorized representative:</dt>
+                    <dd class="col-sm-3">{{elais.authorizedrepresentative}}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Date:</dt>
+                    <dd class="col-sm-3">{{elais.Date| date: "dd/MM/y"}}</dd>
+                </dl>
+            </div>
+        </div>
+        <hr />
+        <ul>
+            <p style="margin-top: 0pt; margin-bottom: 6pt; text-align: center; line-height: 108%; font-size: 10pt;"><strong><span style="font-family: Calibri;">Licensing Conditions</span></strong></p>
+            <li style="font-family: serif; font-size: 8pt;">Comply with all applicable license conditions;</li>
+            <li style="font-family: serif; font-size: 8pt;">Fully cooperate with Juniper in arranging delivery and routing as Juniper instructs and take all necessary measures to prevent any diversion of any Juniper Products or Services to parties or locations other than as identified herein;&nbsp;</li>
+            <li style="font-family: serif; font-size: 8pt;">Obtain&nbsp;archive for at least 7 years shipping and clearance documentation for all deliveries under the transaction;&nbsp;</li>
+            <li style="font-family: serif; font-size: 8pt;">Deliver to Juniper to request documentary proof of final delivery of all of the Juniper Products and Services to the End User;</li>
+            <li style="font-family: serif; font-size: 8pt;">Proof of Delivery.  With regard to any product delivered under license, Channel Partner shall obtain written proof of delivery (“POD”) confirming actual final delivery to the End User, furnish a copy to Juniper at <a style="text-decoration: none;" href="mailto:tradecompliance@juniper.net"><em><span style="font-size: 11pt; color: #000000;">tradecompliance@juniper.net</span></em></a> and archive the original for no less than five (5) years (and for seven (7) years, if export is under Netherlands license). (The POD must specify the controlled items exported under license by product/model number and serial number, must include date of delivery and must identify the delivering party, the place of delivery and the recipient.  If you wish you may download a sample POD form from <a style="text-decoration: none;" href="https://www.juniper.net/us/en/company/corporate-responsibility/international-trade/"><u><span style="color: #0563c1;">https://www.juniper.net/us/en/company/corporate-responsibility/international-trade/</span></u></a> )</li>
+            <li style="font-family: serif; font-size: 8pt;">Forwarders and Customs Brokers.  Channel Partner shall fully cooperate with Juniper to transport any product required to be shipped under license to the final destination using forwarders and customs brokers satisfactory to Juniper, shall instruct such forwarders and brokers to process the transaction in a manner in conformity with applicable laws and with applicable license.</li>
+        </ul>
+        <hr />
+        <div class="modal-body">
+            <div>
+                <p style="margin-top: 0pt; margin-bottom: 6pt; text-align: center; line-height: 108%; font-size: 10pt;"><strong><span style="font-family: Calibri;">JUNIPER CHANNEL PARTNER RESPONSIBILITIES IN CASES OF </span></strong></p>
+                <p style="margin-top: 0pt; margin-bottom: 6pt; text-align: center; line-height: 108%; font-size: 10pt;"><strong><span style="font-family: Calibri;">EXPORT UNDER US OR NETHERLANDS EXPORT LICENSE</span></strong></p>
+                <p style="margin-top: 0pt; margin-bottom: 6pt; line-height: 108%; font-size: 10pt;"><strong><span style="font-family: Calibri;">&nbsp;</span></strong></p>
+                <ol style="margin: 0pt; padding-left: 0pt;" type="A">
+                    <li style="margin-left: 13.31pt; margin-bottom: 6pt; line-height: 108%; padding-left: 4.69pt; font-family: Calibri; font-size: 8pt;"><strong><u>Channel Partner&rsquo;s Primary Responsibility for Export under required license or exception.</u></strong><strong>&nbsp; </strong>Channel Partner (the party submitting the ELAIS) is responsible for obtaining all licenses, permits and authorizations required under US and any other applicable export or import control laws in order lawfully move transfer Juniper product from the point at which delivery from Juniper to Channel Partner occurs to its final destination.&nbsp; Do not rely on Juniper to determine that any such license permit or authorization is required.&nbsp;</li>
+                    <li style="margin-left: 12.96pt; margin-bottom: 6pt; line-height: 108%; padding-left: 5.04pt; font-family: Calibri; font-size: 8pt;"><strong><u>Responsibilities of Channel Partner if Juniper elects to allow transaction to proceed under a Juniper license.</u></strong>&nbsp; In some cases, Juniper may offer to assist in the transaction described in the ELAIS (the &ldquo;<em>Subject Transaction</em>&rdquo;) by allowing it to proceed under a Juniper Encryption Licensing Arrangement or other license issued to Juniper by the US Dept. of Commerce and/or under bulk export license issued to Juniper by Netherlands Ministry of Foreign Affairs.&nbsp; By proceeding with the Subject Transaction under Juniper&rsquo;s license, Channel Partner is undertaking to fully cooperate with Juniper in conducting Subject Transaction in accordance with US and other applicable laws and to fulfill the responsibilities set forth below:</li>
+                </ol>
+                <ol style="margin: 0pt; padding-left: 0pt;" type="1">
+                    <li style="margin-left: 30.59pt; margin-bottom: 6pt; line-height: 108%; padding-left: 5.41pt; font-family: Calibri; font-size: 8pt;"><strong>Delivery shall conform to ELAIS</strong>.&nbsp; Channel Partner shall not allow any products or services to be diverted and shall take all necessary measures to ensure that all products are actually delivered to the End User at the final destination consistently with the information provided in the ELAIS.</li>
+                    <li style="margin-left: 30.59pt; margin-bottom: 6pt; line-height: 108%; padding-left: 5.41pt; font-family: Calibri; font-size: 8pt;"><strong>Proof of Delivery.</strong><strong>&nbsp; </strong>With regard to any product delivered under license, Channel Partner shall obtain written proof of delivery (&ldquo;POD&rdquo;) confirming actual final delivery to the End User, furnish a copy to Juniper at <a style="text-decoration: none;" href="mailto:tradecompliance@juniper.net"><em><span style="font-size: 11pt; color: #000000;">tradecompliance@juniper.net</span></em></a> <span style="font-size: 11pt;">and </span>archive the original for no less than five (5) years (and for seven (7) years, if export is under Netherlands license). (The POD must specify the controlled items exported under license by product/model number and serial number, must include date of delivery and must identify the delivering party, the place of delivery and the recipient.&nbsp; If you wish you may download a sample POD form from <a style="text-decoration: none;" href="https://www.juniper.net/us/en/company/corporate-responsibility/international-trade/"><u><span style="color: #0563c1;">https://www.juniper.net/us/en/company/corporate-responsibility/international-trade/</span></u></a> )</li>
+                    <li style="margin-left: 30.59pt; margin-bottom: 6pt; line-height: 108%; padding-left: 5.41pt; font-family: Calibri; font-size: 8pt;"><strong>Forwarders and Customs Brokers.</strong>&nbsp; Channel Partner shall fully cooperate with Juniper to transport any product required to be shipped under license to the final destination using forwarders and customs brokers satisfactory to Juniper, shall instruct such forwarders and brokers to process the transaction in a manner in conformity with applicable laws and with applicable license.&nbsp;</li>
+                    <li style="margin-left: 30.59pt; margin-bottom: 6pt; line-height: 108%; padding-left: 5.41pt; font-family: Calibri; font-size: 8pt;"><strong><u>Special Responsibilities for Exports under Juniper US License</u></strong><strong>.</strong><strong>&nbsp; </strong>If Juniper informs Channel Partner that the transaction referred to in the ELAIS (the &ldquo;<em>Subject Transaction</em>&rdquo;) may proceed under a US export license issued to Juniper for exports of restricted encryption products (See US Export Admin. Regs. 740.17 and US Commerce Commodity List ECCN 5A002 or 5D002) (&ldquo;<em>Juniper Restricted Encryption Product</em>&rdquo;) to government end users in certain countries, then, unless Channel Partner notifies Juniper that it elects to proceed under its own license(s) and furnishes Juniper details of such license(s), the following requirements shall apply <strong>in addition to those under Section B</strong>, above:</li>
+                </ol>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 6pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">a)</span><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family: Calibri;">Hold During Preshipment Notification Period. </span></strong><span style="font-family: Calibri;">Channel Partner shall not allow any Juniper Restricted Encryption Product to leave Channel Partner&rsquo;s possession unless and until Juniper has given it written notice that the pre-shipment notification period under Juniper&rsquo;s US ELA has lapsed and that the transaction may proceed without pre-shipment inspection by US authorities.</span><span style="font-family: Calibri;">&nbsp; </span></p>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 6pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">b)</span><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family: Calibri;">Cooperation in case of Preshipment Inspection.</span></strong><span style="font-family: Calibri;">&nbsp; </span><span style="font-family: Calibri;">If Juniper notifies Channel Partner that pre-shipment inspection is required, Channel Partner shall comply with all Juniper instructions to enable inspection.</span></p>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 6pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">c)</span><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family: Calibri;">Written Notification to Downstream Resellers and to End User.</span></strong><strong><span style="font-family: Calibri;">&nbsp; </span></strong><span style="font-family: Calibri;">Channel Partner shall ensure that written notice containing the following information is delivered to End User and any third party in connection with the transaction: </span></p>
+                <p style="margin: 0pt 72pt 0pt 54pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">&ldquo;</span><em><span style="font-family: Calibri; color: #2e74b5;">Juniper Restricted Encryption Product included in this order is exported under US export license, relevant conditions and restrictions of which include: </span></em></p>
+                <p style="margin: 0pt 72pt 0pt 90pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><em><span style="font-family: Calibri; color: #2e74b5;">(1)</span></em><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span><em><span style="font-family: Calibri; color: #2e74b5;">Juniper Restricted Encryption Product shall </span></em><strong><em><u><span style="font-family: Calibri; color: #2e74b5;">not</span></u></em></strong><em><span style="font-family: Calibri; color: #2e74b5;"> be reexported or transferred (in-country) </span></em><strong><em><u><span style="font-family: Calibri; color: #2e74b5;">unless</span></u></em></strong><em><span style="font-family: Calibri; color: #2e74b5;"> reexport or in-country transfer: </span></em></p>
+                <ul style="margin: 0pt; padding-left: 0pt;" type="disc">
+                    <li style="margin-right: 72pt; margin-left: 99.6pt; line-height: 108%; padding-left: 8.4pt; font-family: serif; font-size: 8pt; color: #2e74b5;"><em><span style="font-family: Calibri;">is authorized by the Juniper&rsquo;s license, or by another license or approval issued by the U.S. Government; </span></em></li>
+                    <li style="margin-right: 72pt; margin-left: 99.6pt; line-height: 108%; padding-left: 8.4pt; font-family: serif; font-size: 8pt; color: #2e74b5;"><em><span style="font-family: Calibri;">is authorized by a license exception or other authorization under the Export Administration Regulations (EAR); OR </span></em></li>
+                    <li style="margin-right: 72pt; margin-left: 99.6pt; line-height: 108%; padding-left: 8.4pt; font-family: serif; font-size: 8pt; color: #2e74b5;"><em><span style="font-family: Calibri;">is to be delivered to a destination, end user, and end use that would be &ldquo;NLR&rdquo; (No License Required) under the EAR.</span></em></li>
+                </ul>
+                <p style="margin: 0pt 72pt 0pt 90pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><em><span style="font-family: Calibri; color: #2e74b5;">(2)</span></em><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span><em><span style="font-family: Calibri; color: #2e74b5;">ANY export or re-export of any Juniper product, direct or indirect, to any country in US Country Group E:1 or E:2 (See EAR Part 740 Supplement 1) (currently Cuba, Iran, North Korea, Sudan and Syria) or to the region of Crimea, is strictly forbidden.</span></em></p>
+                <p style="margin: 0pt 72pt 0pt 90pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><em><span style="font-family: Calibri; color: #2e74b5;">(3)</span></em><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span><em><span style="font-family: Calibri; color: #2e74b5;">Do not export or re-export the Juniper Products to anyone other than </span></em><em><span style="font-family: Calibri; color: #7030a0;">&lt;End User name&gt;</span></em><em><span style="font-family: Calibri; color: #2e74b5;"> (&ldquo;End User&rdquo;). </span></em></p>
+                <p style="margin: 0pt 72pt 6pt 90pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><em><span style="font-family: Calibri; color: #2e74b5;">(4)</span></em><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span><em><span style="font-family: Calibri; color: #2e74b5;">If you are reselling the product to the End User or to a downstream reseller, you must include this text in documentation you furnish to them, including this sentence.</span></em><span style="font-family: Calibri;">&rdquo;</span></p>
+                <ol style="margin: 0pt; padding-left: 0pt;" start="5" type="1">
+                    <li style="margin-left: 30.59pt; margin-bottom: 6pt; line-height: 108%; padding-left: 5.41pt; font-family: Calibri; font-size: 8pt;"><strong><u>Special Responsibilities for Exports under Juniper Netherlands Export License</u></strong>.&nbsp; If Juniper informs Channel Partner that the transaction must proceed under a Netherlands license issued to Juniper and Juniper consents, at its discretion, to have such export proceed under Juniper&rsquo;s Netherlands license, then the following requirements shall apply <strong>in addition to those under Section __</strong>, above:</li>
+                </ol>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 6pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">a)</span><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family: Calibri;">End Use Related Prohibitions</span></strong><span style="font-family: Calibri;">.</span><span style="font-family: Calibri;">&nbsp; </span><span style="font-family: Calibri;">Channel Partner shall not engage in and shall not allow or assist in any delivery of (or download or grant of access to) goods or services if it is informed by Juniper, by any export control authority of a member state of the EU (or it otherwise has reason to believe): </span></p>
+                <p style="margin-top: 0pt; margin-left: 72pt; margin-bottom: 6pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">(i)</span><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: Calibri;">that such products are intended for and &ldquo;</span><strong><span style="font-family: Calibri;">Military End Use</span></strong><span style="font-family: Calibri;">&rdquo;, including</span></p>
+                <ul style="margin: 0pt; padding-left: 0pt;" type="disc">
+                    <li style="margin-left: 81.6pt; margin-bottom: 6pt; line-height: 108%; padding-left: 8.4pt; font-family: serif; font-size: 8pt;"><span style="font-family: Calibri;">incorporation into military items listed in the military list of Member States; </span></li>
+                    <li style="margin-left: 81.6pt; margin-bottom: 6pt; line-height: 108%; padding-left: 8.4pt; font-family: serif; font-size: 8pt;"><span style="font-family: Calibri;">use of production, test or analytical equipment and components therefor, for the development, production or maintenance of military items listed in the abovementioned list; or </span></li>
+                    <li style="margin-left: 81.6pt; margin-bottom: 6pt; line-height: 108%; padding-left: 8.4pt; font-family: serif; font-size: 8pt;"><span style="font-family: Calibri;">use of any unfinished products in a plant for the production of military items listed in the abovementioned list.</span></li>
+                </ul>
+                <p style="margin-top: 0pt; margin-left: 72pt; margin-bottom: 6pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">(ii)</span><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: Calibri;">that any or all such products (including software), or services or related technology are intended for or may be for use in connection with the development, production, handling, operation, maintenance, storage, detection, recognition or dissemination of </span><strong><span style="font-family: Calibri;">chemical, biological or nuclear weapons or other nuclear explosive devices</span></strong><em><span style="font-family: Calibri;">,</span></em><span style="font-family: Calibri;"> or for development, the production, maintenance or storage of </span><strong><span style="font-family: Calibri;">missiles</span></strong><span style="font-family: Calibri;"> capable of carrying such weapons to their destination; </span><strong><u><span style="font-family: Calibri;">OR</span></u></strong></p>
+                <p style="margin-top: 0pt; margin-left: 72pt; margin-bottom: 6pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">(iii)</span><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp; </span><span style="font-family: Calibri;">that the goods in question have been or are intended, in their entirety or in part, for the purposes of </span><strong><span style="font-family: Calibri;">violations human rights, democratic principles or freedom of expression</span></strong><span style="font-family: Calibri;"> as defined in the Charter of Fundamental Rights of the European Union using equipment, technology and / or software for the disruption, interception or monitoring of telecommunications and / or Internet Protocol network communication (eg using monitoring centers and legal interception gateways).</span></p>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 6pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">b)</span><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family: Calibri;">FTZ or bonded warehouse may NOT be Final Destination.</span></strong><strong><span style="font-family: Calibri;">&nbsp; </span></strong><span style="font-family: Calibri;">Channel Partner shall not engage in and shall not allow or assist in any delivery of (or download or grant of access to) goods if the final destination of the goods concerned is a customs free zone or free warehouse. If the products concerned are temporarily stored in a customs free zone or free warehouse, the final destination of the products concerned must be a final destination covered by this permit.</span></p>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 6pt; text-indent: -18pt; line-height: 108%; font-size: 11pt;"><span style="font-family: Calibri; font-size: 8pt;">c)</span><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family: Calibri; font-size: 8pt;">Countries of Concern and Need for Consignee Undertaking</span></strong><span style="font-family: Calibri; font-size: 8pt;">.</span><span style="font-family: Calibri; font-size: 8pt;">&nbsp; </span><span style="font-family: Calibri; font-size: 8pt;">If the End User or any Installation Site is in one of the following countries in either a &ldquo;mid-risk&rdquo; Country of Concern or a &ldquo;high-risk&rdquo; Country of Concern, then Channel Partner must make certain that the reseller has signed a Consignee Undertaking in the same calendar year in which the delivery takes place. (A downloadable copy of a Consignee Undertaking is available online at </span><a style="text-decoration: none;" href="https://www.juniper.net/us/en/company/corporate-responsibility/international-trade/"><span style="font-family: Calibri; color: #000000;">https://www.juniper.net/us/en/company/corporate-responsibility/international-trade/</span></a><span style="font-family: Calibri; font-size: 8pt;"> )</span></p>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 6pt; line-height: 108%; font-size: 8pt;"><strong><u><span style="font-family: Calibri;">MID-RISK COUNTRIES OF CONCERN (as of 2018)</span></u></strong></p>
+                <table style="margin-left: 53.75pt;width: 80%; border: 0.75pt solid #000000; border-collapse: collapse;" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td style="width: 116.6pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Afghanistan</span></p>
+                            </td>
+                            <td style="width: 118.3pt; border-right-style: solid; border-right-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Armenia</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Azerbaijan</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 116.6pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Bangladesh</span></p>
+                            </td>
+                            <td style="width: 118.3pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Burundi</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Djibouti</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 116.6pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Equatorial Guinea</span></p>
+                            </td>
+                            <td style="width: 118.3pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Gambia</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Guinea-Bissau</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 116.6pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Guinea-Conakry</span></p>
+                            </td>
+                            <td style="width: 118.3pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">India</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Kazakhstan</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 116.6pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Kuwait</span></p>
+                            </td>
+                            <td style="width: 118.3pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Laos</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Pakistan</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 116.6pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Qatar</span></p>
+                            </td>
+                            <td style="width: 118.3pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Rwanda</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Swaziland</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 116.6pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Tajikistan</span></p>
+                            </td>
+                            <td style="width: 118.3pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Thailand</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Turkey</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 116.6pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Ukraine**</span></p>
+                            </td>
+                            <td style="width: 118.3pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">&nbsp;</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">&nbsp;</span></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 6pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">** </span><em><span style="font-family: Calibri;">The region of </span></em><strong><em><span style="font-family: Calibri; color: #ff0000;">Crimea </span></em></strong><em><span style="font-family: Calibri;">is subject to comprehensive US embargo.</span></em></p>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 6pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">The &ldquo;high-risk&rdquo; countries of concern include the following countries considered high-risk.</span><span style="font-family: Calibri;">&nbsp; </span><span style="font-family: Calibri;">We have marked in </span><strong><u><span style="font-family: Calibri; color: #ff0000;">RED</span></u></strong><span style="font-family: Calibri;"> those countries that are subject either to comprehensive US embargo or to extraordinary US license requirements, in </span><strong><u><span style="font-family: Calibri; color: #00b050;">GREEN</span></u></strong> <span style="font-family: Calibri;">those for which Juniper has no Netherlands export license, and in </span><strong><u><span style="font-family: Calibri; color: #2e74b5;">BLUE</span></u></strong> <span style="font-family: Calibri;">those for which Juniper has no Netherlands license to export even to non-military end users.</span><span style="font-family: Calibri;">&nbsp; </span><span style="font-family: Calibri;">(Although Netherlands does not require Consignee Undertaking for exports to </span><strong><u><span style="font-family: Calibri; color: #ff0000;">Cuba</span></u></strong><span style="font-family: Calibri;">, </span><strong><u><span style="font-family: Calibri; color: #ff0000;">Cuba</span></u></strong> <span style="font-family: Calibri;">is subject to comprehensive US embargo.)</span></p>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 0pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri;">HIGH RISK COUNTRIES OF CONCERN (as of 2018)</span></u></strong></p>
+                <table style="width: 96.26%; margin-left: 68.1pt; border: 0.75pt solid #ffffff; border-collapse: collapse;" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1.12pt 1.12pt 1.12pt 3.38pt; vertical-align: top; background-color: #ffffff;">
+                                <p style="margin-top: 6pt; margin-left: 54pt; margin-bottom: 0pt; text-indent: -18pt; text-align: justify; line-height: 15.6pt;"><span style="font-family: Calibri; font-size: 8pt;">&nbsp;</span></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table style="margin-left: 53.75pt;width: 80%; border: 0.75pt solid #000000; border-collapse: collapse;" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td style="width: 119.7pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Bahrain</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-right-style: solid; border-right-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Belarus</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #2e74b5;">Central African Republic</span></u></strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 119.7pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">China</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #2e74b5;">Congo Democratic Republic</span></u></strong></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Egypt</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 119.7pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #2e74b5;">Eritrea</span></u></strong></p>
+                            </td>
+                            <td style="width: 115.2pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #2e74b5;">Ethiopia</span></u></strong></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Hong Kong</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 119.7pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #ff0000;">Iran</span></u></strong></p>
+                            </td>
+                            <td style="width: 115.2pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Iraq</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Lebanon</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 119.7pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Libya</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Macau</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Myanmar</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 119.7pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #ff0000;">No. Korea</span></u></strong></p>
+                            </td>
+                            <td style="width: 115.2pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Oman</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Russian Federation**</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 119.7pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Saudi Arabia</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #2e74b5;">Somalia</span></u></strong></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #2e74b5;">So. Sudan</span></u></strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 119.7pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #ff0000;">Sudan</span></u></strong></p>
+                            </td>
+                            <td style="width: 115.2pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #ff0000;">Syria</span></u></strong></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Taiwan</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 119.7pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Turkmenistan</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">UAE</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #2e74b5;">Uzbekistan</span></u></strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 119.7pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #2e74b5;">Venezuela</span></u></strong></p>
+                            </td>
+                            <td style="width: 115.2pt; border-style: solid; border-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Vietnam</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><strong><u><span style="font-family: Calibri; color: #2e74b5;">Yemen</span></u></strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 119.7pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">Zimbabwe</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">&nbsp;</span></p>
+                            </td>
+                            <td style="width: 115.2pt; border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; padding-right: 5.03pt; padding-left: 5.03pt; vertical-align: top;">
+                                <p style="margin-top: 0pt; margin-left: 7.9pt; margin-bottom: 6pt; font-size: 8pt;"><span style="font-family: Calibri;">&nbsp;</span></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 0pt; font-size: 8pt;"><span style="font-family: Calibri;">** </span><em><span style="font-family: Calibri;">The region of </span></em><strong><em><span style="font-family: Calibri; color: #ff0000;">Crimea </span></em></strong><em><span style="font-family: Calibri;">is subject to comprehensive US embargo.</span></em></p>
+                <p style="margin-top: 0pt; margin-left: 18pt; margin-bottom: 6pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">&nbsp;</span></p>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 6pt; text-indent: -18pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">d)</span><span style="font: 7pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family: Calibri;">Special Rules for Export to Military End Users in High-Risk Countries of Concern.</span></strong><strong><span style="font-family: Calibri;">&nbsp; </span></strong><span style="font-family: Calibri;">Netherlands imposes extraordinary license requirements on exports to so-called &ldquo;Military End Users&rdquo; in High Risk Countries of Concern listed above.</span><span style="font-family: Calibri;">&nbsp; </span><span style="font-family: Calibri;">Bulk licenses are not issued for exports to such end users and license applications must be accompanied by end user-signed end user certificates.</span></p>
+                <p style="margin-top: 0pt; margin-left: 36pt; margin-bottom: 6pt; text-indent: 18pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">&ldquo;</span><em><span style="font-family: Calibri;">Military End Users</span></em><span style="font-family: Calibri;">&rdquo; include:</span></p>
+                <ul style="margin: 0pt; padding-left: 0pt;" type="disc">
+                    <li style="margin-left: 81.6pt; margin-bottom: 6pt; line-height: 108%; padding-left: 8.4pt; font-family: serif; font-size: 8pt;"><span style="font-family: Calibri;">Army and armed organizations (including reserve forces, border guards, coas guards, security agencies and paramilitary organizations); </span></li>
+                    <li style="margin-left: 81.6pt; margin-bottom: 6pt; line-height: 108%; padding-left: 8.4pt; font-family: serif; font-size: 8pt;"><span style="font-family: Calibri;">Ministry of Defense (including agencies / research agencies for defense technology);</span></li>
+                    <li style="margin-left: 81.6pt; margin-bottom: 6pt; line-height: 108%; padding-left: 8.4pt; font-family: serif; font-size: 8pt;"><span style="font-family: Calibri;">Ministries of the interior and similar ministries in charge of internal security or intelligence;</span></li>
+                    <li style="margin-left: 81.6pt; margin-bottom: 6pt; line-height: 108%; padding-left: 8.4pt; font-family: serif; font-size: 8pt;"><span style="font-family: Calibri;">Police and other law enforcement agencies (including anti-drugs agencies, counterterrorism and cybercrime). </span></li>
+                </ul>
+                <p style="margin-top: 0pt; margin-left: 54pt; margin-bottom: 6pt; line-height: 108%; font-size: 8pt;"><span style="font-family: Calibri;">&nbsp;</span></p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+</body>
+
+</html>
+
+@section scripts{
+    <script src="~/js/api/elaisform.js"></script>
+    <script src="~/js/userProfile.js"></script>
+    <script type="text/javascript">
+        //var myApp = angular.module('myApp', [])
+        myApp.controller("myCtrl", function ($scope, $filter, $http, $location, $uibModal) {
+            $scope.elais = {};
+
+            $scope.logoff = function () {
+                alert("yet to be done !");
+            }
+            $scope.data = [];
+
+            var token = getUrlParameter('SecureInt');
+
+            //var encrypted = $scope.encrypt(message, $scope.password);
+            var decrypted = $scope.decrypt(token, $scope.password);
+
+            $scope.getData = function () {
+
+
+                Elaisform.getData(decrypted.toString(CryptoJS.enc.Utf8)).then(function (res) {
+                    //debugger;
+                    $scope.elais.firstName = res.subFn;
+                    $scope.elais.lastName = res.subLn;
+                    $scope.elais.jobTitle = res.jobTitle;
+                    $scope.elais.channelPartner = res.cpName;
+                    $scope.elais.emailAddress = res.subEmail;
+                    $scope.elais.JuniperVar = res.jVarid;
+                    $scope.elais.quoteNumber = res.quote;
+                    $scope.elais.quoteDate = res.qDate;
+                    $scope.elais.purchaseOrder = res.po;
+                    $scope.elais.salesOrder = res.so;
+                    $scope.elais.purchaserName = res.dCompname;
+                    $scope.elais.purchaserStreet = res.dStreet;
+                    $scope.elais.purchaserCity = res.dCity;
+                    $scope.elais.purchaserState = res.dState;
+                    $scope.elais.purchaserPostalCode = res.dPostal;
+                    $scope.elais.purchaserCountry = res.dCty;
+                    $scope.elais.purchaserreseller = res.distiResl;
+                    $scope.elais.enduserCompanyName = res.euCompname;
+                    $scope.elais.enduserStreet = res.euStreet;
+                    $scope.elais.enduserCity = res.euCity;
+                    $scope.elais.enduserState = res.euState;
+                    $scope.elais.enduserPostalcode = res.euPostal;
+                    $scope.elais.enduserCountry = res.euCty;
+                    $scope.elais.enduserContactName = res.euName;
+                    $scope.elais.enduserEmail = res.euEmail;
+                    $scope.elais.enduserofficial = res.euUrl;
+                    $scope.elais.enduserOfficialText = res.euUrlText;
+                    $scope.SplitandbindtoScope(res.euBussFn.split(','));
+                    $scope.elais.otherpartiesproductsandservices = res.euOffering;
+                    $scope.elais.otherpartiesQ2Name = res.opCompname;
+                    $scope.elais.otherpartiesQ2Street = res.opStreet;
+                    $scope.elais.otherpartiesQ2City = res.opCity;
+                    $scope.elais.otherpartiesQ2State = res.opState;
+                    $scope.elais.otherpartiesQ2Postal = res.opPostal;
+                    $scope.elais.otherpartiesQ2Country = res.opCty;
+                    $scope.elais.otherpartiesQ2PartContact = res.opName;
+                    $scope.elais.otherpartiesQ3PartEmail = res.opEmail;
+                    $scope.elais.otherpartiesQ2OfficialText = res.opUrl;
+                    $scope.elais.otherpartiesQ3Name = res.neu1Compname;
+                    $scope.elais.otherpartiesQ3Address = res.neu1Street;
+                    $scope.elais.otherpartiesQ3City = res.neu1City;
+                    $scope.elais.otherpartiesQ3State = res.neu1State;
+                    $scope.elais.otherpartiesQ3Postal = res.neu1Postal;
+                    $scope.elais.otherpartiesQ3Country = res.neu1Cty;
+                    $scope.elais.otherpartiesQ3CustContact = res.neu1Name;
+                    $scope.elais.otherpartiesQ3CustEmail = res.neu1Email;
+                    $scope.elais.otherpartiesQ3OfficialText = res.neu1Url;
+                    $scope.elais.otherpartiesQ3S1Name = res.neu2Compname;
+                    $scope.elais.otherpartiesQ3S1Address = res.neu2Street;
+                    $scope.elais.otherpartiesQ3S1City = res.neu2City;
+                    $scope.elais.otherpartiesQ3S1State = res.neu2State;
+                    $scope.elais.otherpartiesQ3S1Postal = res.neu2Postal;
+                    $scope.elais.otherpartiesQ3S1Country = res.neu2Cty;
+                    $scope.elais.otherpartiesQ3S1CustContact = res.neu2Name;
+                    $scope.elais.otherpartiesQ3S1CustEmail = res.neu2Email;
+                    $scope.elais.otherpartiesQ3S1OfficialText = res.neu2Url;
+                    $scope.elais.otherpartiesQ3S2Name = res.neu3Compname;
+                    $scope.elais.otherpartiesQ3S2Street = res.neu3Street;
+                    $scope.elais.otherpartiesQ3S2City = res.neu3City;
+                    $scope.elais.otherpartiesQ3S2State = res.neu3State;
+                    $scope.elais.otherpartiesQ3S2Postal = res.neu3Postal;
+                    $scope.elais.otherpartiesQ3S2Country = res.neu3Cty;
+                    $scope.elais.otherpartiesQ3S2CustName = res.neu3Name;
+                    $scope.elais.otherpartiesQ3S2CustEmail = res.neu3Email;
+                    $scope.elais.otherpartiesQ3S2OfficialText = res.neu3Url;
+                    $scope.elais.otherpartiesQ3S3Name = res.neu4Compname;
+                    $scope.elais.otherpartiesQ3S3Street = res.neu4Street;
+                    $scope.elais.otherpartiesQ3S3City = res.neu4City;
+                    $scope.elais.otherpartiesQ3S3State = res.neu4State;
+                    $scope.elais.otherpartiesQ3S3Postal = res.neu4Postal;
+                    $scope.elais.otherpartiesQ3S3Country = res.neu4Cty;
+                    $scope.elais.otherpartiesQ3S3CustName = res.neu4Name;
+                    $scope.elais.otherpartiesQ3S3CustEmail = res.neu4Email;
+                    $scope.elais.otherpartiesQ3S3OfficialText = res.neu4Url;
+                    $scope.SplitandbindtoScope1(res.euQ1.split(','));
+                    $scope.elais.enduserproductsandservicesQ2 = res.euQ2;
+                    $scope.elais.enduserproductsandservicesQ3 = res.euQ3;
+                    $scope.elais.installationsiteName = res.s1Compname;
+                    $scope.elais.installationsiteStreet = res.s1Street;
+                    $scope.elais.installationsiteCity = res.s1City;
+                    $scope.elais.installationsiteState = res.s1State;
+                    $scope.elais.installationsitePostal = res.s1Postal;
+                    $scope.elais.installationsiteCountry = res.s1Cty;
+                    $scope.elais.installationsiteOfficial = res.s1Url;
+                    $scope.elais.installationsite1Name = res.s2Compname;
+                    $scope.elais.installationsite1Street = res.s2Street;
+                    $scope.elais.installationsite1City = res.s2City;
+                    $scope.elais.installationsite1State = res.s2State;
+                    $scope.elais.installationsite1Postal = res.s2Postal;
+                    $scope.elais.installationsite1Country = res.s2Cty;
+                    $scope.elais.installationsite1Official = res.s2Url;
+                    $scope.elais.installationsite2Name = res.s3Compname;
+                    $scope.elais.installationsite2Street = res.s3Street;
+                    $scope.elais.installationsite2City = res.s3City;
+                    $scope.elais.installationsite2State = res.s3State;
+                    $scope.elais.installationsite2Postal = res.s3Postal;
+                    $scope.elais.installationsite2Country = res.s3Cty;
+                    $scope.elais.installationsite2Official = res.s3Url;
+                    $scope.elais.installationsite3Name = res.s4Compname;
+                    $scope.elais.installationsite3Street = res.s4Street;
+                    $scope.elais.installationsite3City = res.s4City;
+                    $scope.elais.installationsite3State = res.s4State;
+                    $scope.elais.installationsite3Postal = res.s4Postal;
+                    $scope.elais.installationsite3Country = res.s4Cty;
+                    $scope.elais.installationsite3Official = res.s4Url;
+                    $scope.elais.installationsite4Name = res.s5Compname;
+                    $scope.elais.installationsite4Street = res.s5Street;
+                    $scope.elais.installationsite4City = res.s5City;
+                    $scope.elais.installationsite4City = res.s5State;
+                    $scope.elais.installationsite4Postal = res.s5Postal;
+                    $scope.elais.installationsite4Country = res.s5Cty;
+                    $scope.elais.installationsite4Official = res.s5Url;
+                    $scope.elais.companyChannelPartner = res.cpCompname;
+                    $scope.elais.nameofauthorizedrepresentative = res.authRepreName;
+                    $scope.elais.authorizedrepresentative = res.authRepreJob;
+                    $scope.elais.Date = res.ackDate;
+
+                    if (res == '')
+                        Component.showInformation('No Records Found')
+                    $scope.$apply();
+                }, function (error) {
+                    Component.handleApiError(error);
+                });
+
+            }
+
+            $scope.getData();
+
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            };
+
+
+            $scope.SplitandbindtoScope = function (data) {
+                $scope.elais.enduserPrimaryBussinessFunc = {};
+                angular.forEach(data, function (value, key) {
+
+                    if (value.length < 10) {
+                        $scope.elais.enduserPrimaryBussinessFunc[value] = true;
+                    }
+                    else {
+                        $scope.elais.enduserPrimaryBussinessFunc['twentyfive'] = true;
+                        $scope.elais.enduserPrimaryBussinessFuncText = value;
+                    }
+
+
+                })
+            }
+
+            $scope.SplitandbindtoScope1 = function (data) {
+                $scope.elais.enduserproductsandservices = {};
+                angular.forEach(data, function (value, key) {
+                    if (value.length < 7) {
+                        $scope.elais.enduserproductsandservices[value] = true;
+                    } else {
+                        $scope.elais.enduserproductsandservices['ten'] = true;
+                        $scope.elais.enduserproductsandservicesText = value;
+                    }
+
+                })
+            }
+
+            $scope.goBackToEdit = function () {
+
+
+
+            }
+
+
+        });
+    </script>
+}
+

@@ -1,0 +1,21 @@
+// Definition List
+dl{
+  @extend .#{$stencil-selector-prefix}margin-bottom;
+
+  dt{
+    display:block;
+    font-size: $font-size-small;
+    //font-weight: $font-weight-medium;
+    color: $color-accent;
+    //text-transform: uppercase;
+  }
+
+  dd{
+    margin: $spacing-smaller 0 $spacing-small;
+    line-height: $line-height-default;
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}

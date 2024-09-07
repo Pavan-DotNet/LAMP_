@@ -1,0 +1,109 @@
+// Timeline
+.#{$stencil-selector-prefix}timeline-container{
+  @extend .#{$stencil-selector-prefix}row-to-column;
+  @extend .#{$stencil-selector-prefix}flex-spread;
+  @extend .#{$stencil-selector-prefix}flex-center-align;
+  @extend .#{$stencil-selector-prefix}margin-top;
+  background: url($global-path-images+"timeline-spine.png") repeat-x 0 57%;
+
+  .#{$stencil-selector-prefix}timeline-event{
+    @extend .#{$stencil-selector-prefix}media;
+    flex-direction: column;
+    text-align: center;
+
+    .#{$stencil-selector-prefix}media-left{
+      margin-right:0;
+      text-align: center;
+    }
+
+    @media (max-width:$breakpoint-mobile-max){
+      flex-direction: row;
+      margin-bottom:$spacing-medium;
+      text-align: left;
+
+      .#{$stencil-selector-prefix}media-left{
+        margin-right:$spacing-medium;
+      }
+    }
+
+  }
+  .#{$stencil-selector-prefix}timeline-event-bubble{
+    display: inline-block;
+    width: $spacing-medium;
+    height: $spacing-medium;
+    background: color(smoke);
+    border-radius:$spacing-medium;
+
+    @media (max-width:$breakpoint-mobile-max){
+      display:none;
+    }
+
+  }
+  .#{$stencil-selector-prefix}timeline-event-meta{
+    display: block;
+    font-size: $font-size-smallest;
+    color: color(grey,light);
+  }
+
+  &.#{$stencil-selector-prefix}linear-timeline{
+    @extend .#{$stencil-selector-prefix}flex-spread;
+    background-position: 0 6px;
+
+    .#{$stencil-selector-prefix}timeline-event{
+      @extend .#{$stencil-selector-prefix}flex-center-align;
+
+      @media(max-width:$breakpoint-mobile-max){
+        align-items: baseline;
+      }
+    }
+
+    .#{$stencil-selector-prefix}timeline-event-bubble{
+      width: $spacing-small;
+      height: $spacing-small;
+      background-color: color(grey,lightest);
+
+      @media (max-width:$breakpoint-mobile-max){
+        display:block;
+      }
+    }
+
+    .#{$stencil-selector-prefix}timeline-event-meta{
+      margin-top: $spacing-smaller;
+      font-size: $font-size-small;
+
+      @media (max-width:$breakpoint-mobile-max){
+        margin-top:0;
+      }
+    }
+
+    .#{$stencil-selector-prefix}timeline-event-complete{
+      .#{$stencil-selector-prefix}timeline-event-bubble{
+        background-color: color(green);
+        border-color: darken(color(green),5%);
+      }
+      .#{$stencil-selector-prefix}timeline-event-meta{
+        color: color(green);
+      }
+    }
+
+    .#{$stencil-selector-prefix}timeline-event-current{
+      .#{$stencil-selector-prefix}timeline-event-bubble{
+        width: $spacing-medium;
+        height: $spacing-medium;
+        background-color: skyblue;
+        border-color: royalblue;
+      }
+      .#{$stencil-selector-prefix}timeline-event-meta{
+        color: royalblue;
+        text-transform: uppercase;
+      }
+    }
+
+  }
+
+  @media (max-width:$breakpoint-mobile-max){
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: none;
+  }
+}

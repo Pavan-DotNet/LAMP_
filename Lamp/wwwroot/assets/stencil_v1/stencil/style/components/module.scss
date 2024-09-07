@@ -1,0 +1,100 @@
+// Module
+.#{$stencil-selector-prefix}module{
+  background: white;
+  box-shadow: 0 1px 1px 1px $color-module-shadow;
+
+  .#{$stencil-selector-prefix}hide-on-shrink{ display: none}
+
+  .#{$stencil-selector-prefix}module-header{
+    @extend .#{$stencil-selector-prefix}flex-spread;
+    @extend .#{$stencil-selector-prefix}flex-stretch;
+    padding: $spacing-small;
+    border-top: 2px solid color(grey);
+    border-bottom: 1px solid $color-body-bg;
+
+    .#{$stencil-selector-prefix}module-title{
+      margin: 0;
+      font-size: $font-size-regular;
+      line-height: 1;
+    }
+
+  }
+
+  .#{$stencil-selector-prefix}module-body{
+    @extend .#{$stencil-selector-prefix}padding-around;
+    position: relative;
+    min-height: 55px;
+    //overflow-x: hidden; // uncomment if position:sticky is not required
+  }
+
+  .#{$stencil-selector-prefix}module-footer{
+    @extend .#{$stencil-selector-prefix}flex-spread;
+    @extend .#{$stencil-selector-prefix}padding-around;
+    align-items: baseline;
+    border-top: 1px solid $color-body-bg;
+
+    @media(max-width: $breakpoint-mobile-max){
+      flex-direction: column;
+
+      .#{$stencil-selector-prefix}module-actions-left, .#{$stencil-selector-prefix}module-actions-center, .#{$stencil-selector-prefix}module-actions-right{
+        width: 100%;
+        justify-content: center;
+      }
+
+      .#{$stencil-selector-prefix}module-actions-left{
+        margin-bottom: $spacing-small;
+      }
+
+      .#{$stencil-selector-prefix}module-actions-right{
+        margin-top: $spacing-small;
+      }
+    }
+  }
+
+  .#{$stencil-selector-prefix}module-actions-left, .#{$stencil-selector-prefix}module-actions-right{
+      @extend .#{$stencil-selector-prefix}flex;
+      width: 25%;
+    }
+  .#{$stencil-selector-prefix}module-actions-left{
+    justify-content: flex-start;
+  }
+  .#{$stencil-selector-prefix}module-actions-center{
+    @extend .#{$stencil-selector-prefix}flex-center;
+    @extend .#{$stencil-selector-prefix}flex-center-align;
+    flex-grow: 3;
+    margin: 0;
+  }
+  .#{$stencil-selector-prefix}module-actions-right{
+    justify-content: flex-end;
+  }
+
+
+  &.#{$stencil-selector-prefix}expanded{
+    padding-bottom: $spacing-largest;
+    box-shadow: none;
+
+    .#{$stencil-selector-prefix}hide-on-shrink{ display: block}
+    .#{$stencil-selector-prefix}hide-on-expand{ display: none}
+
+    .#{$stencil-selector-prefix}module-header{
+      border: none;
+    }
+
+    .#{$stencil-selector-prefix}module-footer{
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 0 1px 1px $color-module-shadow;
+      z-index: 1001;
+    }
+  }
+
+  .#{$stencil-selector-prefix}module-summary-view{
+    @extend .#{$stencil-selector-prefix}hide-on-expand;
+  }
+
+  .#{$stencil-selector-prefix}module-expanded-view{
+    @extend .#{$stencil-selector-prefix}hide-on-shrink;
+  }
+}

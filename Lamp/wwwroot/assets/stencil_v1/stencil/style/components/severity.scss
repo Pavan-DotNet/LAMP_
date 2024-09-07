@@ -1,0 +1,30 @@
+// Severity
+.#{$stencil-selector-prefix}severity-critical{
+  color: red;
+
+  .#{$stencil-selector-prefix}disc{
+    background-color:red;
+  }
+}
+.#{$stencil-selector-prefix}severity-major{
+  color: #ff7f50;
+
+  .#{$stencil-selector-prefix}disc{
+    background-color:#ff7f50;
+  }
+}
+.#{$stencil-selector-prefix}severity-minor{
+  color: mediumseagreen;
+
+  .#{$stencil-selector-prefix}disc{
+    background-color:mediumseagreen;
+  }
+}
+.#{$stencil-selector-prefix}disc{
+  display: inline-block;
+  width: $spacing-small;
+  height: $spacing-small;
+  margin-right: $spacing-smaller;
+  background-color: #999;
+  border-radius: $spacing-small;
+}

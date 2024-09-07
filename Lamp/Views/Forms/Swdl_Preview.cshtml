@@ -1,0 +1,361 @@
+﻿@{
+    ViewData["Title"] = "E-Certification for SW Download Preview";
+}
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/assets/EliasForm/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+    <link href="~/assets/EliasForm/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/assets/stencil_v1/style.css">
+    <link href="~/assets/Swdl/main.css" rel="stylesheet" />
+</head>
+<body style="pointer-events: none">
+    <header>
+        <div class="container">
+            <div class="branding">
+                <img src="~/assets/img/juniper-logo-white.svg" width="166" height="54" border="0" alt="Juniper Networks" title="Juniper Networks" />
+            </div>
+        </div>
+    </header>
+    <div id="main-container">
+        <div class="header-title text-center">
+            <h2 class="font-bold">E-Certificate for Standard Junos Image Download (EAEU-only)</h2>
+            <p>(and related Undertaking re EAEU encryption import controls)</p>
+        </div>
+        <form name="swdlForm" novalidate>
+            <div class="row setup-content-2" id="step-3" style="margin-top: -50px;">
+                <div class="col-md-12">
+                    <section>
+                        <p>
+                            <strong>Instructions :</strong>
+                            <ul>
+                                <li> This E-Certificate must be completed by an authorized channel partner or end-user (as applicable, herein referred to as the “<strong><span class="underlined">Certifier</span></strong>”) registered with Juniper for use of its online self-service resources to which it or its downstream end user customer is entitled under a warranty or service contract (that is/was furnished by or entered into with either Juniper or a Juniper-authorized Support Service Partner (“JSSP”) and that covers the hardware system or line card designated in Appendix A).  (Such covered hardware system is referred to herein as “<strong><span class="underlined">Covered Product.</span></strong>”)</li>
+                                <li>The purpose of this E-Certificate is to enable Juniper Trade Compliance to determine whether certifying party can be given temporary access to download a “standard” image of Junos operating system for installation and use on specified Juniper products located in the Eurasian Economic Union (comprising Russian Federation, Armenia, Belarus, Kazakhstan and Kyrgyzstan) (the “<strong><span class="underlined">EAEU</span></strong>”).  Juniper Trade Compliance shall base its decision on whether, given the information provided here, there is any reason to believe that the certifier’s access to and use of the standard Junos image would be inconsistent with EAEU encryption import and use controls.  Once the Certifier has completed, signed, and submitted this E-Certificate, Juniper Trade Compliance will determine whether it can give a registered account holder contact with access to Juniper’s self-service software download site access to the image(s) of standard Junos software identified in this E-Certificate.  Juniper Trade Compliance will endeavor to respond by the end of the business day following the day on which the completed E-Certificate is submitted by the end-user. <strong><span class="red">Please feel free to send any questions about this form via email addressed to <a href="mailto:tradecompliance-swdl@juniper.net">tradecompliance-swdl@juniper.net</a> with the subject line “URGENT: E-Certificate for Standard Junos Image Download.”</span></strong></li>
+                            </ul>
+                        </p>
+                        @*<h2 class="panel panel-heading">I.	Certifier (either the Juniper authorized channel partner reselling the Covered Product into the EAEU or the End-User purchaser of the Covered Product)</h2>*@
+                        @*<div id="basic-info">
+                                <span style="width: auto;margin-left: 10px;margin-right: 97px;margin-bottom: 15px">Channel Partner*</span>
+                                <input type="radio" name="webcheck" value="yes" ng-model="swdl.channelptnr" required> Yes
+                                <input type="radio" name="webcheck" value="no" ng-model="swdl.channelptnr" required> No
+                                <span style="color:red" ng-if="!formValid && swdlForm.webcheck.$invalid ">&nbsp;&nbsp; Please Select One.</span>
+                            </div>*@
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">I. Channel Partner (either the Juniper authorized channel partner reselling the Covered Product into the EAEU or the End-User purchaser of the Covered Product)):</div>
+                            <div class="panel-body">
+                                <div id="basic-info">
+                                    <div id="inner-div" class="col-md-6">
+                                        <dl class="row">
+                                            <dt class="col-sm-6">Company Name* :</dt>
+                                            <dd class="col-sm-6">{{swdl.cert_Comp_Name}}</dd>
+
+                                            <dt class="col-sm-6">Address*:</dt>
+                                            <dd class="col-sm-6">{{swdl.cert_Address}}</dd>
+
+                                            <dt class="col-sm-6">Phone No*:</dt>
+                                            <dd class="col-sm-6">{{swdl.cert_Phone_No}}</dd>
+
+                                        </dl>
+                                    </div>
+                                    <div id="inner-div" class="col-md-6">
+                                        <dl class="row">
+                                            <dt class="col-sm-6">Contact Person Name:</dt>
+                                            <dd class="col-sm-6">{{swdl.cert_Contact_Name}}</dd>
+
+                                            <dt class="col-sm-6">Email address for notices:</dt>
+                                            <dd class="col-sm-6">{{swdl.cert_Email_Notice}}</dd>
+
+                                            <dt class="col-sm-6">Contact Person Email:*:</dt>
+                                            <dd class="col-sm-6">{{swdl.cert_Contact_Person_Email}}</dd>
+
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">II. End User (if different)</div>
+                            <div class="panel-body">
+                                <div id="basic-info">
+                                    <div id="inner-div" class="col-md-6">
+                                        <dl class="row">
+                                            <dt class="col-sm-6">End User Name* :</dt>
+                                            <dd class="col-sm-6">{{swdl.end_User_Name}}</dd>
+
+                                            <dt class="col-sm-6">Address*:</dt>
+                                            <dd class="col-sm-6">{{swdl.end_User_Address}}</dd>
+
+                                            <dt class="col-sm-6">WebSite*:</dt>
+                                            <dd class="col-sm-6">{{swdl.end_User_Website}}</dd>
+
+                                        </dl>
+                                    </div>
+                                    <div id="inner-div" class="col-md-6">
+                                        <dl class="row">
+                                            <dt class="col-sm-6">Phone No:</dt>
+                                            <dd class="col-sm-6">{{swdl.end_User_Phone}}</dd>
+
+                                            <dt class="col-sm-6">End-User Contact Person Name:</dt>
+                                            <dd class="col-sm-6">{{swdl.end_User_Contact_Name}}</dd>
+
+                                            <dt class="col-sm-6">Contact Email Address:</dt>
+                                            <dd class="col-sm-6">{{swdl.end_User_Contact_Email}}</dd>
+
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">III. Certification as to Covered Hardware</div>
+                            <div class="panel-body">
+                                <p>The undersigned, as authorized representative of Certifier, hereby certifies that the following are true and correct:</p>
+                                <div id="">
+
+                                    <ul>
+                                        <li>
+                                            The facts set forth above and in <strong><span class="underlined">Appendix A</span></strong> (which is attached hereto and incorporated herein) are current, accurate and complete.
+                                        </li>
+                                        <li>
+                                            <strong><span class="underlined">Appendix A</span></strong> lists all hardware (herein, the “<strong><span class="underlined">Covered Product</span></strong>”) on which the End-User will install the standard Junos image(s) to be downloaded.
+                                        </li>
+                                        <li>
+                                            All Covered Product was imported into the EAEU under import license or internal use import permit identified in <strong><span class="underlined">Appendix A</span></strong> except for those purchased by End-User before 2022.
+                                        </li>
+                                        <li>
+                                            As to all Covered Product purchased by End-User before 2022, End User is using the Covered Product solely for its internal purposes under government issued encryption product internal use permit.
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">IV.	Undertaking</div>
+                            <div class="panel-body">
+                                <p>Certifier hereby agrees to the following in connection with the Covered Equipment:</p>
+                                <div id="">
+
+                                    <ul>
+                                        <li>
+                                            Certifier shall not use the downloaded standard Junos images on any system other than a Covered Product identified by serial number and model # in <strong><span class="underlined">Appendix A</span></strong>.
+                                        </li>
+                                        <li>
+                                            Certifier hereby undertakes to retain and archive for later inspection and copying by Juniper at any time within 3 years of expiration of the service contract or warranty with respect to which Certifier is submitting this Certificate, all licenses, permits, and bills of entry, and equipment inventory records pertaining to the Covered Product, its importation into the EAEU and its installation site.
+                                        </li>
+                                        <li>
+                                            If at any time following Certifier signature of this Certificate any facts or circumstances change such that the certification could not truthfully be made as of such later date, then Certifier agrees to promptly notify Juniper by email sent to <a href="mailto:tradecompliance-swdl@juniper.net">tradecompliance-swdl@juniper.net</a> using the subject line: “<span class="underlined">URGENT: Update of EAEU Junos Limited Use Certificate required</span>” and describing the details of any such change changed facts or circumstances.
+                                        </li>
+                                        <li>
+                                            (If Certifier is not the End-User) Certifier shall obtain End-User’s signed, written certification to the accuracy of the contents of this Certificate (including Parts II and III), above, and of <strong><span class="underlined">Appendix A</span></strong> and End-User’s written undertaking to abide by the terms of all provisions of the undertakings set forth in this Part IV all as though the End-User were the named Certifier hereto.
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="basic-info" class="row">
+                            <div class="col-md-3">
+                                <label>
+                                    <input type="text" class="signature" id="signature" name="Signature" ng-model="swdl.signature" placeholder="Signature" required />
+                                </label>
+                            </div>
+                            <div class="col-md-3 col-md-push-7">
+                                <label>
+                                    <input type="text" name="Dated" class="signature" id="signature" ng-model="swdl.dated | date:'dd/MM/yyyy'" placeholder="Dated" required>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Appendix A to E-Certificate for Standard Junos Image Download</div>
+                            <div class="panel-body">
+                                <div class="panel panel-default" ng-repeat="(pIndex,dt) in swdl.installation_Sites">
+                                    <div class="panel-heading">
+                                        INSTALLATION SITE {{pIndex + 1}} (Facility name (incl building # or name):
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="basic-info">
+                                            <div id="inner-div" class="col-md-6">
+                                                <dl class="row">
+                                                    <dt class="col-sm-6">Street Address of End User Installation Site*:</dt>
+                                                    <dd class="col-sm-6">{{dt.inst_Addresss}}</dd>
+
+                                                    <dt class="col-sm-6">Province, Oblast, Republic, District, etc.*:</dt>
+                                                    <dd class="col-sm-6">{{dt.inst_Province}}</dd>
+
+                                                </dl>
+                                            </div>
+                                            <div id="inner-div" class="col-md-6">
+                                                <dl class="row">
+                                                    <dt class="col-sm-6">Postal Code:</dt>
+                                                    <dd class="col-sm-6">{{dt.inst_Postal}}</dd>
+
+                                                    <dt class="col-sm-6">Country:</dt>
+                                                    <dd class="col-sm-6">{{dt.inst_Country}}</dd>
+
+                                                </dl>
+                                            </div>
+
+
+                                            <table class="table table-bordered">
+                                                <caption>
+                                                    <span><strong>Covered Equipment at Installation site</strong></span>
+                                                </caption>
+
+                                                <colgroup span="4"></colgroup>
+                                                <colgroup span="3"></colgroup>
+
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th rowspan="2">Item</th>
+                                                        <th rowspan="2">
+                                                            Hardware Product SKU Covered Product
+                                                            Model #/SKU
+                                                        </th>
+                                                        <th rowspan="2">Strd Junos Image</th>
+                                                        <th rowspan="2">
+                                                            Covered Product Serial #
+                                                            (for config’d system include BOTH routing engine ser.# AND chassis ser.#;
+                                                            for covered line card include line card ser.# AND chassis ser.#)
+                                                        </th>
+                                                        <th rowspan="2">
+                                                            End User Purch. Order for Covered Product
+                                                            (include P.O. Number, seller name and P.O. Date)
+                                                        </th>
+                                                        <th colspan="3" scope="colgroup" class="text-center">Import License/Internal Use Import Permit</th>
+                                                        <th rowspan="2">License/permit applicant</th>
+                                                        <th rowspan="2">Named Purchaser/End User in license</th>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <th scope="col">License or Permit</th>
+                                                        <th scope="col">Issuance Date</th>
+                                                        <th scope="col">Expiration Date</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in dt.equipments">
+                                                        <td>{{$index+1}}</td>
+                                                        <td><input type="text" ng-model="item.hardwareSku" /></td>
+                                                        <td><input type="text" ng-model="item.junousImage" /></td>
+                                                        <td>
+                                                            <input type="text" ng-model="item.productSerial" />
+                                                        </td>
+                                                        <td><input type="text" ng-model="item.purchOrder" /></td>
+                                                        <td><input type="text" ng-model="item.permit" /></td>
+                                                        <td><input type="date" ng-model="item.issueDate" /></td>
+                                                        <td><input type="date" ng-model="item.expDate" /></td>
+                                                        <td><input type="text" ng-model="item.permitApplicant" /></td>
+                                                        <td><input type="text" ng-model="item.namedPurchaser" /></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </form>
+        <!-- SCRIPTS -->
+        <!-- JQuery -->
+        <script type="text/javascript" src="~/assets/EliasForm/js/jquery-3.3.1.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="~/assets/EliasForm/js/popper.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="~/assets/EliasForm/js/mdb.min.js"></script>
+        <script type="text/javascript" src="~/lib/signature_pad.umd.min.js"></script>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" tabindex="-1" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sign</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="wrapper">
+                        <canvas id="signature-pad" class="signature-pad"></canvas>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary float-left" ng-click="save(swdlForm.$valid)">Submit</button>
+                    <button class="btn btn-primary float-right" ng-click="signaturePad.clear();"></button>
+                    <button class="btn btn-primary float-right">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+@section scripts{
+    <script src="~/js/api/swdlform.js"></script>
+    <script src="~/js/userProfile.js"></script>
+    <script type="text/javascript">
+        //var myApp = angular.module('myApp', [])
+        myApp.controller("myCtrl", function ($scope, $filter, $http, $location) {
+            $scope.swdl = {};
+
+            //$scope.swdl = userProfile.get('SwdlPreview');
+            var token = getUrlParameter('SecureInt');
+
+            //var encrypted = $scope.encrypt(message, $scope.password);
+            var decrypted = $scope.decrypt(token, $scope.password);
+
+            $scope.getData = function () {
+                Swdlform.getData(decrypted.toString(CryptoJS.enc.Utf8)).then(function (res) {
+                    res.installation_Sites.forEach((d) => {
+                        d.equipments.forEach((e) => {
+                            if (!isNaN(Date.parse(e.issueDate))) {
+                                e.issueDate = new Date(e.issueDate);
+                            }
+                            if (!isNaN(Date.parse(e.expDate))) {
+                                e.expDate = new Date(e.expDate);
+                            }
+                        });
+                    });
+                    $scope.swdl = res;
+                    if (res == '')
+                        Component.showInformation('No Records Found');
+                    $scope.$apply();
+                }, function (error) {
+                    Component.handleApiError(error);
+                });
+
+            }
+
+            $scope.getData();
+
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            };
+
+        });
+    </script>
+}

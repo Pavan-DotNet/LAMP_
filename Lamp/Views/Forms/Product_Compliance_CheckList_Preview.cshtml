@@ -1,0 +1,1134 @@
+﻿@{
+    ViewData["Title"] = "PRODUCT AND SERVICES COMPLIANCE CHECKLIST";
+}
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/assets/EliasForm/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+    <link href="~/assets/EliasForm/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/assets/stencil_v1/style.css">
+    <link href="~/assets/EliasForm/css/main.css" rel="stylesheet" />
+    <link href="~/assets/EliasForm/css/bootstrap-multiselect.min.css" />
+
+    <style>
+        [data-tip] {
+            position: relative;
+        }
+
+            [data-tip]:before {
+                content: '';
+                /* hides the tooltip when not hovered */
+                display: none;
+                content: '';
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-bottom: 5px solid #1a1a1a;
+                position: absolute;
+                top: 30px;
+                left: 35px;
+                z-index: 8;
+                font-size: 0;
+                line-height: 0;
+                width: 0;
+                height: 0;
+            }
+
+            [data-tip]:after {
+                display: none;
+                content: attr(data-tip);
+                position: absolute;
+                top: 35px;
+                left: 0px;
+                padding: 5px 8px;
+                background: #1a1a1a;
+                color: #fff;
+                z-index: 9;
+                font-size: 0.75em;
+                height: 30px;
+                line-height: 18px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                white-space: nowrap;
+                word-wrap: normal;
+            }
+
+            [data-tip]:hover:before,
+            [data-tip]:hover:after {
+                display: block;
+            }
+
+        label {
+            color: #1a1a1a;
+        }
+
+        p {
+            color: #7c7a7a;
+        }
+
+        .btn-group > .btn {
+            background-color: white !important;
+            color: black !important;
+        }
+
+        .multiselect-container li {
+            margin-left: 20px;
+        }
+
+        .multiselect b.caret {
+            position: absolute;
+            top: 14px;
+            right: 8px;
+            display: none;
+        }
+
+        .multiselect-container li {
+            margin-left: 20px;
+        }
+
+        .multiselect b.caret {
+            position: absolute;
+            top: 14px;
+            right: 8px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color: #55b135">
+        <div class="container">
+            <div class="branding">
+                <img src="~/assets/img/juniper-logo-white.svg" width="166" height="54" border="0" alt="Juniper Networks" title="Juniper Networks" />
+            </div>
+        </div>
+    </header>
+    <div id="main-container">
+        <h2 class="text-center font-bold pt-4 pb-5 mb-5" style="color: #55b135">
+            <strong>Product And Services (P/S) Compliance Checklist</strong>
+        </h2>
+
+        <div class="cotainer">
+            <form>
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="font-weight: 900">Background</div>
+                            <div class="panel-body">
+                                <div class="col-md-6">
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="product_line">
+                                                Responsible Product Line / Program Manager
+                                            </label>
+                                            <input type="text" disabled="disabled" id="product_line" class="form-control" ng-model="product.prodcut_Line" name="product_line">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="service_name">
+                                                P/S Name
+                                            </label>
+                                            <input type="text" disabled="disabled" id="service_name" class="form-control" ng-model="product.service_Name" name="service_name">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="service_business">
+                                                P/S Business Unit
+                                            </label>
+                                            <input type="text" disabled="disabled" id="service_business" class="form-control" ng-model="product.business_Unit" name="service_business">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="stakeholders">
+                                                Additional Stakeholders To Inform
+                                            </label>
+                                            <input type="text" disabled="disabled" id="stakeholders" class="form-control" ng-model="product.additional_Stakeholders" name="stakeholders">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="service_version">
+                                                P/S Version Number
+                                            </label>
+
+                                            <input type="text" disabled="disabled" id="service_version" class="form-control" ng-model="product.service_Version" name="service_version">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="service_date">
+                                                P/S External Release Date
+                                            </label>
+
+                                            <input type="date" disabled="disabled" id="service_date" class="form-control" ng-model="product.release_Date" name="service_date">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" id="yes_no_radio">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="product_councel_previously">Have you previously submitted a compliance checklist for this particular release?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" name="product_councel_previously" value="yes" ng-model="product.product_councel_previously" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" name="product_councel_previously" value="no" ng-model="product.product_councel_previously" checked="" disabled>No</input>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div ng-if="product.product_councel_previously == 'yes'" id="product_councel_previously_questions">
+                                    <div class="col-md-12" style="padding-top: 20px">
+                                        <div class="form-row">
+                                            <div class="col-md-12 mb-3">
+                                                <label for="prior_checklist">
+                                                    Please provide URL for previous checklist
+                                                </label>
+                                                <input type="text" id="prior_checklist" class="form-control" ng-model="product.prior_checklist_text" name="prior_checklist" autofocus disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="font-weight: 900">
+                                P/S Questions
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="col-md-12">
+                                    <div id="end-user-span">
+                                        <p style="margin:15px 0px 15px -1px;">Select All That Describe The P/S</p>
+                                        <label>
+                                            <input type="checkbox" name="enduser" value="opt-one" ng-model="product.product_service.one" disabled>
+                                            <span data-toggle="tooltip" title="(i.e., not a service pack, bug fixes, special version, which would have the same applicable ECCN)"> A brand new never previously released Product or Service</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="enduser" value="opt-two" ng-model="product.product_service.two" disabled>
+                                            <span data-toggle="tooltip" title="(i.e., cloud rather than on-prem, different customer information gathering)"> An existing Product or Service being offered, sold, or marketed in a new way  or in a new country?</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="enduser" value="opt-four" ng-model="product.product_service.four" disabled>
+                                            <span data-toggle="tooltip" title="(e.g., GTM, IP, security, privacy and regulatory review)"> A product acquired by Juniper that has NOT gone through a full legal checklist</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="enduser" value="opt-five" ng-model="product.product_service.five" disabled>
+                                            <span> A bundle of previously approved Products or Services</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="enduser" value="opt-six" ng-model="product.product_service.six" disabled>
+                                            <span data-toggle="tooltip" title="(i.e., no new functionality added)"> A minor update to an existing previously approved Product or Service</span>
+                                        </label>
+
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="technical_summary">
+                                                Provide a technical summary of the new P/S, or the new functionalities in this particular release, and the changes from a previously submitted compliance checklist (if any).
+                                            </label>
+
+                                            <textarea type="text" id="technical_summary" class="form-control" ng-model="product.technical_Summary" name="technical_summary" disabled></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label>
+                                                Please upload any documents that you might have for additional information regarding this P/S
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <a href="" ng-click="onClickDownloadPdf()">
+                                                Download PDF
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="include_otherwise">
+                                                Does the P/S include or otherwise require
+                                            </label>
+                                            <select class="form-control" id="include_otherwise" multiple="multiple" ng-model="product.include_otherwise" style="height: 34px" disabled>
+                                                <option value="1">Third party Commercial software or component</option>
+                                                <option value="2">Open-Source Software</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12" ng-if="product.include_otherwise != 0">
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+
+                                                    <label for="third_party_components">Have you submitted all open source / third party component requests to Palamida</label>
+
+                                                    <input type="radio" value="yes" name="third_party_components" ng-model="product.third_party_components" disabled>Yes</input>
+                                                    &nbsp;
+                                                    <input type="radio" value="no" name="third_party_components" checked="" ng-model="product.third_party_components" disabled>No</input>
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class=" col-md-6 mb-3">
+                                                        <label for="party_ip">
+                                                            Please provide legal support name for review of 3rd party ip and date of meeting: (e.g. ning on 04/11/2022)
+                                                        </label>
+                                                        <input type="text" id="party_ip" class="form-control" ng-model="product.party_ip" name="party_ip" autofocus disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12" style="padding-top: 20px" id="yes_no_radio">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="particular_product">Have you consulted with the trade compliance team for this particular product ?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" name="particular_product" value="yes" ng-model="product.particular_product" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" name="particular_product" value="no" checked="" ng-model="product.particular_product" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-6" ng-if="product.particular_product == 'yes'">
+                                            <div class="form-row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="date">
+                                                        Please provide a date
+                                                    </label>
+                                                    <input type="date" id="date" class="form-control" ng-model="product.date" name="date" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @* <div class="col-md-6" ng-if="product.particular_product == 'no'">
+                                            <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                            <label for="reason">
+                                            Please select the best reason why
+                                            </label>
+                                            <select class="form-control" ng-model="product.reason" style="height: 34px" disabled>
+                                            <option selected="selected">Select one</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            </select>
+                                            </div>
+                                            </div>
+                                            </div>*@
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="cryptograph">Does the product include any new cryptography features, ciphers, encryption, crypto implementations/modules or content?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="cryptograph" ng-model="product.cryptograph" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="cryptograph" checked="" ng-model="product.cryptograph" disabled>No</input>
+                                        </div>
+                                        <div class="panel panel-default" ng-if="product.cryptograph == 'yes'">
+                                            <div class="panel-heading" style="font-weight: 900">Classification Issue Checklist</div>
+                                            <div class="panel-body">
+
+                                                <div class="form-row" style="margin-top: 20px">
+                                                    <span>STEP 1: IDENTIFY ISSUES AT THE R&D STAGE</span>
+                                                    <label>
+                                                        <input type="checkbox" name="enduser" value="opt-one" ng-model="product.identify_issues.one" disabled>
+                                                        <span> During R&D, are we engaging any new/unvetted foreign entities (e.g. partners, developers, or manufacturers) who would gain access to Juniper product source code or other technical details (e.g. design data, schematics, etc.)? </span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" name="enduser" value="opt-two" ng-model="product.identify_issues.two" disabled>
+                                                        <span> Is there any new feature/functionality developed specifically for or related to military, defense, intelligence, cryptanalytic, network communication surveillance, network intrusion or vulnerability detection, quantum cryptography, and/or AI network analysis purposes? Think of anything relevant to cyberwarfare or law enforcement</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" name="enduser" value="opt-three" ng-model="product.identify_issues.three" disabled>
+                                                        <span> Are you using any government funding, especially from Department of Defense? </span>
+                                                    </label>
+                                                </div>
+
+
+                                                <div class="form-row" style="margin-top: 10px">
+                                                    <span style="margin-top: 20px">STEP 2: IDENTIFY CHANGES IN CRYPTOGRAPHY FEATURES</span>
+                                                    <p style="margin: 15px 0px 15px -1px;">2.1. Are there any changes in terms of cryptography features/functionality on data plane or for stored user data (not about control plane or user administration/authentication)? </p>
+                                                    <label style="width: 100%">
+                                                        <input type="checkbox" name="enduser" value="opt-one" ng-model="product.identify_changes.one" disabled>
+                                                        <span> Added/Removed encryption algorithms/protocols/APIs, especially non-standard/proprietary ones </span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" name="enduser" value="opt-two" ng-model="product.identify_changes.two" disabled>
+                                                        <span> Changes in the generation or management of encryption keys, especially algorithms or sizes </span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" name="enduser" value="opt-three" ng-model="product.identify_changes.three" disabled>
+                                                        <span> Changes in the pre-processing (e.g. compression or interleaving) or post-processing (e.g. packetization or encapsulation) methods for the encrypted traffic </span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <p style="margin: 15px 0px 15px -1px;">2.2. Are there any changes in terms of limiting end-user access/control of cryptography features/functionality on data plane or for stored user data (not about control plane or user administration/authentication)? </p>
+                                                    <label>
+                                                        <input type="checkbox" name="enduser" value="opt-one" ng-model="product.any_changes.one" disabled>
+                                                        <span> Changes in product licensing or activation mechanisms, especially for data encryption related features </span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" name="enduser" value="opt-two" ng-model="product.any_changes.two" disabled>
+                                                        <span> Changes in terms of preventing end-users from using Juniper product in an unintended manner, e.g. shipped interpreted languages (e.g. Python or Ruby), shipped Juniper proprietary source code, or open cryptographic interface, especially those facts which could enable end-users to have unintended/uncontrolled encrypted communications. </span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-row" style="margin-top: 10px">
+                                                    <span style="margin-top: 20px">STEP 3: IDENTIFY ISSUES SPECIFICALLY FOR HARDWARE PRODUCTS</span>
+                                                    <p style="margin: 15px 0px 15px -1px;">3.1. This (hardware) product has been, or this release would make this (hardware) product, one of the following types of products, and the supported communication capability is substantially improved since the last release. </p>
+                                                    <label style="width: 100%">
+                                                        <input type="checkbox" name="enduser" value="opt-one" ng-model="product.identify_issues_specific.one" disabled>
+                                                        <span> a media gateway or other unified communications (UC) infrastructure, including Voice-over-Internet Protocol (VoIP) service </span>
+                                                    </label>
+                                                    <label style="width: 100%">
+                                                        <input type="checkbox" name="enduser" value="opt-two" ng-model="product.identify_issues_specific.two" disabled>
+                                                        <span> a terrestrial wireless infrastructure, e.g. base stations </span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" name="enduser" value="opt-three" ng-model="product.identify_issues_specific.three" disabled>
+                                                        <span> a public safety/first responder radio </span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-row" style="margin-top: 10px">
+                                                    <span style="margin-top: 20px">STEP 4: IDENTIFY OTHER ISSUES WHICH IMPACT CLASSIFICATIONS OF A RESTRICTED ENCRYPTION ITEM?</span>
+                                                    <label style="width: 100%">
+                                                        <input type="checkbox" name="enduser" value="opt-one" ng-model="product.identify_other_issues.one" disabled>
+                                                        <span style="color: #7c7a7a; line-height: 1.5;"> 4.1. This release of product provides or supports NEW types of communications (e.g. WAN, MAN, VPN, Satellite, VoIP, Cellular, Trunked)? </span>
+                                                    </label>
+                                                    <p style="margin: 15px 0px 15px -1px;">4.2. Does this release of product enable the encrypted communication throughput to cross a certain threshold?. </p>
+                                                    <label style="width: 100%">
+                                                        <input type="checkbox" name="enduser" value="opt-two" ng-model="product.identify_other_issues.two" disabled>
+                                                        <span> WAN, MAN, VPN, backhaul or long-haul communications: 250 Mbps </span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" name="enduser" value="opt-three" ng-model="product.identify_other_issues.three" disabled>
+                                                        <span> Satellite communications:10 Mbps </span>
+                                                    </label>
+                                                    <label style="margin: 15px 0px 15px -1px; width: 100%">
+                                                        <input type="checkbox" name="enduser" value="opt-one" ng-model="product.identify_other_issues.four" disabled>
+                                                        <span style="color: #7c7a7a; line-height: 1.5;"> 4.3 The product is intended to be sold to a different group of customers, i.e. enterprise/large-entity customers to consumer/small-business customers, or vice versa, after this release? </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="proposed_license">What is the proposed licensing model for your P/S ?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" id="proposed_license" class="form-control" ng-model="product.proposed_license" name="proposed_license" autofocus disabled>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="accessiblity_design">Have you considered building any accessibility designs in your P/S ?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" id="accessiblity_design" class="form-control" ng-model="product.accessiblity_design" name="accessiblity_design" autofocus disabled>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="vpat">Have you previously completed a VPAT form for your product or service?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="vpat" ng-model="product.vpat" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="vpat" checked="" ng-model="product.vpat" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.vpat == 'no'">
+                                        <div class="form-row">
+                                            <p>Please take the following actions:<br /> &nbsp;&nbsp;  If no, Complete a VPAT form for the P/S, at : <a href="https://www.itic.org/dotAsset/7d1524dc-e602-47be-8276-ce32bdd58d6c.doc" target="_blank">Click Here</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.vpat == 'yes'">
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="prev_completion">
+                                                    Date of previous completion.
+                                                </label>
+                                                <input type="date" id="prev_completion" class="form-control" ng-model="product.prev_completion" name="prev_completion" autofocus disabled>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="which_it">
+                                                    P/S for which it
+                                                </label>
+                                                <input type="text" id="which_it" class="form-control" ng-model="product.which_it" name="which_it" autofocus disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <p>&nbsp;Please email to Product Counsel the previously completed form.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row" style="padding-top: 20px">
+                                        <div class="col-md-6">
+                                            <label for="aggregating">
+                                                Does the P/S <span data-toggle="tooltip" title="'process' means any operation(s) performed on Personal Data, such as collecting, recording, structuring, accessing, analyzing, modifying, aggregating, storing (temporary or longer), hosting, adapting, altering, retrieving, using, disclosing, transmitting (including between networks, data centers, or non-Juniper companies or persons) or otherwise making available, combining, erasing, or destroying.">process</span> <span data-toggle="tooltip" title="i.	‘Personal Data means data that directly, or indirectly if combined with other data, could reasonably identify an individual.  For example: IP address, MAC address, location data, device characteristics, login/password authentication, username, email address, files/databases that contain a customer’s or its end users’ Personal Data.">Personal Data</span> in any way?
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="aggregating" ng-model="product.aggregating" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="aggregating" checked="" ng-model="product.aggregating" disabled>No</input>
+                                        </div>
+                                        <div class="col-md-12" ng-show="product.aggregating == 'yes'">
+                                            <div class="form-row">
+                                                <p>&nbsp;Product Counsel will engage Privacy Counsel, as needed.</p>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="identifiable">
+                                                        Describe the Personal data elements.
+                                                    </label>
+                                                    <input type="text" id="identifiable" class="form-control" ng-model="product.identifiable" name="identifiable" autofocus disabled>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="impact_assessment">
+                                                        Describe how the P/S will <span data-toggle="tooltip" title="'process' means any operation(s) performed on Personal Data, such as collecting, recording, structuring, accessing, analyzing, modifying, aggregating, storing (temporary or longer), hosting, adapting, altering, retrieving, using, disclosing, transmitting (including between networks, data centers, or non-Juniper companies or persons) or otherwise making available, combining, erasing, or destroying.">process</span> Personal Data, including detailed information on: <br /> <p>
+                                                            (a) the hosting/deployment environment and regionality (US, EU, APAC, etc.) of all components of the P/S, including where any Personal Data will be hosted and how the data flows through the different environments; (b) what categories of Personal Data (e.g., name, email) is stored, if and how Personal Data is encrypted (at rest and in-transit), and if any Personal Data is obfuscated or anonymized; and (c) whether any Personal Data is shared with a non-Juniper entity or person, such as a supplier.
+                                                        </p>
+                                                    </label>
+                                                    <input type="text" id="impact_assessment" class="form-control" ng-model="product.impact_assessment" name="impact_assessment" autofocus disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <p>Note: You might be requested by Product Counsel to further assist in determining whether a Data Privacy Impact Assessment (DPIA) is required.?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="security_dev">Have you completed security assessment and/or penetration testing (working with InfoSec and Security Development Lifecycle)?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="security_dev" ng-model="product.security_dev" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="security_dev" checked="" ng-model="product.security_dev" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="security_dev == 'no'">
+                                        <div class="form-row">
+                                            <p>Please take the following actions:<br /> &nbsp;&nbsp; Connect with the Secure Devlopment LifeCycle team(seth ross) and infosec team to define security requirements or provide them justification for no need for scan(e.g. already gone through scans).</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="assesment_req">Are you aware of any additional vulnerability assessment requirement and the reasons for it: (e.g. vendor request)</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="assesment_req" ng-model="product.assesment_req" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="assesment_req" checked="" ng-model="product.assesment_req" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.assesment_req == 'yes'">
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="new_functionalities">
+                                                    Describe the additional vulnerability requirement and the reason for the requirement.
+                                                </label>
+                                                <input type="text" id="desc" class="form-control" ng-model="product.new_Functionalities" name="desc" autofocus disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="sirt">Have you  been able to establish a point of contact for SIRT?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="sirt" ng-model="product.sirt" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="sirt" checked="" ng-model="product.sirt" disabled>No</input>
+                                        </div>
+                                        <div class="col-md-12" ng-if="product.sirt == 'no'">
+                                            <div class="form-row">
+                                                <p>&nbsp;Go to How To box on <a href="https://sirt.juniper.net" target="_blank">https://sirt.juniper.net</a>.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="jsa">Has SIRT previously published Juniper security advisory (“JSAs”) for your Product/Service?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="jsa" ng-model="product.jsa" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="jsa" checked="" ng-model="product.jsa" disabled>No</input>
+                                        </div>
+                                        <div class="col-md-12" ng-if="product.jsa  == 'no'">
+                                            <div class="form-row">
+                                                <p>&nbsp;Contact <a href="mailto:SIRT@juniper.net">SIRT@juniper.net</a>.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="major_release">Have you worked with Patent Counsel to review any novel or unique ideas that are implemented in this new P/S or particular release?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="major_release" ng-model="product.major_release" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="major_release" checked="" ng-model="product.major_release" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.major_release == 'no'">
+                                        <div class="form-row">
+                                            <p>Connect with the Patent Counsel for this P/S Business Unit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="trademark">Does the P/S use a new name or trademark that has not been approved by Legal?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="trademark" ng-model="product.trademark" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="trademark" checked="" ng-model="product.trademark" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.trademark == 'yes'">
+                                        <div class="form-row">
+                                            <p>Connect with Trademark Counsel for name/trademark clearance and approval.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="collateral_mat">Does your current version of the technical collateral materials (i.e. product specifications, white papers, datasheets, etc.) reflect the current features of the P/S?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="collateral_mat" ng-model="product.collateral_mat" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="collateral_mat" checked="" ng-model="product.collateral_mat" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.collateral_mat == 'yes'">
+                                        <div class="form-row">
+                                            <p>Please explain why and send technical collateral materials to Product Counsel for review and approval and provide marketing team contact.</p><br />
+                                            <p>Please send collateral materials to Product Counsel if created in the future.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="customers_deviation">Will the P/S offer to customers any deviation from the Juniper's standard P/S warranty?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="customers_deviation" ng-model="product.customers_deviation" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="customers_deviation" checked="" ng-model="product.customers_deviation" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.customers_deviation == 'yes'">
+                                        <div class="form-row">
+                                            <p>Connect with GTM Legal to discuss the warranty deviations and applicability of government regulations within the jurisdiction in which the P/S will be sold.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="service_desc">Does the P/S require the creation of or update to an existing service description?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="service_desc" ng-model="product.service_desc" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="service_desc" checked="" ng-model="product.service_desc" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.service_desc == 'yes'">
+                                        <div class="form-row">
+                                            <p>
+                                                Please take the following actions:<br /> 1) Connect with GTM legal to create a new service description or verify that the existing service description is accurate for this particular release (e.g., in light of new functionality)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="level_agreement">Does this P/S require the creation of or update to an existing level agreement?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="level_agreement" ng-model="product.level_agreement" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="level_agreement" checked="" ng-model="product.level_agreement" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.level_agreement == 'yes'">
+                                        <div class="form-row">
+                                            <p>
+                                                Please take the following actions:<br /> 1) Connect with GTM Legal to create a new service level agreement or verify that
+
+                                                the service level agreement is accurate for this particular release (e.g., in light of new functionality)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="public_docu">Is there public documentation for the P/S that includes content created by third-parties (e.g., partners, vendors)?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="public_docu" ng-model="product.public_docu" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="public_docu" checked="" ng-model="product.public_docu" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.public_docu == 'no'">
+                                        <div class="form-row">
+                                            <p>Obtain Manager approval that the documentation does not include any 3rd party trade secrets or confidential information.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="gtm_collateral">Are there press releases or other GTM collateral that includes content (e.g., images, videos, text, names) created by or referencing third-parties (e.g., customers)?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="gtm_collateral" ng-model="product.gtm_collateral" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="gtm_collateral" checked="" ng-model="product.gtm_collateral" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.gtm_collateral == 'no'">
+                                        <div class="form-row">
+                                            <p>Obtain Marketing approval to use third-party content or customer names/references.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="certain_cus">Is the P/S customized for a certain customer?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="certain_cus" ng-model="product.certain_cus" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="certain_cus" checked="" ng-model="product.certain_cus" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.certain_cus == 'no'">
+                                        <div class="form-row">
+                                            <p>Customization requirements must be discussed with and approved by Product Counsel.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="pre_ga">Will there be a Beta release or will the P/S otherwise be provided to customers for pre-GA release feedback?</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="yes" name="pre_ga" ng-model="product.pre_ga" disabled>Yes</input>
+                                            &nbsp;
+                                            <input type="radio" value="no" name="pre_ga" checked="" ng-model="product.pre_ga" disabled>No</input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="product.pre_ga == 'no'">
+                                        <div class="form-row">
+                                            <p>Generate click-through Beta Agreement and ensure acceptance by customers with pre-GA access to the P/S.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                @* <div class="col-md-12" style="padding-top: 20px" id="product_services">
+                                    <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                    <label for="reason">
+                                    Is the Product Or Services
+                                    </label>
+                                    <select class="form-control" ng-model="services" style="height: 34px">
+                                    <option value="1">Customized for a certain customer</option>
+                                    <option value="2">To be provided to a customer for feedback prior to general release</option>
+                                    <option value="3">None of the above</option>
+                                    </select>
+                                    </div>
+                                    <div class="col-md-12" ng-if="services == 1">
+                                    <p>Please take the following actions:<br /> 1) Customization requirements must be discussed with Product Counsel for clearance <br /> 2) Product Counsel will contact you regarding this Action Item</p>
+                                    </div>
+                                    <div class="col-md-12" ng-if="services == 2">
+                                    <p>Please take the following actions:<br /> 1) Use click-through beta form agreement prior to general release.</p>
+                                    </div>
+                                    </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                    <label for="service_use">
+                                    Does the P/S use.
+                                    </label>
+                                    <select class="form-control" id="service_use" multiple="multiple" ng-model="service_use" style="height: 34px">
+                                    <option value="1">Unique documentation(i.e includes in documentation materials that were pulled from another third party's documentaion)</option>
+                                    <option value="2">3rd Party content in P/S launch or PR</option>
+                                    <option value="3">A new name or trademark that hasnt been checked previously by legal</option>
+                                    <option value="4">None of the above</option>
+                                    </select>
+                                    </div>
+
+                                    <div class="col-md-12" ng-if="service_use == 1">
+                                    <p>Please take the following actions:<br /> &nbsp;&nbsp; If using unique documentation, obtain manager approval of public documentation to preclude trade secrets or disclosure of 3rd-party confidential information</p>
+                                    </div>
+                                    <div class="col-md-12" ng-if="service_use == 2">
+                                    <p>Please take the following actions:<br /> &nbsp;&nbsp; If using third party content, obtain Marketing approval to use customer name or third party content (i.e. images, videos, text, etc.).</p>
+                                    </div>
+                                    <div class="col-md-12" ng-if="service_use == 3">
+                                    <p>Please take the following actions:<br /> &nbsp;&nbsp; Call Product Counsel to direct you to trademark legal in order to determine that the new name does not infringe 3rd party IP.</p>
+                                    </div>
+
+                                    </div>
+                                    </div>*@
+
+                                @* <div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                    <div class="col-md-6">
+                                    <label for="procured_by_governament">Will the product / Service be procured by a government agency?</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <input type="radio" value="yes" name="procured_by_governament" ng-model="procured_by_governament">Yes</input>
+                                    &nbsp;
+                                    <input type="radio" value="no" name="procured_by_governament" checked="" ng-model="procured_by_governament">No</input>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-12" ng-if="procured_by_governament == 'yes'">
+                                    <div class="form-row">
+                                    <p>Product counsel will discuss the requirements for government sales (i.e. fedramp, ada)</p>
+                                    </div>
+                                    </div>
+                                    </div>*@
+
+
+
+                                @*<div class="col-md-12" style="padding-top: 20px">
+                                    <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                    <label for="sell_product">
+                                    Are you intending to sell your product or services to any of these types of customers (check which ones applicable)
+                                    </label>
+                                    <select multiple="multiple" class="form-control" id="multiselect" ng-model="sell_product" style="height: 34px">
+                                    <option value="1">Payment Processor</option>
+                                    <option value="2">U.S Governament</option>
+                                    <option value="3">Non U.S Governament</option>
+                                    <option value="4">State Governament</option>
+                                    <option value="5">Health Care</option>
+                                    <option value="6">None of the above</option>
+                                    </select>
+                                    </div>
+                                    <div class="col-md-12" ng-if="sell_product != 6">
+                                    <p>Please take the following actions:<br /> &nbsp;&nbsp; Product Counsel will follow-up with you.  You may be required to obtain certain certifications for the particular customer type</p>
+                                    </div>
+                                    </div>
+                                    </div>*@
+
+                                @*<div class="form-row" style="padding-top: 20px">
+                                    <div class="col-md-6">
+                                    <label for="entry_points">Are there any entry points of crypto into your Product through libraries, open source code or third party packages?</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <input type="radio" value="yes" name="entry_points" ng-model="entry_points">Yes</input>
+                                    &nbsp;
+                                    <input type="radio" value="no" name="entry_points" checked="" ng-model="entry_points">No</input>
+                                    </div>
+                                    </div>*@
+
+                                @* <div class="form-row" style="padding-top: 20px">
+                                    <div class="col-md-6">
+                                    <label for="nature"> If this is a new release of an existing Product / Service, does the new release either involve the processing of new personal data Elements or change the nature of the processing?</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <input type="radio" value="yes" name="nature" ng-model="nature">Yes</input>
+                                    &nbsp;
+                                    <input type="radio" value="no" name="nature" checked="" ng-model="nature">No</input>
+                                    </div>
+                                    <div class="col-md-12" ng-if="nature == 'yes'">
+                                    <div class="form-row">
+                                    <p>&nbsp;Product Counsel will assess whether customer personal data will be processed by the new release.</p>
+                                    </div>
+                                    <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                    <label for="nature_desc">
+                                    Please list all additional data elements processed by the Product / Service and/or provide data flow describing the nature of the new processing.
+                                    </label>
+                                    <input type="text" id="nature_desc" class="form-control" name="nature_desc" required autofocus>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>*@
+
+                                @*<div class="form-row" style="padding-top: 20px">
+                                    <div class="col-md-6">
+                                    <label for="vulnerabilites">Have you  been tracking security vulnerabilities, including SIRT-State, SIRT-Tracking-ID, SIRT-Owner, CVSS-Base-Score, CVE-ID, SIRT-Security-Advisory, SIRT-Advisory-Date, or CWE-Id?</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <input type="radio" value="yes" name="vulnerabilites" ng-model="vulnerabilites">Yes</input>
+                                    &nbsp;
+                                    <input type="radio" value="no" name="vulnerabilites" checked="" ng-model="vulnerabilites">No</input>
+                                    </div>
+                                    <div class="col-md-12" ng-if="vulnerabilites == 'no'">
+                                    <div class="form-row">
+                                    <p>&nbsp;Go to How To box on <a href="https://sirt.juniper.net" target="_blank">https://sirt.juniper.net</a>  where there is link to steps that must be undertaken.</p>
+                                    </div>
+                                    </div>
+                                    </div>*@
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                @* <div id="print-edit-footer">
+                    <button id="print" class="btn btn-primary float-right" style="font-size: 13px;" ng-click="Save()">Submit</button>
+                    </div>*@
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="~/assets/EliasForm/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="~/assets/EliasForm/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/assets/EliasForm/js/mdb.min.js"></script>
+    <script type="text/javascript" src="~/assets/EliasForm/js/script.js"></script>
+
+
+</body>
+</html>
+@section scripts{
+<script src="~/js/api/productcomplianceform.js"></script>
+<script type="text/javascript">
+    //var myApp = angular.module('myApp', [])
+
+    myApp.controller("myCtrl",
+        function($scope, $filter, $http, $location, $uibModal) {
+            $scope.product = {};
+
+            var token = getUrlParameter('SecureInt');
+
+            //var encrypted = $scope.encrypt(message, $scope.password);
+            var decrypted = $scope.decrypt(token, $scope.password);
+
+            $scope.getData = function() {
+                productcomplianceform.getData(decrypted.toString(CryptoJS.enc.Utf8)).then(function(res) {
+                        $scope.product = res;
+                        if (res.product_service) {
+                            res.product_service = res.product_service.split(',');
+                            angular.forEach(res.product_service,
+                                function(value, key) {
+                                    $scope.product.product_service[value] = true;
+                                });
+                        }
+                        if (res.identify_issues) {
+                            res.identify_issues = res.identify_issues.split(',');
+                            angular.forEach(res.identify_issues,
+                                function(value, key) {
+                                    $scope.product.identify_issues[value] = true;
+                                });
+                        }
+                        if (res.identify_changes) {
+                            res.identify_changes = res.identify_changes.split(',');
+                            angular.forEach(res.identify_changes,
+                                function(value, key) {
+                                    $scope.product.identify_changes[value] = true;
+                                });
+                        }
+                        if (res.any_changes) {
+                            res.any_changes = res.any_changes.split(',');
+                            angular.forEach(res.any_changes,
+                                function(value, key) {
+                                    $scope.product.any_changes[value] = true;
+                                });
+                        }
+                        if (res.identify_issues_specific) {
+                            res.identify_issues_specific = res.identify_issues_specific.split(',');
+                            angular.forEach(res.identify_issues_specific,
+                                function(value, key) {
+                                    $scope.product.identify_issues_specific[value] = true;
+                                });
+                        }
+                        if (res.identify_other_issues) {
+                            res.identify_other_issues = res.identify_other_issues.split(',');
+                            angular.forEach(res.identify_other_issues,
+                                function(value, key) {
+                                    $scope.product.product_service[value] = true;
+                                });
+                        }
+                        if (res.include_otherwise) {
+                            res.include_otherwise = res.include_otherwise.split(',');
+                            angular.forEach(res.include_otherwise,
+                                function(value, key) {
+                                    $scope.product.include_otherwise[value] = true;
+                                });
+                        }
+                        if (!isNaN(Date.parse(res.release_Date))) {
+                            res.release_Date = new Date(res.release_Date);
+                        }
+                        if (!isNaN(Date.parse(res.date))) {
+                            res.date = new Date(res.date);
+                        }
+                        if (!isNaN(Date.parse(res.prev_completion))) {
+                            res.prev_completion = new Date(res.prev_completion);
+                        }
+
+                        if (res == '')
+                            Component.showInformation('No Records Found');
+                        $scope.$apply();
+                    },
+                    function(error) {
+                        Component.handleApiError(error);
+                    });
+
+            }
+
+            $scope.getData();
+
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            };
+
+            function downloadPdf(base64String, fileName) {
+                if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                    // download PDF in IE
+                    var byteChar = atob(base64String);
+                    var byteArray = new Array(byteChar.length);
+                    for (let i = 0; i < byteChar.length; i++) {
+                        byteArray[i] = byteChar.charCodeAt(i);
+                    }
+                    var uIntArray = new Uint8Array(byteArray);
+                    var blob = new Blob([uIntArray], { type: 'application/pdf' });
+                    window.navigator.msSaveOrOpenBlob(blob, `${fileName}.pdf`);
+                } else {
+                    // Download PDF in Chrome etc.
+                    var source = `data:application/pdf;base64,${base64String}`;
+                    var link = document.createElement("a");
+                    link.href = source;
+                    link.download = `${fileName}.pdf`;
+                    link.click();
+                }
+            }
+
+            $scope.onClickDownloadPdf = function () {
+                downloadPdf($scope.product.file_Upload, "Download");
+            }
+        });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        //$('#multiselect').multiselect({
+        //    includeSelectAllOption: true,
+        //    buttonWidth: '100%'
+        //});
+
+        $("#include_otherwise").multiselect({
+            buttonWidth: '100%',
+            buttonClass: 'form-control'
+        });
+
+        $('#service_use').multiselect({
+            includeSelectAllOption: true,
+            buttonWidth: '100%'
+        });
+
+    });
+</script>
+}

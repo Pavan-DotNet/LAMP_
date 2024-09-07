@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] </title>
+</head>
+
+<body class="top-navigation" ng-app="myApp" ng-controller="myBaseCtrl" >
+    <div id="loader" class="loading">Loading&#8230;</div>
+    <div id="wrapper" class="ng-cloak">
+        <div id="page-wrapper" class="gray-bg @ViewBag.SpecialClass" ng-controller="myCtrl">
+            @Html.Partial("~/Views/Shared/_Header.cshtml")
+            <div class="wrapper-content">
+                @*<div class="container">*@
+                @RenderBody()
+                @*</div>*@
+                @Html.Partial("~/Views/Shared/_Footer.cshtml")
+            </div>
+        </div>
+    </div>
+    @Html.Partial("~/Views/Shared/_Base.cshtml")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

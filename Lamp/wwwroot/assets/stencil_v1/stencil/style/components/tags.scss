@@ -1,0 +1,41 @@
+// Tags
+.#{$stencil-selector-prefix}tags{
+  @extend .#{$stencil-selector-prefix}flex-spread;
+  @extend .#{$stencil-selector-prefix}flat-list;
+  @extend .#{$stencil-selector-prefix}margin-top;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 0;
+
+  li{
+    @extend .#{$stencil-selector-prefix}margin-post-small;
+  }
+
+  .#{$stencil-selector-prefix}tag{
+    padding: $spacing-smaller $spacing-small;
+    background: color(smoke);
+    font-size: $font-size-small;
+    color: color(grey,darker);
+    border: none;
+    border-radius: $spacing-smallest;
+    line-height: 1.1; // to align with tag-actions
+
+    &:hover{
+      background-color: color(grey,darker);
+      color: white;
+    }
+  }
+
+  .#{$stencil-selector-prefix}tag-action-left{
+    @extend .#{$stencil-selector-prefix}tag;
+    margin-right: -$spacing-smallest;
+    border-radius: $spacing-smallest 0 0 $spacing-smallest;
+  }
+
+  .#{$stencil-selector-prefix}tag-action-right{
+    @extend .#{$stencil-selector-prefix}tag;
+    margin-left: -$spacing-smallest;
+    border-radius: 0 $spacing-smallest $spacing-smallest 0;
+  }
+
+}

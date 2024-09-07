@@ -1,0 +1,44 @@
+/* Overrides */
+.#{$stencil-selector-prefix}collapsed{
+  height:0;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none;
+  box-shadow: none;
+}
+.#{$stencil-selector-prefix}collapsed-sm{
+  @media(max-width: $breakpoint-mobile-max){
+    height:0;
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none;
+    box-shadow: none;
+  }
+}
+.#{$stencil-selector-prefix}show{
+  display: block !important;
+
+  &.#{$stencil-selector-prefix}overlay-container,&.#{$stencil-selector-prefix}modal,&.#{$stencil-selector-prefix}snackbar{
+    display: flex !important;
+  }
+}
+.#{$stencil-selector-prefix}hidden{
+  display:none !important;
+}
+.#{$stencil-selector-prefix}hidden-sm{
+  @media (max-width:$breakpoint-mobile-max){
+    display:none !important;
+  }
+}
+.#{$stencil-selector-prefix}hidden-md{
+  @media (min-width:$breakpoint-mobile-max) and (max-width:$breakpoint-tablet-max){
+    display:none !important;
+  }
+}
+.#{$stencil-selector-prefix}hidden-lg{
+  @media (min-width:$breakpoint-desktop-min){
+    display:none !important;
+  }
+}

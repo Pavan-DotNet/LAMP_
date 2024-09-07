@@ -1,0 +1,138 @@
+body{
+  background: #eee;
+}
+
+.container{
+  margin-left: 0px;
+}
+header {
+  margin: 0;
+  padding: 0;
+  min-height: 100px;
+  background: #3493c2;
+  border-bottom: 3px solid black;
+}
+
+section {
+      margin-top: 15px;
+    background: #eee;
+}
+
+.branding {
+  padding: 21px;
+  float: left;
+}
+
+.branding img {
+  display: inline;
+}
+
+#heading{
+  text-align: center;
+}
+
+/*.section-div{
+  margin: 10px 45px 0px 45px;
+}*/
+
+#main-section{
+  background: #daecf5;
+  color: #13838a;
+  padding: 35px;
+}
+
+#form-div{
+  margin-top: -15px;
+}
+
+#form-section{
+  background: white;
+  padding: 35px;
+}
+
+#form-section h3{
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#form-section h2{
+  color: black;
+}
+
+table{
+  margin: 20px;
+}
+
+ol{
+  margin: 20px;
+}
+
+li{
+  margin-bottom: 15px;
+}
+
+label{
+  display: block;
+}
+
+span {
+  display: inline-block;
+  width: 280px;
+}
+
+input[type="text"]{
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid gray;
+  outline: none;
+  box-shadow: none;
+}
+
+#consignee-details{
+  margin: 30px;
+}
+
+#signature{
+  margin:20px;
+  margin-left: 659px;
+}
+
+#footer{
+  background: #daecf5;
+  text-align: center;
+  padding: 10px;
+  font-weight: 600;
+}
+
+#footer p{
+  margin:0px;
+  text-decoration: underline;
+  color:  #13838a;
+}
+
+#stamp{
+  display: block;
+  text-align: center;
+  border: 1px solid gray;
+}
+
+#inner-div-one{
+  display: inline-block;
+  padding: 20px;
+  border-right: 1px solid
+}
+
+#inner-div-two{
+  display: inline-block;
+}
+
+input[type="checkbox"]{
+  height: 30px;
+  width: 30px;
+}
+
+#stamp h3{
+  padding: 0px;
+  margin: 0px;
+  width: 450px;
+}

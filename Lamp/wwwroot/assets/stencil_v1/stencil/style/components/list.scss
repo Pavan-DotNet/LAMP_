@@ -1,0 +1,14 @@
+// List
+ul, ol{
+  margin-left: $spacing-large;
+  margin-top:0;
+  padding: 0;
+
+  li{
+    margin-bottom:$spacing-small;
+  }
+
+  li:last-child{
+    margin-bottom: 0;
+  }
+}

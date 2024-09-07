@@ -1,0 +1,19 @@
+.#{$stencil-selector-prefix}brand-app{
+  @extend .#{$stencil-selector-prefix}flex-center-align;
+
+  .#{$stencil-selector-prefix}brand{
+    //@extend .padding-top-small;
+    @extend .#{$stencil-selector-prefix}padding-right;
+    //@extend .padding-bottom-small;
+    display: inline-block;
+    border-right: 1px solid color(grey,lighter);
+  }
+
+  .#{$stencil-selector-prefix}app{
+    margin-top: 0;
+    margin-bottom: 0;
+    @extend .#{$stencil-selector-prefix}margin-left;
+    color: $color-accent;
+  }
+
+}

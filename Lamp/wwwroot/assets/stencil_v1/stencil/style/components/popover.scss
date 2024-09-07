@@ -1,0 +1,58 @@
+// Popover
+.#{$stencil-selector-prefix}popover{
+  $background-color: color(smoke);
+
+  margin-top: -($spacing-smaller);
+  transition: all .250s ease;
+
+  .#{$stencil-selector-prefix}popover-arrow{
+    width: 0;
+    height: 0;
+    margin: 0 0 0 $spacing-small;
+    border-style: solid;
+    border-width: 0px $spacing-medium $spacing-medium $spacing-medium;
+    border-color: transparent transparent $background-color transparent;
+
+    @media (max-width: $breakpoint-mobile-max){
+      margin-left: $spacing-large;
+    }
+  }
+
+  .#{$stencil-selector-prefix}popover-header{
+    @extend .#{$stencil-selector-prefix}media;
+    @extend .#{$stencil-selector-prefix}padding-around;
+    margin-top: $spacing-small;
+    background: $background-color;
+    border-bottom: 1px solid white;
+
+    .#{$stencil-selector-prefix}media-meta{
+      margin-top: $spacing-smaller;
+      font-size: $font-size-smallest;
+    }
+  }
+
+  .#{$stencil-selector-prefix}popover-body{
+    @extend .#{$stencil-selector-prefix}padding-around;
+    background: $background-color;
+    font-size: $font-size-small;
+
+    ul{
+      @extend .#{$stencil-selector-prefix}flat-list;
+
+      li{
+        margin-bottom: $spacing-small;
+        padding-bottom: 0;
+        border:none;
+      }
+    }
+
+    .#{$stencil-selector-prefix}close-popover{
+      @extend button.#{$stencil-selector-prefix}danger;
+      @extend button.#{$stencil-selector-prefix}block;
+      margin-top: $spacing-smaller;
+      border: none !important;
+    }
+
+  }
+
+}

@@ -1,0 +1,102 @@
+/* Layout */
+.#{$stencil-selector-prefix}flex{
+  display:flex;
+  display: -webkit-flex;
+}
+.#{$stencil-selector-prefix}flex-vertical{
+  @extend .#{$stencil-selector-prefix}flex;
+  flex-direction: column;
+}
+.#{$stencil-selector-prefix}flex-spread{
+  @extend .#{$stencil-selector-prefix}flex;
+  justify-content: space-between;
+}
+.#{$stencil-selector-prefix}flex-around{
+  @extend .#{$stencil-selector-prefix}flex;
+  justify-content: space-around;
+}
+.#{$stencil-selector-prefix}flex-center{
+  @extend .#{$stencil-selector-prefix}flex;
+  justify-content:center;
+}
+.#{$stencil-selector-prefix}flex-end{
+  @extend .#{$stencil-selector-prefix}flex;
+  justify-content:flex-end;
+}
+.#{$stencil-selector-prefix}flex-center-align{
+  @extend .#{$stencil-selector-prefix}flex;
+  align-items:center;
+}
+.#{$stencil-selector-prefix}flex-stretch{
+  @extend .#{$stencil-selector-prefix}flex;
+  align-items:stretch;
+}
+
+.#{$stencil-selector-prefix}row-to-column{
+  @extend .#{$stencil-selector-prefix}flex;
+  @media(max-width:$breakpoint-mobile-max){
+    flex-direction: column;
+  }
+}
+
+
+/* Grid */
+.#{$stencil-selector-prefix}grid{
+  @extend .#{$stencil-selector-prefix}flex;
+  @extend .#{$stencil-selector-prefix}row-to-column;
+  @extend .#{$stencil-selector-prefix}margin-bottom;
+
+  &.#{$stencil-selector-prefix}column-separated div[class*="col-"]{
+    padding-left: $spacing-medium;
+    border-left: $global-border;
+
+    @media(max-width: $breakpoint-mobile-max){
+      padding-top: $spacing-medium;
+      padding-left: 0;
+      border-left: none;
+      border-top: $global-border;
+    }
+  }
+
+  &.#{$stencil-selector-prefix}column-separated div[class*="col-"]:first-child{
+    padding-left: 0;
+    padding-top: 0;
+    border-left: none;
+    border-top: none;
+  }
+
+  & div[class*="col-"]:last-child{
+    margin-right: 0;
+  }
+
+}
+
+@mixin generate_columns($from,$to){
+  $all_columns: '';
+  $all_offsets: '';
+
+  @for $i from $from through $to {
+    .#{$stencil-selector-prefix}col-#{$i} {
+      width: #{(($i/$to) * 100) + '%'};
+      margin-right: $spacing-medium;
+    }
+    .#{$stencil-selector-prefix}offset-#{$i} {
+      margin-left: #{(($i/$to) * 100) + '%'};
+    }
+    $all_columns: #{$all_columns + '.' + $stencil-selector-prefix + 'col-'+ $i + ','};
+    $all_offsets: #{$all_offsets + '.' + $stencil-selector-prefix + 'offset-'+ $i + ','};
+  }
+
+  @media(max-width:$breakpoint-mobile-max){
+    #{$all_columns}{
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: $spacing-medium;
+    }
+
+    #{$all_offsets}{
+      margin-left: 0;
+    }
+  }
+};
+@include generate_columns(1,12);

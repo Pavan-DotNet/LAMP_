@@ -1,0 +1,107 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace DataModel
+{
+    public partial class ShipmentHdrMetaVw
+    {
+        public int ImportId { get; set; }
+        public string? SoNumber { get; set; }
+        public int? SoItem { get; set; }
+        public int? HigherLevelItem { get; set; }
+        public string? DeliveryNumber { get; set; }
+        public string? DeliveryType { get; set; }
+        public DateTime? DeliveryCreated { get; set; }
+        public string? CompleteDelivery { get; set; }
+        public DateTime? ShipDate { get; set; }
+        public string? SoType { get; set; }
+        public string? SoReason { get; set; }
+        public string? Material { get; set; }
+        public string? MaterialDesc { get; set; }
+        public string? SalesDocItemCat { get; set; }
+        public string? CustomerPo { get; set; }
+        public int? CumulativeSoQty { get; set; }
+        public string? MaterialEccn { get; set; }
+        public string? MaterialHts { get; set; }
+        public int? ShipmentQty { get; set; }
+        public decimal? ShipmentNetValue { get; set; }
+        public decimal? ShipmentCogsValue { get; set; }
+        public decimal? ShipmentListValue { get; set; }
+        public string? Plant { get; set; }
+        public string? PlantName { get; set; }
+        public string? BilltoKey { get; set; }
+        public string? BilltoName { get; set; }
+        public string? BilltoStreet1 { get; set; }
+        public string? BilltoStreet2 { get; set; }
+        public string? BilltoStreet3 { get; set; }
+        public string? BilltoStreet4 { get; set; }
+        public string? BilltoStreet5 { get; set; }
+        public string? BilltoLoc { get; set; }
+        public string? BilltoRegion { get; set; }
+        public string? BilltoCity { get; set; }
+        public string? BilltoPostalCode { get; set; }
+        public string? BilltoCountry { get; set; }
+        public string? ShiptoKey { get; set; }
+        public string? ShiptoName { get; set; }
+        public string? ShiptoStreet1 { get; set; }
+        public string? ShiptoStreet2 { get; set; }
+        public string? ShiptoStreet3 { get; set; }
+        public string? ShiptoStreet4 { get; set; }
+        public string? ShiptoStreet5 { get; set; }
+        public string? ShiptoLoc { get; set; }
+        public string? ShiptoRegion { get; set; }
+        public string? ShiptoCity { get; set; }
+        public string? ShiptoPostalCode { get; set; }
+        public string? ShiptoCountry { get; set; }
+        public string? EndUserKey { get; set; }
+        public string? EndUserName { get; set; }
+        public string? EndUserStreet1 { get; set; }
+        public string? EndUserStreet2 { get; set; }
+        public string? EndUserStreet3 { get; set; }
+        public string? EndUserStreet4 { get; set; }
+        public string? EndUserStreet5 { get; set; }
+        public string? EndUserLoc { get; set; }
+        public string? EndUserRegion { get; set; }
+        public string? EndUserCity { get; set; }
+        public string? EndUserPostalCode { get; set; }
+        public string? EndUserCountry { get; set; }
+        public string? SoldtoKey { get; set; }
+        public string? SoldtoName { get; set; }
+        public string? SoldtoStreet1 { get; set; }
+        public string? SoldtoStreet2 { get; set; }
+        public string? SoldtoStreet3 { get; set; }
+        public string? SoldtoStreet4 { get; set; }
+        public string? SoldtoStreet5 { get; set; }
+        public string? SoldtoLoc { get; set; }
+        public string? SoldtoRegion { get; set; }
+        public string? SoldtoCity { get; set; }
+        public string? SoldtoPostalCode { get; set; }
+        public string? SoldtoCountry { get; set; }
+        public string? FreightForwarder1Key { get; set; }
+        public string? FreightForwarder1Name { get; set; }
+        public string? FreightForwarder1Stree1 { get; set; }
+        public string? FreightForwarder1Loc { get; set; }
+        public string? FreightForwarder1Contry { get; set; }
+        public string? PodControl { get; set; }
+        public string? PodHdrStatus { get; set; }
+        public string? PosLineStatus { get; set; }
+        public string? TrackingNumber { get; set; }
+        public decimal? MaterialGrossWt { get; set; }
+        public decimal? MaterialNetWt { get; set; }
+        public string? MaterialWtUnit { get; set; }
+        public string? MaterialWtUnitDesc { get; set; }
+        public string? Incoterms1 { get; set; }
+        public string? Incoterms2 { get; set; }
+        public string? ShippingType { get; set; }
+        public string? ShippingNote { get; set; }
+        public string? VarExtLicenseNum { get; set; }
+        public string? VarLegRegLegalCtrl { get; set; }
+        public DateTime? VarLicenseAppliedDate { get; set; }
+        public string? VarLicenseNum { get; set; }
+        public string? VarLicenseType { get; set; }
+        public DateTime? VarLicenseValidFrom { get; set; }
+        public DateTime? VarLicenseValidTo { get; set; }
+        public DateTime? ImportDate { get; set; }
+        public string? ImportStatus { get; set; }
+    }
+}

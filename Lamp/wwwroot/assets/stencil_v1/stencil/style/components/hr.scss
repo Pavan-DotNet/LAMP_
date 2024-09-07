@@ -1,0 +1,7 @@
+hr{
+  @extend .#{$stencil-selector-prefix}margin-top;
+  @extend .#{$stencil-selector-prefix}margin-bottom;
+  height: 1px;
+  background: color(grey,lightest);
+  border: none;
+}

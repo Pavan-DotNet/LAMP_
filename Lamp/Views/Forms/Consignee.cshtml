@@ -1,0 +1,452 @@
+﻿@{
+    ViewData["Title"] = "Consignee Undertaking";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Form Trigger</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="~/assets/jquery/jquery.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/assets/stencil_v1/style.css">
+    <link href="~/assets/Consignee/main.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="branding">
+                <img src="~/assets/img/juniper-logo-white.svg" width="166" height="54" border="0" alt="Juniper Networks" title="Juniper Networks" />
+            </div>
+        </div>
+    </header>
+    <!-- <div class="section-div">
+        <section id="main-section">
+            <div id="heading">
+                <h1>INSTRUCTIONS</h1>
+                <h2>For NETHERLANDS CONSIGNEE UNDERTAKING</h2>
+            </div>
+            <ol>
+                <li>	Carefully review the contents of the Undertaking.</li>
+                <li>	Complete all blanks/empty cels with the information requested.</li>
+                <li>	Print the completed form on letterhead</li>
+                <li>	Have an authorized representative of the named Consignee sign.</li>
+                <li>    The Consignee Undertaking needs to be completed, printed on company letterhead, signed and impressed with company seal (if available) and returned to Juniper Networks International B.V. c/o Juniper Networks Inc. Legal Department, 1133 Innovation Way, Sunnyvale CA 94089 U.S.A. (attn: Trade Compliance), accompanied by email of a scanned signed copy to <a href="mailto:tradecompliance@juniper.net"><u>tradecompliance@juniper.net</u></a> .</li>
+            </ol>
+        </section>
+    </div> -->
+    <div class="section-div" id="form-div">
+        <section id="form-section">
+
+            <h2 style="	text-align: center;"><u><i>CONSIGNEE UNDERTAKING STATEMENT</i></u></h2>
+            <p>The undersigned, on behalf of the individual, entity or organization identified below as “Consignee”, furnishes this Undertaking with respect to the goods, software, technology or services listed below (“Controlled Items”) that Consignee has purchased or intends to purchase from Juniper Networks International B.V. or one of its affiliates (collectively, “Juniper”) or from one of Juniper’s authorized distributors for resale.  Consignee desires that where Juniper finds it necessary or convenient, Juniper utilize its NL Global Export License (or other export license or authorization issued by the Government of the Netherlands) to enable expeditious delivery of such Controlled Items.</p>
+
+            <ol>
+                <li>
+                    The <b><i>“Controlled Items”</i></b> that are the subject of this Undertaking are:
+                    <ol type="a">
+                        <li>routers, switches & security products manufactured, marketed or sold by Juniper that are classified as 5A002 & 5D002 dual use commodities and software, and </li>
+                        <li>related support and professional services.</li>
+                    </ol>
+                </li>
+                <li>
+                    Consignee will not engage in, facilitate, assist in, or support the export of any such Controlled Items for end use by any customer outside the European Union if the Consignee is aware (or has reason to believe) or has been informed by the competent authorities of the Member State of the European Union in which he is established or by Juniper that such Controlled Items:
+                    <ol type="a">
+                        <li>may be delivered, diverted, installed or placed in use in or for the benefit of anyone in any of the following countries or regions:  CUBA, IRAN, NORTH KOREA, SUDAN or SYRIA, or the CRIMEAN REGION (including SEVASTOPOL).</li>
+                        <li>may be delivered to, diverted to, installed for or placed in use by or for the benefit of any <b><i>“Sanctioned Party”<sup>1</sup></i></b> </li>
+                        <li>are intended for <b><i>“Military End Use”<sup>2</sup></i></b> , or if the Consignee is aware that such items are intended for such use;</li>
+                        <li>are intended or may be for use in connection with the development, production, handling, operation, maintenance, storage, detection, recognition or dissemination of chemical, biological or nuclear weapons or other nuclear explosive devices, or for development, the production, maintenance or storage of missiles capable of carrying such weapons to their destination;</li>
+                        <li>have been used or are intended, in their entirety or in part, to be used for the purposes of violations human rights, democratic principles or freedom of expression as defined in the Charter of Fundamental Rights of the European Union using equipment, technology and / or software for the disruption, interception or monitoring of telecommunications and / or Internet Protocol network communication (e.g., using monitoring centers and legal interception gateways).</li>
+                        <li>are intended, in their entirety or in part, for delivery (except for spare parts) to or for end use by or for the benefit of any “military end users”  located in or acting as agent for any of the countries listed below:</li>
+                    </ol>
+                    <table>
+                        <tr>
+                            <td>Bahrain</td>
+                            <td>Belarus</td>
+                            <td>Central African Rep.</td>
+                            <td>China</td>
+                            <td>Dem. Rep. of Congo</td>
+                            <td>Egypt</td>
+                        </tr>
+                        <tr>
+                            <td>Eritrea</td>
+                            <td>Ethiopia</td>
+                            <td>Hong Kong</td>
+                            <td>Iraq</td>
+                            <td>Lebanon</td>
+                            <td>Libya</td>
+                        </tr>
+                        <tr>
+                            <td>Macau</td>
+                            <td>Myanmar</td>
+                            <td>Oman</td>
+                            <td>Russia</td>
+                            <td>Saudi Arabia</td>
+                            <td>Somalia</td>
+                        </tr>
+                        <tr>
+                            <td>South Sudan</td>
+                            <td>Taiwan</td>
+                            <td>Turkmenistan</td>
+                            <td>United Arab Emirates</td>
+                            <td>Uzbekistan</td>
+                            <td>Venezuela</td>
+                        </tr>
+                        <tr>
+                            <td>Vietnam</td>
+                            <td>Yemen</td>
+                            <td>Zimbabwe</td>
+                        </tr>
+                    </table>
+                </li>
+
+
+                <li>Consignee shall provide Juniper or the Netherlands Central Import and Export Office with all the information they may request concerning the use of this license within the deadline set by the requestor.</li>
+                <li>Consignee shall keep records showing the (final) destination, end use and (type) end user of the relevant Controlled Items.  These records and all other documents relating to the delivery must be kept by Consignee for a period of seven (7) years and, upon request by Juniper, promptly made available for inspection and copies thereof promptly made and delivered to Juniper.</li>
+                <li>Consignee shall not directly or indirectly export such Controlled items where the final destination is either a customs free zone or a free warehouse.</li>
+
+
+                <i>
+                    <p><sup>1</sup>“Sanctioned Party” means any party named on a published list of parties subject to export or economic sanctions maintained either by US Government (see the lists included in the export.gov Consolidated Screening List at https://www.export.gov/article?id=Consolidated-Screening-List ) or the EU External Action Service (EEAS) or other EU body or competent authority of an EU Member State (including the “Consolidated List of Persons, Groups and Entities Subject to EU Financial Sanctions” (see https://eeas.europa.eu/headquarters/headquarters-homepage/8442/consolidated-list-sanctions_en ) or the Security Council of the United Nations https://www.un.org/sc/suborg/en/sanctions/un-sc-consolidated-list  or a party 50% or more owned or controlled, directly or indirectly, by a party on the US Office of Foreign Asset Control (“OFAC”) Specially Designated National and Blocked Persons List, Sectoral Sanctions Identifications List, or other OFAC published list of sanctioned parties</p>
+                    <p><sup>2</sup>“Military end use” means (a) incorporation into military items listed in the military list of (EU) Member States; (b) use of production, test or analytical equipment and components therefor, for the development, production or maintenance of military items listed in the abovementioned list; (c) use of any unfinished products in a plant for the production of military items listed in the abovementioned list.</p>
+                    <p>
+                        “Military end user” means:
+                        <ol type="i">
+                            <li>Army and armed organizations (including reserve forces, border guards, coast guards, security agencies and paramilitary organizations);</li>
+                            <li>Ministry of Defense (including agencies / research agencies for defense technology);</li>
+                            <li>Ministries of the Interior and similar ministries in charge of internal security or intelligence; or</li>
+                            <li>Police and other law enforcement agencies (including anti-drugs agencies, counterterrorism and cybercrime).</li>
+                        </ol>
+                    </p>
+                </i>
+
+
+
+                <li><u>Exports of Controlled Items are also subject to US export controls:</u>  Consignee acknowledges and agrees that the duties assumed by it under this Undertaking are in addition to those imposed on it under the Distribution Agreement, Direct VAR Agreement, J-Partner Registration Agreement or other like agreement between it and Juniper Networks, including without limitation, the obligations set forth in the Export Notes incorporated by reference in any such agreements and currently posted at Juniper’s Partner Center website at https://www.juniper.net/us/en/partners/index.page (login required).</li>
+
+
+
+                <div id="consignee-details">
+                    <label>
+                        <span>Consignee Name</span>
+                        <input type="text" name="cons-name">
+                    </label>
+                    <label>
+                        <span>Consignee street address</span>
+                        <input type="text" name="address">
+                    </label>
+                    <label>
+                        <span>Consignee City, State/Province, Postal Code</span>
+                        <input type="text" name="city">
+                    </label>
+                    <label>
+                        <span>Consignee Country</span>
+                        <input type="text" name="country">
+                    </label>
+                    <label>
+                        <span>Consignee Website (URL)</span>
+                        <input type="text" name="url">
+                    </label>
+                    <label>
+                        <span>Consignee-authorized Signer’s First and Last Name (in BLOCK LETTERS):</span>
+                        <input type="text" name="flname">
+                    </label>
+                    <label>
+                        <span>Signer’s position with Consignee:</span>
+                        <input type="text" name="position">
+                    </label>
+                    <label>
+                        <span>Signer’s email address:</span>
+                        <input type="text" name="email">
+                    </label>
+                </div>
+
+            </ol>
+            <p>The undersigned certifies and states that he/she is authorized by Consignee to bind Consignee to the terms of this Undertaking by signing below and that all information provided in this Undertaking is true and correct. </p>
+
+            <div id="signature">
+                <label>
+                    <span>Signature of Signer:*</span>
+                    <input type="text" name="signature">
+                </label>
+                <label>
+                    <span>Date:</span>
+                    <input type="text" name="date">
+                </label>
+            </div>
+        </section>
+        <div id="footer">
+            <p>THIS UNDERTAKING IS VALID THROUGH THE JANUARY 31ST NEXT OCCURRING AFTER THE DATE OF SIGNATURE</p>
+        </div>
+    </div>
+
+</body>
+</html>
+
+@section scripts{
+
+    <script type="text/javascript">
+        //var myApp = angular.module('myApp', [])
+        myApp.controller("myCtrl", function ($scope, $filter, $http, $location) {
+
+            $scope.RedirectDousign = function () {
+                Component.redirect("Hangfire");
+            };
+
+            $scope.logoff = function () {
+                alert("yet to be done !");
+            }
+
+            $scope.Countrylist = [
+                { id: 'Austria', name: 'Austria' },
+                { id: 'Australia', name: 'Australia' },
+                { id: 'Belgium', name: 'Belgium' },
+                { id: 'Bulgaria', name: 'Bulgaria' },
+                { id: 'Canada', name: 'Canada' },
+                { id: 'Switzerland', name: 'Switzerland' },
+                { id: 'Cyprus', name: 'Cyprus' },
+                { id: 'Czech Republic', name: 'Czech Republic' },
+                { id: 'Germany', name: 'Germany' },
+                { id: 'Denmark', name: 'Denmark' },
+                { id: 'Estonia', name: 'Estonia' },
+                { id: 'Spain', name: 'Spain' },
+                { id: 'Finland', name: 'Finland' },
+                { id: 'France', name: 'France' },
+                { id: 'United Kingdom', name: 'United Kingdom' },
+                { id: 'Greece', name: 'Greece' },
+                { id: 'Hungary', name: 'Hungary' },
+                { id: 'Ireland', name: 'Ireland' },
+                { id: 'Iceland', name: 'Iceland' },
+                { id: 'Italy', name: 'Italy' },
+                { id: 'Japan', name: 'Japan' },
+                { id: 'Lithuania', name: 'Lithuania' },
+                { id: 'Luxembourg', name: 'Luxembourg' },
+                { id: 'Latvia', name: 'Latvia' },
+                { id: 'Malta', name: 'Malta' },
+                { id: 'Netherlands', name: 'Netherlands' },
+                { id: 'Norway', name: 'Norway' },
+                { id: 'New Zealand', name: 'New Zealand' },
+                { id: 'Poland', name: 'Poland' },
+                { id: 'Portugal', name: 'Portugal' },
+                { id: 'Romania', name: 'Romania' },
+                { id: 'Sweden', name: 'Sweden' },
+                { id: 'Slovenia', name: 'Slovenia' },
+                { id: 'Slovakia', name: 'Slovakia' },
+                { id: 'Turkey', name: 'Turkey' },
+                { id: 'USA', name: 'USA' },
+                { id: 'Andorra', name: 'Andorra' },
+                { id: 'United Arab Emirates', name: 'United Arab Emirates' },
+                { id: 'Afghanistan', name: 'Afghanistan' },
+                { id: 'Antigua and Barbuda', name: 'Antigua and Barbuda' },
+                { id: 'Anguilla', name: 'Anguilla' },
+                { id: 'Albania', name: 'Albania' },
+                { id: 'Armenia', name: 'Armenia' },
+                { id: 'Netherlands Antilles', name: 'Netherlands Antilles' },
+                { id: 'Angola', name: 'Angola' },
+                { id: 'Antarctica', name: 'Antarctica' },
+                { id: 'Argentina', name: 'Argentina' },
+                { id: 'American Samoa', name: 'American Samoa' },
+                { id: 'Aruba', name: 'Aruba' },
+                { id: 'Åland Islands', name: 'Åland Islands' },
+                { id: 'Azerbaijan', name: 'Azerbaijan' },
+                { id: 'Bosnia and Herzegovina', name: 'Bosnia and Herzegovina' },
+                { id: 'Barbados', name: 'Barbados' },
+                { id: 'Bangladesh', name: 'Bangladesh' },
+                { id: 'Burkina Faso', name: 'Burkina Faso' },
+                { id: 'Bahrain', name: 'Bahrain' },
+                { id: 'Burundi', name: 'Burundi' },
+                { id: 'Benin', name: 'Benin' },
+                { id: 'Bermuda', name: 'Bermuda' },
+                { id: 'Brunei Darussalam', name: 'Brunei Darussalam' },
+                { id: 'Bolivia', name: 'Bolivia' },
+                { id: 'Bonaire, Sint Eustatius and Saba', name: 'Bonaire, Sint Eustatius and Saba' },
+                { id: 'Brazil', name: 'Brazil' },
+                { id: 'Bahamas', name: 'Bahamas' },
+                { id: 'Bhutan', name: 'Bhutan' },
+                { id: 'Bouvet Island', name: 'Bouvet Island' },
+                { id: 'Botswana', name: 'Botswana' },
+                { id: 'Belarus', name: 'Belarus' },
+                { id: 'Belize', name: 'Belize' },
+                { id: 'COCOS (KEELING) ISLANDS', name: 'COCOS (KEELING) ISLANDS' },
+                { id: 'Democratic Republic of the Congo', name: 'Democratic Republic of the Congo' },
+                { id: 'Central African Republic', name: 'Central African Republic' },
+                { id: 'Republic of the Congo', name: 'Republic of the Congo' },
+                { id: 'Cote dIvoire', name: 'Cote dIvoire' },
+                { id: 'Cook Islands', name: 'Cook Islands' },
+                { id: 'Chile', name: 'Chile' },
+                { id: 'Cameroon', name: 'Cameroon' },
+                { id: 'China', name: 'China' },
+                { id: 'Colombia', name: 'Colombia' },
+                { id: 'Costa Rica', name: 'Costa Rica' },
+                { id: 'Serbia and Montenegro', name: 'Serbia and Montenegro' },
+                { id: 'Cabo Verde', name: 'Cabo Verde' },
+                { id: 'Curaçao', name: 'Curaçao' },
+                { id: 'Christmas Island', name: 'Christmas Island' },
+                { id: 'Djibouti', name: 'Djibouti' },
+                { id: 'Dominica', name: 'Dominica' },
+                { id: 'Dominican Republic', name: 'Dominican Republic' },
+                { id: 'Algeria', name: 'Algeria' },
+                { id: 'Ecuador', name: 'Ecuador' },
+                { id: 'Egypt', name: 'Egypt' },
+                { id: 'Western Sahara', name: 'Western Sahara' },
+                { id: 'Eritrea', name: 'Eritrea' },
+                { id: 'Ethiopia', name: 'Ethiopia' },
+                { id: 'Fiji', name: 'Fiji' },
+                { id: 'Falkland Islands', name: 'Falkland Islands' },
+                { id: 'Micronesia', name: 'Micronesia' },
+                { id: 'Faroe Islands', name: 'Faroe Islands' },
+                { id: 'Gabon', name: 'Gabon' },
+                { id: 'Grenada', name: 'Grenada' },
+                { id: 'Georgia', name: 'Georgia' },
+                { id: 'French Guiana', name: 'French Guiana' },
+                { id: 'Guernsey', name: 'Guernsey' },
+                { id: 'Ghana', name: 'Ghana' },
+                { id: 'Gibraltar', name: 'Gibraltar' },
+                { id: 'Greenland', name: 'Greenland' },
+                { id: 'Gambia', name: 'Gambia' },
+                { id: 'Guinea', name: 'Guinea' },
+                { id: 'Guadeloupe', name: 'Guadeloupe' },
+                { id: 'Equatorial Guinea', name: 'Equatorial Guinea' },
+                { id: 'South Georgia and the South Sandwich Islands', name: 'South Georgia and the South Sandwich Islands' },
+                { id: 'Guatemala', name: 'Guatemala' },
+                { id: 'Guam', name: 'Guam' },
+                { id: 'Guinea-Bissau', name: 'Guinea-Bissau' },
+                { id: 'Guyana', name: 'Guyana' },
+                { id: 'Hong Kong', name: 'Hong Kong' },
+                { id: 'Heard Island and McDonald Islands', name: 'Heard Island and McDonald Islands' },
+                { id: 'Honduras', name: 'Honduras' },
+                { id: 'Croatia', name: 'Croatia' },
+                { id: 'Haiti', name: 'Haiti' },
+                { id: 'Indonesia', name: 'Indonesia' },
+                { id: 'Israel', name: 'Israel' },
+                { id: 'Isle of Man', name: 'Isle of Man' },
+                { id: 'India', name: 'India' },
+                { id: 'British Indian Ocean Territory', name: 'British Indian Ocean Territory' },
+                { id: 'Iraq', name: 'Iraq' },
+                { id: 'Jersey', name: 'Jersey' },
+                { id: 'Jamaica', name: 'Jamaica' },
+                { id: 'Jordan', name: 'Jordan' },
+                { id: 'Kenya', name: 'Kenya' },
+                { id: 'Kyrgyzstan', name: 'Kyrgyzstan' },
+                { id: 'Cambodia', name: 'Cambodia' },
+                { id: 'Kiribati', name: 'Kiribati' },
+                { id: 'Comoros', name: 'Comoros' },
+                { id: 'Saint Kitts and Nevis', name: 'Saint Kitts and Nevis' },
+                { id: 'South Korea', name: 'South Korea' },
+                { id: 'Kuwait', name: 'Kuwait' },
+                { id: 'Cayman Islands', name: 'Cayman Islands' },
+                { id: 'Kazakhstan', name: 'Kazakhstan' },
+                { id: 'Laos', name: 'Laos' },
+                { id: 'Lebanon', name: 'Lebanon' },
+                { id: 'Saint Lucia', name: 'Saint Lucia' },
+                { id: 'Liechtenstein', name: 'Liechtenstein' },
+                { id: 'Sri Lanka', name: 'Sri Lanka' },
+                { id: 'Liberia', name: 'Liberia' },
+                { id: 'Lesotho', name: 'Lesotho' },
+                { id: 'Libya', name: 'Libya' },
+                { id: 'Morocco', name: 'Morocco' },
+                { id: 'Monaco', name: 'Monaco' },
+                { id: 'Moldova', name: 'Moldova' },
+                { id: 'Montenegro - Former Yugoslavia', name: 'Montenegro - Former Yugoslavia' },
+                { id: 'St. Martin', name: 'St. Martin' },
+                { id: 'Madagascar', name: 'Madagascar' },
+                { id: 'Marshall Islands', name: 'Marshall Islands' },
+                { id: 'Macedonia', name: 'Macedonia' },
+                { id: 'Mali', name: 'Mali' },
+                { id: 'Myanmar', name: 'Myanmar' },
+                { id: 'Mongolia', name: 'Mongolia' },
+                { id: 'Macao', name: 'Macao' },
+                { id: 'Northern Mariana Islands', name: 'Northern Mariana Islands' },
+                { id: 'Martinique', name: 'Martinique' },
+                { id: 'Mauritania', name: 'Mauritania' },
+                { id: 'Montserrat', name: 'Montserrat' },
+                { id: 'Mauritius', name: 'Mauritius' },
+                { id: 'Maldives', name: 'Maldives' },
+                { id: 'Malawi', name: 'Malawi' },
+                { id: 'Mexico', name: 'Mexico' },
+                { id: 'Malaysia', name: 'Malaysia' },
+                { id: 'Mozambique', name: 'Mozambique' },
+                { id: 'Namibia', name: 'Namibia' },
+                { id: 'New Caledonia', name: 'New Caledonia' },
+                { id: 'Niger', name: 'Niger' },
+                { id: 'Norfolk Island', name: 'Norfolk Island' },
+                { id: 'Nigeria', name: 'Nigeria' },
+                { id: 'Nicaragua', name: 'Nicaragua' },
+                { id: 'Nepal', name: 'Nepal' },
+                { id: 'Nauru', name: 'Nauru' },
+                { id: 'Niue', name: 'Niue' },
+                { id: 'Oman', name: 'Oman' },
+                { id: 'Panama', name: 'Panama' },
+                { id: 'Peru', name: 'Peru' },
+                { id: 'French Polynesia', name: 'French Polynesia' },
+                { id: 'Papua New Guinea', name: 'Papua New Guinea' },
+                { id: 'Philippines', name: 'Philippines' },
+                { id: 'Pakistan', name: 'Pakistan' },
+                { id: 'Saint Pierre and Miquelon', name: 'Saint Pierre and Miquelon' },
+                { id: 'Pitcairn', name: 'Pitcairn' },
+                { id: 'Puerto Rico', name: 'Puerto Rico' },
+                { id: 'Palestine', name: 'Palestine' },
+                { id: 'Palau', name: 'Palau' },
+                { id: 'Paraguay', name: 'Paraguay' },
+                { id: 'Qatar', name: 'Qatar' },
+                { id: 'Reunion', name: 'Reunion' },
+                { id: 'Serbia - Former Yugoslavia', name: 'Serbia - Former Yugoslavia' },
+                { id: 'Russian Federation', name: 'Russian Federation' },
+                { id: 'Rwanda', name: 'Rwanda' },
+                { id: 'Saudi Arabia', name: 'Saudi Arabia' },
+                { id: 'Solomon Islands', name: 'Solomon Islands' },
+                { id: 'Seychelles', name: 'Seychelles' },
+                { id: 'Singapore', name: 'Singapore' },
+                { id: 'Saint Helena, Ascension and Tristan da Cunha', name: 'Saint Helena, Ascension and Tristan da Cunha' },
+                { id: 'Svalbard and Jan Mayen', name: 'Svalbard and Jan Mayen' },
+                { id: 'Sierra Leone', name: 'Sierra Leone' },
+                { id: 'San Marino', name: 'San Marino' },
+                { id: 'Senegal', name: 'Senegal' },
+                { id: 'Somalia', name: 'Somalia' },
+                { id: 'Suriname', name: 'Suriname' },
+                { id: 'Sao Tome and Principe', name: 'Sao Tome and Principe' },
+                { id: 'El Salvador', name: 'El Salvador' },
+                { id: 'Sint Maarten', name: 'Sint Maarten' },
+                { id: 'Swaziland', name: 'Swaziland' },
+                { id: 'Turks and Caicos Islands', name: 'Turks and Caicos Islands' },
+                { id: 'Chad', name: 'Chad' },
+                { id: 'French Southern Territories', name: 'French Southern Territories' },
+                { id: 'Togo', name: 'Togo' },
+                { id: 'Thailand', name: 'Thailand' },
+                { id: 'Tajikistan', name: 'Tajikistan' },
+                { id: 'Tokelau', name: 'Tokelau' },
+                { id: 'Timor-Leste', name: 'Timor-Leste' },
+                { id: 'Turkmenistan', name: 'Turkmenistan' },
+                { id: 'Tunisia', name: 'Tunisia' },
+                { id: 'Tonga', name: 'Tonga' },
+                { id: 'Tonga', name: 'Tonga' },
+                { id: 'Trinidad and Tobago', name: 'Trinidad and Tobago' },
+                { id: 'Tuvalu', name: 'Tuvalu' },
+                { id: 'Taiwan', name: 'Taiwan' },
+                { id: 'Tanzania', name: 'Tanzania' },
+                { id: 'Ukraine', name: 'Ukraine' },
+                { id: 'Uganda', name: 'Uganda' },
+                { id: 'United States Minor Outlying Islands', name: 'United States Minor Outlying Islands' },
+                { id: 'Uruguay', name: 'Uruguay' },
+                { id: 'Uzbekistan', name: 'Uzbekistan' },
+                { id: 'Vatican City State', name: 'Vatican City State' },
+                { id: 'Saint Vincent and the Grenadines', name: 'Saint Vincent and the Grenadines' },
+                { id: 'Venezuela', name: 'Venezuela' },
+                { id: 'British Virgin Islands', name: 'British Virgin Islands' },
+                { id: 'U.S. Virgin Islands', name: 'U.S. Virgin Islands' },
+                { id: 'Vietnam', name: 'Vietnam' },
+                { id: 'Vanuatu', name: 'Vanuatu' },
+                { id: 'Wallis and Futuna', name: 'Wallis and Futuna' },
+                { id: 'Samoa', name: 'Samoa' },
+                { id: 'Republic of Kosovo', name: 'Republic of Kosovo' },
+                { id: 'Yemen', name: 'Yemen' },
+                { id: 'Mayotte', name: 'Mayotte' },
+                { id: 'South Africa', name: 'South Africa' },
+                { id: 'Zambia', name: 'Zambia' },
+                { id: 'Zimbabwe', name: 'Zimbabwe' }
+            ];
+        });
+    </script>
+}

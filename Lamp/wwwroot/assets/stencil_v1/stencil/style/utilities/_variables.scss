@@ -1,0 +1,58 @@
+
+
+// Layout
+$spacing-smallest: 2px;
+$spacing-smaller: 4px;
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+$spacing-larger: 32px;
+$spacing-largest: 64px;
+
+
+// Lync Status Colors
+$color-status-available: limegreen;
+$color-status-away: gold;
+$color-status-busy: crimson;
+$color-status-offline: color(grey);
+$color-status-unknown: black;
+
+
+// Fonts
+$font-stack-default: "Antenna", "Helvetica Neue", Arial, sans-serif;
+$font-size-smallest: 10px;
+$font-size-small: 12px;
+$font-size-regular: 13px;
+$font-size-medium: 16px;
+$font-size-large: 18px;
+$font-size-xlarge: 24px;
+$font-size-xxlarge: 32px;
+$font-size-display: 40px;
+
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$line-height-default: 1.2;
+$line-height-medium: 1.5;
+$line-height-large: 1.8;
+
+
+// Breakpoints
+$breakpoint-mobile-max: 767px;
+$breakpoint-tablet-min: 768px;
+$breakpoint-tablet-max: 1022px;
+$breakpoint-desktop-min: 1023px;
+
+
+// Lync Avatar Size
+$avatar-width: 80px;
+$avatar-height: $avatar-width;
+$avatar-offset: 8px;
+
+$avatar-width-compact: 40px;
+$avatar-height-compact: $avatar-width-compact;
+$avatar-offset-compact: 5px;
+
+
+// States
+$states_map : (success:green, warning:orange, danger:red, info:blue, active:blue);

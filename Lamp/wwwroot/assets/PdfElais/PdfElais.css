@@ -1,0 +1,99 @@
+﻿body {
+    background: #eee;
+}
+
+.container {
+    margin-left: 0px;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    min-height: 100px;
+    background: #3493c2;
+    border-bottom: 3px solid black;
+}
+
+#print-edit {
+    position: absolute;
+    padding-top: 16px;
+    margin-left: 1250px;
+}
+
+#print-edit-footer {
+    float: right;
+    margin-top: -44px;
+    margin-right: 11px;
+}
+
+#print {
+    margin-left: 18px;
+}
+
+#print-edit-bottom {
+    margin-left: 1250px;
+} 
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+section {
+    background: #fff;
+    padding: 40px;
+}
+
+#named-end-user h3 {
+    margin-top: 10px;
+}
+
+#certify p {
+    margin: 0;
+}
+
+#certify {
+    margin-top: 30px;
+}
+
+#end-user-span input[type="radio"] {
+    float: left;
+    margin: -1px 10px 10px 12px;
+}
+
+.branding {
+    padding: 21px;
+    float: left;
+}
+
+    .branding img {
+        display: inline;
+    }
+
+#other-party-end input[type="checkbox"] {
+    display: inline-block;
+}
+
+#other-party-end span {
+    width: 640px;
+    display: inline-block;
+}
+
+#inner-div {
+    float: left;
+    width: 520px;
+}
+
+#basic-info {
+    display: inline-block;
+}
+
+#kyc {
+    font-style: italic;
+    color: black;
+    font-weight: 600;
+}

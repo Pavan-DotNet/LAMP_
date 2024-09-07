@@ -1,0 +1,124 @@
+//
+// AngularJS Multiselect Styles
+// --------------------------------------------------
+
+@import "./node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+.btn-group-multiselect {
+    $width: 250px;
+
+    &.state-selected-multiple {
+        .dropdown-toggle {
+            .text {
+                width: $width - 60;
+            }
+
+            .badge {
+                display: inline-block;
+            }
+        }
+    }
+
+    .dropdown-toggle {
+        text-align: left;
+        width: $width;
+
+        .text {
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+            width: 97%;
+        }
+
+        .badge,
+        .caret {
+            position: absolute;
+        }
+
+        .badge {
+            background-color: $gray-light;
+            border-radius: 3px;
+            display: none;
+            padding: 4px 5px;
+            right: 22px;
+            top: 5px;
+        }
+
+        .caret {
+            right: 8px;
+            top: 13px;
+        }
+    }
+
+    .dropdown-menu {
+        padding: 0;
+        width: $width;
+
+        input[type="checkbox"] {
+            pointer-events: none;
+            margin: 0 4px 0 0;
+        }
+
+        .form-control {
+            border-left: none;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-right: none;
+            border-top: none;
+        }
+
+        .divider {
+            margin: 5px 0;
+        }
+    }
+
+    .dropdown-menu-list {
+        margin: 0;
+        max-height: 225px;
+        overflow: auto;
+        padding: 5px 0;
+
+        > li > a {
+            clear: both;
+            color: $dropdown-link-color;
+            font-weight: normal;
+            cursor: pointer;
+            display: block;
+            line-height: $line-height-base;
+            padding: 5px 12px;
+            white-space: nowrap;
+
+            &.text-muted {
+                &,
+                &:hover,
+                &:focus {
+                    background-color: transparent;
+                    color: $text-muted;
+                    cursor: not-allowed;
+                }
+            }
+
+            &:hover,
+            &:focus {
+                background-color: $dropdown-link-hover-bg;
+                color: $dropdown-link-hover-color;
+                text-decoration: none;
+            }
+        }
+
+        > li.dropdown-is-over-limit {
+            border-top: 1px solid fade-out($text-muted, 0.7);
+            font-size: 0.9em;
+            font-style: italic;
+            padding: 7px 12px 5px;
+            text-align: center;
+
+            &.dropdown-is-group-limit {
+                border-top: none;
+                padding: 5px 12px 12px 32px;
+                text-align: left;
+            }
+        }
+    }
+}

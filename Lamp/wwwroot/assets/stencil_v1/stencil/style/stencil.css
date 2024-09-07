@@ -1,0 +1,4636 @@
+@charset "UTF-8";
+/* Stencil v1.0 */
+/* Required Imports - Do Not Remove */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden], template {
+  display: none; }
+
+a {
+  background-color: transparent; }
+
+a:active, a:hover {
+  outline: 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b, strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+small {
+  font-size: 80%; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+pre {
+  overflow: auto; }
+
+code, kbd, pre, samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+button, .stencilaccordion-container .stencilaccordion-trigger, .stencilpagination li button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+button, .stencilaccordion-container .stencilaccordion-trigger, .stencilpagination li button {
+  overflow: visible; }
+
+button, .stencilaccordion-container .stencilaccordion-trigger, .stencilpagination li button, select {
+  text-transform: none; }
+
+button, .stencilaccordion-container .stencilaccordion-trigger, .stencilpagination li button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled], .stencilaccordion-container [disabled].stencilaccordion-trigger, .stencilpagination li button[disabled], html input[disabled] {
+  cursor: default; }
+
+button::-moz-focus-inner, .stencilaccordion-container .stencilaccordion-trigger::-moz-focus-inner, .stencilpagination li button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input {
+  line-height: normal; }
+
+input[type="checkbox"], input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto; }
+
+optgroup {
+  font-weight: bold; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td, th {
+  padding: 0; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+input, button, .stencilaccordion-container .stencilaccordion-trigger, .stencilpagination li button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit; }
+
+/* Color Primitives */
+/* Spacing */
+.stencilmargin-top, hr, .stenciltimeline-container, .stenciltags, footer {
+  margin-top: 16px; }
+
+.stencilno-margin-top {
+  margin-top: 0 !important; }
+
+.stencilmargin-top-smallest {
+  margin-top: 2px; }
+
+.stencilmargin-top-smaller, .stencildate-card .stencilcard-title {
+  margin-top: 4px; }
+
+.stencilmargin-top-small, .stencilform-help, .stencilform-error {
+  margin-top: 8px; }
+
+.stencilmargin-top-large, .stencilpagination {
+  margin-top: 24px; }
+
+.stencilmargin-top-larger {
+  margin-top: 32px; }
+
+.stencilmargin-top-largest {
+  margin-top: 64px; }
+
+.stencilmargin-right, nav ul li {
+  margin-right: 16px; }
+
+.stencilno-margin-right, nav ul li:last-child {
+  margin-right: 0 !important; }
+
+.stencilmargin-right-smallest {
+  margin-right: 2px; }
+
+.stencilmargin-right-smaller {
+  margin-right: 4px; }
+
+.stencilmargin-right-small {
+  margin-right: 8px; }
+
+.stencilmargin-right-large {
+  margin-right: 24px; }
+
+.stencilmargin-right-larger {
+  margin-right: 32px; }
+
+.stencilmargin-right-largest {
+  margin-right: 64px; }
+
+.stencilmargin-bottom, .stencilgrid, fieldset, legend, .stencilbutton-group, dl, hr, .stencilcard, .stencildate-card, .stencilalert, .stencilsnackbar, .stencilflat-list li, nav ul li, .stenciltags li, footer {
+  margin-bottom: 16px; }
+
+.stencilno-margin-bottom, nav ul, nav ul li {
+  margin-bottom: 0 !important; }
+
+.stencilmargin-bottom-smallest {
+  margin-bottom: 2px; }
+
+.stencilmargin-bottom-smaller {
+  margin-bottom: 4px; }
+
+.stencilmargin-bottom-small, label, input[type="checkbox"], input[type="radio"], .stencilform-help, .stencilform-error, .stencilbreadcrumbs {
+  margin-bottom: 8px; }
+
+.stencilmargin-bottom-large {
+  margin-bottom: 24px; }
+
+.stencilmargin-bottom-larger {
+  margin-bottom: 32px; }
+
+.stencilmargin-bottom-largest {
+  margin-bottom: 64px; }
+
+.stencilmargin-left, .stencildialog .stencildialog-footer button, .stencildialog .stencildialog-footer .stencilaccordion-container .stencilaccordion-trigger, .stencilaccordion-container .stencildialog .stencildialog-footer .stencilaccordion-trigger, .stencilbrand-app .stencilapp {
+  margin-left: 16px; }
+
+.stencilno-margin-left {
+  margin-left: 0 !important; }
+
+.stencilmargin-left-smallest {
+  margin-left: 2px; }
+
+.stencilmargin-left-smaller {
+  margin-left: 4px; }
+
+.stencilmargin-left-small, .stencilmedia .stencilmedia-right, .stencilmedia-card .stencilmedia-right, .stenciltimeline-container .stenciltimeline-event .stencilmedia-right, .stencilalert .stencilmedia-right, .stencilsnackbar .stencilmedia-right {
+  margin-left: 8px; }
+
+.stencilmargin-left-large {
+  margin-left: 24px; }
+
+.stencilmargin-left-larger {
+  margin-left: 32px; }
+
+.stencilmargin-left-largest {
+  margin-left: 64px; }
+
+.stencilmargin-pre {
+  margin-top: 16px;
+  margin-left: 16px; }
+
+.stencilmargin-pre-smallest {
+  margin-top: 2px;
+  margin-left: 2px; }
+
+.stencilmargin-pre-smaller {
+  margin-top: 4px;
+  margin-left: 4px; }
+
+.stencilmargin-pre-small {
+  margin-top: 8px;
+  margin-left: 8px; }
+
+.stencilmargin-pre-large {
+  margin-top: 24px;
+  margin-left: 24px; }
+
+.stencilmargin-pre-larger {
+  margin-top: 32px;
+  margin-left: 32px; }
+
+.stencilmargin-pre-largest {
+  margin-top: 64px;
+  margin-left: 64px; }
+
+.stencilmargin-post {
+  margin-right: 16px;
+  margin-bottom: 16px; }
+
+.stencilmargin-post-smallest {
+  margin-right: 2px;
+  margin-bottom: 2px; }
+
+.stencilmargin-post-smaller {
+  margin-right: 4px;
+  margin-bottom: 4px; }
+
+.stencilmargin-post-small, .stenciltags li {
+  margin-right: 8px;
+  margin-bottom: 8px; }
+
+.stencilmargin-post-large {
+  margin-right: 24px;
+  margin-bottom: 24px; }
+
+.stencilmargin-post-larger {
+  margin-right: 32px;
+  margin-bottom: 32px; }
+
+.stencilmargin-post-largest {
+  margin-right: 64px;
+  margin-bottom: 64px; }
+
+.stencilmargin-around {
+  margin: 16px; }
+
+.stencilmargin-around-smallest {
+  margin: 2px; }
+
+.stencilmargin-around-smaller {
+  margin: 4px; }
+
+.stencilmargin-around-small {
+  margin: 8px; }
+
+.stencilmargin-around-large {
+  margin: 24px; }
+
+.stencilmargin-around-larger {
+  margin: 32px; }
+
+.stencilmargin-around-largest {
+  margin: 64px; }
+
+.stencilmargin-sides {
+  margin-left: 16px;
+  margin-right: 16px; }
+
+.stencilmargin-sides-smallest {
+  margin-left: 2px;
+  margin-right: 2px; }
+
+.stencilmargin-sides-smaller {
+  margin-left: 4px;
+  margin-right: 4px; }
+
+.stencilmargin-sides-small, nav ul li a .icon {
+  margin-left: 8px;
+  margin-right: 8px; }
+
+.stencilmargin-sides-large {
+  margin-left: 24px;
+  margin-right: 24px; }
+
+.stencilmargin-sides-larger {
+  margin-left: 32px;
+  margin-right: 32px; }
+
+.stencilmargin-sides-largest {
+  margin-left: 64px;
+  margin-right: 64px; }
+
+.stencilpadding-top {
+  padding-top: 16px; }
+
+.stencilno-padding-top {
+  padding-top: 0 !important; }
+
+.stencilpadding-top-smallest {
+  padding-top: 2px; }
+
+.stencilpadding-top-smaller {
+  padding-top: 4px; }
+
+.stencilpadding-top-small {
+  padding-top: 8px; }
+
+.stencilpadding-top-large {
+  padding-top: 24px; }
+
+.stencilpadding-top-larger {
+  padding-top: 32px; }
+
+.stencilpadding-top-largest {
+  padding-top: 64px; }
+
+.stencilpadding-right, .stencilalert .stencilmedia-left, .stencilsnackbar .stencilmedia-left, .stencilbrand-app .stencilbrand {
+  padding-right: 16px; }
+
+.stencilno-padding-right {
+  padding-right: 0 !important; }
+
+.stencilpadding-right-smallest {
+  padding-right: 2px; }
+
+.stencilpadding-right-smaller {
+  padding-right: 4px; }
+
+.stencilpadding-right-small {
+  padding-right: 8px; }
+
+.stencilpadding-right-large {
+  padding-right: 24px; }
+
+.stencilpadding-right-larger {
+  padding-right: 32px; }
+
+.stencilpadding-right-largest {
+  padding-right: 64px; }
+
+.stencilpadding-bottom, .stencilwith-separator li {
+  padding-bottom: 16px; }
+
+.stencilno-padding-bottom {
+  padding-bottom: 0 !important; }
+
+.stencilpadding-bottom-smallest {
+  padding-bottom: 2px; }
+
+.stencilpadding-bottom-smaller {
+  padding-bottom: 4px; }
+
+.stencilpadding-bottom-small {
+  padding-bottom: 8px; }
+
+.stencilpadding-bottom-large, .stencilwith-separator-large li {
+  padding-bottom: 24px; }
+
+.stencilpadding-bottom-larger {
+  padding-bottom: 32px; }
+
+.stencilpadding-bottom-largest {
+  padding-bottom: 64px; }
+
+.stencilpadding-left, .stencilalert .stencilmedia-right, .stencilsnackbar .stencilmedia-right {
+  padding-left: 16px; }
+
+.stencilno-padding-left {
+  padding-left: 0 !important; }
+
+.stencilpadding-left-smallest {
+  padding-left: 2px; }
+
+.stencilpadding-left-smaller {
+  padding-left: 4px; }
+
+.stencilpadding-left-small, .stencilalert .stencilmedia-left, .stencilsnackbar .stencilmedia-left {
+  padding-left: 8px; }
+
+.stencilpadding-left-large {
+  padding-left: 24px; }
+
+.stencilpadding-left-larger {
+  padding-left: 32px; }
+
+.stencilpadding-left-largest {
+  padding-left: 64px; }
+
+.stencilpadding-pre {
+  padding-top: 16px;
+  padding-left: 16px; }
+
+.stencilpadding-pre-smallest {
+  padding-top: 2px;
+  padding-left: 2px; }
+
+.stencilpadding-pre-smaller {
+  padding-top: 4px;
+  padding-left: 4px; }
+
+.stencilpadding-pre-small {
+  padding-top: 8px;
+  padding-left: 8px; }
+
+.stencilpadding-pre-large {
+  padding-top: 24px;
+  padding-left: 24px; }
+
+.stencilpadding-pre-larger {
+  padding-top: 32px;
+  padding-left: 32px; }
+
+.stencilpadding-pre-largest {
+  padding-top: 64px;
+  padding-left: 64px; }
+
+.stencilpadding-post {
+  padding-right: 16px;
+  padding-bottom: 16px; }
+
+.stencilpadding-post-smallest {
+  padding-right: 2px;
+  padding-bottom: 2px; }
+
+.stencilpadding-post-smaller {
+  padding-right: 4px;
+  padding-bottom: 4px; }
+
+.stencilpadding-post-small {
+  padding-right: 8px;
+  padding-bottom: 8px; }
+
+.stencilpadding-post-large {
+  padding-right: 24px;
+  padding-bottom: 24px; }
+
+.stencilpadding-post-larger {
+  padding-right: 32px;
+  padding-bottom: 32px; }
+
+.stencilpadding-post-largest {
+  padding-right: 64px;
+  padding-bottom: 64px; }
+
+.stencilpadding-around, .stencilmodule .stencilmodule-body, .stencilmodal .stencilmodule-body, .stencilmodal .stencilmodal-body, .stencilmodule .stencildialog .stencildialog-body, .stencildialog .stencilmodule .stencildialog-body, .stencilmodal .stencildialog .stencildialog-body, .stencildialog .stencilmodal .stencildialog-body, .stencilmodule .stencilmodule-footer, .stencilmodal .stencilmodule-footer, .stencilmodal .stencilmodal-footer, .stencilcard .stencilcard-body, .stencildate-card .stencilcard-body, .stencilaccordion-container .stencilaccordion-target, .stencilwell, header {
+  padding: 16px; }
+
+.stencilpadding-around-smallest, .stencildate-card .stencilmonth {
+  padding: 2px; }
+
+.stencilpadding-around-smaller {
+  padding: 4px; }
+
+.stencilpadding-around-small, input[type="text"], textarea, select, .stencilalert, .stencilsnackbar {
+  padding: 8px; }
+
+.stencilpadding-around-large {
+  padding: 24px; }
+
+.stencilpadding-around-larger, .stencildialog {
+  padding: 32px; }
+
+.stencilpadding-around-largest {
+  padding: 64px; }
+
+.stencilpadding-sides, footer {
+  padding-left: 16px;
+  padding-right: 16px; }
+
+.stencilpadding-sides-smallest {
+  padding-left: 2px;
+  padding-right: 2px; }
+
+.stencilpadding-sides-smaller {
+  padding-left: 4px;
+  padding-right: 4px; }
+
+.stencilpadding-sides-small {
+  padding-left: 8px;
+  padding-right: 8px; }
+
+.stencilpadding-sides-large {
+  padding-left: 24px;
+  padding-right: 24px; }
+
+.stencilpadding-sides-larger {
+  padding-left: 32px;
+  padding-right: 32px; }
+
+.stencilpadding-sides-largest {
+  padding-left: 64px;
+  padding-right: 64px; }
+
+/* Theme */
+/* Borders */
+.stencilborder-top {
+  padding-top: 16px;
+  border-top: 1px solid #ccc; }
+
+.stencilborder-right {
+  padding-right: 16px;
+  border-right: 1px solid #ccc; }
+
+.stencilborder-bottom {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ccc; }
+
+.stencilborder-left {
+  padding-left: 16px;
+  border-left: 1px solid #ccc; }
+
+/* General */
+/* Layout */
+.stencilflex, .stencilflex-vertical, .stencilbutton-group, .stencilmedia-card .stencilmedia-body, .stencildialog, body, .stencilflex-spread, nav ul li a, .stencilmodule .stencilmodule-header, .stencilmodal .stencilmodule-header, .stencilmodal .stencilmodal-header, .stencilmodule .stencilmodule-footer, .stencilmodal .stencilmodule-footer, .stencilmodal .stencilmodal-footer, .stenciltimeline-container, .stenciltimeline-container.stencillinear-timeline, .stencildialog .stencildialog-header, .stenciltags, header, footer, .stencilflex-around, .stencilflex-center, .stencilmodule .stencilmodule-actions-center, .stencilmodal .stencilmodule-actions-center, .stencilmodal .stencilmodal-header .stencilmodal-actions-center, .stencilmedia-card .stencilmedia-right, .stencilpagination, .stenciloverlay-container, .stencilflex-end, .stencilflex-center-align, .stencilmedia, .stencilmedia-card, .stenciltimeline-container .stenciltimeline-event, .stencilalert, .stencilsnackbar, .stenciltimeline-container.stencillinear-timeline .stenciltimeline-event, .stencilbrand-app, .stencilflex-stretch, .stencilrow-to-column, .stencilgrid, .stencilform-group, nav ul, .stencilmodule .stencilmodule-actions-left, .stencilmodal .stencilmodule-actions-left, .stencilmodal .stencilmodal-header .stencilmodal-actions-left, .stencilmodule .stencilmodule-actions-right, .stencilmodal .stencilmodule-actions-right, .stencilmodal .stencilmodal-header .stencilmodal-actions-right, .stencilmedia .stencilmedia-left, .stencilmedia-card .stencilmedia-left, .stenciltimeline-container .stenciltimeline-event .stencilmedia-left, .stencilalert .stencilmedia-left, .stencilsnackbar .stencilmedia-left, .stencildialog .stencildialog-footer {
+  display: flex;
+  display: -webkit-flex; }
+
+.stencilflex-vertical, .stencilbutton-group, .stencilmedia-card .stencilmedia-body, .stencildialog, body {
+  flex-direction: column; }
+
+.stencilflex-spread, nav ul li a, .stencilmodule .stencilmodule-header, .stencilmodal .stencilmodule-header, .stencilmodal .stencilmodal-header, .stencilmodule .stencilmodule-footer, .stencilmodal .stencilmodule-footer, .stencilmodal .stencilmodal-footer, .stenciltimeline-container, .stenciltimeline-container.stencillinear-timeline, .stencildialog .stencildialog-header, .stenciltags, header, footer {
+  justify-content: space-between; }
+
+.stencilflex-around {
+  justify-content: space-around; }
+
+.stencilflex-center, .stencilmodule .stencilmodule-actions-center, .stencilmodal .stencilmodule-actions-center, .stencilmodal .stencilmodal-header .stencilmodal-actions-center, .stencilmedia-card .stencilmedia-body, .stencilmedia-card .stencilmedia-right, .stencilpagination, .stenciloverlay-container {
+  justify-content: center; }
+
+.stencilflex-end {
+  justify-content: flex-end; }
+
+.stencilflex-center-align, nav ul li a, .stencilmodule .stencilmodule-actions-center, .stencilmodal .stencilmodule-actions-center, .stencilmodal .stencilmodal-header .stencilmodal-actions-center, .stencilmedia, .stencilmedia-card, .stenciltimeline-container .stenciltimeline-event, .stencilalert, .stencilsnackbar, .stencilmedia-card .stencilmedia-right, .stenciltimeline-container, .stenciltimeline-container.stencillinear-timeline .stenciltimeline-event, .stencilbrand-app {
+  align-items: center; }
+
+.stencilflex-stretch, .stencilmodule .stencilmodule-header, .stencilmodal .stencilmodule-header, .stencilmodal .stencilmodal-header, .stencilmedia-card, body {
+  align-items: stretch; }
+
+@media (max-width: 767px) {
+  .stencilrow-to-column, .stencilgrid, .stenciltimeline-container, footer {
+    flex-direction: column; } }
+
+/* Grid */
+.stencilgrid.stencilcolumn-separated div[class*="col-"] {
+  padding-left: 16px;
+  border-left: 1px solid #ccc; }
+  @media (max-width: 767px) {
+    .stencilgrid.stencilcolumn-separated div[class*="col-"] {
+      padding-top: 16px;
+      padding-left: 0;
+      border-left: none;
+      border-top: 1px solid #ccc; } }
+.stencilgrid.stencilcolumn-separated div[class*="col-"]:first-child {
+  padding-left: 0;
+  padding-top: 0;
+  border-left: none;
+  border-top: none; }
+.stencilgrid div[class*="col-"]:last-child {
+  margin-right: 0; }
+
+.stencilcol-1 {
+  width: 8.3333333333%;
+  margin-right: 16px; }
+
+.stenciloffset-1 {
+  margin-left: 8.3333333333%; }
+
+.stencilcol-2 {
+  width: 16.6666666667%;
+  margin-right: 16px; }
+
+.stenciloffset-2 {
+  margin-left: 16.6666666667%; }
+
+.stencilcol-3 {
+  width: 25%;
+  margin-right: 16px; }
+
+.stenciloffset-3 {
+  margin-left: 25%; }
+
+.stencilcol-4, .stencilinline label {
+  width: 33.3333333333%;
+  margin-right: 16px; }
+
+.stenciloffset-4 {
+  margin-left: 33.3333333333%; }
+
+.stencilcol-5 {
+  width: 41.6666666667%;
+  margin-right: 16px; }
+
+.stenciloffset-5 {
+  margin-left: 41.6666666667%; }
+
+.stencilcol-6 {
+  width: 50%;
+  margin-right: 16px; }
+
+.stenciloffset-6 {
+  margin-left: 50%; }
+
+.stencilcol-7, .stencilinline input[type="text"], .stencilinline textarea, .stencilinline select {
+  width: 58.3333333333%;
+  margin-right: 16px; }
+
+.stenciloffset-7 {
+  margin-left: 58.3333333333%; }
+
+.stencilcol-8 {
+  width: 66.6666666667%;
+  margin-right: 16px; }
+
+.stenciloffset-8 {
+  margin-left: 66.6666666667%; }
+
+.stencilcol-9 {
+  width: 75%;
+  margin-right: 16px; }
+
+.stenciloffset-9 {
+  margin-left: 75%; }
+
+.stencilcol-10 {
+  width: 83.3333333333%;
+  margin-right: 16px; }
+
+.stenciloffset-10 {
+  margin-left: 83.3333333333%; }
+
+.stencilcol-11 {
+  width: 91.6666666667%;
+  margin-right: 16px; }
+
+.stenciloffset-11 {
+  margin-left: 91.6666666667%; }
+
+.stencilcol-12 {
+  width: 100%;
+  margin-right: 16px; }
+
+.stenciloffset-12 {
+  margin-left: 100%; }
+
+@media (max-width: 767px) {
+  .stencilcol-1, .stencilcol-2, .stencilcol-3, .stencilcol-4, .stencilinline label, .stencilcol-5, .stencilcol-6, .stencilcol-7, .stencilinline input[type="text"], .stencilinline textarea, .stencilinline select, .stencilcol-8, .stencilcol-9, .stencilcol-10, .stencilcol-11, .stencilcol-12 {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 16px; }
+
+  .stenciloffset-1, .stenciloffset-2, .stenciloffset-3, .stenciloffset-4, .stenciloffset-5, .stenciloffset-6, .stenciloffset-7, .stenciloffset-8, .stenciloffset-9, .stenciloffset-10, .stenciloffset-11, .stenciloffset-12 {
+    margin-left: 0; } }
+/* Typgraphy */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 16px;
+  font-family: inherit;
+  font-weight: 400;
+  color: inherit; }
+
+h1 {
+  font-size: 24px; }
+
+h2 {
+  font-size: 18px; }
+
+h3 {
+  font-size: 16px; }
+
+h4 {
+  font-size: 13px; }
+
+h5 {
+  font-size: 12px; }
+
+h6 {
+  font-size: 10px; }
+
+p {
+  margin: 0 0 16px;
+  line-height: 1.5; }
+
+li {
+  line-height: 1.5; }
+
+a {
+  color: #0277bd;
+  text-decoration: none;
+  cursor: pointer; }
+  a:hover {
+    color: #324257; }
+
+.stencillabel {
+  padding: 2px;
+  background: #f0ad4e;
+  color: white;
+  font-size: 10px;
+  font-weight: normal; }
+
+.stencilmuted {
+  font-size: 12px;
+  color: #637daa; }
+  .stencilmodule .stencilmuted, .stencilmodal .stencilmuted {
+    color: #b2b2b2; }
+
+/* Icons */
+/*
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("stencil/fonts/fontawesome-webfont.eot?v=4.7.0");
+  src: url("stencil/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("stencil/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("stencil/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("stencil/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("stencil/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+.icon {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* makes the font 33% larger relative to the icon container */
+.icon-lg {
+  font-size: 1.3333333333em;
+  line-height: 0.75em;
+  vertical-align: -15%; }
+
+.icon-2x {
+  font-size: 2em; }
+
+.icon-3x {
+  font-size: 3em; }
+
+.icon-4x {
+  font-size: 4em; }
+
+.icon-5x {
+  font-size: 5em; }
+
+.icon-fw {
+  width: 1.2857142857em;
+  text-align: center; }
+
+.icon-ul {
+  padding-left: 0;
+  margin-left: 2.1428571429em;
+  list-style-type: none; }
+  .icon-ul > li {
+    position: relative; }
+
+.icon-li {
+  position: absolute;
+  left: -2.1428571429em;
+  width: 2.1428571429em;
+  top: 0.1428571429em;
+  text-align: center; }
+  .icon-li.icon-lg {
+    left: -1.8571428571em; }
+
+.icon-border {
+  padding: .2em .25em .15em;
+  border: solid 0.08em #eee;
+  border-radius: .1em; }
+
+.icon-pull-left {
+  float: left; }
+
+.icon-pull-right {
+  float: right; }
+
+.icon.icon-pull-left {
+  margin-right: .3em; }
+.icon.icon-pull-right {
+  margin-left: .3em; }
+
+/* Deprecated as of 4.4.0 */
+.pull-right {
+  float: right; }
+
+.pull-left {
+  float: left; }
+
+.icon.pull-left {
+  margin-right: .3em; }
+.icon.pull-right {
+  margin-left: .3em; }
+
+.icon-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear; }
+
+.icon-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8); }
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+.icon-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+.icon-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+.icon-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg); }
+
+.icon-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1); }
+
+.icon-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1); }
+
+:root .icon-rotate-90,
+:root .icon-rotate-180,
+:root .icon-rotate-270,
+:root .icon-flip-horizontal,
+:root .icon-flip-vertical {
+  filter: none; }
+
+.icon-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle; }
+
+.icon-stack-1x, .icon-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+
+.icon-stack-1x {
+  line-height: inherit; }
+
+.icon-stack-2x {
+  font-size: 2em; }
+
+.icon-inverse {
+  color: #fff; }
+
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+.icon-glass:before {
+  content: ""; }
+
+.icon-music:before {
+  content: ""; }
+
+.icon-search:before {
+  content: ""; }
+
+.icon-envelope-o:before {
+  content: ""; }
+
+.icon-heart:before {
+  content: ""; }
+
+.icon-star:before {
+  content: ""; }
+
+.icon-star-o:before {
+  content: ""; }
+
+.icon-user:before {
+  content: ""; }
+
+.icon-film:before {
+  content: ""; }
+
+.icon-th-large:before {
+  content: ""; }
+
+.icon-th:before {
+  content: ""; }
+
+.icon-th-list:before {
+  content: ""; }
+
+.icon-check:before {
+  content: ""; }
+
+.icon-remove:before,
+.icon-close:before,
+.icon-times:before {
+  content: ""; }
+
+.icon-search-plus:before {
+  content: ""; }
+
+.icon-search-minus:before {
+  content: ""; }
+
+.icon-power-off:before {
+  content: ""; }
+
+.icon-signal:before {
+  content: ""; }
+
+.icon-gear:before,
+.icon-cog:before {
+  content: ""; }
+
+.icon-trash-o:before {
+  content: ""; }
+
+.icon-home:before {
+  content: ""; }
+
+.icon-file-o:before {
+  content: ""; }
+
+.icon-clock-o:before {
+  content: ""; }
+
+.icon-road:before {
+  content: ""; }
+
+.icon-download:before {
+  content: ""; }
+
+.icon-arrow-circle-o-down:before {
+  content: ""; }
+
+.icon-arrow-circle-o-up:before {
+  content: ""; }
+
+.icon-inbox:before {
+  content: ""; }
+
+.icon-play-circle-o:before {
+  content: ""; }
+
+.icon-rotate-right:before,
+.icon-repeat:before {
+  content: ""; }
+
+.icon-refresh:before {
+  content: ""; }
+
+.icon-list-alt:before {
+  content: ""; }
+
+.icon-lock:before {
+  content: ""; }
+
+.icon-flag:before {
+  content: ""; }
+
+.icon-headphones:before {
+  content: ""; }
+
+.icon-volume-off:before {
+  content: ""; }
+
+.icon-volume-down:before {
+  content: ""; }
+
+.icon-volume-up:before {
+  content: ""; }
+
+.icon-qrcode:before {
+  content: ""; }
+
+.icon-barcode:before {
+  content: ""; }
+
+.icon-tag:before {
+  content: ""; }
+
+.icon-tags:before {
+  content: ""; }
+
+.icon-book:before {
+  content: ""; }
+
+.icon-bookmark:before {
+  content: ""; }
+
+.icon-print:before {
+  content: ""; }
+
+.icon-camera:before {
+  content: ""; }
+
+.icon-font:before {
+  content: ""; }
+
+.icon-bold:before {
+  content: ""; }
+
+.icon-italic:before {
+  content: ""; }
+
+.icon-text-height:before {
+  content: ""; }
+
+.icon-text-width:before {
+  content: ""; }
+
+.icon-align-left:before {
+  content: ""; }
+
+.icon-align-center:before {
+  content: ""; }
+
+.icon-align-right:before {
+  content: ""; }
+
+.icon-align-justify:before {
+  content: ""; }
+
+.icon-list:before {
+  content: ""; }
+
+.icon-dedent:before,
+.icon-outdent:before {
+  content: ""; }
+
+.icon-indent:before {
+  content: ""; }
+
+.icon-video-camera:before {
+  content: ""; }
+
+.icon-photo:before,
+.icon-image:before,
+.icon-picture-o:before {
+  content: ""; }
+
+.icon-pencil:before {
+  content: ""; }
+
+.icon-map-marker:before {
+  content: ""; }
+
+.icon-adjust:before {
+  content: ""; }
+
+.icon-tint:before {
+  content: ""; }
+
+.icon-edit:before,
+.icon-pencil-square-o:before {
+  content: ""; }
+
+.icon-share-square-o:before {
+  content: ""; }
+
+.icon-check-square-o:before {
+  content: ""; }
+
+.icon-arrows:before {
+  content: ""; }
+
+.icon-step-backward:before {
+  content: ""; }
+
+.icon-fast-backward:before {
+  content: ""; }
+
+.icon-backward:before {
+  content: ""; }
+
+.icon-play:before {
+  content: ""; }
+
+.icon-pause:before {
+  content: ""; }
+
+.icon-stop:before {
+  content: ""; }
+
+.icon-forward:before {
+  content: ""; }
+
+.icon-fast-forward:before {
+  content: ""; }
+
+.icon-step-forward:before {
+  content: ""; }
+
+.icon-eject:before {
+  content: ""; }
+
+.icon-chevron-left:before {
+  content: ""; }
+
+.icon-chevron-right:before {
+  content: ""; }
+
+.icon-plus-circle:before {
+  content: ""; }
+
+.icon-minus-circle:before {
+  content: ""; }
+
+.icon-times-circle:before {
+  content: ""; }
+
+.icon-check-circle:before, .stencilalert.stencilsuccess .stencilmedia-left .stencilicon:before, .stencilsuccess.stencilsnackbar .stencilmedia-left .stencilicon:before {
+  content: ""; }
+
+.icon-question-circle:before {
+  content: ""; }
+
+.icon-info-circle:before, .stencilalert .stencilmedia-left .stencilicon:before, .stencilsnackbar .stencilmedia-left .stencilicon:before, .stencilalert.stencilinfo .stencilmedia-left .stencilicon:before, .stencilinfo.stencilsnackbar .stencilmedia-left .stencilicon:before {
+  content: ""; }
+
+.icon-crosshairs:before {
+  content: ""; }
+
+.icon-times-circle-o:before {
+  content: ""; }
+
+.icon-check-circle-o:before {
+  content: ""; }
+
+.icon-ban:before {
+  content: ""; }
+
+.icon-arrow-left:before {
+  content: ""; }
+
+.icon-arrow-right:before {
+  content: ""; }
+
+.icon-arrow-up:before {
+  content: ""; }
+
+.icon-arrow-down:before {
+  content: ""; }
+
+.icon-mail-forward:before,
+.icon-share:before {
+  content: ""; }
+
+.icon-expand:before {
+  content: ""; }
+
+.icon-compress:before {
+  content: ""; }
+
+.icon-plus:before {
+  content: ""; }
+
+.icon-minus:before {
+  content: ""; }
+
+.icon-asterisk:before {
+  content: ""; }
+
+.icon-exclamation-circle:before, .stencilalert.stencildanger .stencilmedia-left .stencilicon:before, .stencildanger.stencilsnackbar .stencilmedia-left .stencilicon:before {
+  content: ""; }
+
+.icon-gift:before {
+  content: ""; }
+
+.icon-leaf:before {
+  content: ""; }
+
+.icon-fire:before {
+  content: ""; }
+
+.icon-eye:before {
+  content: ""; }
+
+.icon-eye-slash:before {
+  content: ""; }
+
+.icon-warning:before,
+.icon-exclamation-triangle:before,
+.stencilalert.stencilwarning .stencilmedia-left .stencilicon:before,
+.stencilwarning.stencilsnackbar .stencilmedia-left .stencilicon:before {
+  content: ""; }
+
+.icon-plane:before {
+  content: ""; }
+
+.icon-calendar:before {
+  content: ""; }
+
+.icon-random:before {
+  content: ""; }
+
+.icon-comment:before {
+  content: ""; }
+
+.icon-magnet:before {
+  content: ""; }
+
+.icon-chevron-up:before {
+  content: ""; }
+
+.icon-chevron-down:before {
+  content: ""; }
+
+.icon-retweet:before {
+  content: ""; }
+
+.icon-shopping-cart:before {
+  content: ""; }
+
+.icon-folder:before {
+  content: ""; }
+
+.icon-folder-open:before {
+  content: ""; }
+
+.icon-arrows-v:before {
+  content: ""; }
+
+.icon-arrows-h:before {
+  content: ""; }
+
+.icon-bar-chart-o:before,
+.icon-bar-chart:before {
+  content: ""; }
+
+.icon-twitter-square:before {
+  content: ""; }
+
+.icon-facebook-square:before {
+  content: ""; }
+
+.icon-camera-retro:before {
+  content: ""; }
+
+.icon-key:before {
+  content: ""; }
+
+.icon-gears:before,
+.icon-cogs:before {
+  content: ""; }
+
+.icon-comments:before {
+  content: ""; }
+
+.icon-thumbs-o-up:before {
+  content: ""; }
+
+.icon-thumbs-o-down:before {
+  content: ""; }
+
+.icon-star-half:before {
+  content: ""; }
+
+.icon-heart-o:before {
+  content: ""; }
+
+.icon-sign-out:before {
+  content: ""; }
+
+.icon-linkedin-square:before {
+  content: ""; }
+
+.icon-thumb-tack:before {
+  content: ""; }
+
+.icon-external-link:before {
+  content: ""; }
+
+.icon-sign-in:before {
+  content: ""; }
+
+.icon-trophy:before {
+  content: ""; }
+
+.icon-github-square:before {
+  content: ""; }
+
+.icon-upload:before {
+  content: ""; }
+
+.icon-lemon-o:before {
+  content: ""; }
+
+.icon-phone:before {
+  content: ""; }
+
+.icon-square-o:before {
+  content: ""; }
+
+.icon-bookmark-o:before {
+  content: ""; }
+
+.icon-phone-square:before {
+  content: ""; }
+
+.icon-twitter:before {
+  content: ""; }
+
+.icon-facebook-f:before,
+.icon-facebook:before {
+  content: ""; }
+
+.icon-github:before {
+  content: ""; }
+
+.icon-unlock:before {
+  content: ""; }
+
+.icon-credit-card:before {
+  content: ""; }
+
+.icon-feed:before,
+.icon-rss:before {
+  content: ""; }
+
+.icon-hdd-o:before {
+  content: ""; }
+
+.icon-bullhorn:before {
+  content: ""; }
+
+.icon-bell:before {
+  content: ""; }
+
+.icon-certificate:before {
+  content: ""; }
+
+.icon-hand-o-right:before {
+  content: ""; }
+
+.icon-hand-o-left:before {
+  content: ""; }
+
+.icon-hand-o-up:before {
+  content: ""; }
+
+.icon-hand-o-down:before {
+  content: ""; }
+
+.icon-arrow-circle-left:before {
+  content: ""; }
+
+.icon-arrow-circle-right:before {
+  content: ""; }
+
+.icon-arrow-circle-up:before {
+  content: ""; }
+
+.icon-arrow-circle-down:before {
+  content: ""; }
+
+.icon-globe:before {
+  content: ""; }
+
+.icon-wrench:before {
+  content: ""; }
+
+.icon-tasks:before {
+  content: ""; }
+
+.icon-filter:before {
+  content: ""; }
+
+.icon-briefcase:before {
+  content: ""; }
+
+.icon-arrows-alt:before {
+  content: ""; }
+
+.icon-group:before,
+.icon-users:before {
+  content: ""; }
+
+.icon-chain:before,
+.icon-link:before {
+  content: ""; }
+
+.icon-cloud:before {
+  content: ""; }
+
+.icon-flask:before {
+  content: ""; }
+
+.icon-cut:before,
+.icon-scissors:before {
+  content: ""; }
+
+.icon-copy:before,
+.icon-files-o:before {
+  content: ""; }
+
+.icon-paperclip:before {
+  content: ""; }
+
+.icon-save:before,
+.icon-floppy-o:before {
+  content: ""; }
+
+.icon-square:before {
+  content: ""; }
+
+.icon-navicon:before,
+.icon-reorder:before,
+.icon-bars:before {
+  content: ""; }
+
+.icon-list-ul:before {
+  content: ""; }
+
+.icon-list-ol:before {
+  content: ""; }
+
+.icon-strikethrough:before {
+  content: ""; }
+
+.icon-underline:before {
+  content: ""; }
+
+.icon-table:before {
+  content: ""; }
+
+.icon-magic:before {
+  content: ""; }
+
+.icon-truck:before {
+  content: ""; }
+
+.icon-pinterest:before {
+  content: ""; }
+
+.icon-pinterest-square:before {
+  content: ""; }
+
+.icon-google-plus-square:before {
+  content: ""; }
+
+.icon-google-plus:before {
+  content: ""; }
+
+.icon-money:before {
+  content: ""; }
+
+.icon-caret-down:before {
+  content: ""; }
+
+.icon-caret-up:before {
+  content: ""; }
+
+.icon-caret-left:before {
+  content: ""; }
+
+.icon-caret-right:before {
+  content: ""; }
+
+.icon-columns:before {
+  content: ""; }
+
+.icon-unsorted:before,
+.icon-sort:before {
+  content: ""; }
+
+.icon-sort-down:before,
+.icon-sort-desc:before {
+  content: ""; }
+
+.icon-sort-up:before,
+.icon-sort-asc:before {
+  content: ""; }
+
+.icon-envelope:before {
+  content: ""; }
+
+.icon-linkedin:before {
+  content: ""; }
+
+.icon-rotate-left:before,
+.icon-undo:before {
+  content: ""; }
+
+.icon-legal:before,
+.icon-gavel:before {
+  content: ""; }
+
+.icon-dashboard:before,
+.icon-tachometer:before {
+  content: ""; }
+
+.icon-comment-o:before {
+  content: ""; }
+
+.icon-comments-o:before {
+  content: ""; }
+
+.icon-flash:before,
+.icon-bolt:before {
+  content: ""; }
+
+.icon-sitemap:before {
+  content: ""; }
+
+.icon-umbrella:before {
+  content: ""; }
+
+.icon-paste:before,
+.icon-clipboard:before {
+  content: ""; }
+
+.icon-lightbulb-o:before {
+  content: ""; }
+
+.icon-exchange:before {
+  content: ""; }
+
+.icon-cloud-download:before {
+  content: ""; }
+
+.icon-cloud-upload:before {
+  content: ""; }
+
+.icon-user-md:before {
+  content: ""; }
+
+.icon-stethoscope:before {
+  content: ""; }
+
+.icon-suitcase:before {
+  content: ""; }
+
+.icon-bell-o:before {
+  content: ""; }
+
+.icon-coffee:before {
+  content: ""; }
+
+.icon-cutlery:before {
+  content: ""; }
+
+.icon-file-text-o:before {
+  content: ""; }
+
+.icon-building-o:before {
+  content: ""; }
+
+.icon-hospital-o:before {
+  content: ""; }
+
+.icon-ambulance:before {
+  content: ""; }
+
+.icon-medkit:before {
+  content: ""; }
+
+.icon-fighter-jet:before {
+  content: ""; }
+
+.icon-beer:before {
+  content: ""; }
+
+.icon-h-square:before {
+  content: ""; }
+
+.icon-plus-square:before {
+  content: ""; }
+
+.icon-angle-double-left:before {
+  content: ""; }
+
+.icon-angle-double-right:before {
+  content: ""; }
+
+.icon-angle-double-up:before {
+  content: ""; }
+
+.icon-angle-double-down:before {
+  content: ""; }
+
+.icon-angle-left:before {
+  content: ""; }
+
+.icon-angle-right:before {
+  content: ""; }
+
+.icon-angle-up:before {
+  content: ""; }
+
+.icon-angle-down:before {
+  content: ""; }
+
+.icon-desktop:before {
+  content: ""; }
+
+.icon-laptop:before {
+  content: ""; }
+
+.icon-tablet:before {
+  content: ""; }
+
+.icon-mobile-phone:before,
+.icon-mobile:before {
+  content: ""; }
+
+.icon-circle-o:before {
+  content: ""; }
+
+.icon-quote-left:before {
+  content: ""; }
+
+.icon-quote-right:before {
+  content: ""; }
+
+.icon-spinner:before {
+  content: ""; }
+
+.icon-circle:before {
+  content: ""; }
+
+.icon-mail-reply:before,
+.icon-reply:before {
+  content: ""; }
+
+.icon-github-alt:before {
+  content: ""; }
+
+.icon-folder-o:before {
+  content: ""; }
+
+.icon-folder-open-o:before {
+  content: ""; }
+
+.icon-smile-o:before {
+  content: ""; }
+
+.icon-frown-o:before {
+  content: ""; }
+
+.icon-meh-o:before {
+  content: ""; }
+
+.icon-gamepad:before {
+  content: ""; }
+
+.icon-keyboard-o:before {
+  content: ""; }
+
+.icon-flag-o:before {
+  content: ""; }
+
+.icon-flag-checkered:before {
+  content: ""; }
+
+.icon-terminal:before {
+  content: ""; }
+
+.icon-code:before {
+  content: ""; }
+
+.icon-mail-reply-all:before,
+.icon-reply-all:before {
+  content: ""; }
+
+.icon-star-half-empty:before,
+.icon-star-half-full:before,
+.icon-star-half-o:before {
+  content: ""; }
+
+.icon-location-arrow:before {
+  content: ""; }
+
+.icon-crop:before {
+  content: ""; }
+
+.icon-code-fork:before {
+  content: ""; }
+
+.icon-unlink:before,
+.icon-chain-broken:before {
+  content: ""; }
+
+.icon-question:before {
+  content: ""; }
+
+.icon-info:before {
+  content: ""; }
+
+.icon-exclamation:before {
+  content: ""; }
+
+.icon-superscript:before {
+  content: ""; }
+
+.icon-subscript:before {
+  content: ""; }
+
+.icon-eraser:before {
+  content: ""; }
+
+.icon-puzzle-piece:before {
+  content: ""; }
+
+.icon-microphone:before {
+  content: ""; }
+
+.icon-microphone-slash:before {
+  content: ""; }
+
+.icon-shield:before {
+  content: ""; }
+
+.icon-calendar-o:before {
+  content: ""; }
+
+.icon-fire-extinguisher:before {
+  content: ""; }
+
+.icon-rocket:before {
+  content: ""; }
+
+.icon-maxcdn:before {
+  content: ""; }
+
+.icon-chevron-circle-left:before {
+  content: ""; }
+
+.icon-chevron-circle-right:before {
+  content: ""; }
+
+.icon-chevron-circle-up:before {
+  content: ""; }
+
+.icon-chevron-circle-down:before {
+  content: ""; }
+
+.icon-html5:before {
+  content: ""; }
+
+.icon-css3:before {
+  content: ""; }
+
+.icon-anchor:before {
+  content: ""; }
+
+.icon-unlock-alt:before {
+  content: ""; }
+
+.icon-bullseye:before {
+  content: ""; }
+
+.icon-ellipsis-h:before {
+  content: ""; }
+
+.icon-ellipsis-v:before {
+  content: ""; }
+
+.icon-rss-square:before {
+  content: ""; }
+
+.icon-play-circle:before {
+  content: ""; }
+
+.icon-ticket:before {
+  content: ""; }
+
+.icon-minus-square:before {
+  content: ""; }
+
+.icon-minus-square-o:before {
+  content: ""; }
+
+.icon-level-up:before {
+  content: ""; }
+
+.icon-level-down:before {
+  content: ""; }
+
+.icon-check-square:before {
+  content: ""; }
+
+.icon-pencil-square:before {
+  content: ""; }
+
+.icon-external-link-square:before {
+  content: ""; }
+
+.icon-share-square:before {
+  content: ""; }
+
+.icon-compass:before {
+  content: ""; }
+
+.icon-toggle-down:before,
+.icon-caret-square-o-down:before {
+  content: ""; }
+
+.icon-toggle-up:before,
+.icon-caret-square-o-up:before {
+  content: ""; }
+
+.icon-toggle-right:before,
+.icon-caret-square-o-right:before {
+  content: ""; }
+
+.icon-euro:before,
+.icon-eur:before {
+  content: ""; }
+
+.icon-gbp:before {
+  content: ""; }
+
+.icon-dollar:before,
+.icon-usd:before {
+  content: ""; }
+
+.icon-rupee:before,
+.icon-inr:before {
+  content: ""; }
+
+.icon-cny:before,
+.icon-rmb:before,
+.icon-yen:before,
+.icon-jpy:before {
+  content: ""; }
+
+.icon-ruble:before,
+.icon-rouble:before,
+.icon-rub:before {
+  content: ""; }
+
+.icon-won:before,
+.icon-krw:before {
+  content: ""; }
+
+.icon-bitcoin:before,
+.icon-btc:before {
+  content: ""; }
+
+.icon-file:before {
+  content: ""; }
+
+.icon-file-text:before {
+  content: ""; }
+
+.icon-sort-alpha-asc:before {
+  content: ""; }
+
+.icon-sort-alpha-desc:before {
+  content: ""; }
+
+.icon-sort-amount-asc:before {
+  content: ""; }
+
+.icon-sort-amount-desc:before {
+  content: ""; }
+
+.icon-sort-numeric-asc:before {
+  content: ""; }
+
+.icon-sort-numeric-desc:before {
+  content: ""; }
+
+.icon-thumbs-up:before {
+  content: ""; }
+
+.icon-thumbs-down:before {
+  content: ""; }
+
+.icon-youtube-square:before {
+  content: ""; }
+
+.icon-youtube:before {
+  content: ""; }
+
+.icon-xing:before {
+  content: ""; }
+
+.icon-xing-square:before {
+  content: ""; }
+
+.icon-youtube-play:before {
+  content: ""; }
+
+.icon-dropbox:before {
+  content: ""; }
+
+.icon-stack-overflow:before {
+  content: ""; }
+
+.icon-instagram:before {
+  content: ""; }
+
+.icon-flickr:before {
+  content: ""; }
+
+.icon-adn:before {
+  content: ""; }
+
+.icon-bitbucket:before {
+  content: ""; }
+
+.icon-bitbucket-square:before {
+  content: ""; }
+
+.icon-tumblr:before {
+  content: ""; }
+
+.icon-tumblr-square:before {
+  content: ""; }
+
+.icon-long-arrow-down:before {
+  content: ""; }
+
+.icon-long-arrow-up:before {
+  content: ""; }
+
+.icon-long-arrow-left:before {
+  content: ""; }
+
+.icon-long-arrow-right:before {
+  content: ""; }
+
+.icon-apple:before {
+  content: ""; }
+
+.icon-windows:before {
+  content: ""; }
+
+.icon-android:before {
+  content: ""; }
+
+.icon-linux:before {
+  content: ""; }
+
+.icon-dribbble:before {
+  content: ""; }
+
+.icon-skype:before {
+  content: ""; }
+
+.icon-foursquare:before {
+  content: ""; }
+
+.icon-trello:before {
+  content: ""; }
+
+.icon-female:before {
+  content: ""; }
+
+.icon-male:before {
+  content: ""; }
+
+.icon-gittip:before,
+.icon-gratipay:before {
+  content: ""; }
+
+.icon-sun-o:before {
+  content: ""; }
+
+.icon-moon-o:before {
+  content: ""; }
+
+.icon-archive:before {
+  content: ""; }
+
+.icon-bug:before {
+  content: ""; }
+
+.icon-vk:before {
+  content: ""; }
+
+.icon-weibo:before {
+  content: ""; }
+
+.icon-renren:before {
+  content: ""; }
+
+.icon-pagelines:before {
+  content: ""; }
+
+.icon-stack-exchange:before {
+  content: ""; }
+
+.icon-arrow-circle-o-right:before {
+  content: ""; }
+
+.icon-arrow-circle-o-left:before {
+  content: ""; }
+
+.icon-toggle-left:before,
+.icon-caret-square-o-left:before {
+  content: ""; }
+
+.icon-dot-circle-o:before {
+  content: ""; }
+
+.icon-wheelchair:before {
+  content: ""; }
+
+.icon-vimeo-square:before {
+  content: ""; }
+
+.icon-turkish-lira:before,
+.icon-try:before {
+  content: ""; }
+
+.icon-plus-square-o:before {
+  content: ""; }
+
+.icon-space-shuttle:before {
+  content: ""; }
+
+.icon-slack:before {
+  content: ""; }
+
+.icon-envelope-square:before {
+  content: ""; }
+
+.icon-wordpress:before {
+  content: ""; }
+
+.icon-openid:before {
+  content: ""; }
+
+.icon-institution:before,
+.icon-bank:before,
+.icon-university:before {
+  content: ""; }
+
+.icon-mortar-board:before,
+.icon-graduation-cap:before {
+  content: ""; }
+
+.icon-yahoo:before {
+  content: ""; }
+
+.icon-google:before {
+  content: ""; }
+
+.icon-reddit:before {
+  content: ""; }
+
+.icon-reddit-square:before {
+  content: ""; }
+
+.icon-stumbleupon-circle:before {
+  content: ""; }
+
+.icon-stumbleupon:before {
+  content: ""; }
+
+.icon-delicious:before {
+  content: ""; }
+
+.icon-digg:before {
+  content: ""; }
+
+.icon-pied-piper-pp:before {
+  content: ""; }
+
+.icon-pied-piper-alt:before {
+  content: ""; }
+
+.icon-drupal:before {
+  content: ""; }
+
+.icon-joomla:before {
+  content: ""; }
+
+.icon-language:before {
+  content: ""; }
+
+.icon-fax:before {
+  content: ""; }
+
+.icon-building:before {
+  content: ""; }
+
+.icon-child:before {
+  content: ""; }
+
+.icon-paw:before {
+  content: ""; }
+
+.icon-spoon:before {
+  content: ""; }
+
+.icon-cube:before {
+  content: ""; }
+
+.icon-cubes:before {
+  content: ""; }
+
+.icon-behance:before {
+  content: ""; }
+
+.icon-behance-square:before {
+  content: ""; }
+
+.icon-steam:before {
+  content: ""; }
+
+.icon-steam-square:before {
+  content: ""; }
+
+.icon-recycle:before {
+  content: ""; }
+
+.icon-automobile:before,
+.icon-car:before {
+  content: ""; }
+
+.icon-cab:before,
+.icon-taxi:before {
+  content: ""; }
+
+.icon-tree:before {
+  content: ""; }
+
+.icon-spotify:before {
+  content: ""; }
+
+.icon-deviantart:before {
+  content: ""; }
+
+.icon-soundcloud:before {
+  content: ""; }
+
+.icon-database:before {
+  content: ""; }
+
+.icon-file-pdf-o:before {
+  content: ""; }
+
+.icon-file-word-o:before {
+  content: ""; }
+
+.icon-file-excel-o:before {
+  content: ""; }
+
+.icon-file-powerpoint-o:before {
+  content: ""; }
+
+.icon-file-photo-o:before,
+.icon-file-picture-o:before,
+.icon-file-image-o:before {
+  content: ""; }
+
+.icon-file-zip-o:before,
+.icon-file-archive-o:before {
+  content: ""; }
+
+.icon-file-sound-o:before,
+.icon-file-audio-o:before {
+  content: ""; }
+
+.icon-file-movie-o:before,
+.icon-file-video-o:before {
+  content: ""; }
+
+.icon-file-code-o:before {
+  content: ""; }
+
+.icon-vine:before {
+  content: ""; }
+
+.icon-codepen:before {
+  content: ""; }
+
+.icon-jsfiddle:before {
+  content: ""; }
+
+.icon-life-bouy:before,
+.icon-life-buoy:before,
+.icon-life-saver:before,
+.icon-support:before,
+.icon-life-ring:before {
+  content: ""; }
+
+.icon-circle-o-notch:before {
+  content: ""; }
+
+.icon-ra:before,
+.icon-resistance:before,
+.icon-rebel:before {
+  content: ""; }
+
+.icon-ge:before,
+.icon-empire:before {
+  content: ""; }
+
+.icon-git-square:before {
+  content: ""; }
+
+.icon-git:before {
+  content: ""; }
+
+.icon-y-combinator-square:before,
+.icon-yc-square:before,
+.icon-hacker-news:before {
+  content: ""; }
+
+.icon-tencent-weibo:before {
+  content: ""; }
+
+.icon-qq:before {
+  content: ""; }
+
+.icon-wechat:before,
+.icon-weixin:before {
+  content: ""; }
+
+.icon-send:before,
+.icon-paper-plane:before {
+  content: ""; }
+
+.icon-send-o:before,
+.icon-paper-plane-o:before {
+  content: ""; }
+
+.icon-history:before {
+  content: ""; }
+
+.icon-circle-thin:before {
+  content: ""; }
+
+.icon-header:before {
+  content: ""; }
+
+.icon-paragraph:before {
+  content: ""; }
+
+.icon-sliders:before {
+  content: ""; }
+
+.icon-share-alt:before {
+  content: ""; }
+
+.icon-share-alt-square:before {
+  content: ""; }
+
+.icon-bomb:before {
+  content: ""; }
+
+.icon-soccer-ball-o:before,
+.icon-futbol-o:before {
+  content: ""; }
+
+.icon-tty:before {
+  content: ""; }
+
+.icon-binoculars:before {
+  content: ""; }
+
+.icon-plug:before {
+  content: ""; }
+
+.icon-slideshare:before {
+  content: ""; }
+
+.icon-twitch:before {
+  content: ""; }
+
+.icon-yelp:before {
+  content: ""; }
+
+.icon-newspaper-o:before {
+  content: ""; }
+
+.icon-wifi:before {
+  content: ""; }
+
+.icon-calculator:before {
+  content: ""; }
+
+.icon-paypal:before {
+  content: ""; }
+
+.icon-google-wallet:before {
+  content: ""; }
+
+.icon-cc-visa:before {
+  content: ""; }
+
+.icon-cc-mastercard:before {
+  content: ""; }
+
+.icon-cc-discover:before {
+  content: ""; }
+
+.icon-cc-amex:before {
+  content: ""; }
+
+.icon-cc-paypal:before {
+  content: ""; }
+
+.icon-cc-stripe:before {
+  content: ""; }
+
+.icon-bell-slash:before {
+  content: ""; }
+
+.icon-bell-slash-o:before {
+  content: ""; }
+
+.icon-trash:before {
+  content: ""; }
+
+.icon-copyright:before {
+  content: ""; }
+
+.icon-at:before {
+  content: ""; }
+
+.icon-eyedropper:before {
+  content: ""; }
+
+.icon-paint-brush:before {
+  content: ""; }
+
+.icon-birthday-cake:before {
+  content: ""; }
+
+.icon-area-chart:before {
+  content: ""; }
+
+.icon-pie-chart:before {
+  content: ""; }
+
+.icon-line-chart:before {
+  content: ""; }
+
+.icon-lastfm:before {
+  content: ""; }
+
+.icon-lastfm-square:before {
+  content: ""; }
+
+.icon-toggle-off:before {
+  content: ""; }
+
+.icon-toggle-on:before {
+  content: ""; }
+
+.icon-bicycle:before {
+  content: ""; }
+
+.icon-bus:before {
+  content: ""; }
+
+.icon-ioxhost:before {
+  content: ""; }
+
+.icon-angellist:before {
+  content: ""; }
+
+.icon-cc:before {
+  content: ""; }
+
+.icon-shekel:before,
+.icon-sheqel:before,
+.icon-ils:before {
+  content: ""; }
+
+.icon-meanpath:before {
+  content: ""; }
+
+.icon-buysellads:before {
+  content: ""; }
+
+.icon-connectdevelop:before {
+  content: ""; }
+
+.icon-dashcube:before {
+  content: ""; }
+
+.icon-forumbee:before {
+  content: ""; }
+
+.icon-leanpub:before {
+  content: ""; }
+
+.icon-sellsy:before {
+  content: ""; }
+
+.icon-shirtsinbulk:before {
+  content: ""; }
+
+.icon-simplybuilt:before {
+  content: ""; }
+
+.icon-skyatlas:before {
+  content: ""; }
+
+.icon-cart-plus:before {
+  content: ""; }
+
+.icon-cart-arrow-down:before {
+  content: ""; }
+
+.icon-diamond:before {
+  content: ""; }
+
+.icon-ship:before {
+  content: ""; }
+
+.icon-user-secret:before {
+  content: ""; }
+
+.icon-motorcycle:before {
+  content: ""; }
+
+.icon-street-view:before {
+  content: ""; }
+
+.icon-heartbeat:before {
+  content: ""; }
+
+.icon-venus:before {
+  content: ""; }
+
+.icon-mars:before {
+  content: ""; }
+
+.icon-mercury:before {
+  content: ""; }
+
+.icon-intersex:before,
+.icon-transgender:before {
+  content: ""; }
+
+.icon-transgender-alt:before {
+  content: ""; }
+
+.icon-venus-double:before {
+  content: ""; }
+
+.icon-mars-double:before {
+  content: ""; }
+
+.icon-venus-mars:before {
+  content: ""; }
+
+.icon-mars-stroke:before {
+  content: ""; }
+
+.icon-mars-stroke-v:before {
+  content: ""; }
+
+.icon-mars-stroke-h:before {
+  content: ""; }
+
+.icon-neuter:before {
+  content: ""; }
+
+.icon-genderless:before {
+  content: ""; }
+
+.icon-facebook-official:before {
+  content: ""; }
+
+.icon-pinterest-p:before {
+  content: ""; }
+
+.icon-whatsapp:before {
+  content: ""; }
+
+.icon-server:before {
+  content: ""; }
+
+.icon-user-plus:before {
+  content: ""; }
+
+.icon-user-times:before {
+  content: ""; }
+
+.icon-hotel:before,
+.icon-bed:before {
+  content: ""; }
+
+.icon-viacoin:before {
+  content: ""; }
+
+.icon-train:before {
+  content: ""; }
+
+.icon-subway:before {
+  content: ""; }
+
+.icon-medium:before {
+  content: ""; }
+
+.icon-yc:before,
+.icon-y-combinator:before {
+  content: ""; }
+
+.icon-optin-monster:before {
+  content: ""; }
+
+.icon-opencart:before {
+  content: ""; }
+
+.icon-expeditedssl:before {
+  content: ""; }
+
+.icon-battery-4:before,
+.icon-battery:before,
+.icon-battery-full:before {
+  content: ""; }
+
+.icon-battery-3:before,
+.icon-battery-three-quarters:before {
+  content: ""; }
+
+.icon-battery-2:before,
+.icon-battery-half:before {
+  content: ""; }
+
+.icon-battery-1:before,
+.icon-battery-quarter:before {
+  content: ""; }
+
+.icon-battery-0:before,
+.icon-battery-empty:before {
+  content: ""; }
+
+.icon-mouse-pointer:before {
+  content: ""; }
+
+.icon-i-cursor:before {
+  content: ""; }
+
+.icon-object-group:before {
+  content: ""; }
+
+.icon-object-ungroup:before {
+  content: ""; }
+
+.icon-sticky-note:before {
+  content: ""; }
+
+.icon-sticky-note-o:before {
+  content: ""; }
+
+.icon-cc-jcb:before {
+  content: ""; }
+
+.icon-cc-diners-club:before {
+  content: ""; }
+
+.icon-clone:before {
+  content: ""; }
+
+.icon-balance-scale:before {
+  content: ""; }
+
+.icon-hourglass-o:before {
+  content: ""; }
+
+.icon-hourglass-1:before,
+.icon-hourglass-start:before {
+  content: ""; }
+
+.icon-hourglass-2:before,
+.icon-hourglass-half:before {
+  content: ""; }
+
+.icon-hourglass-3:before,
+.icon-hourglass-end:before {
+  content: ""; }
+
+.icon-hourglass:before {
+  content: ""; }
+
+.icon-hand-grab-o:before,
+.icon-hand-rock-o:before {
+  content: ""; }
+
+.icon-hand-stop-o:before,
+.icon-hand-paper-o:before {
+  content: ""; }
+
+.icon-hand-scissors-o:before {
+  content: ""; }
+
+.icon-hand-lizard-o:before {
+  content: ""; }
+
+.icon-hand-spock-o:before {
+  content: ""; }
+
+.icon-hand-pointer-o:before {
+  content: ""; }
+
+.icon-hand-peace-o:before {
+  content: ""; }
+
+.icon-trademark:before {
+  content: ""; }
+
+.icon-registered:before {
+  content: ""; }
+
+.icon-creative-commons:before {
+  content: ""; }
+
+.icon-gg:before {
+  content: ""; }
+
+.icon-gg-circle:before {
+  content: ""; }
+
+.icon-tripadvisor:before {
+  content: ""; }
+
+.icon-odnoklassniki:before {
+  content: ""; }
+
+.icon-odnoklassniki-square:before {
+  content: ""; }
+
+.icon-get-pocket:before {
+  content: ""; }
+
+.icon-wikipedia-w:before {
+  content: ""; }
+
+.icon-safari:before {
+  content: ""; }
+
+.icon-chrome:before {
+  content: ""; }
+
+.icon-firefox:before {
+  content: ""; }
+
+.icon-opera:before {
+  content: ""; }
+
+.icon-internet-explorer:before {
+  content: ""; }
+
+.icon-tv:before,
+.icon-television:before {
+  content: ""; }
+
+.icon-contao:before {
+  content: ""; }
+
+.icon-500px:before {
+  content: ""; }
+
+.icon-amazon:before {
+  content: ""; }
+
+.icon-calendar-plus-o:before {
+  content: ""; }
+
+.icon-calendar-minus-o:before {
+  content: ""; }
+
+.icon-calendar-times-o:before {
+  content: ""; }
+
+.icon-calendar-check-o:before {
+  content: ""; }
+
+.icon-industry:before {
+  content: ""; }
+
+.icon-map-pin:before {
+  content: ""; }
+
+.icon-map-signs:before {
+  content: ""; }
+
+.icon-map-o:before {
+  content: ""; }
+
+.icon-map:before {
+  content: ""; }
+
+.icon-commenting:before {
+  content: ""; }
+
+.icon-commenting-o:before {
+  content: ""; }
+
+.icon-houzz:before {
+  content: ""; }
+
+.icon-vimeo:before {
+  content: ""; }
+
+.icon-black-tie:before {
+  content: ""; }
+
+.icon-fonticons:before {
+  content: ""; }
+
+.icon-reddit-alien:before {
+  content: ""; }
+
+.icon-edge:before {
+  content: ""; }
+
+.icon-credit-card-alt:before {
+  content: ""; }
+
+.icon-codiepie:before {
+  content: ""; }
+
+.icon-modx:before {
+  content: ""; }
+
+.icon-fort-awesome:before {
+  content: ""; }
+
+.icon-usb:before {
+  content: ""; }
+
+.icon-product-hunt:before {
+  content: ""; }
+
+.icon-mixcloud:before {
+  content: ""; }
+
+.icon-scribd:before {
+  content: ""; }
+
+.icon-pause-circle:before {
+  content: ""; }
+
+.icon-pause-circle-o:before {
+  content: ""; }
+
+.icon-stop-circle:before {
+  content: ""; }
+
+.icon-stop-circle-o:before {
+  content: ""; }
+
+.icon-shopping-bag:before {
+  content: ""; }
+
+.icon-shopping-basket:before {
+  content: ""; }
+
+.icon-hashtag:before {
+  content: ""; }
+
+.icon-bluetooth:before {
+  content: ""; }
+
+.icon-bluetooth-b:before {
+  content: ""; }
+
+.icon-percent:before {
+  content: ""; }
+
+.icon-gitlab:before {
+  content: ""; }
+
+.icon-wpbeginner:before {
+  content: ""; }
+
+.icon-wpforms:before {
+  content: ""; }
+
+.icon-envira:before {
+  content: ""; }
+
+.icon-universal-access:before {
+  content: ""; }
+
+.icon-wheelchair-alt:before {
+  content: ""; }
+
+.icon-question-circle-o:before {
+  content: ""; }
+
+.icon-blind:before {
+  content: ""; }
+
+.icon-audio-description:before {
+  content: ""; }
+
+.icon-volume-control-phone:before {
+  content: ""; }
+
+.icon-braille:before {
+  content: ""; }
+
+.icon-assistive-listening-systems:before {
+  content: ""; }
+
+.icon-asl-interpreting:before,
+.icon-american-sign-language-interpreting:before {
+  content: ""; }
+
+.icon-deafness:before,
+.icon-hard-of-hearing:before,
+.icon-deaf:before {
+  content: ""; }
+
+.icon-glide:before {
+  content: ""; }
+
+.icon-glide-g:before {
+  content: ""; }
+
+.icon-signing:before,
+.icon-sign-language:before {
+  content: ""; }
+
+.icon-low-vision:before {
+  content: ""; }
+
+.icon-viadeo:before {
+  content: ""; }
+
+.icon-viadeo-square:before {
+  content: ""; }
+
+.icon-snapchat:before {
+  content: ""; }
+
+.icon-snapchat-ghost:before {
+  content: ""; }
+
+.icon-snapchat-square:before {
+  content: ""; }
+
+.icon-pied-piper:before {
+  content: ""; }
+
+.icon-first-order:before {
+  content: ""; }
+
+.icon-yoast:before {
+  content: ""; }
+
+.icon-themeisle:before {
+  content: ""; }
+
+.icon-google-plus-circle:before,
+.icon-google-plus-official:before {
+  content: ""; }
+
+.icon-fa:before,
+.icon-font-awesome:before {
+  content: ""; }
+
+.icon-handshake-o:before {
+  content: ""; }
+
+.icon-envelope-open:before {
+  content: ""; }
+
+.icon-envelope-open-o:before {
+  content: ""; }
+
+.icon-linode:before {
+  content: ""; }
+
+.icon-address-book:before {
+  content: ""; }
+
+.icon-address-book-o:before {
+  content: ""; }
+
+.icon-vcard:before,
+.icon-address-card:before {
+  content: ""; }
+
+.icon-vcard-o:before,
+.icon-address-card-o:before {
+  content: ""; }
+
+.icon-user-circle:before {
+  content: ""; }
+
+.icon-user-circle-o:before {
+  content: ""; }
+
+.icon-user-o:before {
+  content: ""; }
+
+.icon-id-badge:before {
+  content: ""; }
+
+.icon-drivers-license:before,
+.icon-id-card:before {
+  content: ""; }
+
+.icon-drivers-license-o:before,
+.icon-id-card-o:before {
+  content: ""; }
+
+.icon-quora:before {
+  content: ""; }
+
+.icon-free-code-camp:before {
+  content: ""; }
+
+.icon-telegram:before {
+  content: ""; }
+
+.icon-thermometer-4:before,
+.icon-thermometer:before,
+.icon-thermometer-full:before {
+  content: ""; }
+
+.icon-thermometer-3:before,
+.icon-thermometer-three-quarters:before {
+  content: ""; }
+
+.icon-thermometer-2:before,
+.icon-thermometer-half:before {
+  content: ""; }
+
+.icon-thermometer-1:before,
+.icon-thermometer-quarter:before {
+  content: ""; }
+
+.icon-thermometer-0:before,
+.icon-thermometer-empty:before {
+  content: ""; }
+
+.icon-shower:before {
+  content: ""; }
+
+.icon-bathtub:before,
+.icon-s15:before,
+.icon-bath:before {
+  content: ""; }
+
+.icon-podcast:before {
+  content: ""; }
+
+.icon-window-maximize:before {
+  content: ""; }
+
+.icon-window-minimize:before {
+  content: ""; }
+
+.icon-window-restore:before {
+  content: ""; }
+
+.icon-times-rectangle:before,
+.icon-window-close:before {
+  content: ""; }
+
+.icon-times-rectangle-o:before,
+.icon-window-close-o:before {
+  content: ""; }
+
+.icon-bandcamp:before {
+  content: ""; }
+
+.icon-grav:before {
+  content: ""; }
+
+.icon-etsy:before {
+  content: ""; }
+
+.icon-imdb:before {
+  content: ""; }
+
+.icon-ravelry:before {
+  content: ""; }
+
+.icon-eercast:before {
+  content: ""; }
+
+.icon-microchip:before {
+  content: ""; }
+
+.icon-snowflake-o:before {
+  content: ""; }
+
+.icon-superpowers:before {
+  content: ""; }
+
+.icon-wpexplorer:before {
+  content: ""; }
+
+.icon-meetup:before {
+  content: ""; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto; }
+
+/* HTML Components */
+fieldset {
+  padding: 0;
+  border: none; }
+  .stencilinline fieldset, fieldset.stencilinline {
+    align-items: flex-start; }
+
+legend {
+  display: block;
+  font-weight: 500;
+  color: #5d87a1;
+  text-transform: uppercase; }
+
+label {
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+  color: #5e5e5e; }
+  .stencilinline label {
+    display: inline-block; }
+
+input[type="text"], textarea, select {
+  width: 100%;
+  font-family: "Antenna", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: inset 1px 1px 2px #f4f4f4;
+  border-radius: 0; }
+  input[type="text"]:focus, textarea:focus, select:focus {
+    border-color: #0277bd;
+    box-shadow-color: #0277bd; }
+  input[type="text"]:disabled, textarea:disabled, select:disabled {
+    background: #f4f4f4;
+    border-color: #ccc; }
+  .stencilinline input[type="text"], .stencilinline textarea, .stencilinline select {
+    display: inline-block;
+    margin-right: 0; }
+
+input[type="checkbox"], input[type="radio"] {
+  margin-right: 8px; }
+
+.stencilform-group {
+  align-items: stretch; }
+  .stencilform-group input[type="text"] {
+    margin-bottom: 0;
+    border-right: none; }
+
+.stencilform-help, .stencilform-error {
+  width: 100%;
+  display: block;
+  font-size: 10px;
+  color: #b2b2b2; }
+
+.stencilform-error {
+  color: #d9534f; }
+
+button, .stencilaccordion-container .stencilaccordion-trigger, .stencilpagination li button, .stencilbutton {
+  padding: 8px 24px;
+  background: #f4f4f4;
+  border: 1px solid #b2b2b2;
+  color: #5e5e5e;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 0; }
+  button:hover, .stencilaccordion-container .stencilaccordion-trigger:hover, .stencilpagination li button:hover, .stencilbutton:hover {
+    background: #5e5e5e;
+    border-color: #5e5e5e;
+    color: white; }
+  button:active, .stencilaccordion-container .stencilaccordion-trigger:active, .stencilpagination li button:active, .stencilbutton:active {
+    background: #0277bd; }
+  button:disabled, .stencilaccordion-container .stencilaccordion-trigger:disabled, .stencilpagination li button:disabled, button.stencilsecondary:disabled, .stencilaccordion-container .stencilsecondary.stencilaccordion-trigger:disabled, .stencilbutton:disabled, .stencilbutton.stencilsecondary:disabled {
+    background: #f4f4f4;
+    color: #b2b2b2;
+    border-color: transparent; }
+  button.stencilcompact, .stencilaccordion-container .stencilcompact.stencilaccordion-trigger, .stencilpagination li button.stencilcompact, .stencilbutton.stencilcompact {
+    padding: 4px 16px;
+    font-size: 10px; }
+  button.stencilprimary, .stencilaccordion-container .stencilprimary.stencilaccordion-trigger, .stencilpagination li button.stencilprimary, .stencilbutton.stencilprimary {
+    background: #038be5;
+    border: 1px solid #038be5;
+    color: white; }
+    button.stencilprimary:hover, .stencilaccordion-container .stencilprimary.stencilaccordion-trigger:hover, .stencilbutton.stencilprimary:hover {
+      background: #0277bd;
+      border-color: #0277bd; }
+    button.stencilprimary:disabled, .stencilaccordion-container .stencilprimary.stencilaccordion-trigger:disabled, button.stencilprimary:disabled:hover, .stencilaccordion-container .stencilprimary.stencilaccordion-trigger:disabled:hover, .stencilbutton.stencilprimary:disabled, .stencilbutton.stencilprimary:disabled:hover {
+      background: #f4f4f4;
+      color: #b2b2b2;
+      border-color: transparent; }
+    button.stencilprimary:active, .stencilaccordion-container .stencilprimary.stencilaccordion-trigger:active, .stencilbutton.stencilprimary:active {
+      background: #0277bd;
+      border-color: #0277bd; }
+  button.stencilsecondary, .stencilaccordion-container .stencilsecondary.stencilaccordion-trigger, .stencilpagination li button.stencilsecondary, .stencilbutton.stencilsecondary {
+    background: white;
+    color: #038be5;
+    border: 1px solid #ccc; }
+    button.stencilsecondary:hover, .stencilaccordion-container .stencilsecondary.stencilaccordion-trigger:hover, .stencilbutton.stencilsecondary:hover {
+      border-color: #0277bd; }
+    button.stencilsecondary:disabled:hover, .stencilaccordion-container .stencilsecondary.stencilaccordion-trigger:disabled:hover, .stencilbutton.stencilsecondary:disabled:hover {
+      border-color: transparent; }
+    button.stencilsecondary:active, .stencilaccordion-container .stencilsecondary.stencilaccordion-trigger:active, .stencilbutton.stencilsecondary:active {
+      background: #b2b2b2;
+      border-color: #0277bd; }
+  button.stencillink, .stencilaccordion-container .stencillink.stencilaccordion-trigger, .stencilpagination li button.stencillink, .stencilbutton.stencillink {
+    padding: 0;
+    background: transparent;
+    color: #0277bd;
+    text-align: left;
+    border: none;
+    border-radius: 0; }
+    button.stencillink:disabled, .stencilaccordion-container .stencillink.stencilaccordion-trigger:disabled, .stencilbutton.stencillink:disabled {
+      color: #b2b2b2; }
+  button.stencillink:hover, .stencilaccordion-container .stencillink.stencilaccordion-trigger:hover, .stencilbutton.stencillink:hover {
+    text-decoration: underline;
+    border: none; }
+  button.stencilicon, .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilpagination li button.stencilicon, .stencilbutton.stencilicon {
+    padding: 8px;
+    background: none;
+    color: #b2b2b2;
+    border: none; }
+    button.stencilicon .icon, .stencilaccordion-container .stencilicon.stencilaccordion-trigger .icon, .stencilbutton.stencilicon .icon {
+      margin-right: 0; }
+  button .stencilicon, .stencilaccordion-container .stencilaccordion-trigger .stencilicon, .stencilpagination li button .stencilicon, .stencilbutton .stencilicon {
+    margin-right: 4px; }
+  button.stencilicon:hover, .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilbutton.stencilicon:hover {
+    background-color: #5e5e5e;
+    color: white !important; }
+  button.stencilblock, .stencilbutton-group button, .stencilbutton-group .stencilpagination li button, .stencilpagination li .stencilbutton-group button, .stencilbutton-group .stencilbutton, .stencilaccordion-container .stencilaccordion-trigger, .stencilpagination li button.stencilblock, .stencilbutton.stencilblock {
+    display: block;
+    width: 100%; }
+  button.stencilblock-link, .stencilaccordion-container .stencilblock-link.stencilaccordion-trigger, .stencilpagination li button.stencilblock-link, .stencilbutton.stencilblock-link {
+    padding: 0;
+    color: #0277bd;
+    display: block; }
+  button.stencilsuccess, .stencilaccordion-container .stencilsuccess.stencilaccordion-trigger, .stencilpagination li button.stencilsuccess, .stencilbutton.stencilsuccess {
+    background: #5cb85c;
+    color: white;
+    border-color: #5cb85c; }
+  button.stencilsuccess:hover, .stencilaccordion-container .stencilsuccess.stencilaccordion-trigger:hover, .stencilsuccess button.icon:hover, .stencilsuccess .stencilaccordion-container .icon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilsuccess .icon.stencilaccordion-trigger:hover, .stencilbutton.stencilsuccess:hover, .stencilsuccess .stencilbutton.icon:hover {
+    background: #449d44;
+    color: white; }
+  button.stencilwarning, .stencilaccordion-container .stencilwarning.stencilaccordion-trigger, .stencilpagination li button.stencilwarning, .stencilbutton.stencilwarning {
+    background: #f0ad4e;
+    color: white;
+    border-color: #f0ad4e; }
+  button.stencilwarning:hover, .stencilaccordion-container .stencilwarning.stencilaccordion-trigger:hover, .stencilwarning button.icon:hover, .stencilwarning .stencilaccordion-container .icon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilwarning .icon.stencilaccordion-trigger:hover, .stencilbutton.stencilwarning:hover, .stencilwarning .stencilbutton.icon:hover {
+    background: #ec971f;
+    color: white; }
+  button.stencildanger, .stencilaccordion-container .stencildanger.stencilaccordion-trigger, .stencilpagination li button.stencildanger, .stencilbutton.stencildanger {
+    background: #d9534f;
+    color: white;
+    border-color: #d9534f; }
+  button.stencildanger:hover, .stencilaccordion-container .stencildanger.stencilaccordion-trigger:hover, .stencildanger button.icon:hover, .stencildanger .stencilaccordion-container .icon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencildanger .icon.stencilaccordion-trigger:hover, .stencilbutton.stencildanger:hover, .stencildanger .stencilbutton.icon:hover {
+    background: #c9302c;
+    color: white; }
+  button.stencilinfo, .stencilbutton-group button.stencilactive, .stencilbutton-group .stencilaccordion-container .stencilactive.stencilaccordion-trigger, .stencilaccordion-container .stencilbutton-group .stencilactive.stencilaccordion-trigger, .stencilbutton-group .stencilbutton.stencilactive, .stencilaccordion-container .stencilinfo.stencilaccordion-trigger, .stencilpagination li button.stencilinfo, .stencilbutton.stencilinfo {
+    background: #0277bd;
+    color: white;
+    border-color: #0277bd; }
+  button.stencilinfo:hover, .stencilbutton-group button.stencilactive:hover, .stencilbutton-group .stencilaccordion-container .stencilactive.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilbutton-group .stencilactive.stencilaccordion-trigger:hover, .stencilbutton-group .stencilbutton.stencilactive:hover, .stencilaccordion-container .stencilinfo.stencilaccordion-trigger:hover, .stencilinfo button.icon:hover, .stencilinfo .stencilaccordion-container .icon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilinfo .icon.stencilaccordion-trigger:hover, .stencilbutton.stencilinfo:hover, .stencilinfo .stencilbutton.icon:hover {
+    background: #01578b;
+    color: white; }
+  button.stencilactive, .stencilaccordion-container .stencilactive.stencilaccordion-trigger, .stencilpagination li button.stencilactive, .stencilbutton.stencilactive {
+    background: #0277bd;
+    color: white;
+    border-color: #0277bd; }
+  button.stencilactive:hover, .stencilaccordion-container .stencilactive.stencilaccordion-trigger:hover, .stencilactive button.icon:hover, .stencilactive .stencilaccordion-container .icon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilactive .icon.stencilaccordion-trigger:hover, .stencilbutton.stencilactive:hover, .stencilactive .stencilbutton.icon:hover {
+    background: #01578b;
+    color: white; }
+
+.stencilbutton-group {
+  border: 1px solid #ccc; }
+  .stencilbutton-group button, .stencilbutton-group .stencilaccordion-container .stencilaccordion-trigger, .stencilaccordion-container .stencilbutton-group .stencilaccordion-trigger, .stencilbutton-group .stencilpagination li button, .stencilpagination li .stencilbutton-group button, .stencilbutton-group .stencilbutton {
+    border: none;
+    text-align: left;
+    border-radius: 0;
+    outline: none !important; }
+    .stencilbutton-group button input[type="checkbox"], .stencilbutton-group .stencilaccordion-container .stencilaccordion-trigger input[type="checkbox"], .stencilaccordion-container .stencilbutton-group .stencilaccordion-trigger input[type="checkbox"], .stencilbutton-group button input[type="radio"], .stencilbutton-group .stencilaccordion-container .stencilaccordion-trigger input[type="radio"], .stencilaccordion-container .stencilbutton-group .stencilaccordion-trigger input[type="radio"], .stencilbutton-group .stencilbutton input[type="checkbox"], .stencilbutton-group .stencilbutton input[type="radio"] {
+      display: none; }
+    .stencilbutton-group button:hover, .stencilbutton-group .stencilaccordion-container .stencilaccordion-trigger:hover, .stencilaccordion-container .stencilbutton-group .stencilaccordion-trigger:hover, .stencilbutton-group .stencilbutton:hover {
+      background: #ccc; }
+
+table {
+  width: 100%; }
+  table th, table td {
+    padding: 8px;
+    text-align: left; }
+  table th {
+    padding-top: 0;
+    font-size: 12px;
+    font-weight: normal;
+    color: #5d87a1;
+    text-transform: uppercase; }
+  table td {
+    vertical-align: top;
+    /*.responsive-section-title{
+      position: sticky;
+      top: $spacing-medium;
+    }*/ }
+    table td .stencilmuted {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px; }
+  table tr:last-child td {
+    border-bottom: none; }
+  @media (min-width: 768px) {
+    table .stencilresponsive-td-label {
+      display: none; } }
+  @media (max-width: 767px) {
+    table tr {
+      display: block; }
+    table th {
+      display: none; }
+    table td {
+      display: flex;
+      margin-bottom: 8px;
+      padding: 0;
+      border: none; }
+      table td:last-child {
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #ccc; }
+    table .stencilresponsive-section-title {
+      width: 100%;
+      margin: 0 0 8px 8px;
+      background: white; }
+    table .stencilresponsive-row-title {
+      display: block;
+      width: 100%;
+      margin: 0 0 4px 8px;
+      background: white;
+      color: #5d87a1;
+      font-size: 13px;
+      font-weight: 500; }
+    table .stencilresponsive-td-label {
+      display: inline-block;
+      width: 30%;
+      margin: 0 4px 0 8px;
+      color: #5d87a1; } }
+
+ul, ol {
+  margin-left: 24px;
+  margin-top: 0;
+  padding: 0; }
+  ul li, ol li {
+    margin-bottom: 8px; }
+  ul li:last-child, ol li:last-child {
+    margin-bottom: 0; }
+
+dl dt {
+  display: block;
+  font-size: 12px;
+  color: #5d87a1; }
+dl dd {
+  margin: 4px 0 8px;
+  line-height: 1.2; }
+  dl dd:last-child {
+    margin-bottom: 0; }
+
+hr {
+  height: 1px;
+  background: #f4f4f4;
+  border: none; }
+
+/* Custom Components */
+nav ul li a {
+  padding: 8px 16px;
+  color: #3f51b5;
+  border-radius: 0; }
+  nav ul li a .icon {
+    font-size: 10px; }
+  nav ul li a.stencilactive {
+    background: #3f51b5;
+    color: white; }
+  nav ul li a:hover {
+    background: #f4f4f4;
+    color: #3f51b5; }
+nav ul li ul {
+  flex-direction: column;
+  position: absolute;
+  display: none;
+  margin-top: -1px;
+  background: #f4f4f4; }
+  nav ul li ul li {
+    margin: 0;
+    font-size: 12px; }
+  nav ul li ul a:hover {
+    background: #3f51b5;
+    color: white; }
+nav ul li:hover a {
+  background: #e8eaf6; }
+nav ul li:hover ul {
+  display: flex; }
+nav.stencilvertical ul {
+  flex-direction: column; }
+
+.stencilbreadcrumbs {
+  font-size: 12px; }
+
+.stencilmodule, .stencilmodal {
+  background: white;
+  box-shadow: 0 1px 1px 1px #d6dde9; }
+  .stencilmodule .stencilhide-on-shrink, .stencilmodal .stencilhide-on-shrink, .stencilmodule .stencilmodule-expanded-view, .stencilmodal .stencilmodule-expanded-view {
+    display: none; }
+  .stencilmodule .stencilmodule-header, .stencilmodal .stencilmodule-header, .stencilmodal .stencilmodal-header {
+    padding: 8px;
+    border-top: 2px solid #999;
+    border-bottom: 1px solid #e7ebf2; }
+    .stencilmodule .stencilmodule-header .stencilmodule-title, .stencilmodal .stencilmodule-header .stencilmodule-title, .stencilmodal .stencilmodal-header .stencilmodule-title, .stencilmodal .stencilmodal-header .stencilmodal-title {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1; }
+  .stencilmodule .stencilmodule-body, .stencilmodal .stencilmodule-body, .stencilmodal .stencilmodal-body, .stencilmodule .stencildialog .stencildialog-body, .stencildialog .stencilmodule .stencildialog-body, .stencilmodal .stencildialog .stencildialog-body, .stencildialog .stencilmodal .stencildialog-body {
+    position: relative;
+    min-height: 55px; }
+  .stencilmodule .stencilmodule-footer, .stencilmodal .stencilmodule-footer, .stencilmodal .stencilmodal-footer {
+    align-items: baseline;
+    border-top: 1px solid #e7ebf2; }
+    @media (max-width: 767px) {
+      .stencilmodule .stencilmodule-footer, .stencilmodal .stencilmodule-footer, .stencilmodal .stencilmodal-footer {
+        flex-direction: column; }
+        .stencilmodule .stencilmodule-footer .stencilmodule-actions-left, .stencilmodal .stencilmodule-footer .stencilmodule-actions-left, .stencilmodal .stencilmodal-footer .stencilmodule-actions-left, .stencilmodule .stencilmodule-footer .stencilmodal .stencilmodal-header .stencilmodal-actions-left, .stencilmodal .stencilmodule-footer .stencilmodal-header .stencilmodal-actions-left, .stencilmodal .stencilmodal-header .stencilmodule-footer .stencilmodal-actions-left, .stencilmodal .stencilmodal-footer .stencilmodal-header .stencilmodal-actions-left, .stencilmodal .stencilmodal-header .stencilmodal-footer .stencilmodal-actions-left, .stencilmodule .stencilmodule-footer .stencilmodule-actions-center, .stencilmodal .stencilmodule-footer .stencilmodule-actions-center, .stencilmodal .stencilmodal-footer .stencilmodule-actions-center, .stencilmodule .stencilmodule-footer .stencilmodal .stencilmodal-header .stencilmodal-actions-center, .stencilmodal .stencilmodule-footer .stencilmodal-header .stencilmodal-actions-center, .stencilmodal .stencilmodal-header .stencilmodule-footer .stencilmodal-actions-center, .stencilmodal .stencilmodal-footer .stencilmodal-header .stencilmodal-actions-center, .stencilmodal .stencilmodal-header .stencilmodal-footer .stencilmodal-actions-center, .stencilmodule .stencilmodule-footer .stencilmodule-actions-right, .stencilmodal .stencilmodule-footer .stencilmodule-actions-right, .stencilmodal .stencilmodal-footer .stencilmodule-actions-right, .stencilmodule .stencilmodule-footer .stencilmodal .stencilmodal-header .stencilmodal-actions-right, .stencilmodal .stencilmodule-footer .stencilmodal-header .stencilmodal-actions-right, .stencilmodal .stencilmodal-header .stencilmodule-footer .stencilmodal-actions-right, .stencilmodal .stencilmodal-footer .stencilmodal-header .stencilmodal-actions-right, .stencilmodal .stencilmodal-header .stencilmodal-footer .stencilmodal-actions-right {
+          width: 100%;
+          justify-content: center; }
+        .stencilmodule .stencilmodule-footer .stencilmodule-actions-left, .stencilmodal .stencilmodule-footer .stencilmodule-actions-left, .stencilmodal .stencilmodal-footer .stencilmodule-actions-left, .stencilmodule .stencilmodule-footer .stencilmodal .stencilmodal-header .stencilmodal-actions-left, .stencilmodal .stencilmodule-footer .stencilmodal-header .stencilmodal-actions-left, .stencilmodal .stencilmodal-header .stencilmodule-footer .stencilmodal-actions-left, .stencilmodal .stencilmodal-footer .stencilmodal-header .stencilmodal-actions-left, .stencilmodal .stencilmodal-header .stencilmodal-footer .stencilmodal-actions-left {
+          margin-bottom: 8px; }
+        .stencilmodule .stencilmodule-footer .stencilmodule-actions-right, .stencilmodal .stencilmodule-footer .stencilmodule-actions-right, .stencilmodal .stencilmodal-footer .stencilmodule-actions-right, .stencilmodule .stencilmodule-footer .stencilmodal .stencilmodal-header .stencilmodal-actions-right, .stencilmodal .stencilmodule-footer .stencilmodal-header .stencilmodal-actions-right, .stencilmodal .stencilmodal-header .stencilmodule-footer .stencilmodal-actions-right, .stencilmodal .stencilmodal-footer .stencilmodal-header .stencilmodal-actions-right, .stencilmodal .stencilmodal-header .stencilmodal-footer .stencilmodal-actions-right {
+          margin-top: 8px; } }
+  .stencilmodule .stencilmodule-actions-left, .stencilmodal .stencilmodule-actions-left, .stencilmodal .stencilmodal-header .stencilmodal-actions-left, .stencilmodule .stencilmodule-actions-right, .stencilmodal .stencilmodule-actions-right, .stencilmodal .stencilmodal-header .stencilmodal-actions-right {
+    width: 25%; }
+  .stencilmodule .stencilmodule-actions-left, .stencilmodal .stencilmodule-actions-left, .stencilmodal .stencilmodal-header .stencilmodal-actions-left {
+    justify-content: flex-start; }
+  .stencilmodule .stencilmodule-actions-center, .stencilmodal .stencilmodule-actions-center, .stencilmodal .stencilmodal-header .stencilmodal-actions-center {
+    flex-grow: 3;
+    margin: 0; }
+  .stencilmodule .stencilmodule-actions-right, .stencilmodal .stencilmodule-actions-right, .stencilmodal .stencilmodal-header .stencilmodal-actions-right {
+    justify-content: flex-end; }
+  .stencilmodule.stencilexpanded, .stencilexpanded.stencilmodal {
+    padding-bottom: 64px;
+    box-shadow: none; }
+    .stencilmodule.stencilexpanded .stencilhide-on-shrink, .stencilexpanded.stencilmodal .stencilhide-on-shrink, .stencilmodule.stencilexpanded .stencilmodule-expanded-view, .stencilexpanded.stencilmodal .stencilmodule-expanded-view {
+      display: block; }
+    .stencilmodule.stencilexpanded .stencilhide-on-expand, .stencilexpanded.stencilmodal .stencilhide-on-expand, .stencilmodule.stencilexpanded .stencilmodule-summary-view, .stencilexpanded.stencilmodal .stencilmodule-summary-view {
+      display: none; }
+    .stencilmodule.stencilexpanded .stencilmodule-header, .stencilexpanded.stencilmodal .stencilmodule-header, .stencilmodule.stencilexpanded .stencilmodal .stencilmodal-header, .stencilmodal .stencilmodule.stencilexpanded .stencilmodal-header, .stencilexpanded.stencilmodal .stencilmodal-header {
+      border: none; }
+    .stencilmodule.stencilexpanded .stencilmodule-footer, .stencilexpanded.stencilmodal .stencilmodule-footer, .stencilmodule.stencilexpanded .stencilmodal .stencilmodal-footer, .stencilmodal .stencilmodule.stencilexpanded .stencilmodal-footer, .stencilexpanded.stencilmodal .stencilmodal-footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 0 1px 1px #d6dde9;
+      z-index: 1001; }
+
+.stencilmedia .stencilmedia-left, .stencilmedia-card .stencilmedia-left, .stenciltimeline-container .stenciltimeline-event .stencilmedia-left, .stencilalert .stencilmedia-left, .stencilsnackbar .stencilmedia-left {
+  align-items: flex-start;
+  margin-right: 8px; }
+.stencilmedia .stencilmedia-body, .stencilmedia-card .stencilmedia-body, .stenciltimeline-container .stenciltimeline-event .stencilmedia-body, .stencilalert .stencilmedia-body, .stencilsnackbar .stencilmedia-body {
+  flex-grow: 2; }
+.stencilmedia .stencilmedia-title, .stencilmedia-card .stencilmedia-title, .stenciltimeline-container .stenciltimeline-event .stencilmedia-title, .stencilalert .stencilmedia-title, .stencilsnackbar .stencilmedia-title {
+  display: block;
+  font-weight: 500; }
+.stencilmedia .stencilmedia-meta, .stencilmedia-card .stencilmedia-meta, .stenciltimeline-container .stenciltimeline-event .stencilmedia-meta, .stencilalert .stencilmedia-meta, .stencilsnackbar .stencilmedia-meta {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: #b2b2b2; }
+.stencilmedia p.stencilmedia-meta, .stencilmedia-card p.stencilmedia-meta, .stenciltimeline-container .stenciltimeline-event p.stencilmedia-meta, .stencilalert p.stencilmedia-meta, .stencilsnackbar p.stencilmedia-meta {
+  margin-bottom: 4px;
+  line-height: 1.2; }
+.stencilmedia.stencilmedia-rounded .stencilmedia-left, .stencilmedia-rounded.stencilmedia-card .stencilmedia-left, .stenciltimeline-container .stencilmedia-rounded.stenciltimeline-event .stencilmedia-left, .stencilmedia-rounded.stencilalert .stencilmedia-left, .stencilmedia-rounded.stencilsnackbar .stencilmedia-left {
+  padding: 2px;
+  border: 1px solid #ccc;
+  border-radius: 80px; }
+.stencilmedia.stencilmedia-rounded .stencilmedia-body, .stencilmedia-rounded.stencilmedia-card .stencilmedia-body, .stenciltimeline-container .stencilmedia-rounded.stenciltimeline-event .stencilmedia-body, .stencilmedia-rounded.stencilalert .stencilmedia-body, .stencilmedia-rounded.stencilsnackbar .stencilmedia-body {
+  padding-right: 8px; }
+.stencilmedia.stencilmedia-rounded:hover, .stencilmedia-rounded.stencilmedia-card:hover, .stenciltimeline-container .stencilmedia-rounded.stenciltimeline-event:hover, .stencilmedia-rounded.stencilalert:hover, .stencilmedia-rounded.stencilsnackbar:hover {
+  background-color: #f4f4f4;
+  border-radius: 80px;
+  cursor: pointer; }
+.stencilmedia.stencilmedia-align-top, .stencilmedia-align-top.stencilmedia-card, .stenciltimeline-container .stencilmedia-align-top.stenciltimeline-event, .stencilmedia-align-top.stencilalert, .stencilmedia-align-top.stencilsnackbar {
+  align-items: flex-start; }
+
+.stencilmedia-card {
+  width: 100%;
+  min-width: 175px;
+  padding: 8px;
+  border: 1px solid #ccc; }
+  .stencilmedia-card .stencilmedia-left {
+    justify-content: center; }
+  .stencilmedia-card .stencilmedia-title {
+    font-weight: 500; }
+  .stencilmedia-card .stencilmedia-right {
+    opacity: 0.5; }
+  .stencilmedia-card:hover {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    cursor: pointer; }
+  @media (max-width: 1022px) {
+    .stencilmedia-card {
+      flex-direction: column;
+      align-items: center; }
+      .stencilmedia-card .stencilmedia-left, .stencilmedia-card .stencilmedia-title, .stencilmedia-card .stencilmedia-title button.stencillink, .stencilmedia-card .stencilmedia-title .stencilaccordion-container .stencillink.stencilaccordion-trigger, .stencilaccordion-container .stencilmedia-card .stencilmedia-title .stencillink.stencilaccordion-trigger, .stencilmedia-card .stencilmedia-meta {
+        text-align: center; }
+      .stencilmedia-card .stencilmedia-left {
+        margin-bottom: 8px; }
+      .stencilmedia-card .stencilmedia-left, .stencilmedia-card .stencilmedia-body {
+        margin-right: 0; }
+      .stencilmedia-card .stencilmedia-right {
+        display: none; }
+      .stencilexpanded .stencilmedia-card {
+        flex-direction: row;
+        padding: 0 0 8px 0;
+        border: none;
+        border-bottom: 1px solid #ccc; }
+        .stencilexpanded .stencilmedia-card .stencilmedia-left, .stencilexpanded .stencilmedia-card .stencilmedia-title, .stencilexpanded .stencilmedia-card .stencilmedia-meta {
+          text-align: left; }
+        .stencilexpanded .stencilmedia-card .stencilmedia-left, .stencilexpanded .stencilmedia-card .stencilmedia-body {
+          margin-right: 8px; }
+        .stencilexpanded .stencilmedia-card .stencilmedia-left {
+          margin-bottom: 0; }
+        .stencilexpanded .stencilmedia-card .stencilmedia-right {
+          display: flex; } }
+  @media (min-width: 1023px) {
+    .stencilmedia-card {
+      padding: 0;
+      border: none; } }
+
+.stencilcard, .stencildate-card {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 0; }
+  .stencilcard .stencilcard-title, .stencildate-card .stencilcard-title {
+    font-size: 18px; }
+
+.stencildate-card {
+  width: 64px;
+  border-color: #0277bd;
+  box-shadow: none;
+  text-align: center;
+  font-size: 12px; }
+  .stencildate-card .stencilmonth {
+    background-color: #0277bd !important;
+    font-size: 10px;
+    color: white; }
+  .stencildate-card .stencilcard-title {
+    display: block; }
+  .stencildate-card .stencilmuted {
+    font-size: 10px; }
+
+.stencilaccordion-container {
+  border: 1px solid #ccc;
+  border-top: none; }
+  .stencilaccordion-container .stencilaccordion-trigger {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 0;
+    text-align: left; }
+  .stencilaccordion-container .stencilaccordion-target {
+    height: 0;
+    overflow: hidden; }
+
+.stencilpagination {
+  align-items: baseline;
+  flex-wrap: wrap;
+  padding: 0; }
+  .stencilpagination li {
+    display: inline-block;
+    margin: 0 8px 8px 0; }
+    .stencilpagination li label {
+      padding: 4px 0;
+      font-weight: normal; }
+    .stencilpagination li .stencilaccordion-container .stencilactive.stencilaccordion-trigger, .stencilaccordion-container .stencilpagination li .stencilactive.stencilaccordion-trigger, .stencilpagination li button.stencilactive {
+      background-color: #0277bd;
+      color: white;
+      border-color: #01578b; }
+
+.stenciltimeline-container {
+  background: url("stencil/images/timeline-spine.png") repeat-x 0 57%; }
+  .stenciltimeline-container .stenciltimeline-event {
+    flex-direction: column;
+    text-align: center; }
+    .stenciltimeline-container .stenciltimeline-event .stencilmedia-left {
+      margin-right: 0;
+      text-align: center; }
+    @media (max-width: 767px) {
+      .stenciltimeline-container .stenciltimeline-event {
+        flex-direction: row;
+        margin-bottom: 16px;
+        text-align: left; }
+        .stenciltimeline-container .stenciltimeline-event .stencilmedia-left {
+          margin-right: 16px; } }
+  .stenciltimeline-container .stenciltimeline-event-bubble {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: #e7ebf2;
+    border-radius: 16px; }
+    @media (max-width: 767px) {
+      .stenciltimeline-container .stenciltimeline-event-bubble {
+        display: none; } }
+  .stenciltimeline-container .stenciltimeline-event-meta {
+    display: block;
+    font-size: 10px;
+    color: #b2b2b2; }
+  .stenciltimeline-container.stencillinear-timeline {
+    background-position: 0 6px; }
+    @media (max-width: 767px) {
+      .stenciltimeline-container.stencillinear-timeline .stenciltimeline-event {
+        align-items: baseline; } }
+    .stenciltimeline-container.stencillinear-timeline .stenciltimeline-event-bubble {
+      width: 8px;
+      height: 8px;
+      background-color: #f4f4f4; }
+      @media (max-width: 767px) {
+        .stenciltimeline-container.stencillinear-timeline .stenciltimeline-event-bubble {
+          display: block; } }
+    .stenciltimeline-container.stencillinear-timeline .stenciltimeline-event-meta {
+      margin-top: 4px;
+      font-size: 12px; }
+      @media (max-width: 767px) {
+        .stenciltimeline-container.stencillinear-timeline .stenciltimeline-event-meta {
+          margin-top: 0; } }
+    .stenciltimeline-container.stencillinear-timeline .stenciltimeline-event-complete .stenciltimeline-event-bubble {
+      background-color: #5cb85c;
+      border-color: #4cae4c; }
+    .stenciltimeline-container.stencillinear-timeline .stenciltimeline-event-complete .stenciltimeline-event-meta {
+      color: #5cb85c; }
+    .stenciltimeline-container.stencillinear-timeline .stenciltimeline-event-current .stenciltimeline-event-bubble {
+      width: 16px;
+      height: 16px;
+      background-color: skyblue;
+      border-color: royalblue; }
+    .stenciltimeline-container.stencillinear-timeline .stenciltimeline-event-current .stenciltimeline-event-meta {
+      color: royalblue;
+      text-transform: uppercase; }
+  @media (max-width: 767px) {
+    .stenciltimeline-container {
+      justify-content: flex-start;
+      align-items: flex-start;
+      background: none; } }
+
+.stencilseverity-critical {
+  color: red; }
+  .stencilseverity-critical .stencildisc {
+    background-color: red; }
+
+.stencilseverity-major {
+  color: #ff7f50; }
+  .stencilseverity-major .stencildisc {
+    background-color: #ff7f50; }
+
+.stencilseverity-minor {
+  color: mediumseagreen; }
+  .stencilseverity-minor .stencildisc {
+    background-color: mediumseagreen; }
+
+.stencildisc {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 4px;
+  background-color: #999;
+  border-radius: 8px; }
+
+.stencilscroll-view-h {
+  overflow: hidden; }
+  @media (max-width: 1022px) {
+    .stencilscroll-view-h {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch; } }
+
+.stenciloverlay-container {
+  align-items: center;
+  justify-content: center;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000; }
+  .stenciloverlay-container .stenciloverlay-backdrop {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.5;
+    z-index: -1; }
+
+.stencilmodal {
+  flex-direction: column;
+  align-items: stretch;
+  display: none;
+  width: 70%;
+  max-width: 1080px;
+  max-height: 70%;
+  overflow-y: scroll;
+  box-shadow: 0 0 32px 8px #5e5e5e;
+  border-radius: 0; }
+  .stencilmodal .stencilmodal-header {
+    align-items: baseline;
+    border-top: none; }
+  .stencilmodal .stencilmodal-body {
+    flex-grow: 1;
+    overflow-y: scroll; }
+
+.stencildialog {
+  display: none;
+  width: 50%;
+  background: white;
+  box-shadow: 0 0 32px 8px #5e5e5e;
+  border-radius: 0; }
+  .stencildialog .stencildialog-footer {
+    justify-content: flex-end; }
+  .stencildialog.stencilsuccess {
+    border: 2px solid green; }
+    .stencildialog.stencilsuccess .stencildialog-title {
+      color: green; }
+  .stencildialog.stencilwarning {
+    border: 2px solid orange; }
+    .stencildialog.stencilwarning .stencildialog-title {
+      color: orange; }
+  .stencildialog.stencildanger {
+    border: 2px solid red; }
+    .stencildialog.stencildanger .stencildialog-title {
+      color: red; }
+  .stencildialog.stencilinfo {
+    border: 2px solid blue; }
+    .stencildialog.stencilinfo .stencildialog-title {
+      color: blue; }
+  .stencildialog.stencilactive {
+    border: 2px solid blue; }
+    .stencildialog.stencilactive .stencildialog-title {
+      color: blue; }
+
+.stenciltags {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 0; }
+  .stenciltags .stenciltag, .stenciltags .stenciltag-action-left, .stenciltags .stenciltag-action-right {
+    padding: 4px 8px;
+    background: #e7ebf2;
+    font-size: 12px;
+    color: #5e5e5e;
+    border: none;
+    border-radius: 2px;
+    line-height: 1.1; }
+    .stenciltags .stenciltag:hover, .stenciltags .stenciltag-action-left:hover, .stenciltags .stenciltag-action-right:hover {
+      background-color: #5e5e5e;
+      color: white; }
+  .stenciltags .stenciltag-action-left {
+    margin-right: -2px;
+    border-radius: 2px 0 0 2px; }
+  .stenciltags .stenciltag-action-right {
+    margin-left: -2px;
+    border-radius: 0 2px 2px 0; }
+
+.stencilwell {
+  background: #f4f4f4;
+  border-radius: 0; }
+
+.stencilalert, .stencilsnackbar {
+  align-items: stretch;
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  /*&.outline{
+    background-color: transparent;
+    border: $global-border;
+  }*/ }
+  .stencilalert .stencilmedia-left, .stencilsnackbar .stencilmedia-left {
+    align-items: center;
+    margin-right: 0; }
+    .stencilalert .stencilmedia-left .stencilicon, .stencilsnackbar .stencilmedia-left .stencilicon {
+      font-size: 18px;
+      color: white;
+      opacity: 0.8; }
+  .stencilalert .stencilmedia-body, .stencilsnackbar .stencilmedia-body {
+    align-self: center;
+    line-height: 1.5; }
+  .stencilalert .stencilmedia-right, .stencilsnackbar .stencilmedia-right {
+    align-self: center;
+    margin-left: 0; }
+  .stencilalert.stencilsuccess, .stencilsuccess.stencilsnackbar {
+    background-color: #def1de;
+    border-color: #5cb85c;
+    color: black; }
+    .stencilalert.stencilsuccess .stencilmedia-left .stencilicon, .stencilsuccess.stencilsnackbar .stencilmedia-left .stencilicon {
+      color: #5cb85c; }
+    .stencilalert.stencilsuccess .stencilmedia-right button.stencilicon, .stencilsuccess.stencilsnackbar .stencilmedia-right button.stencilicon, .stencilalert.stencilsuccess .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilalert.stencilsuccess .stencilmedia-right .stencilicon.stencilaccordion-trigger, .stencilsuccess.stencilsnackbar .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilsuccess.stencilsnackbar .stencilmedia-right .stencilicon.stencilaccordion-trigger {
+      color: #5cb85c; }
+    .stencilalert.stencilsuccess .stencilmedia-right button.stencilicon:hover, .stencilsuccess.stencilsnackbar .stencilmedia-right button.stencilicon:hover, .stencilalert.stencilsuccess .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilalert.stencilsuccess .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover, .stencilsuccess.stencilsnackbar .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilsuccess.stencilsnackbar .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover {
+      background-color: #5cb85c;
+      color: white; }
+  .stencilalert.stencilwarning, .stencilwarning.stencilsnackbar {
+    background-color: #fcefdc;
+    border-color: #f0ad4e;
+    color: black; }
+    .stencilalert.stencilwarning .stencilmedia-left .stencilicon, .stencilwarning.stencilsnackbar .stencilmedia-left .stencilicon {
+      color: #f0ad4e; }
+    .stencilalert.stencilwarning .stencilmedia-right button.stencilicon, .stencilwarning.stencilsnackbar .stencilmedia-right button.stencilicon, .stencilalert.stencilwarning .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilalert.stencilwarning .stencilmedia-right .stencilicon.stencilaccordion-trigger, .stencilwarning.stencilsnackbar .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilwarning.stencilsnackbar .stencilmedia-right .stencilicon.stencilaccordion-trigger {
+      color: #f0ad4e; }
+    .stencilalert.stencilwarning .stencilmedia-right button.stencilicon:hover, .stencilwarning.stencilsnackbar .stencilmedia-right button.stencilicon:hover, .stencilalert.stencilwarning .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilalert.stencilwarning .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover, .stencilwarning.stencilsnackbar .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilwarning.stencilsnackbar .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover {
+      background-color: #f0ad4e;
+      color: white; }
+  .stencilalert.stencildanger, .stencildanger.stencilsnackbar {
+    background-color: #f7dddc;
+    border-color: #d9534f;
+    color: black; }
+    .stencilalert.stencildanger .stencilmedia-left .stencilicon, .stencildanger.stencilsnackbar .stencilmedia-left .stencilicon {
+      color: #d9534f; }
+    .stencilalert.stencildanger .stencilmedia-right button.stencilicon, .stencildanger.stencilsnackbar .stencilmedia-right button.stencilicon, .stencilalert.stencildanger .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilalert.stencildanger .stencilmedia-right .stencilicon.stencilaccordion-trigger, .stencildanger.stencilsnackbar .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencildanger.stencilsnackbar .stencilmedia-right .stencilicon.stencilaccordion-trigger {
+      color: #d9534f; }
+    .stencilalert.stencildanger .stencilmedia-right button.stencilicon:hover, .stencildanger.stencilsnackbar .stencilmedia-right button.stencilicon:hover, .stencilalert.stencildanger .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilalert.stencildanger .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover, .stencildanger.stencilsnackbar .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencildanger.stencilsnackbar .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover {
+      background-color: #d9534f;
+      color: white; }
+  .stencilalert.stencilinfo, .stencilinfo.stencilsnackbar {
+    background-color: #d6e9f3;
+    border-color: #0277bd;
+    color: black; }
+    .stencilalert.stencilinfo .stencilmedia-left .stencilicon, .stencilinfo.stencilsnackbar .stencilmedia-left .stencilicon {
+      color: #0277bd; }
+    .stencilalert.stencilinfo .stencilmedia-right button.stencilicon, .stencilinfo.stencilsnackbar .stencilmedia-right button.stencilicon, .stencilalert.stencilinfo .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilalert.stencilinfo .stencilmedia-right .stencilicon.stencilaccordion-trigger, .stencilinfo.stencilsnackbar .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilinfo.stencilsnackbar .stencilmedia-right .stencilicon.stencilaccordion-trigger {
+      color: #0277bd; }
+    .stencilalert.stencilinfo .stencilmedia-right button.stencilicon:hover, .stencilinfo.stencilsnackbar .stencilmedia-right button.stencilicon:hover, .stencilalert.stencilinfo .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilalert.stencilinfo .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover, .stencilinfo.stencilsnackbar .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilinfo.stencilsnackbar .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover {
+      background-color: #0277bd;
+      color: white; }
+  .stencilalert.stencilactive, .stencilactive.stencilsnackbar {
+    background-color: #d6e9f3;
+    border-color: #0277bd;
+    color: black; }
+    .stencilalert.stencilactive .stencilmedia-left .stencilicon, .stencilactive.stencilsnackbar .stencilmedia-left .stencilicon {
+      color: #0277bd; }
+    .stencilalert.stencilactive .stencilmedia-right button.stencilicon, .stencilactive.stencilsnackbar .stencilmedia-right button.stencilicon, .stencilalert.stencilactive .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilalert.stencilactive .stencilmedia-right .stencilicon.stencilaccordion-trigger, .stencilactive.stencilsnackbar .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilactive.stencilsnackbar .stencilmedia-right .stencilicon.stencilaccordion-trigger {
+      color: #0277bd; }
+    .stencilalert.stencilactive .stencilmedia-right button.stencilicon:hover, .stencilactive.stencilsnackbar .stencilmedia-right button.stencilicon:hover, .stencilalert.stencilactive .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilalert.stencilactive .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover, .stencilactive.stencilsnackbar .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilactive.stencilsnackbar .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover {
+      background-color: #0277bd;
+      color: white; }
+  .stencilalert p:last-child, .stencilsnackbar p:last-child {
+    margin-bottom: 0; }
+
+.stencilsnackbar {
+  align-self: flex-start;
+  display: none;
+  position: fixed;
+  top: 24px;
+  left: 25%;
+  width: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 16px 8px #ccc;
+  transition: all 0.5s;
+  z-index: 100; }
+  .stencilsnackbar.stencilsuccess {
+    background-color: #def1de;
+    border-color: #5cb85c;
+    color: black; }
+    .stencilsnackbar.stencilsuccess .stencilmedia-left .stencilicon {
+      color: #5cb85c; }
+    .stencilsnackbar.stencilsuccess .stencilmedia-right button.stencilicon, .stencilsnackbar.stencilsuccess .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilsnackbar.stencilsuccess .stencilmedia-right .stencilicon.stencilaccordion-trigger {
+      color: #5cb85c; }
+    .stencilsnackbar.stencilsuccess .stencilmedia-right button.stencilicon:hover, .stencilsnackbar.stencilsuccess .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilsnackbar.stencilsuccess .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover {
+      background-color: #5cb85c;
+      color: white; }
+  .stencilsnackbar.stencilwarning {
+    background-color: #fcefdc;
+    border-color: #f0ad4e;
+    color: black; }
+    .stencilsnackbar.stencilwarning .stencilmedia-left .stencilicon {
+      color: #f0ad4e; }
+    .stencilsnackbar.stencilwarning .stencilmedia-right button.stencilicon, .stencilsnackbar.stencilwarning .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilsnackbar.stencilwarning .stencilmedia-right .stencilicon.stencilaccordion-trigger {
+      color: #f0ad4e; }
+    .stencilsnackbar.stencilwarning .stencilmedia-right button.stencilicon:hover, .stencilsnackbar.stencilwarning .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilsnackbar.stencilwarning .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover {
+      background-color: #f0ad4e;
+      color: white; }
+  .stencilsnackbar.stencildanger {
+    background-color: #f7dddc;
+    border-color: #d9534f;
+    color: black; }
+    .stencilsnackbar.stencildanger .stencilmedia-left .stencilicon {
+      color: #d9534f; }
+    .stencilsnackbar.stencildanger .stencilmedia-right button.stencilicon, .stencilsnackbar.stencildanger .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilsnackbar.stencildanger .stencilmedia-right .stencilicon.stencilaccordion-trigger {
+      color: #d9534f; }
+    .stencilsnackbar.stencildanger .stencilmedia-right button.stencilicon:hover, .stencilsnackbar.stencildanger .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilsnackbar.stencildanger .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover {
+      background-color: #d9534f;
+      color: white; }
+  .stencilsnackbar.stencilinfo {
+    background-color: #d6e9f3;
+    border-color: #0277bd;
+    color: black; }
+    .stencilsnackbar.stencilinfo .stencilmedia-left .stencilicon {
+      color: #0277bd; }
+    .stencilsnackbar.stencilinfo .stencilmedia-right button.stencilicon, .stencilsnackbar.stencilinfo .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilsnackbar.stencilinfo .stencilmedia-right .stencilicon.stencilaccordion-trigger {
+      color: #0277bd; }
+    .stencilsnackbar.stencilinfo .stencilmedia-right button.stencilicon:hover, .stencilsnackbar.stencilinfo .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilsnackbar.stencilinfo .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover {
+      background-color: #0277bd;
+      color: white; }
+  .stencilsnackbar.stencilactive {
+    background-color: #d6e9f3;
+    border-color: #0277bd;
+    color: black; }
+    .stencilsnackbar.stencilactive .stencilmedia-left .stencilicon {
+      color: #0277bd; }
+    .stencilsnackbar.stencilactive .stencilmedia-right button.stencilicon, .stencilsnackbar.stencilactive .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger, .stencilaccordion-container .stencilsnackbar.stencilactive .stencilmedia-right .stencilicon.stencilaccordion-trigger {
+      color: #0277bd; }
+    .stencilsnackbar.stencilactive .stencilmedia-right button.stencilicon:hover, .stencilsnackbar.stencilactive .stencilmedia-right .stencilaccordion-container .stencilicon.stencilaccordion-trigger:hover, .stencilaccordion-container .stencilsnackbar.stencilactive .stencilmedia-right .stencilicon.stencilaccordion-trigger:hover {
+      background-color: #0277bd;
+      color: white; }
+
+.stenciltooltip {
+  position: relative; }
+  .stenciltooltip .stenciltooltiptext {
+    position: absolute;
+    visibility: hidden;
+    width: 320px;
+    padding: 8px;
+    background-color: #262626;
+    color: white;
+    font: 12px "Antenna", "Helvetica Neue", Arial, sans-serif;
+    border-radius: 0;
+    z-index: 1; }
+  .stenciltooltip.stenciltooltip-top .stenciltooltiptext {
+    bottom: 110%;
+    left: 50%;
+    margin-left: -160px;
+    /* Use half of the width (320/2 = 160), to center the tooltip */ }
+  .stenciltooltip.stenciltooltip-right .stenciltooltiptext {
+    top: -5px;
+    left: 110%; }
+  .stenciltooltip.stenciltooltip-left .stenciltooltiptext {
+    top: -5px;
+    right: 110%; }
+  .stenciltooltip.stenciltooltip-bottom .stenciltooltiptext {
+    top: 110%;
+    left: 50%;
+    margin-left: -160px;
+    /* Use half of the width (320/2 = 160), to center the tooltip */ }
+  .stenciltooltip:hover .stenciltooltiptext {
+    visibility: visible; }
+
+.stencilloading-indicator {
+  display: inline-block;
+  padding: 2px 2px 2px 24px;
+  background: url("stencil/images/loading.svg") no-repeat left center;
+  background-size: 16px;
+  font-size: 12px;
+  transition: display 0.5 ease-in; }
+  .stencilloading-indicator:after {
+    content: "Loading..."; }
+
+.stenciloverlay-container .stencilloading-indicator {
+  display: none;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  padding: 8px 8px 8px 32px;
+  background-color: white;
+  background-position: 8px 8px;
+  border-radius: 0; }
+
+.stencilbrand-app .stencilbrand {
+  display: inline-block;
+  border-right: 1px solid #ccc; }
+.stencilbrand-app .stencilapp {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #5d87a1; }
+
+.stencilavatar {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background-image: url("stencil/images/default-avatar.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 80px auto;
+  background-color: #f4f4f4;
+  border-radius: 80px;
+  cursor: pointer; }
+  .stencilavatar .stencilstatus-indicator {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    margin: 56px 0 0 56px;
+    background: #999;
+    border: 2px solid white;
+    border-radius: 16px; }
+    @media (max-width: 1022px) {
+      .stencilmedia-card .stencilavatar .stencilstatus-indicator {
+        margin-left: 24px; } }
+    @media (max-width: 1022px) {
+      .stencilexpanded .stencilmedia-card .stencilavatar .stencilstatus-indicator {
+        margin-left: 56px; } }
+  .stencilavatar.stencilcompact, .stencilavatar.stencilcompressed {
+    width: 40px;
+    height: 40px;
+    background-size: 40px auto; }
+    .stencilavatar.stencilcompact .stencilstatus-indicator, .stencilavatar.stencilcompressed .stencilstatus-indicator {
+      width: 16px;
+      height: 16px;
+      margin: 24px 0 0 24px; }
+  @media (max-width: 767px) {
+    .stencilavatar.stencilcompressed {
+      width: 10px;
+      height: 10px;
+      background-image: none !important; } }
+  .stencilavatar.stencilavailable .stencilstatus-indicator {
+    background-color: limegreen; }
+  .stencilavatar.stencilaway .stencilstatus-indicator {
+    background-color: gold; }
+  .stencilavatar.stencilbusy .stencilstatus-indicator {
+    background-color: crimson; }
+  .stencilavatar.stenciloffline .stencilstatus-indicator {
+    background-color: color(grey); }
+  .stencilavatar.stencilunknown .stencilstatus-indicator {
+    background-color: black; }
+
+/* Helpers */
+.stenciltext-left {
+  text-align: left; }
+
+.stenciltext-right {
+  text-align: right; }
+
+.stenciltext-center {
+  text-align: center; }
+
+.stenciltext-justify {
+  text-align: justify; }
+
+.stenciltext-nowrap {
+  white-space: nowrap; }
+
+.stenciltext-lowercase {
+  text-transform: lowercase; }
+
+.stenciltext-uppercase {
+  text-transform: uppercase; }
+
+.stenciltext-capitalize {
+  text-transform: capitalize; }
+
+.stencilfont-size-smallest {
+  font-size: 10px; }
+
+.stencilfont-size-small {
+  font-size: 12px; }
+
+.stencilfont-size-regular {
+  font-size: 13px; }
+
+.stencilfont-size-medium {
+  font-size: 16px; }
+
+.stencilfont-size-large {
+  font-size: 18px; }
+
+.stencilfont-size-xlarge {
+  font-size: 24px; }
+
+.stencilfont-size-xxlarge {
+  font-size: 32px; }
+
+.stencilfont-size-display {
+  font-size: 40px; }
+
+.stenciltext-color-off-white {
+  color: #f4f4f4 !important; }
+
+.stencilbackground-color-off-white {
+  background-color: #f4f4f4 !important; }
+
+.stenciltext-color-grey-lightest {
+  color: #f4f4f4 !important; }
+
+.stencilbackground-color-grey-lightest {
+  background-color: #f4f4f4 !important; }
+
+.stenciltext-color-grey-lighter {
+  color: #ccc !important; }
+
+.stencilbackground-color-grey-lighter {
+  background-color: #ccc !important; }
+
+.stenciltext-color-grey-light {
+  color: #b2b2b2 !important; }
+
+.stencilbackground-color-grey-light {
+  background-color: #b2b2b2 !important; }
+
+.stenciltext-color-grey {
+  color: #999 !important; }
+
+.stencilbackground-color-grey {
+  background-color: #999 !important; }
+
+.stenciltext-color-grey-dark {
+  color: #777 !important; }
+
+.stencilbackground-color-grey-dark {
+  background-color: #777 !important; }
+
+.stenciltext-color-grey-darker {
+  color: #5e5e5e !important; }
+
+.stencilbackground-color-grey-darker {
+  background-color: #5e5e5e !important; }
+
+.stenciltext-color-grey-darkest {
+  color: #262626 !important; }
+
+.stencilbackground-color-grey-darkest {
+  background-color: #262626 !important; }
+
+.stenciltext-color-black {
+  color: #333 !important; }
+
+.stencilbackground-color-black {
+  background-color: #333 !important; }
+
+.stenciltext-color-smoke {
+  color: #e7ebf2 !important; }
+
+.stencilbackground-color-smoke {
+  background-color: #e7ebf2 !important; }
+
+.stenciltext-color-blue-lightest {
+  color: #e3f2fd !important; }
+
+.stencilbackground-color-blue-lightest {
+  background-color: #e3f2fd !important; }
+
+.stenciltext-color-blue-lighter {
+  color: #90caf9 !important; }
+
+.stencilbackground-color-blue-lighter {
+  background-color: #90caf9 !important; }
+
+.stenciltext-color-blue-light {
+  color: #d6e9f3 !important; }
+
+.stencilbackground-color-blue-light {
+  background-color: #d6e9f3 !important; }
+
+.stenciltext-color-blue-bright {
+  color: #038be5 !important; }
+
+.stencilbackground-color-blue-bright {
+  background-color: #038be5 !important; }
+
+.stenciltext-color-blue {
+  color: #0277bd !important; }
+
+.stencilbackground-color-blue {
+  background-color: #0277bd !important; }
+
+.stenciltext-color-blue-dark {
+  color: #324257 !important; }
+
+.stencilbackground-color-blue-dark {
+  background-color: #324257 !important; }
+
+.stenciltext-color-blue-darker {
+  color: #1976d2 !important; }
+
+.stencilbackground-color-blue-darker {
+  background-color: #1976d2 !important; }
+
+.stenciltext-color-blue-darkest {
+  color: #1565c0 !important; }
+
+.stencilbackground-color-blue-darkest {
+  background-color: #1565c0 !important; }
+
+.stenciltext-color-indigo-lightest {
+  color: #e8eaf6 !important; }
+
+.stencilbackground-color-indigo-lightest {
+  background-color: #e8eaf6 !important; }
+
+.stenciltext-color-indigo-lighter {
+  color: #9fa8da !important; }
+
+.stencilbackground-color-indigo-lighter {
+  background-color: #9fa8da !important; }
+
+.stenciltext-color-indigo-light {
+  color: #7986cb !important; }
+
+.stencilbackground-color-indigo-light {
+  background-color: #7986cb !important; }
+
+.stenciltext-color-indigo {
+  color: #3f51b5 !important; }
+
+.stencilbackground-color-indigo {
+  background-color: #3f51b5 !important; }
+
+.stenciltext-color-indigo-dark {
+  color: #3949ab !important; }
+
+.stencilbackground-color-indigo-dark {
+  background-color: #3949ab !important; }
+
+.stenciltext-color-indigo-darker {
+  color: #303f9f !important; }
+
+.stencilbackground-color-indigo-darker {
+  background-color: #303f9f !important; }
+
+.stenciltext-color-indigo-darkest {
+  color: #283593 !important; }
+
+.stencilbackground-color-indigo-darkest {
+  background-color: #283593 !important; }
+
+.stenciltext-color-orange-lightest {
+  color: #fff3e0 !important; }
+
+.stencilbackground-color-orange-lightest {
+  background-color: #fff3e0 !important; }
+
+.stenciltext-color-orange-lighter {
+  color: #ffcc80 !important; }
+
+.stencilbackground-color-orange-lighter {
+  background-color: #ffcc80 !important; }
+
+.stenciltext-color-orange-light {
+  color: #fcefdc !important; }
+
+.stencilbackground-color-orange-light {
+  background-color: #fcefdc !important; }
+
+.stenciltext-color-orange {
+  color: #f0ad4e !important; }
+
+.stencilbackground-color-orange {
+  background-color: #f0ad4e !important; }
+
+.stenciltext-color-orange-dark {
+  color: #fb8c00 !important; }
+
+.stencilbackground-color-orange-dark {
+  background-color: #fb8c00 !important; }
+
+.stenciltext-color-orange-darker {
+  color: #f57c00 !important; }
+
+.stencilbackground-color-orange-darker {
+  background-color: #f57c00 !important; }
+
+.stenciltext-color-orange-darkest {
+  color: #ef6c00 !important; }
+
+.stencilbackground-color-orange-darkest {
+  background-color: #ef6c00 !important; }
+
+.stenciltext-color-purple-lightest {
+  color: #ede7f6 !important; }
+
+.stencilbackground-color-purple-lightest {
+  background-color: #ede7f6 !important; }
+
+.stenciltext-color-purple-lighter {
+  color: #b39ddb !important; }
+
+.stencilbackground-color-purple-lighter {
+  background-color: #b39ddb !important; }
+
+.stenciltext-color-purple-light {
+  color: #9575cd !important; }
+
+.stencilbackground-color-purple-light {
+  background-color: #9575cd !important; }
+
+.stenciltext-color-purple {
+  color: #673ab7 !important; }
+
+.stencilbackground-color-purple {
+  background-color: #673ab7 !important; }
+
+.stenciltext-color-purple-dark {
+  color: #5e35b1 !important; }
+
+.stencilbackground-color-purple-dark {
+  background-color: #5e35b1 !important; }
+
+.stenciltext-color-purple-darker {
+  color: #512da8 !important; }
+
+.stencilbackground-color-purple-darker {
+  background-color: #512da8 !important; }
+
+.stenciltext-color-purple-darkest {
+  color: #4527a0 !important; }
+
+.stencilbackground-color-purple-darkest {
+  background-color: #4527a0 !important; }
+
+.stenciltext-color-teal-lightest {
+  color: #e0f2f1 !important; }
+
+.stencilbackground-color-teal-lightest {
+  background-color: #e0f2f1 !important; }
+
+.stenciltext-color-teal-lighter {
+  color: #80cbc4 !important; }
+
+.stencilbackground-color-teal-lighter {
+  background-color: #80cbc4 !important; }
+
+.stenciltext-color-teal-light {
+  color: #4db6ac !important; }
+
+.stencilbackground-color-teal-light {
+  background-color: #4db6ac !important; }
+
+.stenciltext-color-teal {
+  color: #009688 !important; }
+
+.stencilbackground-color-teal {
+  background-color: #009688 !important; }
+
+.stenciltext-color-teal-dark {
+  color: #00897b !important; }
+
+.stencilbackground-color-teal-dark {
+  background-color: #00897b !important; }
+
+.stenciltext-color-teal-darker {
+  color: #00796b !important; }
+
+.stencilbackground-color-teal-darker {
+  background-color: #00796b !important; }
+
+.stenciltext-color-teal-darkest {
+  color: #00695c !important; }
+
+.stencilbackground-color-teal-darkest {
+  background-color: #00695c !important; }
+
+.stenciltext-color-red-lightest {
+  color: #ffebee !important; }
+
+.stencilbackground-color-red-lightest {
+  background-color: #ffebee !important; }
+
+.stenciltext-color-red-lighter {
+  color: #ef9a9a !important; }
+
+.stencilbackground-color-red-lighter {
+  background-color: #ef9a9a !important; }
+
+.stenciltext-color-red-light {
+  color: #f7dddc !important; }
+
+.stencilbackground-color-red-light {
+  background-color: #f7dddc !important; }
+
+.stenciltext-color-red {
+  color: #d9534f !important; }
+
+.stencilbackground-color-red {
+  background-color: #d9534f !important; }
+
+.stenciltext-color-red-dark {
+  color: #e53935 !important; }
+
+.stencilbackground-color-red-dark {
+  background-color: #e53935 !important; }
+
+.stenciltext-color-red-darker {
+  color: #d32f2f !important; }
+
+.stencilbackground-color-red-darker {
+  background-color: #d32f2f !important; }
+
+.stenciltext-color-red-darkest {
+  color: #c62828 !important; }
+
+.stencilbackground-color-red-darkest {
+  background-color: #c62828 !important; }
+
+.stenciltext-color-yellow-lightest {
+  color: #fffde7 !important; }
+
+.stencilbackground-color-yellow-lightest {
+  background-color: #fffde7 !important; }
+
+.stenciltext-color-yellow-lighter {
+  color: #fff59d !important; }
+
+.stencilbackground-color-yellow-lighter {
+  background-color: #fff59d !important; }
+
+.stenciltext-color-yellow-light {
+  color: #fff176 !important; }
+
+.stencilbackground-color-yellow-light {
+  background-color: #fff176 !important; }
+
+.stenciltext-color-yellow {
+  color: #eaf4f8 !important; }
+
+.stencilbackground-color-yellow {
+  background-color: #eaf4f8 !important; }
+
+.stenciltext-color-yellow-dark {
+  color: #fdd835 !important; }
+
+.stencilbackground-color-yellow-dark {
+  background-color: #fdd835 !important; }
+
+.stenciltext-color-yellow-darker {
+  color: #fbc02d !important; }
+
+.stencilbackground-color-yellow-darker {
+  background-color: #fbc02d !important; }
+
+.stenciltext-color-yellow-darkest {
+  color: #f9a825 !important; }
+
+.stencilbackground-color-yellow-darkest {
+  background-color: #f9a825 !important; }
+
+.stenciltext-color-green-lightest {
+  color: #e8f5e9 !important; }
+
+.stencilbackground-color-green-lightest {
+  background-color: #e8f5e9 !important; }
+
+.stenciltext-color-green-lighter {
+  color: #c5e1a5 !important; }
+
+.stencilbackground-color-green-lighter {
+  background-color: #c5e1a5 !important; }
+
+.stenciltext-color-green-light {
+  color: #def1de !important; }
+
+.stencilbackground-color-green-light {
+  background-color: #def1de !important; }
+
+.stenciltext-color-green {
+  color: #5cb85c !important; }
+
+.stencilbackground-color-green {
+  background-color: #5cb85c !important; }
+
+.stenciltext-color-green-dark {
+  color: #43a047 !important; }
+
+.stencilbackground-color-green-dark {
+  background-color: #43a047 !important; }
+
+.stenciltext-color-green-darker {
+  color: #388e3c !important; }
+
+.stencilbackground-color-green-darker {
+  background-color: #388e3c !important; }
+
+.stenciltext-color-green-darkest {
+  color: #2e7d32 !important; }
+
+.stencilbackground-color-green-darkest {
+  background-color: #2e7d32 !important; }
+
+.stenciltext-color-juniper-off-white {
+  color: #e7e1d5 !important; }
+
+.stencilbackground-color-juniper-off-white {
+  background-color: #e7e1d5 !important; }
+
+.stenciltext-color-juniper-blue-lighter {
+  color: #7bb7d6 !important; }
+
+.stencilbackground-color-juniper-blue-lighter {
+  background-color: #7bb7d6 !important; }
+
+.stenciltext-color-juniper-blue-light {
+  color: #80a1b6 !important; }
+
+.stencilbackground-color-juniper-blue-light {
+  background-color: #80a1b6 !important; }
+
+.stenciltext-color-juniper-blue {
+  color: #5d87a1 !important; }
+
+.stencilbackground-color-juniper-blue {
+  background-color: #5d87a1 !important; }
+
+.stenciltext-color-juniper-orange {
+  color: #f7941d !important; }
+
+.stencilbackground-color-juniper-orange {
+  background-color: #f7941d !important; }
+
+.stenciltext-color-juniper-bright-orange {
+  color: #ec5e38 !important; }
+
+.stencilbackground-color-juniper-bright-orange {
+  background-color: #ec5e38 !important; }
+
+.stenciltext-color-juniper-navy {
+  color: #0067ac !important; }
+
+.stencilbackground-color-juniper-navy {
+  background-color: #0067ac !important; }
+
+.stenciltext-color-juniper-green-light {
+  color: #a6cf77 !important; }
+
+.stencilbackground-color-juniper-green-light {
+  background-color: #a6cf77 !important; }
+
+.stenciltext-color-juniper-green {
+  color: #49a942 !important; }
+
+.stencilbackground-color-juniper-green {
+  background-color: #49a942 !important; }
+
+.stenciltext-color-core-blue {
+  color: #3493c1 !important; }
+
+.stencilbackground-color-core-blue {
+  background-color: #3493c1 !important; }
+
+.stenciltext-color-core-orange {
+  color: #f16549 !important; }
+
+.stencilbackground-color-core-orange {
+  background-color: #f16549 !important; }
+
+/* List */
+.stencilflat-list, nav ul, .stenciltags {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none; }
+
+.stencilwith-separator li {
+  border-bottom: 1px solid #ccc; }
+.stencilwith-separator li:last-child {
+  padding-bottom: 0;
+  border-bottom: none; }
+
+.stencilwith-separator-large li {
+  border-bottom: 1px solid #ccc; }
+.stencilwith-separator-large li:last-child {
+  padding-bottom: 0;
+  border-bottom: none; }
+
+.stencillist-section-title {
+  padding: 8px;
+  border-bottom: 2px solid #e7ebf2;
+  color: #5d87a1;
+  font-size: 16px; }
+
+/* Overrides */
+.stencilcollapsed {
+  height: 0;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none;
+  box-shadow: none; }
+
+@media (max-width: 767px) {
+  .stencilcollapsed-sm {
+    height: 0;
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none;
+    box-shadow: none; } }
+
+.stencilshow {
+  display: block !important; }
+  .stencilshow.stenciloverlay-container, .stencilshow.stencilmodal, .stencilshow.stencilsnackbar {
+    display: flex !important; }
+
+.stencilhidden {
+  display: none !important; }
+
+@media (max-width: 767px) {
+  .stencilhidden-sm {
+    display: none !important; } }
+
+@media (min-width: 767px) and (max-width: 1022px) {
+  .stencilhidden-md {
+    display: none !important; } }
+
+@media (min-width: 1023px) {
+  .stencilhidden-lg {
+    display: none !important; } }
+
+/* General */
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #e7ebf2;
+  font: 13px "Antenna", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.2;
+  color: #5e5e5e;
+  cursor: default; }
+
+header {
+  background: white; }
+
+footer p {
+  font-size: 12px;
+  color: #b2b2b2;
+  line-height: 1.4; }
+@media (max-width: 767px) {
+  footer {
+    text-align: center; } }
+
+/*# sourceMappingURL=stencil.css.map */

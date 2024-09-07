@@ -1,0 +1,58 @@
+// Media
+.#{$stencil-selector-prefix}media{
+  @extend .#{$stencil-selector-prefix}flex;
+  @extend .#{$stencil-selector-prefix}flex-center-align;
+
+  .#{$stencil-selector-prefix}media-left{
+    @extend .#{$stencil-selector-prefix}flex;
+    align-items: flex-start;
+    margin-right: $spacing-small;
+  }
+
+  .#{$stencil-selector-prefix}media-body{
+    flex-grow:2;
+  }
+
+  .#{$stencil-selector-prefix}media-right{
+    @extend .#{$stencil-selector-prefix}margin-left-small;
+  }
+
+  .#{$stencil-selector-prefix}media-title{
+    display:block;
+    font-weight: $font-weight-medium;
+  }
+
+  .#{$stencil-selector-prefix}media-meta{
+    display:block;
+    margin-top: $spacing-smallest;
+    font-size: $font-size-small;
+    color: color(grey,light);
+  }
+
+  p.#{$stencil-selector-prefix}media-meta{
+    margin-bottom:$spacing-smaller;
+    line-height: $line-height-default;
+  }
+
+  &.#{$stencil-selector-prefix}media-rounded{
+    .#{$stencil-selector-prefix}media-left{
+      padding: 2px;
+      border: $global-border;
+      border-radius: $avatar-width;
+    }
+    .#{$stencil-selector-prefix}media-body{
+      padding-right: $spacing-small;
+    }
+  }
+
+  &.#{$stencil-selector-prefix}media-rounded:hover{
+    background-color: color(off-white);
+    border-radius: $avatar-width;
+    cursor: pointer;
+  }
+
+  &.#{$stencil-selector-prefix}media-align-top{
+    align-items: flex-start;
+  }
+
+}

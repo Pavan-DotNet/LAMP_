@@ -1,0 +1,10 @@
+/* Borders */
+@mixin generate_border_helpers(){
+  @each $direction in $direction-map{
+    .#{$stencil-selector-prefix}border-#{$direction}{
+      padding-#{$direction}: $spacing-medium;
+      border-#{$direction}: $global-border;
+    }
+  }
+}
+@include generate_border_helpers();

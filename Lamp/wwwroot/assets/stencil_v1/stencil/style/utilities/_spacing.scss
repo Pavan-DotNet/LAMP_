@@ -1,0 +1,74 @@
+/* Spacing */
+$type-map : ('margin','padding');
+$direction-map : ('top','right','bottom','left');
+$combined-direction-map : ('pre','post','around','sides');
+$spacing-map : ('smallest':$spacing-smallest,'smaller':$spacing-smaller,'small':$spacing-small,'large':$spacing-large,'larger':$spacing-larger,'largest':$spacing-largest);
+
+@mixin generate_spacing(){
+
+  @each $type in $type-map{
+
+    @each $direction in $direction-map{
+      .#{$stencil-selector-prefix}#{$type}-#{$direction}{
+        #{$type}-#{$direction}: $spacing-medium;
+      }
+
+      .#{$stencil-selector-prefix}no-#{$type}-#{$direction}{
+        #{$type}-#{$direction}: 0 !important;
+      }
+
+      @each $spacing-label, $spacing in $spacing-map{
+        .#{$stencil-selector-prefix}#{$type}-#{$direction}-#{$spacing-label}{
+          #{$type}-#{$direction}: $spacing;
+        }
+      }
+
+    } // direction-map
+
+    @each $combined-direction in $combined-direction-map{
+      .#{$stencil-selector-prefix}#{$type}-#{$combined-direction}{
+        @if $combined-direction == 'pre'{
+          #{$type}-top : $spacing-medium;
+          #{$type}-left : $spacing-medium;
+        }
+        @if $combined-direction == 'post'{
+          #{$type}-right : $spacing-medium;
+          #{$type}-bottom : $spacing-medium;
+        }
+        @if $combined-direction == 'around'{
+          #{$type} : $spacing-medium;
+        }
+        @if $combined-direction == 'sides'{
+          #{$type}-left : $spacing-medium;
+          #{$type}-right : $spacing-medium;
+        }
+      }
+
+      @each $spacing-label, $spacing in $spacing-map{
+        .#{$stencil-selector-prefix}#{$type}-#{$combined-direction}-#{$spacing-label}{
+          @if $combined-direction == 'pre'{
+            #{$type}-top : $spacing;
+            #{$type}-left : $spacing;
+          }
+          @if $combined-direction == 'post'{
+            #{$type}-right : $spacing;
+            #{$type}-bottom : $spacing;
+          }
+          @if $combined-direction == 'around'{
+            #{$type} : $spacing;
+          }
+          @if $combined-direction == 'sides'{
+            #{$type}-left : $spacing;
+            #{$type}-right : $spacing;
+          }
+        }
+
+      }
+
+
+    } // direction-map
+
+  } // type-map
+
+}
+@include generate_spacing();

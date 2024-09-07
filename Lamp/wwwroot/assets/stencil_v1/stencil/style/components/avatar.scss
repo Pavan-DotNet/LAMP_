@@ -1,0 +1,88 @@
+// Avatar
+.#{$stencil-selector-prefix}avatar{
+  position: relative;
+  display: inline-block;
+  width: $avatar-width;
+  height: $avatar-height;
+  background-image: url($global-path-images+"default-avatar.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: $avatar-width auto;
+  background-color: color(grey,lightest);
+  border-radius: $avatar-width;
+  cursor: pointer;
+
+  .#{$stencil-selector-prefix}status-indicator{
+    position: absolute;
+    width: $spacing-large;
+    height: $spacing-large;
+    margin: ($avatar-width - $spacing-large) 0 0 ($avatar-width - $spacing-large);
+    background: color(grey);
+    border: $spacing-smallest solid white;
+    border-radius: $spacing-medium;
+
+    .#{$stencil-selector-prefix}media-card &{
+     @media (max-width:$breakpoint-tablet-max){
+       margin-left: $spacing-large;
+     }
+    }
+
+    .#{$stencil-selector-prefix}expanded .#{$stencil-selector-prefix}media-card &{
+     @media (max-width:$breakpoint-tablet-max){
+       margin-left: ($avatar-width - $spacing-large);
+     }
+    }
+  }
+
+  &.#{$stencil-selector-prefix}compact{
+    width: $avatar-width-compact;
+    height: $avatar-height-compact;
+    background-size: $avatar-width-compact auto;
+
+    .#{$stencil-selector-prefix}status-indicator{
+      width: $spacing-medium;
+      height: $spacing-medium;
+      margin: ($avatar-width-compact - $spacing-medium) 0 0 ($avatar-width-compact - $spacing-medium);
+    }
+  }
+
+  &.#{$stencil-selector-prefix}compressed{
+    @extend .#{$stencil-selector-prefix}avatar.#{$stencil-selector-prefix}compact;
+    @media (max-width:$breakpoint-mobile-max){
+      width: 10px;
+      height: 10px;
+      background-image:none !important;
+    }
+  }
+
+  &.#{$stencil-selector-prefix}available{
+    .#{$stencil-selector-prefix}status-indicator{
+      background-color: $color-status-available;
+    }
+  }
+
+  &.#{$stencil-selector-prefix}away{
+    .#{$stencil-selector-prefix}status-indicator{
+      background-color: $color-status-away;
+    }
+  }
+
+  &.#{$stencil-selector-prefix}busy{
+    .#{$stencil-selector-prefix}status-indicator{
+      background-color: $color-status-busy;
+    }
+  }
+
+  &.#{$stencil-selector-prefix}offline{
+    .#{$stencil-selector-prefix}status-indicator{
+      background-color: $color-status-offline;
+    }
+  }
+
+  &.#{$stencil-selector-prefix}unknown{
+    .#{$stencil-selector-prefix}status-indicator{
+      background-color: $color-status-unknown;
+    }
+  }
+
+}

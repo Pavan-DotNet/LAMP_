@@ -1,0 +1,47 @@
+// Modal
+.#{$stencil-selector-prefix}modal{
+  @extend .#{$stencil-selector-prefix}module;
+  flex-direction: column;
+  align-items: stretch;
+  display: none;
+  width: 70%;
+  max-width: 1080px;
+  max-height: 70%;
+  overflow-y: scroll;
+  box-shadow: 0 0 $spacing-larger $spacing-small color(grey,darker);
+  border-radius: $global-border-radius;
+
+  .#{$stencil-selector-prefix}modal-header{
+    @extend .#{$stencil-selector-prefix}module-header;
+    align-items: baseline;
+    border-top: none;
+
+    .#{$stencil-selector-prefix}modal-actions-left{
+      @extend .#{$stencil-selector-prefix}module-actions-left;
+    }
+
+    .#{$stencil-selector-prefix}modal-actions-center{
+      @extend .#{$stencil-selector-prefix}module-actions-center;
+    }
+
+    .#{$stencil-selector-prefix}modal-actions-right{
+      @extend .#{$stencil-selector-prefix}module-actions-right;
+    }
+
+    .#{$stencil-selector-prefix}modal-title{
+      @extend .#{$stencil-selector-prefix}module-title;
+    }
+
+  }
+
+  .#{$stencil-selector-prefix}modal-body{
+    @extend .#{$stencil-selector-prefix}module-body;
+    flex-grow: 1;
+    overflow-y: scroll;
+  }
+
+  .#{$stencil-selector-prefix}modal-footer{
+    @extend .#{$stencil-selector-prefix}module-footer;
+  }
+
+}

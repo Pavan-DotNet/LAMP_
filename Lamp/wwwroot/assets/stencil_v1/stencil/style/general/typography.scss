@@ -1,0 +1,56 @@
+/* Typgraphy */
+h1,h2,h3,h4,h5,h6{
+  margin: 0 0 $spacing-medium;
+	font-family: inherit;
+	font-weight: $global-heading-weight;
+	color: inherit
+}
+h1{
+  font-size: $font-size-xlarge;
+}
+h2{
+  font-size: $font-size-large;
+}
+h3{
+  font-size: $font-size-medium;
+}
+h4{
+  font-size: $font-size-regular;
+}
+h5{
+  font-size: $font-size-small;
+}
+h6{
+  font-size: $font-size-smallest;
+}
+p{
+  margin: 0 0 $spacing-medium;
+  line-height: $line-height-medium;
+}
+li{
+  line-height: $line-height-medium;
+}
+a{
+  color: $color-default-link;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover{
+    color: $color-default-link-hover;
+  }
+}
+.#{$stencil-selector-prefix}label{
+  padding: 2px;
+  background: color(orange);
+  color: white;
+  font-size: $font-size-smallest;
+  font-weight: normal;
+}
+.#{$stencil-selector-prefix}muted{
+  font-size: $font-size-small;
+  color: darken($color-body-bg,40%);
+
+  .#{$stencil-selector-prefix}module &{
+    color: color(grey,light);
+  }
+}

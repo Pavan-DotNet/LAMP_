@@ -1,0 +1,35 @@
+// Collection View
+.#{$stencil-selector-prefix}collection-view{
+  @extend .#{$stencil-selector-prefix}flex;
+  @extend .#{$stencil-selector-prefix}flat-list;
+  flex-wrap: wrap;
+  flex-basis: 0;
+
+  li{
+    flex-grow: 1;
+    margin:0 $spacing-medium $spacing-medium 0;
+    padding: $spacing-small;
+    border: $global-border;
+    text-align: center;
+
+    &:last-child{
+      margin-right: 0;
+    }
+
+    @media (max-width:$breakpoint-mobile-max){
+      margin: 0 $spacing-small $spacing-small 0;
+      padding: 0 0 $spacing-small 0;
+      border: none;
+      border-bottom: $global-border;
+    }
+  }
+
+  @media (max-width:$breakpoint-mobile-max){
+    flex-direction: column;
+
+    li{
+      margin-right: 0;
+      text-align:left;
+    }
+  }
+}

@@ -1,0 +1,171 @@
+####################################################################################################################################################
+
+### gitlab-ci.yml reference: https://docs.gitlab.com/ce/ci/yaml/README.html
+
+### Stages control the flow of CI Jobs
+### All jobs within the Build stage will be run, then all jobs in the deploy job will be run.
+stages:
+  - build
+  # - scan
+  - deploy
+
+### Used to inject variables into GitLab Runner Environment
+### https://docs.gitlab.com/ce/ci/variables/README.html
+### Non-Sensitive variables only. Use Secure Variables for anything sensitive.
+variables:
+  PROJECT_DIR: "/builds/lamp/lamp-dotnet-ext/LegalAnalyticsPlatform/site/"
+
+build:dev:
+  stage: build
+  image: mcr.microsoft.com/dotnet/sdk:6.0
+  script:
+    - dotnet restore --packages .nuget/packages
+    - dotnet msbuild /builds/lamp/lamp-dotnet-ext/Lamp/Lamp.csproj
+    - dotnet publish /builds/lamp/lamp-dotnet-ext/Lamp/Lamp.csproj -c Release -o $PROJECT_DIR
+    - ls -Rl $PROJECT_DIR/*
+    - apt-get update
+    - apt-get -y --allow-unauthenticated install p7zip-full
+    - 7z a $CI_PROJECT_NAME-$CI_PIPELINE_ID.zip $PROJECT_DIR/*
+    - echo $CI_PROJECT_NAME-$CI_PIPELINE_ID*
+
+  tags:
+    - docker
+    - shared
+
+  cache:
+    paths:
+      - .m2/
+      - node/
+      - node_modules/
+
+  artifacts:
+    name: "$CI_PROJECT_NAME-$CI_PIPELINE_ID"
+    expire_in: 1 week
+    paths:
+      - $CI_PROJECT_NAME-$CI_PIPELINE_ID.zip
+
+  # limit this build to the dev branch
+  only:
+    - dev
+
+build:prod:
+  stage: build
+  image: mcr.microsoft.com/dotnet/sdk:6.0
+  script:
+    - dotnet restore --packages .nuget/packages
+    - dotnet msbuild /builds/lamp/lamp-dotnet-ext/Lamp/Lamp.csproj
+    - dotnet publish /builds/lamp/lamp-dotnet-ext/Lamp/Lamp.csproj -c Release -o $PROJECT_DIR
+    - ls -Rl $PROJECT_DIR/*
+    - apt-get update
+    - apt-get -y --allow-unauthenticated install p7zip-full
+    - 7z a $CI_PROJECT_NAME-$CI_PIPELINE_ID.zip $PROJECT_DIR/*
+    - echo $CI_PROJECT_NAME-$CI_PIPELINE_ID*
+
+  tags:
+    - docker
+    - shared
+
+  cache:
+    paths:
+      - .m2/
+      - node/
+      - node_modules/
+
+  artifacts:
+    name: "$CI_PROJECT_NAME-$CI_PIPELINE_ID"
+    expire_in: 1 week
+    paths:
+      - $CI_PROJECT_NAME-$CI_PIPELINE_ID.zip
+
+  # limit this build to the prod branch
+  only:
+    - master
+
+# scan:veracode:static-scan:
+#   stage: scan
+#   image: openjdk:8
+#   script:
+#     - apt-get -qq update
+#     - apt-get -qq install unzip -y
+#     - wget https://tools.veracode.com/integrations/API-Wrappers/Java/bin/VeracodeJavaAPI.zip
+#     - unzip VeracodeJavaAPI.zip VeracodeJavaAPI.jar
+#     - java -jar VeracodeJavaAPI.jar -action uploadandscan -appname "Legal Product Classification" -createprofile false
+#       -filepath $CI_PROJECT_NAME-$CI_PIPELINE_ID.zip -version $CI_PROJECT_NAME-$CI_PIPELINE_ID
+#       -autoscan true -vuser $VERACODE_VUSER -vpassword $VERACODE_VPASSWORD
+#   allow_failure: true
+#   tags:
+#     - docker
+#     - shared
+#   # limit this build to the dev branch
+#   only:
+#     - dev
+#   dependencies:
+#     - build:dev
+
+deploy:dev:
+  # image: mcr.microsoft.com/dotnet/sdk:6.0 # Changed it to Python Below.
+  image: python:3.6.8
+  stage: deploy
+  variables:
+    ### REGION & AWS_ACCOUNT are used to drive what variable files are used & where deployments take place.
+    REGION: "us-west-2"
+    AWS_ACCOUNT: "jnpr-it-dev"
+  environment:
+    ### Beanstalk Environment Naming. Please stick with the naming convention. Uses a URL/Domain name safe branch name + project ID for uniqueness.
+    name: "$CI_BUILD_REF_SLUG-$CI_PROJECT_ID"
+    url: "http://$CI_ENVIRONMENT_NAME.us-west-2.elasticbeanstalk.com"
+
+  script:
+    - ls -lia
+    - pip install --upgrade pip
+    - pip install --upgrade -r .ci/requirements.txt
+    ### Installs required Ansible modules to work with Elastic Beanstalk
+    - ansible-galaxy install -v -r .ci/roles/requirements.yml -p .ci/roles/ --force
+    - ansible-playbook .ci/deploy.yml
+
+  ### Tags are used to drive which GitLab Runner is used for a build. The "beanstalk" tag is required for deployments to Elastic Beanstalk.
+  tags:
+    - beanstalk
+    - jnpr-it-dev
+    # - shared
+    # - jnpr-it-prod
+  cache:
+    paths:
+      - "$CI_PROJECT_DIR/pip-cache"
+  ### only keyword can be used to limit this job to only run on certain branch names
+  only:
+    - dev
+  dependencies:
+    - build:dev
+
+deploy:prod:
+  image: python:3.6.8
+  stage: deploy
+  variables:
+    ### REGION & AWS_ACCOUNT are used to drive what variable files are used & where deployments take place.
+    REGION: "us-west-2"
+    AWS_ACCOUNT: "jnpr-it-prod"
+  environment:
+    ### Beanstalk Environment Naming. Please stick with the naming convention. Uses a URL/Domain name safe branch name + project ID for uniqueness.
+    name: "$CI_BUILD_REF_SLUG-$CI_PROJECT_ID"
+    url: "http://$CI_ENVIRONMENT_NAME.us-west-2.elasticbeanstalk.com"
+  script:
+    - ls -lia
+    - pip install --upgrade pip
+    - pip install --upgrade -r .ci/requirements.txt
+    ### Installs required Ansible modules to work with Elastic Beanstalk
+    - ansible-galaxy install -v -r .ci/roles/requirements.yml -p .ci/roles/ --force
+    - ansible-playbook .ci/deploy.yml
+  ### Tags are used to drive which GitLab Runner is used for a build. The "beanstalk" tag is required for deployments to Elastic Beanstalk.
+  tags:
+    - beanstalk
+    - jnpr-it-prod
+  cache:
+    paths:
+      - "$CI_PROJECT_DIR/pip-cache"
+  ### only keyword can be used to limit this job to only run on certain branch names
+  only:
+    - master
+  dependencies:
+    - build:prod
+  when: manual
